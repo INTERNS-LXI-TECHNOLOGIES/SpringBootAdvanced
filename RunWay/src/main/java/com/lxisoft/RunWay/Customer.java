@@ -1,23 +1,25 @@
 package com.lxisoft.RunWay;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Customer {
 	@Id
-	private int id;
+	@GeneratedValue
+	private Long id;
 	private String name;
 	private String address;
-	private String mobile_No;
+	private Long mobileNo;
 	private String nationality;
 	private String state;
 	private String username;
 	private String password;
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -32,11 +34,11 @@ public class Customer {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getMobile_No() {
-		return mobile_No;
+	public Long getMobileNo() {
+		return mobileNo;
 	}
-	public void setMobile_No(String mobile_No) {
-		this.mobile_No = mobile_No;
+	public void setMobile_No(Long mobileNo) {
+		this.mobileNo = mobileNo;
 	}
 	public String getNationality() {
 		return nationality;
