@@ -1,6 +1,7 @@
 package com.lxisoft.RunWay;
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
