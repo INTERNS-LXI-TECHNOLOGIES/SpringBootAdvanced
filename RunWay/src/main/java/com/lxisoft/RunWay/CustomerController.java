@@ -1,16 +1,19 @@
 package com.lxisoft.RunWay;
 
-//import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 
 
 @RestController
 public class CustomerController {
-//@PostMapping("/vehicle")
-/*public Customer create(@RequestBody ){
+@Autowired
+CustomerService service;	
+@PostMapping("/customer")
+public Customer saveCustomer(@RequestBody Customer customer ){
     
-    return .create();
-}*/	
+    return service.saveCustomer(customer);
+}
 
 }

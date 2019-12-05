@@ -1,13 +1,15 @@
 package com.lxisoft.RunWay;
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Customer {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private String address;
@@ -37,7 +39,7 @@ public class Customer {
 	public Long getMobileNo() {
 		return mobileNo;
 	}
-	public void setMobile_No(Long mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 	public String getNationality() {
