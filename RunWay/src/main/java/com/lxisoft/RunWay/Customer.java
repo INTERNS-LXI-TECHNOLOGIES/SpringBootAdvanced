@@ -38,7 +38,7 @@ public class Customer {
 	public Long getMobileNo() {
 		return mobileNo;
 	}
-	public void setMobile_No(Long mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 	public String getNationality() {
