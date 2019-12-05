@@ -2,12 +2,13 @@ package com.lxisoft.RunWay;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Vehicle {
 	@Id
-	@GeneratedValue 
+	@GeneratedValue(strategy=GenerationType.AUTO) 
 	private Long id; 
 	private String vehicleNo;
 	private String model;
