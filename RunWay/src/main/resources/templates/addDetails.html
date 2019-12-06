@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>addDetails</title>
+</head>
+<body>
+<h3>Add Details</h3>
+<form th:action="@{/create}" th:object="${vehicle}" method="post">
+<table>
+	<tr>
+		<td><label>Model:</label></td>
+		<td><input type="text" th:field="*{model}" id="model"></input></td>
+	</tr>
+
+	<tr>
+		<td><label>vehicleNo:</label></td>
+		<td><input type="text" th:field="*{vehicleNo}" id="vehicleNo"></input></td>
+	</tr>
+</table>
+<button>Add</button>
+</form>
+</body>
+</html>
