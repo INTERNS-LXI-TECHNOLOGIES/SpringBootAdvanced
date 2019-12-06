@@ -31,5 +31,5 @@ public class Vehicle {
 	public void setVehicleNo(String vehicleNo) {
 		this.vehicleNo = vehicleNo;
 	}
-	
+ 
 }

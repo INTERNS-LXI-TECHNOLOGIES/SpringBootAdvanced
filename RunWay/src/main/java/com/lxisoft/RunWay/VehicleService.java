@@ -1,5 +1,7 @@
 package com.lxisoft.RunWay;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,10 @@ public class VehicleService {
 	public Vehicle addVehicle(Vehicle vehicle)
 	{
 		return repo.save(vehicle);
+	}
+	public List<Vehicle> fetchVehicledetails() {
+		// TODO Auto-generated method stub
+		return repo.findAll();
 	}
 	
 	
