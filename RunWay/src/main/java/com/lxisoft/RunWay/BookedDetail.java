@@ -1,9 +1,6 @@
 package com.lxisoft.RunWay;
  
 
-
-
-
 import java.util.Date;
 
 import javax.persistence.Entity;
