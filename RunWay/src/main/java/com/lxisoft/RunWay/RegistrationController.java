@@ -1,18 +1,30 @@
 package com.lxisoft.RunWay;
 
-import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegistrationController {
-@PostMapping("/registration")
-public String registration(@ModelAttribute("customer") @Valid CustomerRepository repo,BindingResult result) {
-	
-	return "registration";
-	
+@Autowired
+CustomerService service;
+@GetMapping("/registration")
+public String showRegistrationForm(Customer customer) {
+    return "registration";
 }
+@PostMapping("/registration")
+	public String registerUserAccount(@ModelAttribute Customer customer,BindingResult result) {
+
+
+	        if (result.hasErrors()) {
+	            return "registration";
+	        }
+
+	        service.saveCustomer(customer);
+	        return "redirect:/registration?success";
+	}
 }
