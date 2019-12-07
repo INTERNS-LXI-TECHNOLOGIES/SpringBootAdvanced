@@ -1,0 +1,66 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form action="#" th:action="@{/regiseration}" method="post">
+<select name="Login as">
+  <option value="owner">Owner</option>
+  <option value="customer">Customer</option>
+</select>
+</form>
+<form action="#" th:action="@{/registration}" th:object="${customer}" method="post">
+    <table>
+            <tr>
+               <td>Name</td>
+               <td><input type="text" th:field="*{name}" id="name" placeholder="Name"></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Address</td>
+               <td><input type="text" th:field="*{address}" id="address" placeholder="Address"> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Mobile_no</td>
+               <td><input type="text" th:field="*{mobileNo}" id="mobileNo" placeholder="Mobile_no"></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('mobileNo')}" th:errors="*{mobileNo}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Nationality</td>
+               <td><input type="text" th:field="*{nationality}" id="nationality" placeholder="Nationality"></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('nationality')}" th:errors="*{nationality}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>State</td>
+               <td><input type="text" th:field="*{state}" id="state" placeholder="State"></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Username</td>
+               <td><input type="text" th:field="*{username}" id="username" placeholder="Username"></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Password</td>
+               <td><input type="text" th:field="*{password}" id="name" placeholder="Password"></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+               </td>
+            </tr>
+            <tr>
+            <td><input type="submit" value="Submit"></td>
+            </tr>
+            </table>
+     </form>
+</body>
+</html>
