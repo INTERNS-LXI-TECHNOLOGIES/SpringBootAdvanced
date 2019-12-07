@@ -3,14 +3,16 @@ package com.lxisoft.RunWay.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import com.lxisoft.RunWay.model.Vehicle;
 import com.lxisoft.RunWay.service.VehicleService;
@@ -32,17 +34,32 @@ public class VehicleController {
 	public String create(@ModelAttribute Vehicle vehicle,Model model)
 	{
 		vehicleService.addVehicle(vehicle);
-		
-		
+	
 		model.addAttribute("message", "Added Successfully");
 		return "result";
-	
-		
 		
 	}
+	
 	@GetMapping("/get")
 	public List<Vehicle> readVehicleDetails() {
 		return vehicleService.fetchVehicledetails();
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String showUpdateForm(@PathVariable("id") Long id, Model model) 
+	{
+		Vehicle vehicle=vehicleService.updateVehicle(id);
+		 
+		model.addAttribute("vehicle", vehicle );
+		return "updateForm";
+	}
+	
+	@PostMapping("/update/{id}")
+	public String updateVehicle(@PathVariable("id") Long id, Vehicle vehicle, Model model) {
+	   vehicleService.update(vehicle);
+		model.addAttribute("message", "Updated Successfully");
+		return "messageWindow";
+	    
 	}
 
 }
