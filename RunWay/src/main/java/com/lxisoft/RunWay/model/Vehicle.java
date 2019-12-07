@@ -45,16 +45,5 @@ public class Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
-<<<<<<< HEAD:RunWay/src/main/java/com/lxisoft/RunWay/Vehicle.java
-	
-	
-=======
-	public String getVehicleNo() {
-		return vehicleNo;
-	}
-	public void setVehicleNo(String vehicleNo) {
-		this.vehicleNo = vehicleNo;
-	}
- 
->>>>>>> ddfa859de569092b797a26f1648f62bcea3d244f:RunWay/src/main/java/com/lxisoft/RunWay/model/Vehicle.java
+
 }
