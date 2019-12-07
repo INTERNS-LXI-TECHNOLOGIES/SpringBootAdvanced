@@ -10,9 +10,29 @@ public class Vehicle {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO) 
 	private Long id; 
-	private String vehicleNo;
 	private String model;
+	private Double mileage;
+	private Integer seats;
+	private Double price;
 	
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public Double getMileage() {
+		return mileage;
+	}
+	public void setMileage(Double mileage) {
+		this.mileage = mileage;
+	}
+	public Integer getSeats() {
+		return seats;
+	}
+	public void setSeats(Integer seats) {
+		this.seats = seats;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -25,11 +45,6 @@ public class Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	public String getVehicleNo() {
-		return vehicleNo;
-	}
-	public void setVehicleNo(String vehicleNo) {
-		this.vehicleNo = vehicleNo;
-	}
+	
 	
 }
