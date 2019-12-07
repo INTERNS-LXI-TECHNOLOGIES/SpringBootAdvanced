@@ -1,5 +1,4 @@
-package com.lxisoft.RunWay;
-
+package com.lxisoft.RunWay.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,21 +7,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.lxisoft.RunWay.model.Owner;
+import com.lxisoft.RunWay.service.OwnerService;
 
 @RestController
-public class CustomerController {
+public class OwnerController {
 @Autowired
-CustomerService service;	
-@PostMapping("/customer")
-public Customer saveCustomer(@RequestBody Customer customer ){
-    
-    return service.saveCustomer(customer);
+OwnerService service;
+@PostMapping("/owner")
+public Owner saveOwner(@RequestBody Owner owner) {
+	return service.saveOwner(owner);
 }
-@GetMapping("/customer/{id}")
-public Customer getCustomerById(@PathVariable Long id) {
+@GetMapping("/owner/{id}")
+public Owner getOwnerById(@PathVariable Long id) {
 
-  return service.getCustomerById(id);
+  return service.getOwnerById(id);
 
 }
 }

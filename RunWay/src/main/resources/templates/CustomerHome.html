@@ -1,6 +1,29 @@
-<html>
-<head></head>
-<body>
-   <h1>Welcome</h1>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css"
+	href="style/CustomerHomeStyle.css" />
+</head>
+<body >
+	<button type="button">Profile</button>
+	</br>
+	<select>
+		<option value="all">Select the vehicle</option>
+		<option value="car">CAR</option>
+		<option value="bus">BUS</option>
+		<option value="other">OTHER</option>
+	</select> DATE:
+	<input type="date" name="bookingDate">
+	<h5>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h5>
+	 <div class="vehicleItemBox" th:each="v:${vehicleList}">
+	 
+	   <h5>Model: <span th:text="${v.getModel()}"> </span></h5>
+		  <h5>Number: <span th:text="${v.getVehicleNo()}"> </span></h5>
+
+	<h5>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h5>
+ 
+
+		 
+	</div>
 </body>
 </html>

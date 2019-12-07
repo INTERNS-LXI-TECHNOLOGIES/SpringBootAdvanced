@@ -1,0 +1,14 @@
+.{
+padding:0px;
+margin:0px;
+}
+body{
+	background-color:#d3d7cf;
+}
+.vehicleItemBox{
+   background-color: #fff;
+   width:70vw;
+   margin-left:10vw;
+   border-style: 1px solid grey;   
+   border-color:blue;
+}
