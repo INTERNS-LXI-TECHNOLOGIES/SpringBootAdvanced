@@ -1,7 +1,10 @@
-package com.lxisoft.RunWay;
+package com.lxisoft.RunWay.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.lxisoft.RunWay.model.Customer;
+import com.lxisoft.RunWay.repository.CustomerRepository;
 
 
 @Service

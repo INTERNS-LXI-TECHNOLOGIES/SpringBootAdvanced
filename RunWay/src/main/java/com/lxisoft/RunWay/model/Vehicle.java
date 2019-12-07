@@ -1,4 +1,4 @@
-package com.lxisoft.RunWay;
+package com.lxisoft.RunWay.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

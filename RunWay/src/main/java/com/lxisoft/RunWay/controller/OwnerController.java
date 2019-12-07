@@ -1,9 +1,12 @@
-package com.lxisoft.RunWay;
+package com.lxisoft.RunWay.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.lxisoft.RunWay.model.Owner;
+import com.lxisoft.RunWay.service.OwnerService;
 
 @RestController
 public class OwnerController {

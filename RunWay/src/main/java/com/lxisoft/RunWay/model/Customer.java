@@ -1,12 +1,13 @@
-package com.lxisoft.RunWay;
+package com.lxisoft.RunWay.model;
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Owner {
+public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -68,4 +69,5 @@ public class Owner {
 	
 		
 		
+
 }

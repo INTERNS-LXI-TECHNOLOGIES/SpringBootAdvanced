@@ -1,4 +1,4 @@
-package com.lxisoft.RunWay;
+package com.lxisoft.RunWay.model;
  
 
 import java.util.Date;
