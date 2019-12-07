@@ -1,14 +1,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+<form action="#" th:action="@{/regiseration}" method="post">
+<select name="Login as">
+  <option value="owner">Owner</option>
+  <option value="customer">Customer</option>
+</select>
+</form>
 <form action="#" th:action="@{/registration}" th:object="${customer}" method="post">
     <table>
-    		<tr>
-               <td>Id</td>
-               <td><input type="text" th:field="*{id}" id="id" placeholder="Id"></td>
-               <td>
-                  <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">..</span>
-               </td>
-            </tr>
             <tr>
                <td>Name</td>
                <td><input type="text" th:field="*{name}" id="name" placeholder="Name"></td>
@@ -57,6 +56,9 @@
                <td>
                   <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
                </td>
+            </tr>
+            <tr>
+            <td><input type="submit" value="Submit"></td>
             </tr>
             </table>
      </form>
