@@ -11,20 +11,41 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class RegistrationController {
 @Autowired
-CustomerService service;
+CustomerService cService;
+@Autowired
+OwnerService oService;
 @GetMapping("/registration")
-public String showRegistrationForm(Customer customer) {
+public String showRegistration() {
     return "registration";
 }
-@PostMapping("/registration")
-	public String registerUserAccount(@ModelAttribute Customer customer,BindingResult result) {
+@GetMapping("/customerregister")
+public String showCustomerForm(Customer customer) {
+    return "customerregister";
+}
+@PostMapping("/customerregister")
+	public String registerCustomerAccount(@ModelAttribute Customer customer,BindingResult result) {
 
 
 	        if (result.hasErrors()) {
-	            return "registration";
+	            return "customerregister";
 	        }
 
-	        service.saveCustomer(customer);
-	        return "redirect:/registration?success";
+	        cService.saveCustomer(customer);
+	        return "redirect:/customerregister?success";
+	}
+@GetMapping("/ownerregister")
+public String showOwnerForm(Owner owner) {
+    return "ownerregister";
+}
+@PostMapping("/ownerregister")
+	public String registerOwnerAccount(@ModelAttribute Owner owner,BindingResult result) {
+
+
+	        if (result.hasErrors()) {
+	            return "ownerregister";
+	        }
+
+	        oService.saveOwner(owner);
+	        return "redirect:/ownerregister?success";
 	}
 }
