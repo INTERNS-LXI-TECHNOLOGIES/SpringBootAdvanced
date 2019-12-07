@@ -14,6 +14,9 @@ public Owner saveOwner(Owner owner)
 {
 	return repo.save(owner);
 }
-	
+public Owner getOwnerById(Long id) {
+    java.util.Optional<Owner> optionalowner = repo.findById(id);
+    return optionalowner.get();
+}	
 
 }
