@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>updateForm</title>
+</head>
+<body>
+<h3>Update Form</h3>
+<form th:action="@{/update/{id}(id=${vehicle.id})}" th:object="${vehicle}"method="post">
+<table>
+	<tr>
+		<td><label>Model:</label></td>
+		<td><input type="text" th:field="*{model}" id="model"></input></td>
+	</tr>
+
+	<tr>
+		<td><label>Mileage:</label></td>
+		<td><input type="text" th:field="*{mileage}" id="mileage"></input></td>
+	</tr>
+	
+	<tr>
+		<td><label>Seats:</label></td>
+		<td><input type="text" th:field="*{seats}" id="seats"></input></td>
+	</tr>
+	
+	<tr>
+		<td><label>Price Per Day:</label></td>
+		<td><input type="text" th:field="*{price}" id="price"></input></td>
+	</tr>
+	
+</table>
+<button>Update</button>
+    </form>
+</body>
+</html>
