@@ -26,9 +26,13 @@ CustomerService cService;
 OwnerService oService;
 @Autowired
 VehicleController vehControl;
-@GetMapping("/registration")
+@GetMapping("/login")
+public String showLogin() {
+    return "login";
+}
+@GetMapping("/registeration")
 public String showRegistration() {
-    return "registration";
+    return "registeration";
 }
 @GetMapping("/customerregister")
 public String showCustomerForm(Customer customer) {

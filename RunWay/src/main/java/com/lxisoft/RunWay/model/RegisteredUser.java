@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class LoginUser {
+public class RegisteredUser {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
 private Long id;
