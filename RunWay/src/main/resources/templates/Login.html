@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+        <h1>Login  </h1> 
+        <form th:action="@{/login}">
+        <table>
+        <tr><td>
+            Username : <input type="text" th:field="*{username}" id="username" placeholder="Username"/> <br/><br/>
+            </td>
+   		 <td> <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">..</span></td></tr>
+           <tr><td>
+            Password: <input type="password" th:field="*{password}" id="password" placeholder="Password"/> <br/><br/>
+            </td><td>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span></td></tr>
+            <tr><td>
+            <input type="submit" value="Login"/><br/><br/></td></tr>
+           <tr><td> <a th:href="@{/registeration}">Registeration</a></td></tr>
+        </table>
+        </form>
+    </body>
+</html> 
