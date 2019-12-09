@@ -61,5 +61,14 @@ public class VehicleController {
 		return "messageWindow";
 	    
 	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteVehicle(@PathVariable("id") Long id,Model model)
+	{
+		vehicleService.delete(id);
+		model.addAttribute("message","Deleted...");
+		return "deletedMessage";
+		
+	}
 
 }

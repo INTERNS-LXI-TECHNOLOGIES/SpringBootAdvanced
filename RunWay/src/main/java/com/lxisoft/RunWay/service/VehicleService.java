@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.lxisoft.RunWay.model.Vehicle;
 import com.lxisoft.RunWay.repository.VehicleRepository;
@@ -30,6 +31,11 @@ public class VehicleService {
 	public Vehicle update(Vehicle vehicle)
 	{
 		return repo.save(vehicle);
+	}
+	
+	public void delete(@PathVariable Long id)
+	{
+		repo.deleteById(id);
 	}
 
 }
