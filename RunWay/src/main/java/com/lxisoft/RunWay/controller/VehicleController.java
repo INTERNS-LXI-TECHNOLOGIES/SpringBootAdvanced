@@ -70,5 +70,11 @@ public class VehicleController {
 		return "deletedMessage";
 		
 	}
+	/*
+	@GetMapping("/adminPage")
+	public String view()
+	{
+		return "adminPage";
+	}*/
 
 }
