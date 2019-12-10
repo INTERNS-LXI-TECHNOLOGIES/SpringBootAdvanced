@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lxisoft.RunWay.model.Customer;
 import com.lxisoft.RunWay.model.Owner;
+import com.lxisoft.RunWay.model.RegisteredUser;
 import com.lxisoft.RunWay.model.Vehicle;
 import com.lxisoft.RunWay.service.CustomerService;
 import com.lxisoft.RunWay.service.OwnerService;
+import com.lxisoft.RunWay.service.RegisteredUserService;
 
 @Controller
 public class WebController {
@@ -26,6 +28,8 @@ CustomerService cService;
 OwnerService oService;
 @Autowired
 VehicleController vehControl;
+@Autowired
+RegisteredUserService rService;
 @GetMapping("/registeration")
 public String showRegistration() {
     return "registeration";
@@ -69,5 +73,16 @@ public String getVehicle(Model model ) {
  model.addAttribute("vehicleList", vehicleList);
   
  return "CustomerHome" ;
+}
+@PostMapping("/customerregister")
+public String registeredUserDetails(@ModelAttribute Customer customer,BindingResult result) {
+
+
+        if (result.hasErrors()) {
+            return "customerregister";
+        }
+
+        rService.saveRegisteredUser(customer);
+        return "redirect:/customerregister?success";
 }
 }
