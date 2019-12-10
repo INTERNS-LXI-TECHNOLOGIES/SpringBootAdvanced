@@ -11,6 +11,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	private String type;
 	private String name;
 	private String address;
 	private Long mobileNo;
@@ -23,6 +24,12 @@ public class Customer {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public String getName() {
 		return name;

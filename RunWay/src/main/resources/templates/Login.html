@@ -1,24 +1,37 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+ </head>
 <h1>Login</h1>
 <body>
-<form action="#" th:action="@{/login}" th:object="${owner}" method="post">
-    <table>
-            <tr>
-               <td>Username</td>
-               <td><input type="text" th:field="*{username}" id="username" placeholder="Username"></td>
-            </tr>
-            <tr>
-               <td>Password</td>
-               <td><input type="text" th:field="*{password}" id="name" placeholder="Password"></td>
-            </tr>
-            <tr>
-            <td><input type="submit" value="Login"></td>
-            </tr>
-            <td>
-            <a th:href="@{/registeration}"></a>
-            </td>
-            <tr>
-            </table>
+<form action="#" th:action="@{/login}"  method="post">
+    <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text"
+                           id="username"
+                           name="username"
+                           placeholder="Username">
+                </div></br></br>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           placeholder="Password">
+                </div></br></br>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="">
+                            <input type="submit"
+                                   name="login-submit"
+                                   id="login-submit"
+                                   value="Log In">
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/registeration}">Registeration</a>
      </form>
 </body>
 </html>
