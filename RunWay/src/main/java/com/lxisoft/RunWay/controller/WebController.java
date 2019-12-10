@@ -74,4 +74,10 @@ public String getVehicle(Model model ) {
   
  return "CustomerHome" ;
 }
+@GetMapping("/adminPage")
+public String view()
+{
+	return "adminPage";
+}
+
 }
