@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lxisoft.RunWay.model.Customer;
 import com.lxisoft.RunWay.model.RegisteredUser;
 import com.lxisoft.RunWay.service.RegisteredUserService;
 
@@ -12,8 +13,8 @@ import com.lxisoft.RunWay.service.RegisteredUserService;
 public class RegisteredUserController {
 @Autowired
 RegisteredUserService service;
-@PostMapping("/registereduser")
-public RegisteredUser saveOwner(@RequestBody RegisteredUser user) {
-	return service.saveUser(user);
+@PostMapping("/customerregister")
+public RegisteredUser saveOwner(@RequestBody Customer customer) {
+	return service.saveRegisteredUser(customer);
 }
 }
