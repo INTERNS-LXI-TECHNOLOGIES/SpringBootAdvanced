@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -81,12 +82,10 @@ public String view()
 	return "adminPage";
 <<<<<<< HEAD
 }*/
-=======
-}
+/*
 @PostMapping("/customerregister")
 public String registeredUserDetails(@ModelAttribute Customer customer,BindingResult result) {
 
->>>>>>> 051e8d65634ee72e88e28807313959d9a993c09b
 
         if (result.hasErrors()) {
             return "customerregister";
@@ -94,5 +93,30 @@ public String registeredUserDetails(@ModelAttribute Customer customer,BindingRes
 
         rService.saveRegisteredUser(customer);
         return "redirect:/customerregister?success";
+}*/
+
+@GetMapping("/customerProfile/{id}")
+public String viewCustomerProfile(@PathVariable("id") Long id, Model model) 
+{
+	Customer customer=cService.viewProfile(id);
+	model.addAttribute("customer",customer);
+	return "viewCustomerProfile";
 }
+
+@GetMapping("/editCustomerProfile/{id}")
+public String editCustomerProfile(@PathVariable("id") Long id, Model model,Customer customer)
+{
+	 customer = cService.editProfile(id);
+	 model.addAttribute("customer",customer);
+	return "editcustomerProfile";
+}
+
+@PostMapping("/updateCustomerProfile/{id}")
+public String upateCustomerProfile(@PathVariable("id") Long id, Customer customer, Model model)
+{
+	cService.updateProfile(customer);
+	model.addAttribute("message", "Updated....");
+	return "updateStatus";
+}
+
 }

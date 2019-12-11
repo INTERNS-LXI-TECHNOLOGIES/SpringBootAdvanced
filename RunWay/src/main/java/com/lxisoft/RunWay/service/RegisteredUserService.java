@@ -11,8 +11,9 @@ import com.lxisoft.RunWay.repository.RegisteredUserRepository;
 public class RegisteredUserService {
 @Autowired
 RegisteredUserRepository repo;
+/*
 public RegisteredUser saveRegisteredUser(Customer customer)
 {
 	return repo.save(customer);
-}
+}*/
 }

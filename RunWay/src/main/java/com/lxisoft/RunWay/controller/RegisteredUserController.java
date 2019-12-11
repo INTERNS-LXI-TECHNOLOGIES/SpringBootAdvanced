@@ -13,8 +13,9 @@ import com.lxisoft.RunWay.service.RegisteredUserService;
 public class RegisteredUserController {
 @Autowired
 RegisteredUserService service;
+/*
 @PostMapping("/customerregister")
 public RegisteredUser saveOwner(@RequestBody Customer customer) {
 	return service.saveRegisteredUser(customer);
-}
+}*/
 }
