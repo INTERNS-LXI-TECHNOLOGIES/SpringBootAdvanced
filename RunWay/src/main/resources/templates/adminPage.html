@@ -7,5 +7,30 @@
 <form th:action="@{/addDetails}"  method="get">
 <button>Add car</button>
 </form>
+
+ <br/><br/>
+        <div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Model</th>
+                    <th>Mileage</th>
+                    <th>Seats</th>
+                    <th>Price per Day</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each ="vehicle : ${vehicles}">
+                    <td th:utext="${vehicle.id}">...</td>
+                    <td th:utext="${vehicle.model}">...</td>
+                    <td th:utext="${vehicle.mileage}">...</td>
+                    <td th:utext="${vehicle.seats}">...</td>
+                    <td th:utext="${vehicle.price}">...</td>
+                    <td><a th:href="@{/edit/{id}(id=${vehicle.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${vehicle.id})}">Delete</a></td>
+                </tr>
+            </table>          
+        </div>
+        <br/><br/>
 </body>
 </html>
