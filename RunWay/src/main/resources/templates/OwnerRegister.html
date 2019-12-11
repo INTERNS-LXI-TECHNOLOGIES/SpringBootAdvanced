@@ -3,6 +3,13 @@
 <body>
 <form action="#" th:action="@{/ownerregister}" th:object="${owner}" method="post">
     <table>
+    		<tr>
+               <td>Type</td>
+               <td><input type="text" th:field="*{type}" id="type" placeholder="Type"></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}">..</span>
+               </td>
+            </tr>
             <tr>
                <td>Name</td>
                <td><input type="text" th:field="*{name}" id="name" placeholder="Name"></td>
