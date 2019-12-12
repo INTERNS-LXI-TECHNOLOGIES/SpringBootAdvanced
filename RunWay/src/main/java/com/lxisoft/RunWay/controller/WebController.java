@@ -4,6 +4,7 @@ package com.lxisoft.RunWay.controller;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,6 @@ import com.lxisoft.RunWay.model.Owner;
 import com.lxisoft.RunWay.model.Vehicle;
 import com.lxisoft.RunWay.service.CustomerService;
 import com.lxisoft.RunWay.service.OwnerService;
-import com.lxisoft.RunWay.service.RegisteredUserService;
 
 @Controller
 public class WebController {
@@ -28,8 +28,6 @@ CustomerService cService;
 OwnerService oService;
 @Autowired
 VehicleController vehControl;
-@Autowired
-RegisteredUserService rService;
 @GetMapping("/registeration")
 public String showRegistration() {
     return "registeration";
