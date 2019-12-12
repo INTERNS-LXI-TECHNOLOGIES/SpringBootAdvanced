@@ -3,12 +3,33 @@ padding:0px;
 margin:0px;
 }
 body{
-	background-color:#d3d7cf;
+	background-color:#f3f3f3;
+} 
+.header{
+	background-color:  #fcaf3e;
+	color: blue;
+	height:10vh;
+	width:100%;
+	margin-bottom:1vh;
 }
-.vehicleItemBox{
-   background-color: #fff;
-   width:70vw;
-   margin-left:10vw;
-   border-style: 1px solid grey;   
-   border-color:blue;
+.header h3{
+	padding-top:3vh;
+	text-align: center;
+}
+.profileBox{
+width:15vw;
+height:35vh;
+padding:1%;
+ border: 2px solid red;
+  border-radius: 5px;	
+}
+#dpbox{
+	 background-color: #d3d7cf;
+	 height:12vh;
+	width:12vw;
+}
+#dp{
+	height:12vh;
+	width:12vw;
+	border-radius: 50%;
 }
