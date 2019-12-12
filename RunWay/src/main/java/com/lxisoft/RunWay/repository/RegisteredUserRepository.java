@@ -8,5 +8,4 @@ import com.lxisoft.RunWay.model.RegisteredUser;
 
 @Repository
 public interface RegisteredUserRepository extends JpaRepository<RegisteredUser,Long>{
-
-}
+	}
