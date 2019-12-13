@@ -12,6 +12,6 @@ import com.lxisoft.RunWay.model.Vehicle;
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 	 
-	@Query (value="select vehicle.id,vehicle.mileage,vehicle.model,vehicle.owner_id,vehicle.price,vehicle.seats,vehicle.type from vehicle,booked_detail where vehicle.type='CAR' and booked_detail.vehicle_id!=vehicle.id ");
+	@Query (value="select * from vehicle where type=:type and (id NOT IN(select vehicle_id from booked_detail where date=:date))",nativeQuery = true)
 	public List<Vehicle> getVehicle(@Param("type")String type,@Param("date") Date date);
 }

@@ -3,24 +3,31 @@
 <head>
 <link rel="stylesheet" type="text/css"	href="/CustomerHomeStyle.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type = "text/JavaScript" src = " https://MomentJS.com/downloads/moment.js"></script>	
 </head>
 <script>
 $(document).ready(function(){
+	var reader = new FileReader();
+	reader.onload = function(r_event) {
+	  document.getElementById('prev').setAttribute('src', r_event.target.result);
+	}
+
+	document.getElementsByName('file')[0].addEventListener('change', function(event) {
+	    reader.readAsDataURL(this.files[0]);
+	});
+	
 	
 $("#myop").click(function(){
 	var x=$("#myselect option:selected").text();
 	 	    
 	 var d = new Date();
 	 var curDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
-	    
-	 
 	 var setDate=$('#datepicker').val();
-	  
-    console.log(x+" on  "+curDate+"@"+setDate );
-   var v = $.get("/CustomerHome/"+x+"/"+setDate, function(data, status){
+	 var date=setDate ;
+    console.log(setDate+" onnnn  "+curDate+"@:::"+date);
+   var v = $.get("/CustomerHome/"+x+"/"+date, function(data, status){
 	   var html = data;
-	   
-        $("#area").html(html);
+	    $("#area").html(html);
       });
     
 });
@@ -33,7 +40,7 @@ $("#myop").click(function(){
 <div class="uppercontainer">
 <div class="profileBox">
 <div id="dpbox">
-<img id="dp" src="../images/customer/"+${user}+".jpeg" alt="not be viewed" onerror=this.src="../images/customer/dCustomer.jpeg">
+<img id="dp" th:src="@{${'/images/customer/'+user+'.jpeg'}}" alt="not be viewed" onerror=this.src="../images/customer/dCustomer.jpeg">
 </div>
   <p >Welcome [[${user}]],</p>
 	<button type="button">Profile</button>
@@ -53,8 +60,8 @@ $("#myop").click(function(){
 	<h5>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h5>
 	 <div id="area"></div>
 	<h5>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h5>
- 
- 
-<button id="show">Show</button>
+ <input type="file" name="file" />
+<img src="" id="prev" height="100px" width="100px"/>
+  
 </body>
 </html>

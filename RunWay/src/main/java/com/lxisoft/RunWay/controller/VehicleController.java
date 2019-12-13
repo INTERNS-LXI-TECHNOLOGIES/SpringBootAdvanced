@@ -40,7 +40,7 @@ public class VehicleController {
 		return "result";
 		
 	}
- 
+  
 	
 	@GetMapping("/get")
 	public List<Vehicle> readVehicleDetails(String type ,Date date) {

@@ -75,16 +75,17 @@ public String getVehicle(Model model,@ModelAttribute String type ) {
  return "CustomerHome" ;
 }
  @GetMapping("/CustomerHome/{type}/{date}")
- public String get(Model model,@PathVariable String type ,@PathVariable String date) {
-	 Date date1=new Date();  
-	 try {
-		  date1=new SimpleDateFormat("yyyy/MM/dd").parse(date);
-		   
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}  
-	 List<Vehicle> vehicleList = vehControl.readVehicleDetails(type,date1 );
+ public String get(Model model,@PathVariable String type ,@PathVariable("date")@DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+//	 Date date1=new Date();  
+//	 try {
+//		  date1=new SimpleDateFormat("yyyy/MM/dd").parse(date);
+
+	 System.out.println("@@@"+date.toInstant());
+//	} catch (ParseException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}  
+	 List<Vehicle> vehicleList = vehControl.readVehicleDetails(type,date );
 
 	 model.addAttribute("vehicleList", vehicleList);
 	 
