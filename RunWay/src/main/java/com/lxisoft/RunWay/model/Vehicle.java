@@ -14,7 +14,21 @@ public class Vehicle {
 	private Double mileage;
 	private Integer seats;
 	private Double price;
+	private Long owner_id;
+	private String type;
 	
+	public Long getOwner_id() {
+		return owner_id;
+	}
+	public void setOwner_id(Long owner_id) {
+		this.owner_id = owner_id;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public Double getPrice() {
 		return price;
 	}

@@ -7,6 +7,15 @@
 <form th:action="@{/create}" th:object="${vehicle}" method="post">
 <table>
 	<tr>
+		<td><p>Please select:</p></td>
+	    <td><select th:field="*{type}">
+	    
+	    <option th:value="'Car'" th:text="Car"></option>
+	    <option th:value="'Bus'" th:text="Bus"></option>
+        </select></td>
+	</tr>
+	
+	<tr>
 		<td><label>Model:</label></td>
 		<td><input type="text" th:field="*{model}" id="model"></input></td>
 	</tr>
