@@ -22,10 +22,12 @@ public class VehicleController {
 	@Autowired
 	VehicleService vehicleService;
 	
-	@GetMapping("/addDetails")
-	public String s(Vehicle vehicle,Model model)
+	@GetMapping("/addDetails/{ownerId}")
+	public String showAddForm(Vehicle vehicle,Model model,@PathVariable Long ownerId)
 	{
-		model.addAttribute("vehicle",new Vehicle());
+		 vehicle=new Vehicle();
+		vehicle.setOwnerId(ownerId);
+		model.addAttribute("vehicle",vehicle);
 		return "addDetails";
 	}
 
@@ -71,12 +73,21 @@ public class VehicleController {
 		
 	}
 	
-	@GetMapping("/adminPage")
+	@GetMapping("/adminPage/{ownerId}")
+	public String view(@PathVariable("ownerId") Long ownerId,Model model)
+	{
+		List<Vehicle> vehicles =vehicleService.viewDetails(ownerId);
+		model.addAttribute("vehicles",vehicles);
+		model.addAttribute("ownerId",ownerId);
+		return "adminPage";
+	}
+	
+	/*@GetMapping("/adminPage")
 	public String view(Model model)
 	{
 		List<Vehicle> vehicles =vehicleService.viewDetails();
 		model.addAttribute("vehicles",vehicles);
 		return "adminPage";
-	}
+	}*/
 
 }

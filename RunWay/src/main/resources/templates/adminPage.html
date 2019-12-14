@@ -17,7 +17,7 @@ th, td {
 </head>
 <body>
 <h3>Administration page</h3>
-<form th:action="@{/addDetails}"  method="get">
+<form th:action="@{${'/addDetails/'+ownerId}}"  method="get">
 <button>Add car</button>
 </form>
 

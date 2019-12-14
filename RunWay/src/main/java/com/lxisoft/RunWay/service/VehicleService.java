@@ -38,9 +38,14 @@ public class VehicleService {
 		repo.deleteById(id);
 	}
 	
-	public List<Vehicle> viewDetails()
+	public List<Vehicle> viewDetails(@PathVariable Long ownerId)
+	{
+		return repo.findAllByOwnerId(ownerId);
+	}
+	
+	/*public List<Vehicle> viewDetails()
 	{
 		return repo.findAll();
-	}
+	}*/
 
 }

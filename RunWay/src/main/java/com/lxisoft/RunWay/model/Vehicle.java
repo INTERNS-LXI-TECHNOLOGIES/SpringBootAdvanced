@@ -14,14 +14,15 @@ public class Vehicle {
 	private Double mileage;
 	private Integer seats;
 	private Double price;
-	private Long owner_id;
+	private Long ownerId;
 	private String type;
 	
-	public Long getOwner_id() {
-		return owner_id;
+	
+	public Long getOwnerId() {
+		return ownerId;
 	}
-	public void setOwner_id(Long owner_id) {
-		this.owner_id = owner_id;
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
 	}
 	public String getType() {
 		return type;
