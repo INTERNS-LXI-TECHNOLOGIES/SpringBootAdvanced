@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -71,5 +72,50 @@ public String getVehicle(Model model ) {
  model.addAttribute("vehicleList", vehicleList);
   
  return "CustomerHome" ;
+}	
+@GetMapping("/customerProfile/{id}")
+public String viewCustomerProfile(@PathVariable("id") Long id, Model model) 
+{
+	Customer customer=cService.viewProfile(id);
+	model.addAttribute("customer",customer);
+	return "viewCustomerProfile";
+}
+
+@GetMapping("/editCustomerProfile/{id}")
+public String editCustomerProfile(@PathVariable("id") Long id, Model model,Customer customer)
+{
+	 customer = cService.editProfile(id);
+	 model.addAttribute("customer",customer);
+	return "editcustomerProfile";
+}
+@PostMapping("/updateCustomerProfile/{id}")
+public String upateCustomerProfile(@PathVariable("id") Long id, Customer customer, Model model)
+{
+	cService.updateProfile(customer); 
+	model.addAttribute("message", "Updated....");
+	return "updateStatus";
+}
+
+@GetMapping("/ownerProfile/{id}")
+public String viewOwnerProfile(@PathVariable("id") Long id, Model model)
+{
+	Owner owner=oService.viewOwnerProfile(id);
+	model.addAttribute("owner",owner);
+	return "viewOwnerProfile";
+}
+@GetMapping("/editOwnerProfile/{id}")
+public String editOwnerProfile(@PathVariable("id") Long id, Model model,Owner owner)
+{
+	owner= oService.editOwnerProfile(id);
+	model.addAttribute("owner",owner);
+	return "editOwnerProfile";
+}
+
+@PostMapping("/updateOwnerProfile/{id}")
+public String upateOwnerProfile(@PathVariable("id") Long id, Owner owner, Model model)
+{
+	oService.updateProfile(owner); 
+	model.addAttribute("message", "Updated....");
+	return "updateMessage";
 }
 }
