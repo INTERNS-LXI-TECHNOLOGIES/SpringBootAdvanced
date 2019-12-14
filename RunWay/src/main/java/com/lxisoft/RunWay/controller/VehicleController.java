@@ -72,5 +72,13 @@ public class VehicleController {
 		return "deletedMessage";
 		
 	}
+	
+	@GetMapping("/adminPage")
+	public String view(Model model)
+	{
+		List<Vehicle> vehicles =vehicleService.viewDetails();
+		model.addAttribute("vehicles",vehicles);
+		return "adminPage";
+	}
 
 }

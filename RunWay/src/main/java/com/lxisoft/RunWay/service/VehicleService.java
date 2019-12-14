@@ -39,5 +39,10 @@ public class VehicleService {
 	{
 		repo.deleteById(id);
 	}
+	
+	public List<Vehicle> viewDetails()
+	{
+		return repo.findAll();
+	}
 
 }

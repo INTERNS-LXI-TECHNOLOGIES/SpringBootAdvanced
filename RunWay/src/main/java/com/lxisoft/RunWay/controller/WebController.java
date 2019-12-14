@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import com.lxisoft.RunWay.model.Owner;
 import com.lxisoft.RunWay.model.Vehicle;
 import com.lxisoft.RunWay.service.CustomerService;
 import com.lxisoft.RunWay.service.OwnerService;
+import com.lxisoft.RunWay.service.RegisteredUserService;
 
 @Controller
 public class WebController {
@@ -32,6 +34,8 @@ CustomerService cService;
 OwnerService oService;
 @Autowired
 VehicleController vehControl;
+@Autowired
+RegisteredUserService rService;
 @GetMapping("/registeration")
 public String showRegistration() {
     return "registeration";
@@ -73,18 +77,34 @@ public String getVehicle(Model model,@ModelAttribute String type ) {
 	 model.addAttribute("user", user);
 	 model.addAttribute("pass", pass);
  return "CustomerHome" ;
+}	
+@GetMapping("/customerProfile/{id}")
+public String viewCustomerProfile(@PathVariable("id") Long id, Model model) 
+{
+	Customer customer=cService.viewProfile(id);
+	model.addAttribute("customer",customer);
+	return "viewCustomerProfile";
 }
+
+@GetMapping("/editCustomerProfile/{id}")
+public String editCustomerProfile(@PathVariable("id") Long id, Model model,Customer customer)
+{
+	 customer = cService.editProfile(id);
+	 model.addAttribute("customer",customer);
+	return "editcustomerProfile";
+}
+
+@PostMapping("/updateCustomerProfile/{id}")
+public String upateCustomerProfile(@PathVariable("id") Long id, Customer customer, Model model)
+{
+	cService.updateProfile(customer); 
+	model.addAttribute("message", "Updated....");
+	return "updateStatus";
+}
+ 
  @GetMapping("/CustomerHome/{type}/{date}")
  public String get(Model model,@PathVariable String type ,@PathVariable("date")@DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
-//	 Date date1=new Date();  
-//	 try {
-//		  date1=new SimpleDateFormat("yyyy/MM/dd").parse(date);
-
-	 System.out.println("@@@"+date.toInstant());
-//	} catch (ParseException e) {
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//	}  
+  
 	 List<Vehicle> vehicleList = vehControl.readVehicleDetails(type,date );
 
 	 model.addAttribute("vehicleList", vehicleList);
@@ -92,4 +112,29 @@ public String getVehicle(Model model,@ModelAttribute String type ) {
 	 return "fragments/myFragment.html::myFragment";
 	 
  }
+ 
+
+@GetMapping("/ownerProfile/{id}")
+public String viewOwnerProfile(@PathVariable("id") Long id, Model model)
+{
+	Owner owner=oService.viewOwnerProfile(id);
+	model.addAttribute("owner",owner);
+	return "viewOwnerProfile";
+}
+@GetMapping("/editOwnerProfile/{id}")
+public String editOwnerProfile(@PathVariable("id") Long id, Model model,Owner owner)
+{
+	owner= oService.editOwnerProfile(id);
+	model.addAttribute("owner",owner);
+	return "editOwnerProfile";
+}
+
+@PostMapping("/updateOwnerProfile/{id}")
+public String upateOwnerProfile(@PathVariable("id") Long id, Owner owner, Model model)
+{
+	oService.updateProfile(owner); 
+	model.addAttribute("message", "Updated....");
+	return "updateMessage";
+}
+ 
 }
