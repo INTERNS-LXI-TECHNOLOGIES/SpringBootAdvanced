@@ -1,10 +1,12 @@
 package com.lxisoft.RunWay.model;
-
+ 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
+ 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Customer {
@@ -19,6 +21,7 @@ public class Customer {
 	private String state;
 	private String username;
 	private String password;
+	 
 	public Long getId() {
 		return id;
 	}
@@ -42,7 +45,7 @@ public class Customer {
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
+	}   
 	public Long getMobileNo() {
 		return mobileNo;
 	}
@@ -74,7 +77,7 @@ public class Customer {
 		this.password = password;
 	}
 	
-		
+	 
 		
 
 }

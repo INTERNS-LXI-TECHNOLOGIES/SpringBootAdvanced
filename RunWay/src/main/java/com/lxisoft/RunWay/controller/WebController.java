@@ -1,11 +1,15 @@
 package com.lxisoft.RunWay.controller;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lxisoft.RunWay.model.Customer;
 import com.lxisoft.RunWay.model.Owner;
@@ -64,13 +69,11 @@ public String showOwnerForm(Owner owner) {
 	        return "redirect:/ownerregister?success";
 	}
 @RequestMapping("/CustomerHome")
-public String getVehicle(Model model ) {
-		  
-    
-    List<Vehicle> vehicleList = vehControl.readVehicleDetails();
-     
- model.addAttribute("vehicleList", vehicleList);
-  
+public String getVehicle(Model model,@ModelAttribute String type ) {
+	 String user="ajay";
+	 String pass="ajay";
+	 model.addAttribute("user", user);
+	 model.addAttribute("pass", pass);
  return "CustomerHome" ;
 }	
 @GetMapping("/customerProfile/{id}")
@@ -95,6 +98,18 @@ public String upateCustomerProfile(@PathVariable("id") Long id, Customer custome
 	model.addAttribute("message", "Updated....");
 	return "updateStatus";
 }
+ 
+ @GetMapping("/CustomerHome/{type}/{date}")
+ public String get(Model model,@PathVariable String type ,@PathVariable("date")@DateTimeFormat(pattern="yyyy-MM-dd") Date date) {
+  
+	 List<Vehicle> vehicleList = vehControl.readVehicleDetails(type,date );
+
+	 model.addAttribute("vehicleList", vehicleList);
+	 
+	 return "fragments/myFragment.html::myFragment";
+	 
+ }
+ 
 
 @GetMapping("/ownerProfile/{id}")
 public String viewOwnerProfile(@PathVariable("id") Long id, Model model)

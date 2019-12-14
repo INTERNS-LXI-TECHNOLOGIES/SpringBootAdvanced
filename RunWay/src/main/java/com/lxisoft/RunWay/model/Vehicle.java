@@ -10,13 +10,19 @@ public class Vehicle {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO) 
 	private Long id; 
+	private Long ownerId;
 	private String model;
 	private Double mileage;
 	private Integer seats;
 	private Double price;
-	
+	private String type;
 	public Double getPrice() {
 		return price;
+	}
+	@Override
+	public String toString() {
+		return "Vehicle [id=" + id + ", ownerId=" + ownerId + ", model=" + model + ", mileage=" + mileage + ", seats="
+				+ seats + ", price=" + price + ", type=" + type + "]";
 	}
 	public void setPrice(Double price) {
 		this.price = price;
@@ -45,5 +51,17 @@ public class Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
-
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public Long getOwnerId() {
+		return ownerId;
+	}
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+	}
+ 
 }

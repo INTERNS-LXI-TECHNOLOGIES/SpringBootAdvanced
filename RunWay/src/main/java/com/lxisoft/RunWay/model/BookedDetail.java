@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class BookedDetail {
@@ -17,6 +19,7 @@ private Long customerId;
 private Long ownerId;
 private Long vehicleId;
 private Float amount;
+@Temporal(TemporalType.TIMESTAMP)
 private Date date;
 public Long getCustomerId() {
 	return customerId;

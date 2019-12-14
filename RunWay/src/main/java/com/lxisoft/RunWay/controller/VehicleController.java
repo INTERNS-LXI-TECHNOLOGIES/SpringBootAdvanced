@@ -1,6 +1,7 @@
 package com.lxisoft.RunWay.controller;
 
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -39,10 +40,11 @@ public class VehicleController {
 		return "result";
 		
 	}
+  
 	
 	@GetMapping("/get")
-	public List<Vehicle> readVehicleDetails() {
-		return vehicleService.fetchVehicledetails();
+	public List<Vehicle> readVehicleDetails(String type ,Date date) {
+		return vehicleService.fetchVehicledetails(type,date );
 	}
 	
 	@GetMapping("/edit/{id}")
