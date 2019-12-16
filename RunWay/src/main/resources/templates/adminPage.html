@@ -13,6 +13,8 @@ right: 15%;}
 th, td {
   border: 1px solid black;
 }
+.btn{position: absolute;
+left: 15%}
 </style>
 </head>
 <body>
@@ -20,7 +22,9 @@ th, td {
 <form th:action="@{${'/addDetails/'+ownerId}}"  method="get">
 <button>Add car</button>
 </form>
-
+<form th:action="@{${'/ownerProfile/'+ownerId}}"  method="get">
+<button class="btn">Profile</button>
+</form>
  <br/><br/>
         <div>
             <table>

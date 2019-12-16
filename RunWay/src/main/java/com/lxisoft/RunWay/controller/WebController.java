@@ -75,46 +75,19 @@ public String getVehicle(Model model ) {
   
  return "CustomerHome" ;
 }	
-@GetMapping("/customerProfile/{id}")
-public String viewCustomerProfile(@PathVariable("id") Long id, Model model) 
-{
-	Customer customer=cService.viewProfile(id);
-	model.addAttribute("customer",customer);
-	return "viewCustomerProfile";
-}
 
-@GetMapping("/editCustomerProfile/{id}")
-public String editCustomerProfile(@PathVariable("id") Long id, Model model,Customer customer)
-{
-	 customer = cService.editProfile(id);
-	 model.addAttribute("customer",customer);
-	return "editcustomerProfile";
-}
 
-@PostMapping("/updateCustomerProfile/{id}")
-public String upateCustomerProfile(@PathVariable("id") Long id, Customer customer, Model model)
-{
-	cService.updateProfile(customer); 
-	model.addAttribute("message", "Updated....");
-	return "updateStatus";
-}
+//View part of owner profile
 
-@GetMapping("/ownerProfile/{id}")
-public String viewOwnerProfile(@PathVariable("id") Long id, Model model)
+@GetMapping("/ownerProfile/{ownerId}")
+public String viewOwnerProfile(@PathVariable("ownerId") Long id, Model model)
 {
 	Owner owner=oService.viewOwnerProfile(id);
 	model.addAttribute("owner",owner);
 	return "viewOwnerProfile";
 }
-@GetMapping("/editOwnerProfile/{id}")
-public String editOwnerProfile(@PathVariable("id") Long id, Model model,Owner owner)
-{
-	owner= oService.editOwnerProfile(id);
-	model.addAttribute("owner",owner);
-	return "editOwnerProfile";
-}
 
-@PostMapping("/updateOwnerProfile/{id}")
+@PostMapping("/editOwnerProfile/{id}")
 public String upateOwnerProfile(@PathVariable("id") Long id, Owner owner, Model model)
 {
 	oService.updateProfile(owner); 

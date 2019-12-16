@@ -10,14 +10,8 @@ import com.lxisoft.RunWay.model.Vehicle;
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
-	List<Vehicle> findAllById(Long owner_id);
 
 	List<Vehicle> findAllByOwnerId(@Param("ownerId")Long ownerId);
-
 	
-
 	
-	//List<Vehicle> findAll(Long owner_id);
-	
-
 }

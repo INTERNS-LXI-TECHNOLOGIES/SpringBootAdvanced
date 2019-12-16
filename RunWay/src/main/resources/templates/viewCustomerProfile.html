@@ -4,7 +4,7 @@
 </head>
 <body>
 <h3>Customer Profile</h3>
-<form th:action="@{/editCustomerProfile/{id}(id=${customer.id})}" th:object="${customer}"method="get">
+<form th:action="@{/editCustomerProfile/{id}(id=${customer.id})}" th:object="${customer}"method="post">
 <table>
 	<tr>
 		<td><label>Name:</label></td>
@@ -30,9 +30,12 @@
 		<td><label>Nationality:</label></td>
 		<td><input type="text" th:field="*{nationality}" id="nationality"></input></td>
 	</tr>
+	<input type="hidden" th:field="*{password}" id="password"></input></td>
+	<input type="hidden" th:field="*{username}" id="username"></input></td>
+	<input type="hidden" th:field="*{type}" id="type"></input></td>
 	
 </table>
-<button>Edit</button>
+<button>Update</button>
     </form>
 </body>
 </html>

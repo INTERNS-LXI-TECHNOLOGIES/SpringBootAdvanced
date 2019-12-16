@@ -43,9 +43,4 @@ public class VehicleService {
 		return repo.findAllByOwnerId(ownerId);
 	}
 	
-	/*public List<Vehicle> viewDetails()
-	{
-		return repo.findAll();
-	}*/
-
 }
