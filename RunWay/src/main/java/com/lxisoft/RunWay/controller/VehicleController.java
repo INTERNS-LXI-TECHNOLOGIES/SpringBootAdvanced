@@ -32,13 +32,17 @@ public class VehicleController {
 	}
 
 	
-	@PostMapping("/create")
-	public String create(@ModelAttribute Vehicle vehicle,Model model)
+	@PostMapping("/create/{ownerId}")
+	public String create(@ModelAttribute Vehicle vehicle,Model model,@PathVariable("ownerId")Long ownerId)
 	{
 		vehicleService.addVehicle(vehicle);
 	
-		model.addAttribute("message", "Added Successfully");
-		return "result";
+		//model.addAttribute("message", "Added Successfully");
+		//return "result";
+		
+		model.addAttribute("ownerId",vehicle.getOwnerId());
+		//return view(ownerId,model);
+		return "redirect:/adminPage/{ownerId}";
 		
 	}
 	
@@ -61,7 +65,8 @@ public class VehicleController {
 	   vehicleService.update(vehicle);
 		model.addAttribute("message", "Updated Successfully");
 		return "messageWindow";
-	    
+	   // model.addAttribute("ownerId",vehicle.getOwnerId());
+	    //return "redirect:/adminPage/{ownerId}";
 	}
 	
 	@GetMapping("/delete/{id}")
@@ -70,6 +75,7 @@ public class VehicleController {
 		vehicleService.delete(id);
 		model.addAttribute("message","Deleted...");
 		return "deletedMessage";
+		
 		
 	}
 	
