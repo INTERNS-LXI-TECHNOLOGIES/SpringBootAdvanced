@@ -91,8 +91,9 @@ public String viewOwnerProfile(@PathVariable("ownerId") Long id, Model model)
 public String upateOwnerProfile(@PathVariable("id") Long id, Owner owner, Model model)
 {
 	oService.updateProfile(owner); 
-	model.addAttribute("message", "Updated....");
-	return "updateMessage";
+	//model.addAttribute("message", "Updated....");
+	//return "updateMessage";
+	return "redirect:/adminPage/"+id;
 }
 
 }

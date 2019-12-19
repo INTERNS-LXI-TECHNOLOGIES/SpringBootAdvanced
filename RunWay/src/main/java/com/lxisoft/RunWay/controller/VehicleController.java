@@ -61,12 +61,15 @@ public class VehicleController {
 	}
 	
 	@PostMapping("/update/{id}")
-	public String updateVehicle(@PathVariable("id") Long id, Vehicle vehicle, Model model) {
+	public String updateVehicle(@PathVariable("id") Long id,Vehicle vehicle, Model model) {
+		System.out.println(vehicle);
 	   vehicleService.update(vehicle);
-		model.addAttribute("message", "Updated Successfully");
-		return "messageWindow";
-	   // model.addAttribute("ownerId",vehicle.getOwnerId());
-	    //return "redirect:/adminPage/{ownerId}";
+	   
+		//model.addAttribute("message", "Updated Successfully");
+		//return "messageWindow";
+	    Long oId=vehicle.getOwnerId();
+	    model.addAttribute("ownerId",vehicle.getOwnerId());
+	    return "redirect:/adminPage/"+oId;
 	}
 	
 	@GetMapping("/delete/{id}")
@@ -87,5 +90,17 @@ public class VehicleController {
 		model.addAttribute("ownerId",ownerId);
 		return "adminPage";
 	}
+	
+	/*@PostMapping("/delete/{id}")
+	public String deleteVehicle(@PathVariable("id")Long id,Vehicle vehicle,Model model)
+	{
+		vehicleService.delete(id);
+		Long oId=vehicle.getOwnerId();
+		//model.addAttribute("message","Deleted...");
+		//model.addAttribute("ownerId",ownerId);
+		return "redirect:/adminPage/"+oId;
+		
+		
+	}*/
 	
 }

@@ -60,5 +60,12 @@ public class Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
+	@Override
+	public String toString() {
+		return "Vehicle [id=" + id + ", model=" + model + ", mileage=" + mileage + ", seats=" + seats + ", price="
+				+ price + ", ownerId=" + ownerId + ", type=" + type + "]";
+	}
+	
+	
 
 }

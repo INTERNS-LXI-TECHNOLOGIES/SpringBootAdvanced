@@ -12,6 +12,8 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
 
 	List<Vehicle> findAllByOwnerId(@Param("ownerId")Long ownerId);
-	
+
+	//void deleteByOwnerId(@Param("ownerId")Long ownerId);
+		
 	
 }
