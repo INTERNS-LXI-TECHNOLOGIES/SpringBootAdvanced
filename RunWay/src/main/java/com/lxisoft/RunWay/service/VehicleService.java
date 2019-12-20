@@ -1,5 +1,6 @@
 package com.lxisoft.RunWay.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,9 +21,10 @@ public class VehicleService {
 	{
 		return repo.save(vehicle);
 	}
-	public List<Vehicle> fetchVehicledetails() {
+	public List<Vehicle> fetchVehicledetails(String type ,Date date) {
 		// TODO Auto-generated method stub
-		return repo.findAll();
+	 
+		return repo.getVehicle(type ,date);
 	}
 	
 	public Vehicle updateVehicle(Long id)
