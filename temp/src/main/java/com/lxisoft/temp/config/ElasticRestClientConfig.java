@@ -16,9 +16,9 @@ import org.springframework.context.annotation.Configuration;
 public class ElasticRestClientConfig {
 
 	//@Value("${elasticsearch.host}")
-	public String host="https://400540f9349e42179baf77cb0f3f798b.us-central1.gcp.cloud.es.io:9243/";
+	public String host="400540f9349e42179baf77cb0f3f798b.us-central1.gcp.cloud.es.io";
 	//@Value("${elasticsearch.port}")
-	public int port=9200;
+	public int port=9243;
 	//@Value("${elasticsearch.username}")
 	public String username="elastic";
 	//@Value("${elasticsearch.password}")
