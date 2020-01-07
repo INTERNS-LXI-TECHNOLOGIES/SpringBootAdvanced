@@ -191,6 +191,7 @@ public class SportsServiceImpl implements SportsService {
     	 SearchSourceBuilder sb=new SearchSourceBuilder();
     	 sb.query(dslQuery);
     	 FieldSortBuilder sorting=new FieldSortBuilder("age").order(SortOrder.DESC);
+    	 //sb.sorts()
     	 sb.sort(sorting);
     	 SearchRequest sr=new SearchRequest("sports");
     	 sr.source(sb);
@@ -204,4 +205,107 @@ public class SportsServiceImpl implements SportsService {
     	 }
     	 return sports;
      }
+     
+     public List<Sports> sortByName()throws IOException
+     {
+    	 QueryBuilder dslQuery=QueryBuilders.matchAllQuery();
+    	 SearchSourceBuilder sb=new SearchSourceBuilder();
+    	 sb.query(dslQuery);
+    	 FieldSortBuilder sorting=new FieldSortBuilder("age").order(SortOrder.DESC);
+    	 sb.sort(sorting);
+    	 SearchRequest sr=new SearchRequest("sports");
+    	 sr.source(sb);
+    	 SearchResponse response=client.search(sr, RequestOptions.DEFAULT);
+    	 SearchHit[] searchHit=response.getHits().getHits();
+    	 List<Sports> sports=new ArrayList<>();
+    	 for(SearchHit hit:searchHit)
+    	 {
+    		 sports.add(objectMapper.convertValue(hit.getSourceAsMap(), Sports.class));
+    		 System.out.println(sports);
+    	 }
+    	 return sports;
+     }
+     public List<Sports> orderByName()throws IOException
+     {
+    	 QueryBuilder dslQuery=QueryBuilders.matchAllQuery();
+    	 SearchSourceBuilder sb=new SearchSourceBuilder();
+    	 sb.query(dslQuery);
+    	 FieldSortBuilder sorting=new FieldSortBuilder("name.keyword").order(SortOrder.ASC);
+    	 sb.sort(sorting);
+    	 SearchRequest sr=new SearchRequest("sports");
+    	 sr.source(sb);
+    	 SearchResponse response=client.search(sr, RequestOptions.DEFAULT);
+    	 SearchHit[] searchHit=response.getHits().getHits();
+    	 List<Sports> sports=new ArrayList<>();
+    	 for(SearchHit hit:searchHit)
+    	 {
+    		 sports.add(objectMapper.convertValue(hit.getSourceAsMap(), Sports.class));
+    		 System.out.println(sports);
+    	 }
+    	 return sports;
+     }
+     public List<Sports> orderByNameAndAge()throws IOException
+     {
+    	 QueryBuilder dslQuery=QueryBuilders.matchAllQuery();
+    	 SearchSourceBuilder sb=new SearchSourceBuilder();
+    	 sb.query(dslQuery);
+    	 FieldSortBuilder sorting=new FieldSortBuilder("name.keyword").order(SortOrder.ASC);
+    	 FieldSortBuilder s=new FieldSortBuilder("age").order(SortOrder.ASC);
+    	 sb.sort(sorting);
+    	 sb.sort(s);
+    	 SearchRequest sr=new SearchRequest("sports");
+    	 sr.source(sb);
+    	 SearchResponse response=client.search(sr, RequestOptions.DEFAULT);
+    	 SearchHit[] searchHit=response.getHits().getHits();
+    	 List<Sports> sports=new ArrayList<>();
+    	 for(SearchHit hit:searchHit)
+    	 {
+    		 sports.add(objectMapper.convertValue(hit.getSourceAsMap(), Sports.class));
+    		 System.out.println(sports);
+    	 }
+    	 return sports;
+
+     }
+     public List<Sports> findAllUsingBoolSortByAge(String name1)throws IOException
+     {
+    	 QueryBuilder dslQuery=QueryBuilders.boolQuery().should(termQuery("name",name1)).should(rangeQuery("age").gt(20).lt(24));
+
+    	 SearchSourceBuilder sb=new SearchSourceBuilder();
+    	 sb.query(dslQuery);
+    	 FieldSortBuilder sorting=new FieldSortBuilder("age").order(SortOrder.DESC);
+    	 sb.sort(sorting);
+    	 SearchRequest sr=new SearchRequest("sports");
+    	 sr.source(sb);
+    	 SearchResponse response=client.search(sr, RequestOptions.DEFAULT);
+    	 SearchHit[] searchHit=response.getHits().getHits();
+    	 List<Sports> sports=new ArrayList<>();
+    	 for(SearchHit hit:searchHit)
+    	 {
+    		 sports.add(objectMapper.convertValue(hit.getSourceAsMap(), Sports.class));
+    		 System.out.println(sports);
+    	 }
+    	 return sports;
+     }
+     /*
+     public List<Sports> sortByAgeAndName()throws IOException
+     {
+    	 QueryBuilder dslQuery=QueryBuilders.matchAllQuery();
+    	 SearchSourceBuilder sb=new SearchSourceBuilder();
+    	 sb.query(dslQuery);
+    	 FieldSortBuilder sorting=new FieldSortBuilder("age").order(SortOrder.DESC);
+    	 FieldSortBuilder sort=new FieldSortBuilder("name").order(SortOrder.DESC);
+    	 sb.sort(sorting);
+    	 sb.sort(sort);
+    	 SearchRequest sr=new SearchRequest("sports");
+    	 sr.source(sb);
+    	 SearchResponse response=client.search(sr, RequestOptions.DEFAULT);
+    	 SearchHit[] searchHit=response.getHits().getHits();
+    	 List<Sports> sports=new ArrayList<>();
+    	 for(SearchHit hit:searchHit)
+    	 {
+    		 sports.add(objectMapper.convertValue(hit.getSourceAsMap(), Sports.class));
+    		 System.out.println(sports);
+    	 }
+    	 return sports;
+     }*/
 }

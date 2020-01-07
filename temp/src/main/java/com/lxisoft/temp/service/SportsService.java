@@ -15,4 +15,10 @@ public interface SportsService {
 	public List<Sports> findAllUsingFilter(String name)throws IOException;
 	public List<Sports> findAllUsingSort(String name)throws IOException;
 	public List<Sports> sortByAge(String name)throws IOException;
+	public List<Sports> sortByName()throws IOException;
+	public List<Sports> orderByName()throws IOException;
+	public List<Sports> orderByNameAndAge()throws IOException;
+	public List<Sports> findAllUsingBoolSortByAge(String name1)throws IOException;
+
+	/*public List<Sports> sortByAgeAndName()throws IOException;*/
 }

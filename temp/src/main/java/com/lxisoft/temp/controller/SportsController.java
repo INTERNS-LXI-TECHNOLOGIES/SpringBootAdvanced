@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lxisoft.temp.model.Sports;
 import com.lxisoft.temp.service.SportsService;
 
-@RequestMapping("/api")
+/*@RequestMapping("/api")*/
 @RestController
 public class SportsController {
 	@Autowired
@@ -65,4 +65,30 @@ public class SportsController {
 	{
 		return sportsService.sortByAge(name);
 	}
+	@GetMapping("sortByName")
+	public List<Sports> sortByAgeAndName()throws IOException
+	{
+		return sportsService.sortByName();
+	}
+	@GetMapping("orderByName")
+	public List<Sports> orderByName()throws IOException
+	{
+		return sportsService.orderByName();
+	}
+	@GetMapping("orderByNameAndAge")
+	public List<Sports> orderByNameAndAge()throws IOException
+	{
+		return sportsService.orderByNameAndAge();
+	}
+	@GetMapping("UsingBoolSortByAge/{name1}")
+	public List<Sports> findAllUsingBoolSortByAge(@PathVariable String name1)throws IOException
+	{
+		return sportsService.findAllUsingBoolSortByAge(name1);
+	}
+	/*
+	@GetMapping("sortByAgeAndName")
+	public List<Sports> sortByAgeAndName()throws IOException
+	{
+		return sportsService.sortByAgeAndName();
+	}*/
 }
