@@ -1,16 +1,15 @@
 package com.lxisoft.repository;
-import java.io.*;
 import com.lxisoft.model.*;
 import com.lxisoft.domain.*;
 import java.util.*;
-import com.lxisoft.repository.*;
 import java.sql.*;
 import org.apache.log4j.Logger;
 
 /**
  *Data base repository class
  */
-public class DbRepository implements Repository
+@org.springframework.stereotype.Repository
+public class DbRepository 
 {
 	static Logger log = Logger.getLogger(DbRepository.class);
 	Connection connection;
@@ -64,7 +63,7 @@ public class DbRepository implements Repository
 				contactsSet.add(contact);
 			}
 			contactList.addAll(contactsSet);
-			
+			System.out.println("size=="+contactList.size());
 		}
 		catch(SQLException e)
 		{

@@ -1,90 +1,80 @@
-<web-app> 
-
-<servlet>
-   <servlet-name>AllContacts</servlet-name>
-   <servlet-class>com.lxisoft.controller.ShowAllServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-   <servlet-name>AllContacts</servlet-name>
-   <url-pattern>/showAll</url-pattern>
-</servlet-mapping>
-
-<servlet>
-   <servlet-name>save</servlet-name>
-   <servlet-class>com.lxisoft.controller.SaveServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-   <servlet-name>save</servlet-name>
-   <url-pattern>/addContact</url-pattern>
-</servlet-mapping>
-
-<servlet>
-   <servlet-name>deleting</servlet-name>
-   <servlet-class>com.lxisoft.controller.DeleteServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-   <servlet-name>deleting</servlet-name>
-   <url-pattern>/deleteContact</url-pattern>
-</servlet-mapping>
-
-<servlet>
-   <servlet-name>editing</servlet-name>
-   <servlet-class>com.lxisoft.controller.EditServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-   <servlet-name>editing</servlet-name>
-   <url-pattern>/editContact</url-pattern>
-</servlet-mapping>
-
-<servlet>
-   <servlet-name>searching</servlet-name>
-   <servlet-class>com.lxisoft.controller.SearchServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-   <servlet-name>searching</servlet-name>
-   <url-pattern>/search</url-pattern>
-</servlet-mapping>
-
-<servlet>
-   <servlet-name>sorting</servlet-name>
-   <servlet-class>com.lxisoft.controller.SortServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-   <servlet-name>sorting</servlet-name>
-   <url-pattern>/sort</url-pattern>
-</servlet-mapping>
-
-<servlet>
-   <servlet-name>selecting</servlet-name>
-   <servlet-class>com.lxisoft.controller.FirstSelectServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-   <servlet-name>selecting</servlet-name>
-   <url-pattern>/selectContact</url-pattern>
-</servlet-mapping>
-
-<display-name>java security</display-name>
-   <security-constraint>
-      <web-resource-collection>
-         <web-resource-name>secured</web-resource-name>
-         <url-pattern>/showAll</url-pattern>
-      </web-resource-collection>
-      <auth-constraint>
-         <role-name>user</role-name>
-         <role-name>admin</role-name>
-      </auth-constraint>
-   </security-constraint>
-
-   <security-role>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+  <servlet>
+    <servlet-name>AllContacts</servlet-name>
+    <servlet-class>com.lxisoft.controller.ShowAllServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllContacts</servlet-name>
+    <url-pattern>/showAll</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>save</servlet-name>
+    <servlet-class>com.lxisoft.controller.SaveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>save</servlet-name>
+    <url-pattern>/addContact</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>deleting</servlet-name>
+    <servlet-class>com.lxisoft.controller.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleting</servlet-name>
+    <url-pattern>/deleteContact</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>editing</servlet-name>
+    <servlet-class>com.lxisoft.controller.EditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editing</servlet-name>
+    <url-pattern>/editContact</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>searching</servlet-name>
+    <servlet-class>com.lxisoft.controller.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>searching</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>sorting</servlet-name>
+    <servlet-class>com.lxisoft.controller.SortServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sorting</servlet-name>
+    <url-pattern>/sort</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>selecting</servlet-name>
+    <servlet-class>com.lxisoft.controller.FirstSelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>selecting</servlet-name>
+    <url-pattern>/selectContact</url-pattern>
+  </servlet-mapping>
+  <display-name>java security</display-name>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>secured</web-resource-name>
+      <url-pattern>/showAll</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
       <role-name>user</role-name>
       <role-name>admin</role-name>
-   </security-role>
-   <login-config>
-      <auth-method>FORM</auth-method>
-      <form-login-config>
-         <form-login-page>/jsp/Login.jsp</form-login-page>
-         <form-error-page>/jsp/Fail.jsp</form-error-page>
-      </form-login-config>
-   </login-config>
-
-</web-app> 
+    </auth-constraint>
+  </security-constraint>
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/jsp/Login.jsp</form-login-page>
+      <form-error-page>/jsp/Fail.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+</web-app>
