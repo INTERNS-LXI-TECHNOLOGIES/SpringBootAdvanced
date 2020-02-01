@@ -9,5 +9,9 @@ import org.springframework.stereotype.Service;
 public class ContactService {
 	@Autowired
 	DbRepository repo;
-	ArrayList<Contact> contactList=repo.findAll();
+	public ArrayList<Contact> findAllService()
+	{
+		ArrayList<Contact> contactList=repo.findAll();
+		return contactList;
+	}
 }

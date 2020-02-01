@@ -24,3 +24,8 @@ hs_err_pid*
 
 #target folder removal
 target/
+
+#eclipse files
+.settings
+.classpath
+.project

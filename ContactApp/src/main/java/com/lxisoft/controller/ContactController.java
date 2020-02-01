@@ -1,19 +1,25 @@
 package com.lxisoft.controller;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ContactController {
-@RequestMapping(value="/", method = RequestMethod.GET)
-public String findAll()
-{
-	return null;
-	
-}
-		
+public class ContactController 
+{	
+	@RequestMapping(value="/add")
+	public String findAll()
+	{
+		System.out.println("dddddddddd");
+	      return "Fail";
+	}
+//	@RequestMapping(value="/", method = RequestMethod.GET)
+//	public String findAll()
+//	{	
+//		ModelAndView model = new ModelAndView();
+//		ArrayList<Contact> contactList= service.findAllService();
+//		model.addAttribute("contactList",contactList);
+//		return "viewAll";
+//	}
+			
 	
 	
 
