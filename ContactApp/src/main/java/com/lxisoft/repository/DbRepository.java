@@ -63,7 +63,6 @@ public class DbRepository implements Repository
 				contactsSet.add(contact);
 			}
 			contactList.addAll(contactsSet);
-			System.out.println("size=="+contactList.size());
 		}
 		catch(SQLException e)
 		{
@@ -198,7 +197,7 @@ public class DbRepository implements Repository
 		return searchList;
 	}
 	/**
-	 *search contact method
+	 *sort method
 	 *@param type sortring type
 	 *@return sorted contact list
 	 */
@@ -235,6 +234,29 @@ public class DbRepository implements Repository
 			System.out.println(e);
 		}	
 		return sortList;
+	}
+	
+	public Contact findId(String id)
+	{
+		Contact contact=new Contact();
+		try
+		{
+			Statement s=connection.createStatement();
+			ResultSet rs=s.executeQuery("SELECT * FROM contactList WHERE ID='"+id+"'");
+			while(rs.next())
+			{
+				contact.setId(rs.getString("ID"));
+				contact.setFName(rs.getString("FIRST_NAME"));
+				contact.setLName(rs.getString("LAST_NAME"));
+				contact.setNumber(rs.getString("NUMBER"));
+			}
+		}
+		catch(SQLException e)
+		{
+			log.warn("sql exception"+e);
+			System.out.println(e);
+		}	
+		return contact;
 	}
 
 	

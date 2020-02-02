@@ -5,6 +5,8 @@
 <%@page import="com.lxisoft.repository.*"%>
 <%@page import="java.util.*"%>
 <%@page import="com.lxisoft.config.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <html>
   <%
@@ -65,44 +67,27 @@
 <br>
 <table style="border: 0.5px solid #F4714D; background-color: #C4F48A; width: 35%;" align="center" tabindex="center ">
 		<tr><td><h1 style="text-align: center; color:initial;"><b>&emsp;&emsp;&emsp;&emsp;<%out.println(inter.getLocale("contacts",lang,"IN"));%></b></h1></td></tr>
-<%
-ArrayList<Contact> contactList=(ArrayList<Contact>) request.getAttribute("list");
-if(contactList.size()==0)
-{
-	%>
-	<tr><td><h3>Sorry no contact present</h3> <td></tr>
-	<%
-}
-int count=0;
-for(Contact contact:contactList)
-{
-	count++;
-	%>
+	<c:forEach items="${list}" var="contact">
 	<tr>
 	<td>
-	<h2><a style="margin-left: 30px;" href="<%=request.getContextPath()%>/jsp/Select.jsp?selectId=<%=contact.getId()%>">
-	<img src="person.jpg" width="50" height="50">  <%=contact.getFName()%>&nbsp;<%=contact.getLName()%></a>
+	<h2><a style="margin-left: 30px;" href="<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}">
+	<img src="person.jpg" width="50" height="50">  ${contact.getFName()}&nbsp;${contact.getLName()}</a>
 	</h2>
 	</td>
-	<%if (request.isUserInRole("admin"))
-	{	 %>
 		<td>
-		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=<%=contact.getId()%>&type=e'"><%=inter.getLocale("edit",lang,"IN")%></button>
+		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=e'"><%=inter.getLocale("edit",lang,"IN")%></button>
 		</td>
 		<td>
-		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=<%=contact.getId()%>&type=d'"><%=inter.getLocale("delete",lang,"IN")%></button>
+		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=d'"><%=inter.getLocale("delete",lang,"IN")%></button>
 		</td>
 		</tr>
- 	<%
- 	}
-}
-%>
+	</c:forEach>
 </table>
 
 <form action="jsp/Save.jsp">
  <button id="b1">+</button>
 </form>
-<div align="center" style="padding-top: 90px"><%out.println(inter.getLocale("total",lang,"IN"));%>: <%=count%></div>
+
 
 </body>
 </html>
