@@ -70,7 +70,7 @@
 	<c:forEach items="${list}" var="contact">
 	<tr>
 	<td>
-	<h2><a style="margin-left: 30px;" href="<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}">
+	<h2><a style="margin-left: 30px;" href="<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=s">
 	<img src="person.jpg" width="50" height="50">  ${contact.getFName()}&nbsp;${contact.getLName()}</a>
 	</h2>
 	</td>

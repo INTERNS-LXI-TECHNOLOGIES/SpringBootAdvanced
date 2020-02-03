@@ -40,16 +40,10 @@ public class ContactController
 			System.out.println("delete");
 			return "Delete";
 		}
-		else if(type.equals(null))
+		else
 		{
 			System.out.println("select");
 			return "Select";
 		}
-		else
-			return "select";
 	}
-			
-	
-	
-
 }
