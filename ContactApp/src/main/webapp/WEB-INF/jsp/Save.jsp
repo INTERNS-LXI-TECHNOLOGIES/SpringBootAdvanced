@@ -11,7 +11,7 @@
   %>
 <html>
 <title><%=inter.getLocale("save",lang,"IN")%></title>
-<center style="color: blue"><h1><b><%=inter.getLocale("save",lang,"IN")%></b><h1></center>
+<center style="color: blue"><h1><b><%=inter.getLocale("save",lang,"IN")%></b></h1></center>
 <body style="background-color:#E6EC73;">
 	<style>
 		form{

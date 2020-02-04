@@ -94,7 +94,7 @@ public class DbRepository implements Repository
 		}	
 	}
 	/**
-	 *intex method for finding final index
+	 *index method for finding final index from database
 	 *@return last index 
 	 */
 	public int index()

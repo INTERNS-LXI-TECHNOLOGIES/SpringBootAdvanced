@@ -46,4 +46,16 @@ public class ContactController
 			return "Select";
 		}
 	}
+	
+	@RequestMapping(value="/addContact")
+	public String save(@RequestParam String firstName,@RequestParam String lastName,@RequestParam String number)
+	{
+		System.out.println("ashiq");
+		Contact contact=new Contact();
+		contact.setFName(firstName);
+		contact.setLName(lastName);
+		contact.setNumber(number);
+		service.saveService(contact);
+		return "Save";
+	}
 }

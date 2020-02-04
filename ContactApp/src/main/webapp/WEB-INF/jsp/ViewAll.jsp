@@ -74,17 +74,20 @@
 	<img src="person.jpg" width="50" height="50">  ${contact.getFName()}&nbsp;${contact.getLName()}</a>
 	</h2>
 	</td>
+		<%-- <td>
+		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=e'"><%=inter.getLocale("edit",lang,"IN")%></button>
+		</td> --%>
+		<td><form action="<%=request.getContextPath()%>/deleteContact">
+			 <input type="submit" value="<%=inter.getLocale("delete",lang,"IN")%>" onclick="return confirm('Are you sure you want to delete?')" />
+			</form><br></td>
 		<td>
 		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=e'"><%=inter.getLocale("edit",lang,"IN")%></button>
-		</td>
-		<td>
-		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=d'"><%=inter.getLocale("delete",lang,"IN")%></button>
 		</td>
 		</tr>
 	</c:forEach>
 </table>
 
-<form action="jsp/Save.jsp">
+<form action="<%=request.getContextPath()%>/addContact">
  <button id="b1">+</button>
 </form>
 
