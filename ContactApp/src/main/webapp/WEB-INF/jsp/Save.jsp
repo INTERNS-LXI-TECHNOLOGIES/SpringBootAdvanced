@@ -49,7 +49,7 @@
 	</div>
 
 	<div >
-		<form action="<%=request.getContextPath()%>/addContact" method="post">
+		<form action="<%=request.getContextPath()%>/save" method="post">
 			<%=inter.getLocale("firstname",lang,"IN")%>:<input type="type" name="firstName" placeholder="enter first name to save"><br><br>
 			<%=inter.getLocale("lastname",lang,"IN")%>:<input type="type" name="lastName" placeholder="enter last name to save"><br><br>
 			<%=inter.getLocale("number",lang,"IN")%>:<input type="type" name="number" placeholder="enter name to save"><br><br>

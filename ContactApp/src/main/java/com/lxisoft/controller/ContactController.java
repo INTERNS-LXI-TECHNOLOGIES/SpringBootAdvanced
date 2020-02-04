@@ -38,7 +38,7 @@ public class ContactController
 		else if(type.equals("d"))
 		{
 			System.out.println("delete");
-			return "Delete";
+			return "redirect:/delete";
 		}
 		else
 		{
@@ -47,15 +47,27 @@ public class ContactController
 		}
 	}
 	
+	@RequestMapping(value="/delete")
+	public String edit(@RequestParam Contact contact)
+	{
+		service.deleteService(contact);
+		return "redirect:/showAll";
+	}
+	
 	@RequestMapping(value="/addContact")
+	public String save()
+	{
+		return "Save";
+	}
+	
+	@RequestMapping(value="/save")
 	public String save(@RequestParam String firstName,@RequestParam String lastName,@RequestParam String number)
 	{
-		System.out.println("ashiq");
 		Contact contact=new Contact();
 		contact.setFName(firstName);
 		contact.setLName(lastName);
 		contact.setNumber(number);
 		service.saveService(contact);
-		return "Save";
+		return "redirect:/showAll";
 	}
 }
