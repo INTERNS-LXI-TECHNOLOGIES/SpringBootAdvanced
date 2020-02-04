@@ -8,7 +8,7 @@
 			
 			<h3 align="center">CONTACT APPLICATION</h3>
 				<br>
-					<a href="view" ><img src="images/contacts.png" height="150px"  width="140px"></a>
+					<center><a href="view?page=1" ><img src="../resources/images/contacts.png" height="150px"; width="140px"></a>
 					
 		</body>
 </html>

@@ -8,8 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Controller;
+
 import com.lxisoft.domain.Contact;
 
+@Controller
 public class MysqlRepo implements Repository
 {
 
@@ -135,7 +138,7 @@ public class MysqlRepo implements Repository
 		}
 	}
 	
-	public ArrayList<Contact> getAllContacts()throws SQLException
+	public ArrayList<Contact> getAllContacts() throws SQLException
 	{
 		try
 		{

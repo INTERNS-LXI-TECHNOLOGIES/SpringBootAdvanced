@@ -2,8 +2,12 @@ package com.lxisoft.repository;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import org.springframework.stereotype.Controller;
+
 import com.lxisoft.domain.Contact;
 
+@Controller
 public interface Repository
 {
 public ArrayList<Contact> getAllContacts()throws SQLException;
