@@ -3,7 +3,14 @@ import com.lxisoft.domain.*;
 import com.lxisoft.repository.DbRepository;
 import com.lxisoft.service.ContactService;
 
+import java.io.IOException;
 import java.util.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -20,16 +27,18 @@ public class ContactController
 	public String findAll(Model model)
 	{
 		ArrayList<Contact> contactList=service.findAllService();
-		System.out.println("size=="+contactList.size());
+//		System.out.println("size=="+contactList.size());
 		model.addAttribute("list",contactList);
 	      return "ViewAll"; 
 	}
 	
 	@RequestMapping(value="/selectContact")
-	public String select(@RequestParam String selectId,@RequestParam String type,Model model)
+	public String select(@RequestParam String selectId,@RequestParam String type,Model model,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
 	{
 		Contact contact=service.findIdService(selectId);
 		model.addAttribute("contact",contact);
+		HttpSession session = request.getSession();
+		session.setAttribute("contact",contact);
 		if(type.equals("e"))
 		{
 			System.out.println("edit");
@@ -44,12 +53,15 @@ public class ContactController
 		{
 			System.out.println("select");
 			return "Select";
-		}
+		}	
 	}
 	
 	@RequestMapping(value="/delete")
-	public String edit(@RequestParam Contact contact)
+	public String edit(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
 	{
+		HttpSession session = request.getSession();
+		Contact contact=(Contact) session.getAttribute("contact");
+		System.out.println("gsdh=="+contact.getId());
 		service.deleteService(contact);
 		return "redirect:/showAll";
 	}

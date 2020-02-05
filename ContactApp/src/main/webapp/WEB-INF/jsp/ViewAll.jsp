@@ -72,14 +72,13 @@
 	<td>
 	<h2><a style="margin-left: 30px;" href="<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=s">
 	<img src="person.jpg" width="50" height="50">  ${contact.getFName()}&nbsp;${contact.getLName()}</a>
-	</h2>
+	</h2>	</td>
+	<td>
+	<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=e'"><%=inter.getLocale("edit",lang,"IN")%></button>
 	</td>
-		<td><form action="<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=d">
-			 <input type="submit" value="<%=inter.getLocale("delete",lang,"IN")%>" onclick="return confirm('Are you sure you want to delete?')" />
-			</form><br></td>
-		<td>
-		<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=e'"><%=inter.getLocale("edit",lang,"IN")%></button>
-		</td>
+	<td>
+	<button onclick="window.location.href='<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=d'"><%=inter.getLocale("delete",lang,"IN")%></button>
+	</td>
 		</tr>
 	</c:forEach>
 </table>
