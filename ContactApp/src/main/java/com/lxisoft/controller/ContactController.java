@@ -27,7 +27,6 @@ public class ContactController
 	public String findAll(Model model)
 	{
 		ArrayList<Contact> contactList=service.findAllService();
-//		System.out.println("size=="+contactList.size());
 		model.addAttribute("list",contactList);
 	      return "ViewAll"; 
 	}
