@@ -50,7 +50,7 @@
 
 <body style="background-color:#E6EC73;">
 	<div align="center">
-	<form action="..\editContact" method="post">
+	<form action="<%=request.getContextPath()%>/edit" method="post">
 			<%=inter.getLocale("firstname",lang,"IN")%>:<input type="type" name="firstName" placeholder="enter first name to save"><br><br>
 			<%=inter.getLocale("lastname",lang,"IN")%>:<input type="type" name="lastName" placeholder="enter last name to save"><br><br>
 			<%=inter.getLocale("number",lang,"IN")%>:<input type="type" name="number" placeholder="enter new name"><br><br>

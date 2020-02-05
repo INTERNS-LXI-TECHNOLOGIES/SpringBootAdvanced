@@ -132,7 +132,7 @@ public class DbRepository implements Repository
 	 *@param editModel contact to edit
 	 *@param tempEdit new contact detail
 	 */
-	public void edit(EditModel editModel,String[] tempEdit)
+	public void edit(Contact contact,String[] tempEdit)
 	{
 		try
 		{
@@ -140,7 +140,7 @@ public class DbRepository implements Repository
 			pu.setString(1,tempEdit[0]);
 			pu.setString(2,tempEdit[1]);
 			pu.setString(3,tempEdit[2]);
-			pu.setString(4,editModel.getContact().getId());
+			pu.setString(4,contact.getId());
 			pu.executeUpdate();
 		}
 		catch(SQLException e)

@@ -81,4 +81,7 @@ public class ContactController
 		service.saveService(contact);
 		return "redirect:/showAll";
 	}
+	
+	@RequestMapping(value="/edit" )
+	public String 
 }
