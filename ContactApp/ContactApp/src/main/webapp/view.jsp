@@ -32,8 +32,8 @@
 
 			 <a href="logout" style="float:right;"><fmt:message key="label.logout"/></a>
 
-			<% if (request.isUserInRole("manager"))  { %>
-			<a href="ContactAdd.jsp" ><img src="images/add1.png" height="40px"; width="40px";></a> 
+			<% if (request.isUserInRole("manager-gui"))  { %>
+			<a href="add" ><img src="images/add1.png" height="40px"; width="40px";></a> 
 			<% }
 			else { %>
 			<nav>

@@ -36,4 +36,10 @@ public class ContactServices
 	    ArrayList<ContactModel> contacts=contactlistmodel.getAllContacts();
 		return contacts;
 	}
+
+	public ArrayList<Contact> AddContacts() throws SQLException
+	{
+		ArrayList<Contact> contactList=repo.getAllContacts();
+		return contactList;
+	}
 }

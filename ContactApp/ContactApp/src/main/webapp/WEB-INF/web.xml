@@ -13,4 +13,45 @@
 		<servlet-name>ContactApp</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<security-constraint>
+      <web-resource-collection>
+         <web-resource-name>login</web-resource-name>
+         <url-pattern>/view</url-pattern>
+         <http-method>GET</http-method>
+         <http-method>POST</http-method>
+      </web-resource-collection>
+
+      <auth-constraint>
+         <description>
+            Let only admin use this app
+         </description>
+         <role-name>manager-gui</role-name>
+          <role-name>manager</role-name>
+         <role-name>user</role-name>
+         <role-name>guest</role-name>
+      </auth-constraint>
+</security-constraint>
+<security-role>
+      <role-name>manager</role-name>
+   </security-role>
+  <security-role>
+      <role-name>manager-gui</role-name>
+   </security-role>
+   
+    <security-role>
+      <role-name>user</role-name>
+   </security-role>
+   <security-role>
+      <role-name>guest</role-name>
+   </security-role>
+
+   <login-config>
+      <auth-method>FORM</auth-method>
+      <realm-name>login</realm-name>
+      <form-login-config>
+         <form-login-page>/Login.jsp</form-login-page>
+         <form-error-page>/Error.jsp</form-error-page>
+      </form-login-config>
+   </login-config>
+	
 </web-app>

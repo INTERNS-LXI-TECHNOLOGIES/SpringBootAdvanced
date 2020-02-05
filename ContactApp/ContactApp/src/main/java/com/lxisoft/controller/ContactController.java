@@ -37,8 +37,19 @@ public class ContactController
 	 }
 	 ArrayList<ContactModel> contactList=serv.getAllContacts();
 	 ModelAndView mv=new ModelAndView();
-		mv.setViewName("views/view.jsp");
+		mv.setViewName("view.jsp");
 		mv.addObject("contactmodel",contactList);
 	 return mv;
  }
+ 
+ 
+ @RequestMapping("/add")
+ public ModelAndView ContactAdd(HttpServletRequest request, HttpServletResponse response) throws SQLException
+ {
+	 ModelAndView mv=new ModelAndView();
+		mv.setViewName("ContactAdd.jsp");
+	 return mv;
+ }
+ 
+ 
 }
