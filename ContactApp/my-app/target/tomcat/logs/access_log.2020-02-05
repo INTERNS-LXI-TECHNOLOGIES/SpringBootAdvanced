@@ -1,0 +1,10 @@
+127.0.0.1 - - [05/Feb/2020:16:19:33 +0530] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [05/Feb/2020:16:19:38 +0530] "GET / HTTP/1.1" 404 - http-bio-8080-exec-2 0
+127.0.0.1 - - [05/Feb/2020:16:19:40 +0530] "GET / HTTP/1.1" 404 - http-bio-8080-exec-3 0
+127.0.0.1 - - [05/Feb/2020:16:19:45 +0530] "GET / HTTP/1.1" 404 - http-bio-8080-exec-5 0
+127.0.0.1 - - [05/Feb/2020:16:19:46 +0530] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-6 0
+127.0.0.1 - - [05/Feb/2020:16:44:03 +0530] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+127.0.0.1 - - [05/Feb/2020:16:44:03 +0530] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-2 0
+127.0.0.1 - - [05/Feb/2020:16:44:29 +0530] "GET /contactApp/index.jsp HTTP/1.1" 200 124 http-bio-8080-exec-4 776
+127.0.0.1 - - [05/Feb/2020:16:44:29 +0530] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-5 0
+127.0.0.1 - - [05/Feb/2020:16:54:49 +0530] "GET /contactApp/index.jsp HTTP/1.1" 200 124 http-bio-8080-exec-7 3
