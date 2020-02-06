@@ -66,9 +66,13 @@
 	
 <br>
 <table style="border: 0.5px solid #F4714D; background-color: #C4F48A; width: 35%;" align="center" tabindex="center ">
-		<tr><td><h1 style="text-align: center; color:initial;"><b>&emsp;&emsp;&emsp;&emsp;<%out.println(inter.getLocale("contacts",lang,"IN"));%></b></h1></td></tr>
+		<tr><td><h1 style="text-align: center; color:initial;"><b>&emsp;&emsp;&emsp;&emsp;<%out.println(inter.getLocale("contacts",lang,"IN"));
+		int count=0;%></b></h1></td></tr>
 	<c:forEach items="${list}" var="contact">
 	<tr>
+	<%
+	count++;
+	%>
 	<td>
 	<h2><a style="margin-left: 30px;" href="<%=request.getContextPath()%>/selectContact?selectId=${contact.getId()}&type=s">
 	<img src="person.jpg" width="50" height="50">  ${contact.getFName()}&nbsp;${contact.getLName()}</a>
@@ -86,7 +90,7 @@
 <form action="<%=request.getContextPath()%>/addContact">
  <button id="b1">+</button>
 </form>
-
+<div align="center" style="padding-top: 90px"><%out.println(inter.getLocale("total",lang,"IN"));%>: <%=count%></div>
 
 </body>
 </html>

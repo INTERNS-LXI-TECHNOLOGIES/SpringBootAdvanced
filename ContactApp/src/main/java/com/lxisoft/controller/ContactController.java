@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -41,7 +42,7 @@ public class ContactController
 		if(type.equals("e"))
 		{
 			System.out.println("edit");
-			return "Edit";
+			return "redirect:/editPage";
 		}
 		else if(type.equals("d"))
 		{
@@ -55,8 +56,14 @@ public class ContactController
 		}	
 	}
 	
+	@RequestMapping(value="/editPage")
+	public String editPage()
+	{
+		return "Edit";
+	}
+	
 	@RequestMapping(value="/delete")
-	public String edit(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
+	public String delete(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
 		Contact contact=(Contact) session.getAttribute("contact");
@@ -82,6 +89,17 @@ public class ContactController
 		return "redirect:/showAll";
 	}
 	
-	@RequestMapping(value="/edit" )
-	public String 
+	@RequestMapping(value="/edit", method = RequestMethod.POST )
+	public String edit(HttpServletRequest request,HttpServletResponse response,@RequestParam String firstName,@RequestParam String lastName,@RequestParam String number) throws ServletException, IOException
+	{
+		HttpSession session = request.getSession();
+		Contact contact=(Contact) session.getAttribute("contact");
+		System.out.println("gsdh=="+contact.getId());
+		String[] newContact = new String[3];
+		newContact[0]=firstName;
+		newContact[1]=lastName;
+		newContact[2]=number;
+		service.editService(contact,newContact);
+		return "redirect:/showAll";
+	}
 }

@@ -72,7 +72,7 @@
 			 <input type="submit" id="b1" value="<%=inter.getLocale("delete",lang,"IN")%>" onclick="return confirm('Are you sure you want to delete?')" />
 			</form><br>
 
-			<button id="b2" onclick="window.location.href='<%=request.getContextPath()%>/jsp/Edit.jsp'"><%=inter.getLocale("edit",lang,"IN")%></button><br><br><br><br><br><br><br>	
+			<button id="b2" onclick="window.location.href='<%=request.getContextPath()%>/editPage'"><%=inter.getLocale("edit",lang,"IN")%></button><br><br><br><br><br><br><br>	
 		<%-- <%
 	}
 	%> --%>
