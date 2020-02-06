@@ -1,0 +1,17 @@
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\model\SortByName.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\config\Localizer.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\repository\MysqlRepository.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\SearchContactServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\model\SortByNumber.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\SortContactServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\AddContactServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\LogoutServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\DeleteContactServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\EditContactServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\domain\Contact.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\LanguageSelectServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\model\ContactModel.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\model\SortById.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\ShowAllContactServlet.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\model\ContactListModel.java
+C:\Users\meharu\Desktop\ContactApp\src\main\java\com\lxisoft\servlet\GetContactByIdServlet.java
