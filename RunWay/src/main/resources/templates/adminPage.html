@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Admin</title>
+<style>
+table{
+border: 1px solid black;
+width: 80%;
+margin-left: 8%;
+}
+button{
+position: absolute;
+right: 15%;}
+th, td {
+  border: 1px solid black;
+}
+.btn{position: absolute;
+left: 15%}
+</style>
+</head>
+<body>
+<h3>Administration page</h3>
+<form th:action="@{${'/addDetails/'+ownerId}}"  method="get">
+<button>Add car</button>
+</form>
+<form th:action="@{${'/ownerProfile/'+ownerId}}"  method="get">
+<button class="btn">Profile</button>
+</form>
+ <br/><br/>
+        <div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Type</th>
+                    <th>Model</th>
+                    <th>Mileage</th>
+                    <th>Seats</th>
+                    <th>Price per Day</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr th:each ="vehicle : ${vehicles}">
+                    <td th:utext="${vehicle.id}">...</td>
+                    <td th:utext="${vehicle.type}">...</td>
+                    <td th:utext="${vehicle.model}">...</td>
+                    <td th:utext="${vehicle.mileage}">...</td>
+                    <td th:utext="${vehicle.seats}">...</td>
+                    <td th:utext="${vehicle.price}">...</td>
+                    <td><a th:href="@{/edit/{id}(id=${vehicle.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete/{id}(id=${vehicle.id})}">Delete</a></td>
+                </tr>
+            </table>          
+        </div>
+        <br/><br/>
+</body>
+</html>

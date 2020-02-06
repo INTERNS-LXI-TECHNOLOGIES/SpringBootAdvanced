@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>addDetails</title>
+</head>
+<body>
+<h3>Add Details</h3>
+<form th:action="@{/create/{ownerId}(ownerId=${vehicle.ownerId})}" th:object="${vehicle}" method="post">
+<table>
+	<tr>
+		<td><p>Please select:</p></td>
+	    <td><select th:field="*{type}">
+	    
+	    <option th:value="'Car'" th:text="Car"></option>
+	    <option th:value="'Bus'" th:text="Bus"></option>
+        </select></td>
+	</tr>
+	
+	<tr>
+		<td><label>Model:</label></td>
+		<td><input type="text" th:field="*{model}" id="model"></input></td>
+	</tr>
+
+	<tr>
+		<td><label>Mileage:</label></td>
+		<td><input type="text" th:field="*{mileage}" id="mileage"></input></td>
+	</tr>
+	
+	<tr>
+		<td><label>Seats:</label></td>
+		<td><input type="text" th:field="*{seats}" id="seats"></input></td>
+	</tr>
+	
+	<tr>
+		<td><label>Price Per Day:</label></td>
+		<td><input type="text" th:field="*{price}" id="price"></input></td>
+	</tr>
+<input type="hidden" th:field="*{ownerId}" id="ownerId"></input></td>
+</table>
+<button>Add</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css"	href="/CustomerHomeStyle.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type = "text/JavaScript" src = " https://MomentJS.com/downloads/moment.js"></script>	
+</head>
+<script>
+$(document).ready(function(){
+	var reader = new FileReader();
+	reader.onload = function(r_event) {
+	  document.getElementById('prev').setAttribute('src', r_event.target.result);
+	  
+	}
+
+	 
+	
+	
+$("#myop").click(function(){
+	var x=$("#myselect option:selected").text();
+	 	    
+	 var d = new Date();
+	 var curDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+	 var setDate=$('#datepicker').val();
+	 var date=setDate ;
+    console.log(setDate+" onnnn  "+curDate+"@:::"+date);
+   var v = $.get("/CustomerHome/"+x+"/"+date, function(data, status){
+	   var html = data;
+	    $("#area").html(html);
+      });
+    
+});
+	});
+</script>
+<body >
+<div class="header">
+ <h3>RENT VEHICLE</h3>
+ </div>
+<div class="uppercontainer">
+<div class="profileBox">
+<div id="dpbox">
+<img id="dp" th:src="@{${'/images/customer/'+user+'.jpeg'}}" alt="not be viewed" onerror=this.src="../images/customer/dCustomer.jpeg">
+</div>
+  <p >Welcome [[${user}]],</p>
+	<button type="button">Profile</button>
+	
+   </div>
+   </br>
+	<select id="myselect">
+   		 <option value="CAR" >CAR</option>
+   		 <option value="BUS" >BUS</option>
+    </select>
+	 <span>
+	 DATE:
+	<input type="date" id="datepicker"  /> 
+	</span>
+	 
+	<button type="button" id="myop">SUBMIT</button>
+	<h5>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h5>
+ 
+	 <div id="area"></div>
+	<h5>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h5>
+ <input type="file" name="file" />
+<img src="" id="prev" height="100px" width="100px"/>
+ 
+ 
+		 
+	</div>
+ 
+</body>
+</html>
