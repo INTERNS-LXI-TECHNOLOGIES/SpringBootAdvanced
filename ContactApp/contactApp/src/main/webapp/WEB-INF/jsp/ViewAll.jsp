@@ -46,11 +46,9 @@
 
 <h1><center><%=(lo.getWord("contactlist",lang,"IN"))%></center></h1>
 <body style="background-color: white">
-    <%
-	if(request.isUserInRole("admin"))
-	{%>
-	<a href="AddContact.jsp"><input type="submit" id="b2"name="submit" value="+" /></a>
-	<%}%>
+   
+	<a href="AddContact.jsp"><input type="submit" id="b2"name="submit" value="add" /></a>
+	
 	<form action= "sort" method="get">
 	<select name="sort">
     <option value="1"><%=(lo.getWord("byname",lang,"IN"))%></option>
@@ -89,8 +87,6 @@ for(int i=0;i<c.size();i++)
 </form>
 	</td>
 		<td>
-			<%if(request.isUserInRole("admin"))
-			{%>
 			<div class="w3-container">
 			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black"><%=(lo.getWord("delete",lang,"IN"))%></button>
 			<div id="id01" class="w3-modal">
@@ -112,7 +108,6 @@ for(int i=0;i<c.size();i++)
 				<input type="submit" id="b3" value="<%=(lo.getWord("edit",lang,"IN"))%>">
 				<input type="hidden" name="crud" value="3"/>
 			</form>
-			<%}%>
 		</td>
 	</tr>
 <%
