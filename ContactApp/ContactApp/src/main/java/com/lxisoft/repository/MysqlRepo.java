@@ -137,7 +137,29 @@ public class MysqlRepo implements Repository
 		   	System.out.println("Error: SQLSyntax error!"); 
 		}
 	}
-	
+	public ArrayList<Contact> getAllContacts(int start,int total)
+	{
+		try
+		{
+		contacts.clear();
+		stmt=con.prepareStatement("use contacts");
+
+			rs = stmt.executeQuery("select * from Contactlist limit "+(start-1)+","+total);
+			while(rs.next()) 
+			{ 
+				Contact	contact=new Contact();
+				contact.setId(rs.getInt("ID"));
+				contact.setFirstName(rs.getString("FIRSTNAME"));
+				contact.setLastName(rs.getString("LASTNAME"));
+				contact.setNo(rs.getString("NUMBER"));
+				contacts.add(contact);
+			}	
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return contacts;
+	}
 	public ArrayList<Contact> getAllContacts() throws SQLException
 	{
 		try
@@ -160,5 +182,155 @@ public class MysqlRepo implements Repository
 			e.printStackTrace();
 		}
 		return contacts;
+	}
+	public void addContactDetails(Contact contact)
+	{
+		contacts.add(contact);	
+		boolean val=false;
+		insertContactDetails(contact,val);
+	}
+
+	private void insertContactDetails(Contact contact, boolean tbexists)
+	{
+		try
+		{	
+			if(tbexists==false)
+			{
+				id=getId();
+				stmt=con.prepareStatement("insert into Contactlist values(?,?,?,?)");  
+				stmt.setInt(1,id);
+				stmt.setString (2,contact.getFirstName());
+				stmt.setString (3,contact.getLastName());
+				stmt.setString(4,contact.getNo());
+				stmt.executeUpdate();
+			}else
+			{
+				stmt=con.prepareStatement("insert into Contactlist values(?,?,?,?)");  
+				stmt.setInt(1,contact.getId());
+				stmt.setString (2,contact.getFirstName());
+				stmt.setString (3,contact.getLastName());
+				stmt.setString(4,contact.getNo());
+				stmt.executeUpdate();
+			}
+		}catch(SQLException ex) 
+		{ 
+	   		System.out.println(ex);
+	   		ex.printStackTrace();
+		}
+	}
+
+	public int getId()
+	{
+		try
+		{
+			id=0;
+			contacts=getAllContacts();
+			rs= stmt.executeQuery("select * from Contactlist");
+			while(rs.next()) 
+			{ 
+	 			int temp= rs.getInt("ID");
+	 			if(temp>id) id=temp;
+			}id++;
+		}catch(SQLException e)
+		{
+			System.out.println("Exception"+e);
+		}
+		return id;	
+	}
+	public void updateRepo(Contact contact)throws SQLException
+	{
+		try
+		{
+			stmt=con.prepareStatement("update Contactlist set firstname=?,lastname=?,number=? where id=?");
+			stmt.setString(1,contact.getFirstName());
+			stmt.setString(2,contact.getLastName());
+			stmt.setString(3,contact.getNo());
+			stmt.setInt(4,contact.getId());
+			stmt.executeUpdate();
+			System.out.println("contact updated");
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void clearRepository()throws SQLException
+	{
+		try
+		{
+			id=0;
+			stmt=con.prepareStatement("truncate table Contactlist");
+			stmt.executeUpdate();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void deleteContact(Contact contact)throws SQLException
+	{
+		try
+		{
+			stmt=con.prepareStatement("delete from Contactlist where id=?");
+			stmt.setInt(1,contact.getId());
+			stmt.executeUpdate();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	public void sortContactByFirstName()throws SQLException
+	{
+		try
+		{
+			contacts.clear();
+			stmt=con.prepareStatement("use contacts");
+			rs=stmt.executeQuery("select * from Contactlist ORDER BY FIRSTNAME");
+			while(rs.next()) 
+			{ 
+				Contact	contact=new Contact();
+				contact.setId(rs.getInt("ID"));
+				contact.setFirstName(rs.getString("FIRSTNAME"));
+				contact.setLastName(rs.getString("LASTNAME"));
+				contact.setNo(rs.getString("NUMBER"));
+				contacts.add(contact);
+			}
+			clearRepository();
+			for(Contact contact : contacts)
+			{
+				boolean val=true;
+				insertContactDetails(contact,val);
+			}
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void sortContactByLastName()throws SQLException
+	{
+		try
+		{
+			contacts.clear();
+			stmt=con.prepareStatement("use contacts");
+			rs=stmt.executeQuery("select * from Contactlist ORDER BY LASTNAME");
+			while(rs.next()) 
+			{ 
+				Contact	contact=new Contact();
+				contact.setId(rs.getInt("ID"));
+				contact.setFirstName(rs.getString("FIRSTNAME"));
+				contact.setLastName(rs.getString("LASTNAME"));
+				contact.setNo(rs.getString("NUMBER"));
+				contacts.add(contact);
+			}
+			clearRepository();
+			for(Contact contact : contacts)
+			{
+				boolean val=true;
+				insertContactDetails(contact,val);
+			}
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

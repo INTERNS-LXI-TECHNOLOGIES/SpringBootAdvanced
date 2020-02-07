@@ -15,10 +15,10 @@
 			<fmt:setLocale value="${currentlocale}" />
             <fmt:setBundle basename="messages"/>
 			<title> <fmt:message key="label.contacts"/> </title>
-			  <link rel="stylesheet" type="text/css" href="styles.css">
+			  <link rel="stylesheet" type="text/css" href="../styles.css">
 			   <script>
 						var beep=new Audio();
-						beep.src="sound2.wav";
+						beep.src="../sound2.wav";
 				</script>
 </head>
 <body>
@@ -58,7 +58,7 @@
 	  			<input type="submit" value="<fmt:message key='label.sort'/>"></center>
 
 	  		</form>
-  			<% if (request.isUserInRole("manager"))  { %>
+  			<% if (request.isUserInRole("manager-gui"))  { %>
 				<center> <button  type="button" onClick="window.location.href = 'DeleteAll';"><fmt:message key="label.deleteall"/></button></center>
 			<% }
 			else { %>
@@ -85,7 +85,7 @@
 					<tr>
 						<td><button class="button" type="button" onClick="window.location.href ='select?user=<%=contactmodel.getFullName()%>';"><%=contactmodel.getFullName()%>
 						</button></td>
-					<% if (request.isUserInRole("manager"))  { %>	
+					<% if (request.isUserInRole("manager-gui"))  { %>	
 						<td><button class="button" type="button" onClick="window.location.href='selectContact?select=<%=contactmodel.getId()%>';"><fmt:message key="label.edit"/></button></td>
 					<% }
 					else { %>
@@ -94,7 +94,7 @@
 					<% } %>
 
 
-					<% if (request.isUserInRole("manager"))  { %>	
+					<% if (request.isUserInRole("manager-gui"))  { %>	
 						<td><button class="button" type="button" onClick="window.location.href='selectContact?select=<%=contactmodel.getFullName()%>';"><fmt:message key="label.delete"/></button></td>
 					<% }
 					else { %>
@@ -106,7 +106,7 @@
 				<% } %>
 		</table></br>
 		
-		<center><button type="button" onClick="window.location.href='View?page=1'"><fmt:message key="label.refresh"/></button></br>
+		<center><button type="button" onClick="window.location.href='view?page=1'"><fmt:message key="label.refresh"/></button></br>
 		<!-- <% out.println("<fmt:message key='label.cnct'/>"+""+contactList.size());%> -->
 		<a href="view?page=1">1</a>  
 		<a href="view?page=2">2</a>  

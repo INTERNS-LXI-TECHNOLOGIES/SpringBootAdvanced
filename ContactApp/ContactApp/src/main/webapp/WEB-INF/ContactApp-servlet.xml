@@ -13,4 +13,11 @@
 	
 	<ctx:annotation-config></ctx:annotation-config>
 	<ctx:component-scan base-package="com.lxisoft"></ctx:component-scan>
+
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"/>
+		<property name="suffix" value=".jsp"/>	
+	</bean>
 	</beans>
