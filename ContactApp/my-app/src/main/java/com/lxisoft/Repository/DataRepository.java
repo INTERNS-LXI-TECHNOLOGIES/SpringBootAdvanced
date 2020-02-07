@@ -1,7 +1,5 @@
 package com.lxisoft.Repository;
 import com.lxisoft.Domain.Contact;
-import com.lxisoft.Model.SortName;
-import java.io.*;
 import java.util.*;
 import java.sql.*;
 public class DataRepository  

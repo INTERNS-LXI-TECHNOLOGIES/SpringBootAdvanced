@@ -3,11 +3,10 @@
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Servlet/update.java
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Domain/Contact.java
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Repository/Repository1.java
-/home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Servlet/Search.java
-/home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Servlet/Delete.java
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Model/ModelList.java
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Controller/Contact.java
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Servlet/AllContacts.java
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Repository/DataRepository.java
 /home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Servlet/Add.java
-/home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Model/SortName.java
+/home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Servlet/Search.java
+/home/jose/Desktop/mavenStudy/my-app/src/main/java/com/lxisoft/Servlet/Delete.java

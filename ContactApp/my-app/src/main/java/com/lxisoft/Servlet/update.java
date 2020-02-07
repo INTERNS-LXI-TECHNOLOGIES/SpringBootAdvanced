@@ -11,7 +11,6 @@ public class update extends HttpServlet
 {
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String number = request.getParameter("number");
