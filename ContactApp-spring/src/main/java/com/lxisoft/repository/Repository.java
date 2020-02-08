@@ -3,7 +3,6 @@ import java.util.*;
 import java.io.*;
 import com.lxisoft.servlet.*;
 import com.lxisoft.model.*;
-@SuppressWarnings("unused")
 public interface Repository
 {
 	public void sqlrepository();

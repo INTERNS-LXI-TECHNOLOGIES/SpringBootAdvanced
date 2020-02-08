@@ -3,7 +3,6 @@ package com.lxisoft.model;
 import java.util.Scanner;
 import com.lxisoft.servlet.*;
 
-@SuppressWarnings("unused")
 public class Contact //implements Comparable <Contact>
 {
 	public String firstname,number,lastname;
