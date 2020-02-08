@@ -30,6 +30,7 @@ public class ContactController
 		 @RequestMapping("/view")
 		 public ModelAndView getAllContactInfo(HttpServletRequest request, HttpServletResponse response) throws SQLException
 		 { 
+			 HttpSession session = request.getSession();
 			 String spageid=request.getParameter("page");  
 			 int pageid=Integer.parseInt(spageid);  
 			 int total=5;  
@@ -39,6 +40,7 @@ public class ContactController
 			       pageid=pageid*total+1;  
 			 }
 			 ArrayList<ContactModel> contactList=serv.getAllContacts(pageid,total);
+			 session.setAttribute("page",spageid);
 			 ModelAndView mv=new ModelAndView();
 				mv.setViewName("view");
 				mv.addObject("contactmodel",contactList);

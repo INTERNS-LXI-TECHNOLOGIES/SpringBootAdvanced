@@ -1,8 +1,10 @@
 package com.lxisoft.domain;
-
+import javax.persistence.*;
+@Entity
+@Table(name="contacts")
 public class Contact 
 {
-
+	@Column(name="ID")
 	private int id;
 	private String firstName;
 	private String lastName;

@@ -33,11 +33,11 @@
 			 <a href="logout" style="float:right;"><fmt:message key="label.logout"/></a>
 
 			<% if (request.isUserInRole("manager-gui"))  { %>
-			<a href="add" ><img src="images/add1.png" height="40px"; width="40px";></a> 
+			<a href="add" ><img src="images/add1.png" height="40px" width="40px"></a> 
 			<% }
 			else { %>
 			<nav>
-			<button type="button" onclick="beep.play(); Access_denied();"><img src="images/add.png" height="40px"; width="40px";>
+			<button type="button" onclick="beep.play(); Access_denied();"><img src="images/add1.png" height="40px" width="40px">
 			<% } %></button></nav>
 			<script>
 						function Access_denied(){
@@ -106,7 +106,7 @@
 				<% } %>
 		</table></br>
 		
-		<center><button type="button" onClick="window.location.href='view?page=1'"><fmt:message key="label.refresh"/></button></br>
+		<center><button type="button" onClick="window.location.href='view?page=1'"><fmt:message key="label.refresh"/></button><br>
 		<!-- <% out.println("<fmt:message key='label.cnct'/>"+""+contactList.size());%> -->
 		<a href="view?page=1">1</a>  
 		<a href="view?page=2">2</a>  

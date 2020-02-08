@@ -21,7 +21,7 @@
 	<center>
 				 <h3><fmt:message key="label.AddContacts"/> </h3>
 			</center>
-			</br></br> <a href="logout" style="float:right;"><fmt:message key="label.logout"/></a>
+			<br> <br> <a href="logout" style="float:right;"><fmt:message key="label.logout"/></a>
 
 			<% Contact contact =(Contact)request.getAttribute("contacts"); 
 			if(contact!=null) 
@@ -76,7 +76,6 @@
 	  					alert("it can't be blank you must fill it!");
 	  					return false;
 	  				}
-	    			 // x = document.getElementById("num1").value;
 					if (isNaN(ph) || ph.toString().length != 10)
 					{ 
 					 alert("invalid phno"); 
