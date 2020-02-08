@@ -51,8 +51,7 @@ Contact con=(Contact) request.getAttribute("getContactById");
 <center><%=(con.getContactLastName())%></center>
 <center><%=(con.getContactNumber())%></center>
 </font>
-<%if(request.isUserInRole("admin"))
-{%>
+
 <div class="w3-container">
 <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black"><%=(lo.getWord("deletecontact",lang,"IN"))%></button>
 <div id="id01" class="w3-modal">
@@ -69,6 +68,6 @@ Contact con=(Contact) request.getAttribute("getContactById");
     </div>
   </div>
 </div>
-<%}%>
+
 </body>
 </html>

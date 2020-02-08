@@ -47,7 +47,7 @@
 <h1><center><%=(lo.getWord("contactlist",lang,"IN"))%></center></h1>
 <body style="background-color: white">
    
-	<a href="AddContact.jsp"><input type="submit" id="b2"name="submit" value="add" /></a>
+	<a href="addcon"><input type="submit" id="b2"name="submit" value="add" /></a>
 	
 	<form action= "sort" method="get">
 	<select name="sort">

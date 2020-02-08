@@ -14,41 +14,38 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.lxisoft.repository.*;
+import com.lxisoft.service.ContactService;
 import com.lxisoft.model.*;
 import com.lxisoft.domain.*;
 @Controller
 public class ContactController
-{
+{  
+	private ContactService  serv;
 	@RequestMapping("/home")
-	public ModelAndView getAllContact()
+	public ModelAndView getAllContactInfo()
 	{
-		MysqlRepository dbrepo=new MysqlRepository();
-		List<Contact>contactList=dbrepo.findAllContact();
-		ContactListModel listModel=new ContactListModel();
-	
-		for(int i=0;i<contactList.size();i++)
-	    {
-	    	ContactModel contact=new ContactModel();
-	    	contact.setId(contactList.get(i).getContactId());
-	    	contact.setFirstName(contactList.get(i).getContactFirstName());
-	    	contact.setLastName(contactList.get(i).getContactLastName());
-	    	listModel.setContactListModel(contact);
-	    }
+		serv=new ContactService();
+		List<ContactModel> contact=serv.getAllContact();
 		ModelAndView view = new ModelAndView();
 		view.setViewName("ViewAll");
-		view.addObject("allContact",listModel.getContactListModel());
+		view.addObject("allContact",contact);
 		return view;
 	}
 	
+	@RequestMapping("/addcon")
+	public String createContact()
+	{
+		return "AddContact";
+	}
 	@RequestMapping(value ="/add", method = RequestMethod.POST)
 	public ModelAndView addContact(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{
+		serv=new ContactService();
 		Contact cont=new Contact();
 		cont.setContactFirstName(request.getParameter("first name"));
 		cont.setContactLastName(request.getParameter("last name"));
 		cont.setContactNumber(request.getParameter("number"));
-		MysqlRepository dbrepo=new MysqlRepository();
-		Contact c=dbrepo.saveContact(cont);
+		Contact c=serv.addContact(cont);
 		ModelAndView view = new ModelAndView();
 		view.setViewName("GetContactById");
 		view.addObject("getContactById",c);
@@ -57,10 +54,10 @@ public class ContactController
 	@RequestMapping("/getContact")
 	public String getContact(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{
-		MysqlRepository dbrepo=new MysqlRepository();
+		serv=new ContactService();
 		String id=request.getParameter("id");
 		int idd=Integer.parseInt(id);
-		Contact contact=dbrepo.findContactById(idd);
+		Contact contact=serv.getContact(idd);
 		request.setAttribute("getContactById",contact);
 		HttpSession session=request.getSession(); 
 		session.setAttribute("cont",contact);
@@ -73,5 +70,15 @@ public class ContactController
 			case "4":rd="DeleteContact"; break;
 		}
 		return rd;
+	}
+	@RequestMapping("/delete")
+	public String delete()
+	{
+		return "DeleteContact";
+	}
+	@RequestMapping("/editContact")
+	public String edit()
+	{
+		return "EditContact";
 	}
 }

@@ -16,7 +16,7 @@ session.setAttribute("langu",lang);
 Localizer lo=new Localizer();
 %>
 <center><img src="contactapp.jpg" width="10%" height="20%"></center>
-<a href="home"><h1><center><%=(lo.getWord("contactapp",lang,"IN"))%></center></h1></a>
+<a href="home"><center><%=(lo.getWord("contactapp",lang,"IN"))%></center></a>
 </body>
 </head>
 </html>
