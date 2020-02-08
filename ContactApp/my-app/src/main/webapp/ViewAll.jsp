@@ -2,6 +2,7 @@
 <%@page import="com.lxisoft.Model.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.io.*"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <html>
 <title>CONTACTS </title>
 <head>
@@ -42,29 +43,14 @@ tr:nth-child(even) {
 		  <input type="submit" value="SEARCH"></form>
 	
 
-<%
-ArrayList<Contact> c=(ArrayList<Contact>)request.getAttribute("contact");
-for(int i=0;i<c.size();i++)
-{
-%>
-	<tr>
-		 <td><%=(c.get(i).getId())%> </td>
-		 <td><%=(c.get(i).getName())%> </td>
-		  <td><%=(c.get(i).getNumber())%> </td>
-		  <%
-		  	Contact co=new Contact();
-		  	co=c.get(i);
-		  	session.setAttribute("contact",co);
-		    String urldel = "Delete?id=" + c.get(i).getId();
-		  %>
-		  <td><form action="Edit.jsp">
-		  	<input type="hidden" name="id" value="<%=(c.get(i).getId())%>">
-		  	<input type="submit" name="EDIT" value="EDIT"></form>
-		  <td><a href="<%=urldel%>"><h4>DELETE</h4></a>
-	</tr>
-<%
-}
-%>
+
+ <c:forEach items="${ArrayList}" var="contact">
+ 
+        <tr>
+          <td>${contact.getName()}<td>
+          <td>${contact.getId()}<td>
+        </tr>
+       </c:forEach> 
 </table>
 </body>
 </html>

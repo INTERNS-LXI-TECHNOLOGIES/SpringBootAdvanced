@@ -2,7 +2,9 @@ package com.lxisoft.Repository;
 import com.lxisoft.Domain.Contact;
 import java.util.*;
 import java.sql.*;
-public class DataRepository  
+
+
+public class DataRepository  implements Repository
 {
 
   public ArrayList <Contact> displayAll()
@@ -91,6 +93,11 @@ public class DataRepository
        
     }catch(Exception e){}
    }
+@Override
+public ArrayList<Contact> getFromFile() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }
 
 

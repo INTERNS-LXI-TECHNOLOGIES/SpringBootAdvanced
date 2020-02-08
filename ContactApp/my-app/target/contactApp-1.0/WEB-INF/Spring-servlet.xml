@@ -6,11 +6,13 @@
    http://www.springframework.org/schema/context 
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-   <context:component-scan base-package = "com.lxisoft.Controller" />
+   <context:component-scan base-package="com.lxisoft"/>
 
-   <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
       <property name = "prefix" value = "/" />
       <property name = "suffix" value = ".jsp" />
    </bean>
+   
+   <bean class="com.lxisoft.Repository.DataRepository"></bean>
 
 </beans>

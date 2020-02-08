@@ -1,5 +1,9 @@
 package com.lxisoft.Model;
 
+import java.util.ArrayList;
+
+import com.lxisoft.Domain.Contact;
+
 /*
 *Model class
 */
@@ -34,5 +38,9 @@ public class Model1
 	public int getId()
 	{
 		return this.id;
+	}
+	public void addAttribute(String string, ArrayList<Contact> contactList) {
+		// TODO Auto-generated method stub
+		
 	}
 }
