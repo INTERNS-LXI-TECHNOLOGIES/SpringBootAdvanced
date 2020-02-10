@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lxisoft.domain.Contact;
-import com.lxisoft.model.ContactListModel;
-import com.lxisoft.model.ContactModel;
 import com.lxisoft.repository.MysqlRepository;
 
 @Service 
@@ -15,21 +13,11 @@ import com.lxisoft.repository.MysqlRepository;
 public class ContactService {
 	
 	@Autowired
-	public List<ContactModel> getAllContact()
+	public List<Contact> getAllContact()
 	{
 		MysqlRepository dbrepo=new MysqlRepository();
 		List<Contact>contactList=dbrepo.findAllContact();
-		ContactListModel listModel=new ContactListModel();
-	
-		for(int i=0;i<contactList.size();i++)
-	    {
-	    	ContactModel contact=new ContactModel();
-	    	contact.setId(contactList.get(i).getContactId());
-	    	contact.setFirstName(contactList.get(i).getContactFirstName());
-	    	contact.setLastName(contactList.get(i).getContactLastName());
-	    	listModel.setContactListModel(contact);
-	    }
-		return listModel.getContactListModel();
+		return contactList;
 	}
 	public Contact addContact(Contact cont)
 	{
@@ -42,6 +30,17 @@ public class ContactService {
 		MysqlRepository dbrepo=new MysqlRepository();
 		Contact contact=dbrepo.findContactById(idd);
 		return contact;
+	}
+	public void deleteContact(int n)
+	{
+		MysqlRepository dbrepo=new MysqlRepository();
+		dbrepo.deleteContact(n);
+	}
+	public Contact editContact(int n,Contact cont)
+	{
+		MysqlRepository dbrepo=new MysqlRepository();
+		Contact con=dbrepo.updateContact(n,cont);
+		return con;
 	}
 
 }

@@ -58,7 +58,7 @@
   </select>
 </form>
 	<%
-	List<ContactModel> c=(List<ContactModel>) request.getAttribute("allContact");
+	List<Contact> c=(List<Contact>) request.getAttribute("allContact");
 	%>
 	<form action= "search" method="get">
 	<table align="center" border="1" width="10%" height="5%" >
@@ -78,11 +78,11 @@ for(int i=0;i<c.size();i++)
 {
 %>
 		<form action= "getContact" method="get">
-		<input type="hidden" name="id" value="<%=(c.get(i).getId())%>"/>
+		<input type="hidden" name="id" value="<%=(c.get(i).getContactId())%>"/>
 	<tr>
 		<td>
 			<img src="user-icon-jpg-13.jpg" width="20%" height="30%"> 
-		<input type="submit" id="b1" value="<%=(c.get(i).getFirstName())%>&nbsp;<%=(c.get(i).getLastName())%>"/>
+		<input type="submit" id="b1" value="<%=(c.get(i).getContactFirstName())%>&nbsp;<%=(c.get(i).getContactLastName())%>"/>
 		<input type="hidden" name="crud" value="2"/>
 </form>
 	</td>
@@ -95,7 +95,7 @@ for(int i=0;i<c.size();i++)
 			        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
 			        <p><%=(lo.getWord("theselectedcontactwillberemoved",lang,"IN"))%></p>
 			        <form action="delete" method ="get">
-						<input type="hidden" name="id" value="<%=(c.get(i).getId())%>">
+						<input type="hidden" name="id" value="<%=(c.get(i).getContactId())%>">
 						<input type="submit" value="<%=(lo.getWord("deletecontact",lang,"IN"))%>"/>
 					</form>
 					<a href="home"><%=(lo.getWord("cancel",lang,"IN"))%></a>
@@ -104,7 +104,7 @@ for(int i=0;i<c.size();i++)
 			  </div>
 			</div>
 			<form action= "getContact" method="get">
-				<input type="hidden" name="id" value="<%=(c.get(i).getId())%>"/>
+				<input type="hidden" name="id" value="<%=(c.get(i).getContactId())%>"/>
 				<input type="submit" id="b3" value="<%=(lo.getWord("edit",lang,"IN"))%>">
 				<input type="hidden" name="crud" value="3"/>
 			</form>

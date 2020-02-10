@@ -44,7 +44,7 @@
 Contact con=(Contact) request.getAttribute("getContactById");
 
 %>
-<a href="editContact"><input type="submit" id="b1" value="<%=(lo.getWord("edit",lang,"IN"))%>"></a><br><br><br>
+<a href="editCont"><input type="submit" id="b1" value="<%=(lo.getWord("edit",lang,"IN"))%>"></a><br><br><br>
 <font size="15">
 <center><img src="user-icon-jpg-12.jpg" width="10%" height="10%"> 
 <center><%=(con.getContactFirstName())%></center>
