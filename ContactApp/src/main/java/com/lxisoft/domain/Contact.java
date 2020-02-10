@@ -1,11 +1,29 @@
 package com.lxisoft.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "contacts")
 public class Contact implements Comparable<Contact>
 {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
+
+	@Column
 	private String firstName;
+
+	@Column
 	private String lastName;
-	private String number;
+
+	@Column
+	private String number;	
+	
 
 	public void setId(String id)
 	{

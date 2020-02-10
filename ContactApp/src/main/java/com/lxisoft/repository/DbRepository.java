@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 /**
  *Data base repository class
  */
-@org.springframework.stereotype.Repository
+
 public class DbRepository implements Repository
 {
 	static Logger log = Logger.getLogger(DbRepository.class);
@@ -40,7 +40,7 @@ public class DbRepository implements Repository
 	}
 	/**
 	 *find all contacts method
-	 *@return contact arraylist
+	 *@return contact contactList
 	 */
 	public ArrayList<Contact> findAll()
 	{
