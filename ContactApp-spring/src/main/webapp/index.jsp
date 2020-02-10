@@ -26,7 +26,7 @@
        
  <ul>
 
- <li><a href="Setlang?lang=en">eng</a></li>
+ <li><a href="Setlang?lang=en">English</a></li>
  <li><a href="Setlang?lang=fr">française</a></li>
  <li><a href="Setlang?lang=hd">हिंदी</a></li>
   <li><a href="Setlang?lang=ml">മലയാളം</a></li>
