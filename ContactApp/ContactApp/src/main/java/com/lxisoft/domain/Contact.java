@@ -2,7 +2,7 @@ package com.lxisoft.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="contacts")
+@Table(name="contactlist")
 public class Contact 
 
 {
