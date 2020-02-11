@@ -6,14 +6,19 @@ import java.util.*;
 import com.lxisoft.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ContactService
 {
+	{System.out.println("services");}
 	@Autowired
 	MysqlRepo repo;
+	
+	@Transactional
 	public List<Contact> findAllService()
 	{
+		repo.set();
 		return repo.findAll();
 	}
 	

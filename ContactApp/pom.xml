@@ -25,45 +25,54 @@
         </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.4.10.Final</version>
-</dependency>
-        
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>5.4.10.Final</version>
+		</dependency>
+       <!-- https://mvnrepository.com/artifact/org.junit/junit5-engine -->
+		<dependency>
+		    <groupId>org.junit</groupId>
+		    <artifactId>junit5-engine</artifactId>
+		    <version>5.0.0-ALPHA</version>
+		</dependency>
 
-        <!-- junit 5, unit test -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.3.1</version>
-            <scope>test</scope>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.25</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
-<dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>jstl</artifactId>
-    <version>1.2</version>
-</dependency>
-  
-        <!-- To compile JSP files -->
-        <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
-<!-- <dependency>
-    <groupId>org.apache.tomcat.embed</groupId>
-    <artifactId>tomcat-embed-jasper</artifactId>
-    <version>9.0.10</version>
-</dependency> -->
-
-
-
-      
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.25</version>
+		</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>5.2.2.RELEASE</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		  
+		        <!-- To compile JSP files -->
+		        <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+		<!-- <dependency>
+		    <groupId>org.apache.tomcat.embed</groupId>
+		    <artifactId>tomcat-embed-jasper</artifactId>
+		    <version>9.0.10</version>
+		</dependency> -->
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>3.2.4.RELEASE</version>
+		</dependency>
 
         <!-- for web servlet -->
         <dependency>
@@ -79,23 +88,42 @@
             <artifactId>spring-webmvc</artifactId>
             <version>5.2.3.RELEASE</version>
         </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-c3p0</artifactId>
+		    <version>5.4.10.Final</version>
+		</dependency>
+	        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-core</artifactId>
+		    <version>5.2.3.RELEASE</version>
+		</dependency>
+		 <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>5.2.2.RELEASE</version>
+	</dependency>
+<!--  <dependency>
+   <groupId>org.springframework</groupId>
+   <artifactId>spring-orm</artifactId>
+   <version>4.1.6.RELEASE</version>
+</dependency> -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 <dependency>
     <groupId>org.springframework</groupId>
-    <artifactId>spring-core</artifactId>
-    <version>5.2.3.RELEASE</version>
+    <artifactId>spring-orm</artifactId>
+    <version>5.2.2.RELEASE</version>
 </dependency>
-        
-        
+		         
     </dependencies>
+    
+    
     <build>
         <finalName>ContactApp</finalName>
         <plugins>
-            <!-- http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html -->
-            
-
-            <!-- Default is too old, update to latest to run the latest Spring 5 + jUnit 5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
