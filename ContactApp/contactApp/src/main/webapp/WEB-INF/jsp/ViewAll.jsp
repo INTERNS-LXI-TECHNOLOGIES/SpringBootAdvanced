@@ -5,6 +5,7 @@
 <%@page import="java.io.*"%>
 <%@page import="com.lxisoft.domain.*,com.lxisoft.config.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <html>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,62 +58,13 @@
     <input type="submit" name="submit" value="<%=(lo.getWord("sort",lang,"IN"))%>"/>
   </select>
 </form>
-	<%
-	List<Contact> c=(List<Contact>) request.getAttribute("allContact");
-	%>
-	<form action= "search" method="get">
-	<table align="center" border="1" width="10%" height="5%" >
-		<tr>
-			<td><input type="text" name="name" placeholder="<%=(lo.getWord("search",lang,"IN"))%>"/>
-		
-			<a href="search"><input type="submit" value="<%=(lo.getWord("submit",lang,"IN"))%>"></a></td>
-		</tr>
-	</table>
-</form>
-	<table align="center" width="60%"  border color= "blue" bgcolor="#3CBC8D">
-		<tr>
-			<th><%=(lo.getWord("contacts",lang,"IN"))%></th>
-		</tr>
-<%
-for(int i=0;i<c.size();i++)
-{
-%>
-		<form action= "getContact" method="get">
-		<input type="hidden" name="id" value="<%=(c.get(i).getContactId())%>"/>
-	<tr>
-		<td>
-			<img src="user-icon-jpg-13.jpg" width="20%" height="30%"> 
-		<input type="submit" id="b1" value="<%=(c.get(i).getContactFirstName())%>&nbsp;<%=(c.get(i).getContactLastName())%>"/>
-		<input type="hidden" name="crud" value="2"/>
-</form>
-	</td>
-		<td>
-			<div class="w3-container">
-			<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black"><%=(lo.getWord("delete",lang,"IN"))%></button>
-			<div id="id01" class="w3-modal">
-			    <div class="w3-modal-content">
-			      <div class="w3-container">
-			        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-			        <p><%=(lo.getWord("theselectedcontactwillberemoved",lang,"IN"))%></p>
-			        <form action="delete" method ="get">
-						<input type="hidden" name="id" value="<%=(c.get(i).getContactId())%>">
-						<input type="submit" value="<%=(lo.getWord("deletecontact",lang,"IN"))%>"/>
-					</form>
-					<a href="home"><%=(lo.getWord("cancel",lang,"IN"))%></a>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			<form action= "getContact" method="get">
-				<input type="hidden" name="id" value="<%=(c.get(i).getContactId())%>"/>
-				<input type="submit" id="b3" value="<%=(lo.getWord("edit",lang,"IN"))%>">
-				<input type="hidden" name="crud" value="3"/>
-			</form>
-		</td>
-	</tr>
-<%
-}
-%>
+	 <c:forEach var="c" items="${listContact}">
+	  <tr>
+ 
+        <td>${c.contactFirstName}</td>
+        <td>${c.contactLastName}</td>
+      </tr>
+            </c:forEach>
 <form action="Logout" method="post">
     <input type="submit" value="Logout">
 </form>

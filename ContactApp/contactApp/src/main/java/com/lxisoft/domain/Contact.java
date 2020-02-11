@@ -1,16 +1,27 @@
 package com.lxisoft.domain;
-import java.util.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  *pojo: class for set and get contact details
  */
+@Entity
+@Table(name = "contactlist")
 public class Contact
 {
 	/**
 	 *instance variables id, first name, last name and number
 	 */
+	@Id
+	@Column
 	private int contactId;
+	   @Column
 	private String contactFirstName;
+	   @Column
 	private String contactLastName;
+	   @Column
 	private String contactNumber;
 	/**
 	 *to set contact id
