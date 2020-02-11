@@ -1,0 +1,7 @@
+127.0.0.1 - - [10/Feb/2020:17:25:02 +0530] "GET /contactApp HTTP/1.1" 302 - http-bio-8089-exec-2 0
+127.0.0.1 - - [10/Feb/2020:17:25:03 +0530] "GET /contactApp/ HTTP/1.1" 200 124 http-bio-8089-exec-3 965
+127.0.0.1 - - [10/Feb/2020:17:25:04 +0530] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8089-exec-4 0
+127.0.0.1 - - [10/Feb/2020:17:25:09 +0530] "GET /contactApp/start HTTP/1.1" 404 983 http-bio-8089-exec-5 3
+127.0.0.1 - - [10/Feb/2020:17:25:09 +0530] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8089-exec-6 0
+127.0.0.1 - - [10/Feb/2020:17:25:13 +0530] "GET /contactApp/start HTTP/1.1" 404 983 http-bio-8089-exec-8 2
+127.0.0.1 - - [10/Feb/2020:17:25:17 +0530] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8089-exec-9 0

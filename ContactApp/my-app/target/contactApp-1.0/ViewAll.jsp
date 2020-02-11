@@ -2,7 +2,7 @@
 <%@page import="com.lxisoft.Model.*"%>
 <%@page import="java.util.*"%>
 <%@page import="java.io.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <html>
 <title>CONTACTS </title>
 <head>
@@ -44,11 +44,11 @@ tr:nth-child(even) {
 	
 
 
- <c:forEach items="${ArrayList}" var="contact">
+ <c:forEach items="${},${contacts}" var="contact">
  
         <tr>
-          <td><%<c:out value="${contact.getName()}" />%><td>
-          <td><%<c:out value="${contact.getId()}" />%><td>
+          <td>${contact.getName()}<td>
+          <td>${contact.getId()}<td>
         </tr>
        </c:forEach> 
 </table>

@@ -5,8 +5,9 @@ import java.io.*;
 import java.util.*;
 import com.lxisoft.Domain.*;
 import com.lxisoft.Repository.*;
-import javax.servlet.annotation.*;
-@WebServlet("/Search")
+
+/*import javax.servlet.annotation.*;
+@WebServlet("/Search")*/
 public class Search extends HttpServlet
 {
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException

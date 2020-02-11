@@ -44,11 +44,12 @@ tr:nth-child(even) {
 	
 
 
- <c:forEach items="${ArrayList}" var="contact">
+ <c:forEach items="${contacts}" var="contact">
  
         <tr>
-          <td>${contact.getName()}<td>
-          <td>${contact.getId()}<td>
+         <td>${contact.getId()}</td>
+          <td>${contact.getName()}</td>
+          <td>${contact.getNumber()}</td>
         </tr>
        </c:forEach> 
 </table>
