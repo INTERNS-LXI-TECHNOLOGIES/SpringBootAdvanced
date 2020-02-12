@@ -2,6 +2,7 @@ package com.lxisoft.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
@@ -37,26 +38,38 @@ public class ContactController {
 		return view;
 	}
 
-//	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
-//	{
-//		DataRepository drr = new DataRepository(); 
-//		List<Contact>contactList=drr.displayAll();
-//		request.setAttribute("contact",contactList);
-//		RequestDispatcher rd = request.getRequestDispatcher("ViewAll.jsp");
-//		rd.forward(request,response);
-//	}
-	
-	@RequestMapping("add")
-	public ModelAndView addContact(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+	@RequestMapping(value="add")
+	public void addContact(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{
 		Contact con=new Contact();
-		con.setName(request.getParameter("Name"));
-		con.setNumber(request.getParameter("Number"));
-		Contact c=drr.add(con);
-		ModelAndView view = new ModelAndView();
-		view.setViewName("GetContact");
-		view.addObject("getContact",c);
-		return view;
+		con.setName(request.getParameter("name"));
+		con.setNumber(request.getParameter("number"));
+        response.sendRedirect("start");
 	}
-    
-}
+	
+	@RequestMapping(value="Delete" )
+	public void deleteContact(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+	{   
+		String id = request.getParameter("id");
+		int i=Integer.parseInt(id);
+		drr.delete(i);
+		response.sendRedirect("start");
+		
+    }
+	
+	@RequestMapping(value="Edit", method =RequestMethod.POST)
+	public ModelAndView editContact(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+	{
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String number = request.getParameter("number");
+		int i=Integer.parseInt(id);
+		Contact c=drr.edit(i,name,number);
+	//	response.sendRedirect("start");
+		
+		ModelAndView view = new ModelAndView();
+		view.setViewName("Edit");
+		view.addObject("contacts",c);
+				return view;
+	}
+} 

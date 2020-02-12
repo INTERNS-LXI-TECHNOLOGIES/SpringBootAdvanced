@@ -42,16 +42,30 @@ tr:nth-child(even) {
 	  Name   : <input type="text" name="name"><br>
 		  <input type="submit" value="SEARCH"></form>
 	
+<%
+ArrayList<Contact> c=(ArrayList<Contact>)request.getAttribute("contacts");
+for(int i=0;i<c.size();i++)
+{
+%>
+	<tr>
+		 <td><%=(c.get(i).getId())%> </td>
+		 <td><%=(c.get(i).getName())%> </td>
+		  <td><%=(c.get(i).getNumber())%> </td>
+		  <%
+		  	Contact co=new Contact();
+		  	co=c.get(i);
+		  	session.setAttribute("contact",co);
+		    String urldel = "Delete?id=" + c.get(i).getId();
+		  %>
+		  <td><form action="Edit.jsp">
+		  	<input type="hidden" name="id" value="<%=(c.get(i).getId())%>">
+		  	<input type="submit" name="EDIT" value="EDIT"></form>
+		  <td><a href="<%=urldel%>"><h4>DELETE</h4></a>
+	</tr>
+<%
+}
+%>
 
-
- <c:forEach items="${contacts}" var="contact">
- 
-        <tr>
-         <td>${contact.getId()}</td>
-          <td>${contact.getName()}</td>
-          <td>${contact.getNumber()}</td>
-        </tr>
-       </c:forEach> 
 </table>
 </body>
 </html>
