@@ -1,20 +1,21 @@
 package com.lxisoft.domain;
 import javax.persistence.*;
 
+
 @Entity
 @Table(name="contactlist")
 public class Contact 
 
 {
 	@Id
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="ID")
 	private int id;
-	@Column(name="firstname")
+	@Column(name="FIRSTNAME")
 	private String firstName;
-	@Column(name="lastname")
+	@Column(name="LASTNAME")
 	private String lastName;
-	private String fullName;
-	@Column(name="phno")
+	@Column(name="NUMBER")
 	private String phno;
 	
 	public void setId(int id)
@@ -55,8 +56,9 @@ public class Contact
 	}
 	public boolean equals(Object obj)
 	{
+		String fullName=this.firstName+ " " +this.lastName;
 		Contact contact=(Contact)obj;
-		if(this.fullName.equals(contact.getFullName()))
+		if(fullName.equals(contact.getFullName()))
 			return true;
 		else return false;
 	}
