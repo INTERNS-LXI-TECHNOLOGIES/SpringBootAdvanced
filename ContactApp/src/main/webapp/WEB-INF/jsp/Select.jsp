@@ -43,10 +43,10 @@
 	MysqlRepo repository=new MysqlRepo();
 	ArrayList<Contact> contactList=new ArrayList<Contact>();
 	Contact c=null;
-	contactList=repository.findAll();
+	contactList=(ArrayList<Contact>)repository.findAll();
 	for(Contact contact:contactList)
 	{
-		if(contact.getId().equals(selectId))
+		if(contact.getId()==Integer.parseInt(selectId))
 			c=contact;
 	}
 	session.setAttribute("contact",c);

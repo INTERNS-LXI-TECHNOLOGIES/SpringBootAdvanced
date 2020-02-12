@@ -67,7 +67,6 @@ public class ContactController
 	{
 		HttpSession session = request.getSession();
 		Contact contact=(Contact) session.getAttribute("contact");
-		System.out.println("gsdh=="+contact.getId());
 		service.deleteService(contact);
 		return "redirect:/showAll";
 	}
