@@ -16,7 +16,7 @@ public class Add extends HttpServlet
 		contact.setFirstname(request.getParameter("firstname"));
 		contact.setLastname(request.getParameter("lastname"));
 		contact.setNumber(request.getParameter("number"));
-		rep.write(contact,true);
+		rep.write(contact);
 
 		System.out.println("contact saved"+contact.getFirstname());
 		RequestDispatcher rd = request.getRequestDispatcher("/Display");

@@ -52,7 +52,8 @@
 				
 			</tr>
 <% ArrayList<Contact> contactList=(ArrayList<Contact>) request.getAttribute("contactList");
-	
+	int n = contactList.size(); 
+	System.out.println(n);
 	for(Contact i : contactList)
 		{ %>
 			<b>
@@ -60,10 +61,8 @@
 
 			<tr style=" font-style:oblique;  ">
 			<td>
-				<a href="Select.jsp?temp=<%=i.getId()%>
-					&temp1=<%=i.getFirstname()%>
-					&temp2=<%=i.getLastname()%>
-					&temp3=<%=i.getNumber()%>">
+				
+					
 					
 					<input type="button" name="submit" value="<%=i.getFirstname()%> &nbsp;<%=i.getLastname()%>">
 				</a><br>

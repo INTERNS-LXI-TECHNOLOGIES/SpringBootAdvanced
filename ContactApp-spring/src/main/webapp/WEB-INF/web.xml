@@ -5,13 +5,12 @@
 	<!-- Add Spring MVC DispatcherServlet as front controller -->
 	<servlet>
         <servlet-name>spring</servlet-name>
-        <servlet-class>
-                org.springframework.web.servlet.DispatcherServlet
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
-       
+   
       
-    </servlet>
- 
+      
+    </servlet>	
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern> 

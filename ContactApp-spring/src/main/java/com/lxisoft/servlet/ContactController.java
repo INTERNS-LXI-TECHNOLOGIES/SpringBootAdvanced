@@ -1,37 +1,50 @@
+
 package com.lxisoft.servlet;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lxisoft.model.Contact;
-import com.lxisoft.repository.Repository;
+
 import com.lxisoft.sqlrepository.Sqlrepository;
 
+/**
+ * @author Admin
+ *
+ */
 @Controller
 
 public class ContactController
 {
-	Repository rep = (Repository) new Sqlrepository();
-	
-	@RequestMapping("/Display")
-	public ModelAndView doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException , IOException
-	{
-
+	Sqlrepository rep = new Sqlrepository();
+    @RequestMapping("/Display")
+	 public ModelAndView display()
+	 { 
+		 ArrayList <Contact> contactList = new ArrayList<Contact>();
+		 contactList= rep.read();
+		 ModelAndView model = new ModelAndView("Display");
+		 model.addObject("contactList", contactList);
+		 return model;
+	 }
+    @RequestMapping("/Add")
+    public ModelAndView Add(HttpServletRequest request, HttpServletResponse response)
+    {
+    	Contact contact = new Contact();
+		contact.setFirstname(request.getParameter("firstname"));
+		contact.setLastname(request.getParameter("lastname"));
+		contact.setNumber(request.getParameter("number"));
+		rep.write(contact);
 		ArrayList <Contact> contactList = new ArrayList<Contact>();
 		contactList= rep.read();
-		ModelAndView view=new ModelAndView();
-		view.setViewName("Display");
-		view.addObject("contactList",contactList);
-		return view;
-					
-	}
-}  
+		ModelAndView model = new ModelAndView("Display");
+		model.addObject("contactList", contactList);
+		return model;
+		
+    }
+}

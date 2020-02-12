@@ -9,7 +9,7 @@ import com.lxisoft.sqlrepository.*;
 
 public class Display extends HttpServlet
 {
-	Repository rep = (Repository) new Sqlrepository();
+	Repository rep =  (Repository) new Sqlrepository();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException , IOException
 	{
