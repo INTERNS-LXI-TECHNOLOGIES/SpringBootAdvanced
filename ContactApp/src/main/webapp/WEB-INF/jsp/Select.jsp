@@ -40,7 +40,7 @@
 
 	<%
 	String selectId=(String) request.getParameter("selectId");
-	Repository repository=new DbRepository();
+	MysqlRepo repository=new MysqlRepo();
 	ArrayList<Contact> contactList=new ArrayList<Contact>();
 	Contact c=null;
 	contactList=repository.findAll();

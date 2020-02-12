@@ -8,32 +8,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "contacts")
+@Table(name = "contactList")
 public class Contact implements Comparable<Contact>
 {
 	@Id
-	
-	
-	
-	
-	private String id;
+	@Column (name="ID")
+	@GeneratedValue(strategy = GenerationType.AUTO) 
+	private int id;
 
-	@Column
+	@Column(name=" FIRST_NAME")
 	private String firstName;
 
-	@Column
+	@Column (name="LAST_NAME")
 	private String lastName;
 
-	@Column
+	@Column (name="NUMBER")
 	private String number;	
 	
 
-	public void setId(String id)
+	public void setId(int id)
 	{
 		this.id=id;
 	} 
 
-	public String getId()
+	public int getId()
 	{
 		return id;
 	} 
