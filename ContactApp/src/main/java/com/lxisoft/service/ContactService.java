@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ContactService
 {
-	{System.out.println("services");}
 	@Autowired
 	MysqlRepo repo;
 	
@@ -35,13 +34,13 @@ public class ContactService
 //		return repo.sort(type);
 //	}
 //	
-//	public Contact findIdService(String id)
-//	{
-//		return repo.findId(id);
-//	}
-//	
-//	public void editService(Contact contact, String[] temp)
-//	{
-//		repo.edit(contact,temp);
-//	}
+	public Contact findIdService(String id)
+	{
+		return repo.findId(id);
+	}
+	
+	public void editService(Contact newcontact)
+	{
+		repo.edit(newcontact);
+	}
 }

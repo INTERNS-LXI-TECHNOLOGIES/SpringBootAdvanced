@@ -14,12 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ContactController 
 {
-	{System.out.println("controller");}
 	@Autowired
 	ContactService service;
 	
@@ -28,39 +28,39 @@ public class ContactController
 	{
 		ArrayList<Contact> contactList=service.findAllService();
 		model.addAttribute("list",contactList);
-		System.out.println(contactList.size());
 	      return "ViewAll"; 
 	}
 	
-//	@RequestMapping(value="/selectContact")
-//	public String select(@RequestParam String selectId,@RequestParam String type,Model model,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
-//	{
-//		Contact contact=service.findIdService(selectId);
-//		model.addAttribute("contact",contact);
-//		HttpSession session = request.getSession();
-//		session.setAttribute("contact",contact);
-//		if(type.equals("e"))
-//		{
-//			System.out.println("edit");
-//			return "redirect:/editPage";
-//		}
-//		else if(type.equals("d"))
-//		{
-//			System.out.println("delete");
-//			return "redirect:/delete";
-//		}
-//		else
-//		{
-//			System.out.println("select");
-//			return "Select";
-//		}	
-//	}
-//	
-//	@RequestMapping(value="/editPage")
-//	public String editPage()
-//	{
-//		return "Edit";
-//	}
+	@RequestMapping(value="/selectContact")
+	public String select(@RequestParam String selectId,@RequestParam String type,Model model,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
+	{
+		Contact contact=service.findIdService(selectId);
+		System.out.println("name$$$$$=="+contact.getFName()+contact.getLName());
+		model.addAttribute("contact",contact);
+		HttpSession session = request.getSession();
+		session.setAttribute("contact",contact);
+		if(type.equals("e"))
+		{
+			System.out.println("edit");
+			return "redirect:/editPage";
+		}
+		else if(type.equals("d"))
+		{
+			System.out.println("delete");
+			return "redirect:/delete";
+		}
+		else
+		{
+			System.out.println("select");
+			return "Select";
+		}	
+	}
+	
+	@RequestMapping(value="/editPage")
+	public String editPage()
+	{
+		return "Edit";
+	}
 	
 	@RequestMapping(value="/delete")
 	public String delete(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
@@ -88,18 +88,18 @@ public class ContactController
 		service.saveService(contact);
 		return "redirect:/showAll";
 	}
-//	
-//	@RequestMapping(value="/edit", method = RequestMethod.POST )
-//	public String edit(HttpServletRequest request,HttpServletResponse response,@RequestParam String firstName,@RequestParam String lastName,@RequestParam String number) throws ServletException, IOException
-//	{
-//		HttpSession session = request.getSession();
-//		Contact contact=(Contact) session.getAttribute("contact");
-//		System.out.println("gsdh=="+contact.getId());
-//		String[] newContact = new String[3];
-//		newContact[0]=firstName;
-//		newContact[1]=lastName;
-//		newContact[2]=number;
-//		service.editService(contact,newContact);
-//		return "redirect:/showAll";
-//	}
+	
+	@RequestMapping(value="/edit", method = RequestMethod.POST )
+	public String edit(HttpServletRequest request,HttpServletResponse response,@RequestParam String firstName,@RequestParam String lastName,@RequestParam String number) throws ServletException, IOException
+	{
+		HttpSession session = request.getSession();
+		Contact contact=(Contact) session.getAttribute("contact");
+		Contact newcontact=new Contact();
+		newcontact.setId(contact.getId());
+		newcontact.setFName(firstName);
+		newcontact.setLName(lastName);
+		newcontact.setNumber(number);
+		service.editService(newcontact);
+		return "redirect:/showAll";
+	}
 }
