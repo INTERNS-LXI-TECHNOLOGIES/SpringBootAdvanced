@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 /**
  *pojo: class for set and get contact details
  */
@@ -15,13 +17,13 @@ public class Contact
 	 *instance variables id, first name, last name and number
 	 */
 	@Id
-	@Column(name="ID")
+	 @GeneratedValue(strategy = GenerationType.AUTO)
 	private int contactId;
-	   @Column(name="FIRST_NAME")
-	private String contactFirstName;
-	   @Column(name="LAST_NAME")
+	   @Column
+	   private String contactFirstName;
+	   @Column
 	private String contactLastName;
-	   @Column(name="NUMBER")
+	   @Column
 	private String contactNumber;
 	/**
 	 *to set contact id

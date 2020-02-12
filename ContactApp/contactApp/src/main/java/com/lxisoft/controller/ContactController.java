@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lxisoft.domain.Contact;
@@ -22,6 +24,20 @@ public class ContactController
         model.addObject("listContact", listContact);
         model.setViewName("ViewAll");
         return model;
+    }
+    @RequestMapping(value = "/addcon", method = RequestMethod.GET)
+    public ModelAndView newContact(ModelAndView model) {
+    	Contact contact = new Contact();
+        model.addObject("contact", contact);
+        model.setViewName("AddContact");
+        return model;
+    }
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ModelAndView saveContact(@ModelAttribute Contact contact) {
+
+    	contactService.addContact(contact);
+    	
+         return new ModelAndView("redirect:/home");
     }
 //	@RequestMapping("/home")
 //	public ModelAndView getAllContactInfo()
