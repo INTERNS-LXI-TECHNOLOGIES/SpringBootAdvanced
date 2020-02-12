@@ -15,13 +15,13 @@ public class Contact
 	 *instance variables id, first name, last name and number
 	 */
 	@Id
-	@Column
+	@Column(name="ID")
 	private int contactId;
-	   @Column
+	   @Column(name="FIRST_NAME")
 	private String contactFirstName;
-	   @Column
+	   @Column(name="LAST_NAME")
 	private String contactLastName;
-	   @Column
+	   @Column(name="NUMBER")
 	private String contactNumber;
 	/**
 	 *to set contact id

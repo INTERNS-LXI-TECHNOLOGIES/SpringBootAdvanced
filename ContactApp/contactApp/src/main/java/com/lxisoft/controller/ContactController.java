@@ -16,7 +16,7 @@ public class ContactController
 	@Autowired
     private ContactService contactService;
  
-    @RequestMapping(value = "/")
+    @RequestMapping("/home")
     public ModelAndView listContact(ModelAndView model) throws IOException {
         List<Contact> listContact = contactService.getAllContact();
         model.addObject("listContact", listContact);

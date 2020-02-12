@@ -17,12 +17,12 @@ public class ContactServiceImp implements ContactService{
     private ContactDAO contactDAO;
 	
 	@Override
-    @Transactional
+    
     public void addContact(Contact contact) {
 		contactDAO.addContact(contact);
     }
 	@Override
-    @Transactional
+
 	public List<Contact> getAllContact()
 	{
 		return contactDAO.getAllContact();
