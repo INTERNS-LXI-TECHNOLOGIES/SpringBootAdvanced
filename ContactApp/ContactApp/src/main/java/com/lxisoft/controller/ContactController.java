@@ -232,6 +232,24 @@ public class ContactController
 				 return "redirect:/view?page=1";
 		 }
 		 
-	 
+		 @RequestMapping("/logout")
+		 public String userLogout(HttpServletRequest request, HttpServletResponse response) throws SQLException 
+		 {
+			 HttpSession session=request.getSession();
+	         session.invalidate();
+	         session=request.getSession(false);
+			 return "redirect:/view?page=1";
+			
+		 }
+		 
+		 @RequestMapping("/lang")
+		 public String languageSelector(HttpServletRequest request, HttpServletResponse response) throws SQLException 
+		 {
+			 HttpSession session=request.getSession();
+			 String lang= request.getParameter("lang");
+		     session.setAttribute("currentlocale",lang);
+			 return "redirect:/view?page=1";
+			
+		 }
 		 
 }

@@ -51,11 +51,11 @@ public class ContactServiceImpl implements ContactService
 		return null;
 	}
 
-//	@Override
-//	public void clearRepository() {
-//		repo.deleteAllContacts();
-//		
-//	}
+	@Override
+	public void clearRepository() {
+		repo.deleteAllContacts();
+		
+	}
 
 
 

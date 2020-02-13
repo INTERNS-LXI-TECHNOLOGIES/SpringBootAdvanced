@@ -14,7 +14,7 @@ public interface ContactService
 	  
 	  public Contact getContact(int id);  
 	  public Contact updateContact(Contact contact);
-//
-//	public void clearRepository();
+
+	public void clearRepository();
 	 
 }

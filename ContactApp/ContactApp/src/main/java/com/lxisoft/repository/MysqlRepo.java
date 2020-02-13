@@ -48,6 +48,12 @@ public class MysqlRepo implements MysqlRepository
 		return contact;
 	}
 
+	@Override
+	public void deleteAllContacts() {
+		sessionFactory.getCurrentSession().createSQLQuery ("truncate table contactlist"). executeUpdate ();
+		
+	}
+
 
 
 }

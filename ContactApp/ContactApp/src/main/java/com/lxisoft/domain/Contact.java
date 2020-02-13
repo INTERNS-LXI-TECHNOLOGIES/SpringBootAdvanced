@@ -8,7 +8,7 @@ public class Contact
 
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	@Column(name="ID")
 	private int id;
 	@Column(name="FIRSTNAME")
