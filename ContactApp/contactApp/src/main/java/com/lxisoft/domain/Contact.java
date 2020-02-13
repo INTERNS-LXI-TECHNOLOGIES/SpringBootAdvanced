@@ -1,23 +1,25 @@
 package com.lxisoft.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  *pojo: class for set and get contact details
  */
 @Entity
 @Table(name = "contactlist")
-public class Contact
+public class Contact implements Serializable
 {
 	/**
 	 *instance variables id, first name, last name and number
 	 */
 	@Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int contactId;
 	   @Column
 	   private String contactFirstName;

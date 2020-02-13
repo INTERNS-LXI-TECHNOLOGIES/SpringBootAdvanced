@@ -22,4 +22,23 @@ public class ContactDAOImp implements ContactDAO {
         return sessionFactory.getCurrentSession().createQuery("from Contact")
                 .list();
     }
+    @Override
+    public void deleteContact(Integer contactId) {
+       Contact contact = (Contact) sessionFactory.getCurrentSession().load(
+                Contact.class, contactId);
+        if (null != contact) {
+            this.sessionFactory.getCurrentSession().delete(contact);
+        }
+    }
+    public Contact getContact(int contactId) 
+    {
+        return (Contact) sessionFactory.getCurrentSession().get(
+                Contact.class, contactId);
+    }
+    @Override
+    public Contact updateContact(Contact contact) {
+        sessionFactory.getCurrentSession().update(contact);
+        return contact;
+    }
+    
 }

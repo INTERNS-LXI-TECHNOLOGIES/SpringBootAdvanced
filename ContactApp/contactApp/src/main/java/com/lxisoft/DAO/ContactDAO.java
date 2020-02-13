@@ -8,4 +8,7 @@ public interface ContactDAO {
 
 	public void addContact(Contact contact);
 	public List<Contact> getAllContact();
+	public void deleteContact(Integer contactId);
+	public Contact getContact(int contactId);
+	public Contact updateContact(Contact contact);
 }

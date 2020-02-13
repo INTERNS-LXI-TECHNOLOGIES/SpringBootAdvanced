@@ -18,7 +18,7 @@
 <body>
 <a href="home"><input type="button" id="b2" value="<--"></a>
 <%
-Contact con=(Contact) request.getAttribute("getContactById");
+Contact con=(Contact) request.getAttribute("contact");
 
 %>
 <font size="15">

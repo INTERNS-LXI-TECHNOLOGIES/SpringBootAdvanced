@@ -3,6 +3,8 @@ package com.lxisoft.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,15 +31,35 @@ public class ContactController
     public ModelAndView newContact(ModelAndView model) {
     	Contact contact = new Contact();
         model.addObject("contact", contact);
-        model.setViewName("AddContact");
+        model.setViewName("AddorEditContact");
         return model;
     }
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView saveContact(@ModelAttribute Contact contact) {
-
+    	if (contact.getContactId() == 0)
+    	{
     	contactService.addContact(contact);
-    	
-         return new ModelAndView("redirect:/home");
+    	}
+    	else
+    	{
+    		contactService.updateContact(contact);
+    	}
+    	 return new ModelAndView("redirect:/home");
+    }
+    @RequestMapping(value = "/deleteContact", method = RequestMethod.GET)
+    public ModelAndView deleteContact(HttpServletRequest request) {
+        int contactId = Integer.parseInt(request.getParameter("contactId"));
+        contactService.deleteContact(contactId);
+        return new ModelAndView("redirect:/home");
+    }
+    @RequestMapping(value = "/editContact", method = RequestMethod.GET)
+    public ModelAndView editContact(HttpServletRequest request) {
+        int contactId = Integer.parseInt(request.getParameter("contactId"));
+        Contact contact= contactService.getContact(contactId);
+        ModelAndView model = new ModelAndView("AddorEditContact");
+        model.addObject("contact", contact);
+ 
+        return model;
     }
 //	@RequestMapping("/home")
 //	public ModelAndView getAllContactInfo()

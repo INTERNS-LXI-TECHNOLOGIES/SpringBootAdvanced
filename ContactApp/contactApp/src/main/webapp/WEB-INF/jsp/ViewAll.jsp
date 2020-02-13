@@ -22,12 +22,16 @@
  
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Action</th>
           
 	 <c:forEach var="c" items="${listContact}">
 	  <tr>
  
         <td>${c.contactFirstName}</td>
         <td>${c.contactLastName}</td>
+        <td>
+        <a href="deleteContact?contactId=${c.contactId}">Delete</a>
+        <a href="editContact?contactId=${c.contactId}">edit</a></td>
       </tr>
             </c:forEach>
 <form action="Logout" method="post">

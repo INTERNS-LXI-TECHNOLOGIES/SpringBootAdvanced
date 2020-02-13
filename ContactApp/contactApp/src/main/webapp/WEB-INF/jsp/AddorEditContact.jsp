@@ -9,7 +9,7 @@
         <h1>New/Edit Contact</h1>
         <form:form action="add" method="post" modelAttribute="contact">
         <table>
-            
+             <form:hidden path="contactId"/>
             <tr>
                 <td>First Name:</td>
                 <td><form:input path="contactFirstName" /></td>
