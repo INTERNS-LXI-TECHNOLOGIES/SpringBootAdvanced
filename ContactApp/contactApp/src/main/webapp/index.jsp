@@ -5,7 +5,18 @@
 <head>
 <title>CONTACT APP</title>
 <body>
-<a href="home"><center>contactapp</center></a>
+<a href="?lang=en">English</a>
+<a href="?lang=ml">Malayalam</a>
+<%
+String lang=request.getParameter("lang");
+if(lang==null)
+{
+ lang="en";
+}
+session.setAttribute("langu",lang);
+Localizer lo=new Localizer();
+%>
+<a href="home"><center><%=(lo.getWord("contactapp",lang,"IN"))%></center></a>
 </body>
 </head>
 </html>
