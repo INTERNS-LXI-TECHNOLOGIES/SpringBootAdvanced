@@ -1,7 +1,7 @@
 package com.lxisoft.repository;
 import java.util.*;
 import java.io.*;
-import com.lxisoft.servlet.*;
+import com.lxisoft.controller.*;
 import com.lxisoft.model.*;
 public interface Repository
 {

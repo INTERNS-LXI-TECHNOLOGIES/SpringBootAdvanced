@@ -1,4 +1,4 @@
-package com.lxisoft.servlet;
+package com.lxisoft.controller;
 import java.util.*;
 import javax.servlet.http.*;
 import javax.servlet.*;

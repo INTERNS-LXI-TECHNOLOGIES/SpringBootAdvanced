@@ -1,7 +1,7 @@
 package com.lxisoft.sqlrepository;
 import com.lxisoft.model.*;
 import java.util.*;
-import com.lxisoft.servlet.*;
+import com.lxisoft.controller.*;
 import java.sql.*;
 import java.io.*;
 public class Sqlrepository
@@ -36,7 +36,7 @@ public class Sqlrepository
 	     	stmnt = con.prepareStatement("insert into contact (firstname,lastname,number)values(?,?,?)");
 			stmnt.setString(1,contact.getFirstname());
 			stmnt.setString(2,contact.getLastname());
-			stmnt.setString(2,contact.getNumber());
+			stmnt.setString(3,contact.getNumber());
 			
 			stmnt.executeUpdate();
 		
@@ -46,6 +46,7 @@ public class Sqlrepository
 	    	System.out.println(e);
 	    }
 	}
+	
 	public ArrayList <Contact> read()
 	{
 		try

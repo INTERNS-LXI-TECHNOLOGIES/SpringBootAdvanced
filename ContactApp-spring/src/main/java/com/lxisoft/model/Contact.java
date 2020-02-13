@@ -1,7 +1,7 @@
 package com.lxisoft.model;
 //import com.lxisoft.controller.*;
 import java.util.Scanner;
-import com.lxisoft.servlet.*;
+import com.lxisoft.controller.*;
 
 public class Contact //implements Comparable <Contact>
 {

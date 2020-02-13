@@ -32,7 +32,7 @@
 </head>
 <body button style ="background: lightgreen">
 
-<%@page import = "com.lxisoft.servlet.*"%>
+<%@page import = "com.lxisoft.controller.*"%>
 <%@page import = "com.lxisoft.repository.*"%>
 <%@page import = "com.lxisoft.sqlrepository.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%>
@@ -61,13 +61,16 @@
 
 			<tr style=" font-style:oblique;  ">
 			<td>
-				
+				<a href="Select.jsp?temp=<%=i.getId()%>
+					&temp1=<%=i.getFirstname()%>
+					&temp2=<%=i.getLastname()%>
+					&temp3=<%=i.getNumber()%>">
 					
 					
 					<input type="button" name="submit" value="<%=i.getFirstname()%> &nbsp;<%=i.getLastname()%>">
 				</a><br>
 
-	<% if (request.isUserInRole("admin")) 
+	<% 
 	{ %>
    			<button class="button" onclick=" window.location.href='Update.jsp?id=<%=i.getId()%>'"><fmt:message key="label.edit" />&nbsp; 
 
@@ -89,6 +92,6 @@
 </center>
 </body>
 <footer>
-	<a href="Logout.jsp"> LOGOUT </a>
+	<!-- <a href="Logout.jsp"> LOGOUT </a> -->
 </footer>
 </html>

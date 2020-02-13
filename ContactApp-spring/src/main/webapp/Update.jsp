@@ -10,14 +10,13 @@
 
 <head>
 	<title>
-		
-		
+		Update		
 	</title>
 </head>
 <body style="background:  lightblue">
   
    
-<%@page import = "com.lxisoft.servlet.*"%>
+<%@page import = "com.lxisoft.controller.*"%>
 <%@page import = "com.lxisoft.repository.*"%>
 <%@page import = "com.lxisoft.sqlrepository.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%>

@@ -22,7 +22,7 @@
 </head>
 
 <body style="background: lightblue">
-<%@page import = "com.lxisoft.servlet.*"%>
+<%@page import = "com.lxisoft.controller.*"%>
 <%@page import = "com.lxisoft.repository.*"%>
 <%@page import = "com.lxisoft.sqlrepository.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%>
@@ -58,7 +58,8 @@
 </table>
 <center>
 
-	<% if (request.isUserInRole("admin")) 
+	<% 
+	// if (request.isUserInRole("admin")) 
 	{ %>
 		   	<br><a href="Update.jsp?id=<%=temp%>"><input type="button" name="" value="EDIT">  </a> <br><br>
 			<a href="Delete.jsp?id=<%=temp%>"><input type="button" name="" value=" DELETE">  </a>
