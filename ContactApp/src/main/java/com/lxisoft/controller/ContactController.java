@@ -56,6 +56,12 @@ public class ContactController
 		}	
 	}
 	
+	@RequestMapping(value="/selectpage")
+	public String selectpage()
+	{
+		return "Select";
+	}
+	
 	@RequestMapping(value="/editPage")
 	public String editPage()
 	{

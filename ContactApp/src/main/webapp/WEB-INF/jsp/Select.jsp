@@ -5,6 +5,8 @@
 <%@page import="com.lxisoft.model.*"%>
 <%@page import="com.lxisoft.repository.*"%>
 <%@page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
   <%
 	String lang=(String)session.getAttribute("lang");
@@ -37,31 +39,17 @@
 	<div>
 		<button id="b4" onclick="window.location.href='<%=request.getContextPath()%>/index.jsp'"><%out.println(inter.getLocale("close",lang,"IN"));%>(X)</button>
 	</div>
-
-	<%
-	String selectId=(String) request.getParameter("selectId");
-	MysqlRepo repository=new MysqlRepo();
-	ArrayList<Contact> contactList=new ArrayList<Contact>();
-	Contact c=null;
-	contactList=(ArrayList<Contact>)repository.findAll();
-	for(Contact contact:contactList)
-	{
-		if(contact.getId()==Integer.parseInt(selectId))
-			c=contact;
-	}
-	session.setAttribute("contact",c);
-	%>
-
+	
 	<div align="center">
 		<h2 style="margin: 47px;">
 			<img src="<%=request.getContextPath()%>/person.jpg" width="135" height="135">
 		</h2>
 	</div>
 	<div align="center">
-		<h1><%=inter.getLocale("id",lang,"IN")%>: <%=c.getId()%></h1>
-		<h1><%=inter.getLocale("firstname",lang,"IN")%>: <%=c.getFName()%></h1>
-		<h1><%=inter.getLocale("lastname",lang,"IN")%>: <%=c.getLName()%></h1>
-		<h1><%=inter.getLocale("number",lang,"IN")%>: <%=c.getNumber()%></h1> 
+		<h1><%=inter.getLocale("id",lang,"IN")%>: ${contact.getId()}</h1>
+		<h1><%=inter.getLocale("firstname",lang,"IN")%>: ${contact.getFName()}</h1>
+		<h1><%=inter.getLocale("lastname",lang,"IN")%>: ${contact.getLName()}</h1>
+		<h1><%=inter.getLocale("number",lang,"IN")%>: ${contact.getNumber()}</h1> 
 	</div>
 
 	<div align="center"> 
