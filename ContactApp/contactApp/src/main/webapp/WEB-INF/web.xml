@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
 
-<web-app xmlns="http://java.sun.com/xml/ns/javaee">
+
+<web-app>
   <!-- <display-name>Archetype Created Web Application</display-name>  
   <init-param>
  		<param-name>contextConfigLocation</param-name>
@@ -18,4 +18,27 @@
 	<servlet-name>contact</servlet-name>
 	<url-pattern>/</url-pattern>
 </servlet-mapping>
+
+	<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>contact</web-resource-name>
+        <url-pattern>/</url-pattern>
+        <http-method>GET</http-method>
+        <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+        
+        <role-name>admin</role-name>
+   
+     </auth-constraint>
+</security-constraint>
+   
+   <security-role>
+    <role-name>admin</role-name>
+   </security-role>
+
+   <login-config>
+      <auth-method>BASIC</auth-method>
+   </login-config>
+
 </web-app>
