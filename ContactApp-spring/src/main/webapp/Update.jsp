@@ -18,7 +18,6 @@
    
 <%@page import = "com.lxisoft.controller.*"%>
 <%@page import = "com.lxisoft.repository.*"%>
-<%@page import = "com.lxisoft.sqlrepository.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%>
 <form action="Update" method="get">
     <%

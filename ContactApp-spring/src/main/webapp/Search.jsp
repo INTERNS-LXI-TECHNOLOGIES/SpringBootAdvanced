@@ -33,7 +33,6 @@
 
 <%@page import = "com.lxisoft.controller.*"%>
 <%@page import = "com.lxisoft.repository.*"%>
-<%@page import = "com.lxisoft.sqlrepository.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%><br><br>
 
  <%String lang=(String)session.getAttribute("locallang");

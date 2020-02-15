@@ -1,4 +1,4 @@
-package com.lxisoft.sqlrepository;
+package com.lxisoft.repository;
 import com.lxisoft.model.*;
 import java.util.*;
 import com.lxisoft.controller.*;

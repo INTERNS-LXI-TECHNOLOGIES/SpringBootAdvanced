@@ -16,7 +16,6 @@
    
 <%@page import = "com.lxisoft.controller.*"%>
 <%@page import = "com.lxisoft.repository.*"%>
-<%@page import = "com.lxisoft.sqlrepository.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%>
 <%String lang=(String)session.getAttribute("locallang");%>
 <form action="Add" method="get">

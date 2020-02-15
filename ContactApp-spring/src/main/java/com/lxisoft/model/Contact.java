@@ -1,13 +1,36 @@
 package com.lxisoft.model;
-//import com.lxisoft.controller.*;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Scanner;
 import com.lxisoft.controller.*;
 
+@Entity
+@Table(name = "contact")
 public class Contact //implements Comparable <Contact>
 {
-	public String firstname,number,lastname;
-	public int id;
+//	public String firstname,number,lastname;
+//	public int id;
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public int id;
+ 
+    @Column
+    public String firstname;
+ 
+    @Column
+    public String number;
+ 
+    @Column
+    public String lastname;
+ 
+    
 	public void setFirstname(String firstname)
 	{
 		this.firstname= firstname;

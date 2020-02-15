@@ -1,9 +1,9 @@
 
-package com.lxisoft.servlet;
+package com.lxisoft.controller;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
+import com.lxisoft.dao.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,9 +11,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lxisoft.model.Contact;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lxisoft.sqlrepository.Sqlrepository;
+import com.lxisoft.model.Contact;
+import com.lxisoft.service.ContactService;
 
 /**
  * @author Admin
@@ -23,12 +29,14 @@ import com.lxisoft.sqlrepository.Sqlrepository;
 
 public class ContactController
 {
-	Sqlrepository rep = new Sqlrepository();
+	@Autowired
+	ContactService service;
+	
     @RequestMapping("/Display")
 	 public ModelAndView display()
 	 { 
 		 ArrayList <Contact> contactList = new ArrayList<Contact>();
-		 contactList= rep.read();
+		 contactList= service.display();
 		 ModelAndView model = new ModelAndView("Display");
 		 model.addObject("contactList", contactList);
 		 return model;
@@ -40,10 +48,10 @@ public class ContactController
 		contact.setFirstname(request.getParameter("firstname"));
 		contact.setLastname(request.getParameter("lastname"));
 		contact.setNumber(request.getParameter("number"));
-		rep.write(contact);
+		service.add(contact);
 		System.out.println("contact saved"+contact.getFirstname());
 		ArrayList <Contact> contactList = new ArrayList<Contact>();
-		contactList= rep.read();
+		contactList= service.display();
 		ModelAndView model = new ModelAndView("Display");
 		model.addObject("contactList", contactList);
 		return model;
@@ -53,9 +61,9 @@ public class ContactController
     public ModelAndView delete(HttpServletRequest request, HttpServletResponse response)
     {
     	int id=(Integer.parseInt(request.getParameter("id")));
-		rep.delete(id);
+		service.delete(id);
 		ArrayList <Contact> contactList = new ArrayList<Contact>();
-		contactList= rep.read();
+		contactList= service.display();
 		ModelAndView model = new ModelAndView("Display");
 		model.addObject("contactList", contactList);
 		return model;
@@ -66,7 +74,7 @@ public class ContactController
     	String name = request.getParameter("searchname");
  //		Contact contact= new Contact();
 		ArrayList <Contact> searchList = new ArrayList<Contact>();
-		searchList=rep.search(name);
+		searchList=service.search(name);
 	    
 //	   	PrintWriter out=response.getWriter();
 	 	request.setAttribute("searchList",searchList);
@@ -82,9 +90,9 @@ public class ContactController
 		contact.setLastname(request.getParameter("lastname"));
 		contact.setNumber(request.getParameter("number"));
 		contact.setId(Integer.parseInt(request.getParameter("id")));
-		rep.edit(contact);
+		service.edit(contact);
 		ArrayList <Contact> contactList = new ArrayList<Contact>();
-		contactList= rep.read();
+		contactList= service.display();
 		ModelAndView model = new ModelAndView("Display");
 		model.addObject("contactList", contactList);
 		return model;
