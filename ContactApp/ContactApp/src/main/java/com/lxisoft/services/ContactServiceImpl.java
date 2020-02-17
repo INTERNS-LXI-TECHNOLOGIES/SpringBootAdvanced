@@ -18,7 +18,6 @@ public class ContactServiceImpl implements ContactService
 	
 	@Override
 	public List<Contact> getAllContacts() {
-		
 		return repo.getAllContacts();
 	}
 
