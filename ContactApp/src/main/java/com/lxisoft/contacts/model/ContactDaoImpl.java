@@ -26,6 +26,11 @@ public class ContactDaoImpl implements ContactDao
 	{
 		sessionFactory.getCurrentSession().createQuery("DELETE FROM Contact where id="+c.getId()).executeUpdate();
 	}
+	public List<Contact> sortContactByFname()
+	{
+//		return sessionFactory.getCurrentSession().createQuery("from Contact as contact order by contact.firstname desc").list();
+	return null;
+	}
 
 
 	@SuppressWarnings("unchecked")

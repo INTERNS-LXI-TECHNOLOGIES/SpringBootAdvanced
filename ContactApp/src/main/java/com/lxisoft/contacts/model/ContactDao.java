@@ -8,4 +8,5 @@ public interface ContactDao
 	public List<Contact> listContacts();
 	public Contact getContact(int id);	
 	public void deleteContact(Contact c);
+	public List<Contact> sortContactByFname();
 }

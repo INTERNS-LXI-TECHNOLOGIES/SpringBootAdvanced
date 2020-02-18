@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lxisoft.contacts.domain.Contact;
 import com.lxisoft.contacts.model.ContactDao;
-import com.lxisoft.contacts.model.ContactDaoImpl;
 
 @Service
 @Transactional
@@ -39,6 +38,10 @@ public class ContactServiceImpl implements ContactService
 	public void deleteContact(Contact c) {
 		contactDao.deleteContact(c);
 		
+	}
+	public List<Contact> sortContactByFname()
+	{
+		return contactDao.sortContactByFname();
 	}
 	
 
