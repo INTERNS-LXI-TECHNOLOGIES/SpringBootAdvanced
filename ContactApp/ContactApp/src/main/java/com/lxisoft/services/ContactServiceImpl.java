@@ -21,40 +21,40 @@ public class ContactServiceImpl implements ContactService
 		return repo.getAllContacts();
 	}
 
-	@Override
-	public void addContact(Contact contact) {
-		repo.addContacts(contact);
-		
-	}
-
-	
-	@Override
-	public void deleteContact(Contact contact) {
-		repo.deleteContact(contact);
-		
-	}
-
+//	@Override
+//	public void addContact(Contact contact) {
+//		repo.addContacts(contact);
+//		
+//	}
+//
+//	
+//	@Override
+//	public void deleteContact(Contact contact) {
+//		repo.deleteContact(contact);
+//		
+//	}
+//
+////	@Override
+////	public Contact getContact(int id) {
+////		  return repo.getContact(id);
+////	}
+//
+//	@Override
+//	public Contact updateContact(Contact contact) {
+//		return repo.updateContact(contact);
+//	}
+//
 //	@Override
 //	public Contact getContact(int id) {
-//		  return repo.getContact(id);
+//		// TODO Auto-generated method stub
+//		return null;
 //	}
-
-	@Override
-	public Contact updateContact(Contact contact) {
-		return repo.updateContact(contact);
-	}
-
-	@Override
-	public Contact getContact(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void clearRepository() {
-		repo.deleteAllContacts();
-		
-	}
+//
+//	@Override
+//	public void clearRepository() {
+//		repo.deleteAllContacts();
+//		
+//	}
 
 
 
