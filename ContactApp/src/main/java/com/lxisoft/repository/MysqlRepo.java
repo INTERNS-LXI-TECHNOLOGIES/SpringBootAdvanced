@@ -6,41 +6,21 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.lxisoft.domain.Contact;
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 @Repository
-public class MysqlRepo {
-
-	@Autowired
-	private SessionFactory sessionFactory;
+public class MysqlRepo 
+{	
+	@PersistenceContext
+    private EntityManager manager;
+     
+    public ArrayList<Contact> findAll() 
+    {
+        return ( ArrayList<Contact>) manager.createQuery("Select a From contactList a", Contact.class).getResultList();
+    }
 	
-	public void save(Contact contact) 
-	{
-		sessionFactory.getCurrentSession().save(contact);	
-	}
-
-	@SuppressWarnings("unchecked")
-	public ArrayList<Contact> findAll()
-	{
-		ArrayList<Contact> contactList=(ArrayList<Contact>) sessionFactory.getCurrentSession().createQuery("from Contact").list();
-		return contactList;
-	}
-	
-	public void delete(Contact contact) {
-		sessionFactory.getCurrentSession().delete(contact);
-	}
-	
-	public Contact findId(String id)
-	{
-		Contact contact=(Contact)sessionFactory.getCurrentSession().get(Contact.class,Integer.parseInt(id));
-		return contact;
-	} 
-	
-	public void edit(Contact newcontact)
-	{
-		sessionFactory.getCurrentSession().saveOrUpdate(newcontact);
-	}
-
 }

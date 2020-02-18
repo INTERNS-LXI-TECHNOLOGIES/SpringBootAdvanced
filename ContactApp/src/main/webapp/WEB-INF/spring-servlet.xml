@@ -26,9 +26,27 @@
 		<property name="username" value="${database.user}"></property>
 		<property name="password" value="${database.password}"></property>
 	</bean>
-
+	
+	<bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan" value="com.lxisoft.domain" />  
+     <property name="jpaVendorAdapter">
+         <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+      </property>
+    <property name="jpaProperties">
+         <props>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+         </props>
+      </property>
+      </bean>
+      
+       <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+      <property name="entityManagerFactory" ref="entityManagerFactoryBean" />
+   </bean>
+	
 	<!-- Hibernate SessionFactory -->
-	<bean id="sessionFactory"	class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<!-- <bean id="sessionFactory"	class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="hibernateProperties">
 			<props>
@@ -39,17 +57,17 @@
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.lxisoft.domain"></property>
-	</bean>
+	</bean> -->
 
 	<!-- Transaction -->
-	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	<!-- <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+	</bean> -->
 	
 	<!-- <bean id="springHibernateExample" class="com.javarticles.spring.hibernate.SpringHibernateExample">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean> -->
 
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven />
 		
 </beans>
