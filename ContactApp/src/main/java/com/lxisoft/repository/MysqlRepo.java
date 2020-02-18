@@ -18,9 +18,25 @@ public class MysqlRepo
 	@PersistenceContext
     private EntityManager manager;
      
-    public ArrayList<Contact> findAll() 
+    @SuppressWarnings("unchecked")
+	public ArrayList<Contact> findAll() 
     {
-        return ( ArrayList<Contact>) manager.createQuery("Select a From contactList a", Contact.class).getResultList();
+        return ( ArrayList<Contact>) manager.createQuery("Select a From Contact a").getResultList();
     }
+    
+    public void save(Contact contact) {
+		manager.persist(contact);
+	}
+    
+    public void delete(Contact contact) {
+		manager.remove(contact);
+	}
+    
+    public void edit(Contact newContact) {
+		manager.merge(newContact);
+	}
 	
+    public Contact findId(int id) {
+		return manager.find(Contact.class, id);
+	}
 }
