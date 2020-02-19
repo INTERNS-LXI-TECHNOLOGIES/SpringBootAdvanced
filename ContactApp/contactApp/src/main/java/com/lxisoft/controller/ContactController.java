@@ -35,18 +35,18 @@ public class ContactController
         model.setViewName("AddorEditContact");
         return model;
     }
-//    @RequestMapping(value = "/add", method = RequestMethod.POST)
-//    public ModelAndView saveContact(@ModelAttribute Contact contact) {
-//    	if (contact.getContactId() == 0)
-//    	{
-//    	contactService.addContact(contact);
-//    	}
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ModelAndView saveContact(@ModelAttribute Contact contact) {
+    	if (contact.getContactId() == 0)
+    	{
+    	contactService.addContact(contact);
+    	}
 //    	else
 //    	{
 //    		contactService.updateContact(contact);
 //    	}
-//    	 return new ModelAndView("redirect:/home");
-//    }
+    	 return new ModelAndView("redirect:/home");
+    }
 //    @RequestMapping(value = "/deleteContact", method = RequestMethod.GET)
 //    public ModelAndView deleteContact(HttpServletRequest request) {
 //        int contactId = Integer.parseInt(request.getParameter("contactId"));

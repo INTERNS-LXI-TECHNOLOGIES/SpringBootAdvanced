@@ -26,8 +26,8 @@ public class ContactServiceImp implements ContactService{
 		return contactDAO.getAllContact();
 	}
 //	 @Override
-//    public void deleteContact(Integer contactId) {
-//        contactDAO.deleteContact(contactId);
+//    public void deleteContact(Contact contact) {
+//        contactDAO.deleteContact(contact);
 //    }
 //	 public Contact getContact(int contactId) {
 //	        return contactDAO.getContact(contactId);
