@@ -6,7 +6,7 @@ import com.lxisoft.domain.Contact;
 
 public interface ContactService 
 {
-//		 public void addContact(Contact contact);
+		 public void addContact(Contact contact);
 	 
 	    public List<Contact> getAllContacts();
 //	 

@@ -7,7 +7,7 @@ import com.lxisoft.domain.Contact;
 
 public interface MysqlRepository 
 {
-//	 public void addContacts(Contact contact);
+	 public void addContacts(Contact contact);
 	 
     public List<Contact> getAllContacts();
 //    public void deleteAllContacts();

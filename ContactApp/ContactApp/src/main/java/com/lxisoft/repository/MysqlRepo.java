@@ -15,29 +15,30 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lxisoft.domain.Contact;
 
-@Component
 @Repository
-
+@Transactional
 public class MysqlRepo implements MysqlRepository
 {
-
-	@PersistenceContext
-    private EntityManager em;
+	{System.out.println("list^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");}
+	@PersistenceContext 
+	private EntityManager em;
 	
+	@Transactional
 	@Override
 	public List<Contact> getAllContacts() {
 		
-//		return manager.getCurrentSession().createQuery("from Contact").list();
-		TypedQuery<Contact> query = em.createQuery("SELECT g FROM Guest g ORDER BY g.id", Contact.class);
-	        return query.getResultList();
+	List<Contact> contactlist = em.createQuery("Select a From Contact a", Contact.class).getResultList();
+	        return contactlist;
+//	return manager.getCurrentSession().createQuery("from Contact").list();
+//		TypedQuery<Contact> query = em.createQuery("SELECT g FROM Contact g ORDER BY g.id", Contact.class);
+//	        return query.getResultList();
 	}
 
-//	@Override
-//	public void addContacts(Contact contact) {
-//		System.out.println(contact);
-//		 em.getCurrentSession().saveOrUpdate(contact);
-//		
-//	}
+	@Override
+	public void addContacts(Contact contact) {
+		        //em.persist(contact);
+		
+	}
 //
 //	@Override
 //	public void deleteContact(Contact contact) 

@@ -10,7 +10,6 @@ import com.lxisoft.domain.Contact;
 import com.lxisoft.repository.MysqlRepository;
 
 @Service
-@Transactional
 public class ContactServiceImpl implements ContactService 
 {
 	@Autowired 
@@ -21,11 +20,11 @@ public class ContactServiceImpl implements ContactService
 		return repo.getAllContacts();
 	}
 
-//	@Override
-//	public void addContact(Contact contact) {
-//		repo.addContacts(contact);
-//		
-//	}
+	@Override
+	public void addContact(Contact contact) {
+		repo.addContacts(contact);
+		
+	}
 //
 //	
 //	@Override

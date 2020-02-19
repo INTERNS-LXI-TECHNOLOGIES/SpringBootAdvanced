@@ -11,6 +11,7 @@
 		<servlet-name>ContactApp</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 	<security-constraint>
       <web-resource-collection>
          <web-resource-name>login</web-resource-name>
