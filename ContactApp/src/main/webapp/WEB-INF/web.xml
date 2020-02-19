@@ -1,43 +1,55 @@
-<web-app xmlns:web="http://xmlns.jcp.org/xml/ns/javaee">
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
   <servlet>
-		<servlet-name>display</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<!-- <load-on-startup>1</load-on-startup> -->
+		<servlet-name>ContactApp</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>display</servlet-name>
+		<servlet-name>ContactApp</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
 	<security-constraint>
       <web-resource-collection>
          <web-resource-name>login</web-resource-name>
-         <url-pattern>/viewall</url-pattern>
+         <url-pattern>/view</url-pattern>
          <http-method>GET</http-method>
          <http-method>POST</http-method>
       </web-resource-collection>
-      
+
       <auth-constraint>
          <description>
-            Let only managers use this app
+            Let only admin use this app
          </description>
-         <role-name>*</role-name>
+         <role-name>manager-gui</role-name>
+          <role-name>manager</role-name>
+         <role-name>user</role-name>
+         <role-name>guest</role-name>
       </auth-constraint>
-   </security-constraint>
-   
-   <security-role>
-      <role-name>*</role-name>
+</security-constraint>
+<security-role>
+      <role-name>manager</role-name>
+   </security-role>
+  <security-role>
+      <role-name>manager-gui</role-name>
    </security-role>
    
+    <security-role>
+      <role-name>user</role-name>
+   </security-role>
+   <security-role>
+      <role-name>guest</role-name>
+   </security-role>
+
    <login-config>
       <auth-method>FORM</auth-method>
       <realm-name>login</realm-name>
       <form-login-config>
-         <form-login-page>/login.jsp</form-login-page>
-         <form-error-page>/error.jsp</form-error-page>
+         <form-login-page>/Login.jsp</form-login-page>
+         <form-error-page>/Error.jsp</form-error-page>
       </form-login-config>
    </login-config>
 	
-
-  
 </web-app>
