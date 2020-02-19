@@ -29,7 +29,7 @@ public class MysqlRepo
 	}
     
     public void delete(Contact contact) {
-		manager.remove(contact);
+		manager.remove(manager.contains(contact) ? contact : manager.merge(contact));
 	}
     
     public void edit(Contact newContact) {
