@@ -1,44 +1,27 @@
 package com.lxisoft.DAO;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lxisoft.domain.Contact;
 import java.util.List;
 @Repository
+@Transactional
 public class ContactDAOImp implements ContactDAO {
 
-	 @Autowired
-    private SessionFactory sessionFactory;
- 
-    public void addContact(Contact contact) {
-        sessionFactory.getCurrentSession().saveOrUpdate(contact);
- 
-    }
-    @SuppressWarnings("unchecked")
-    public List<Contact> getAllContact() {
- 
-        return sessionFactory.getCurrentSession().createQuery("from Contact")
-                .list();
-    }
-    @Override
-    public void deleteContact(Integer contactId) {
-       Contact contact = (Contact) sessionFactory.getCurrentSession().load(
-                Contact.class, contactId);
-        if (null != contact) {
-            this.sessionFactory.getCurrentSession().delete(contact);
-        }
-    }
-    public Contact getContact(int contactId) 
-    {
-        return (Contact) sessionFactory.getCurrentSession().get(
-                Contact.class, contactId);
-    }
-    @Override
-    public Contact updateContact(Contact contact) {
-        sessionFactory.getCurrentSession().update(contact);
-        return contact;
-    }
+	 @PersistenceContext
+	 private EntityManager manager;
+	     
+	    public List<Contact> getAllContact() 
+	    {
+	    	List<Contact> contactlist = manager.createQuery("Select a From Contact a", Contact.class).getResultList();
+	        return contactlist;
+	    }	     
+	    public void addContact(Contact contact)  
+	    {
+	        manager.persist(contact);
+	    }
     
 }

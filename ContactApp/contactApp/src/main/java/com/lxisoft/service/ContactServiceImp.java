@@ -4,13 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.lxisoft.domain.Contact;
 import com.lxisoft.DAO.ContactDAO;
 
 @Service
-@Transactional
 
 public class ContactServiceImp implements ContactService{
 	@Autowired
@@ -27,15 +25,15 @@ public class ContactServiceImp implements ContactService{
 	{
 		return contactDAO.getAllContact();
 	}
-	 @Override
-    public void deleteContact(Integer contactId) {
-        contactDAO.deleteContact(contactId);
-    }
-	 public Contact getContact(int contactId) {
-	        return contactDAO.getContact(contactId);
-	    }
-	 public Contact updateContact(Contact contact) {
-	        // TODO Auto-generated method stub
-	        return contactDAO.updateContact(contact);
-	    }
+//	 @Override
+//    public void deleteContact(Integer contactId) {
+//        contactDAO.deleteContact(contactId);
+//    }
+//	 public Contact getContact(int contactId) {
+//	        return contactDAO.getContact(contactId);
+//	    }
+//	 public Contact updateContact(Contact contact) {
+//	        // TODO Auto-generated method stub
+//	        return contactDAO.updateContact(contact);
+//	    }
 }
