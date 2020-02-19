@@ -23,9 +23,9 @@
 
 <body style="background: lightblue">
 <%@page import = "com.lxisoft.controller.*"%>
-<%@page import = "com.lxisoft.repository.*"%>
+<%@page import = "com.lxisoft.dao.*"%>
 
-<%@page import = "com.lxisoft.model.*,java.util.*"%>
+<%@page import = "java.util.*"%>
 
 <%String lang=(String)session.getAttribute("locallang");%>
 <br><br>

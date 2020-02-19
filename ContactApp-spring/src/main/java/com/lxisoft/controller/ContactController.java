@@ -1,7 +1,7 @@
 
 package com.lxisoft.controller;
 
-import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import com.lxisoft.dao.*;
 import javax.servlet.http.HttpServletRequest;
@@ -33,12 +33,11 @@ public class ContactController
 	ContactService service;
 	
     @RequestMapping("/Display")
-	 public ModelAndView display()
-	 { 
+    public ModelAndView display(ModelAndView model) throws IOException {
 		 ArrayList <Contact> contactList = new ArrayList<Contact>();
 		 contactList= service.display();
-		 ModelAndView model = new ModelAndView("Display");
 		 model.addObject("contactList", contactList);
+		 model.setViewName("Display");
 		 return model;
 	 }
     @RequestMapping("/Add")
@@ -68,20 +67,20 @@ public class ContactController
 		model.addObject("contactList", contactList);
 		return model;
     }
-    @RequestMapping("/Search")
-    public ModelAndView search(HttpServletRequest request, HttpServletResponse response) 
-    {
-    	String name = request.getParameter("searchname");
- //		Contact contact= new Contact();
-		ArrayList <Contact> searchList = new ArrayList<Contact>();
-		searchList=service.search(name);
-	    
-//	   	PrintWriter out=response.getWriter();
-	 	request.setAttribute("searchList",searchList);
-	 	ModelAndView model = new ModelAndView("Display");
-		model.addObject("searchList", searchList);
-	 	return model;
-    }
+//    @RequestMapping("/Search")
+//    public ModelAndView search(HttpServletRequest request, HttpServletResponse response) 
+//    {
+//    	String name = request.getParameter("searchname");
+// //		Contact contact= new Contact();
+//		ArrayList <Contact> searchList = new ArrayList<Contact>();
+//		searchList=service.search(name);
+//	    
+////	   	PrintWriter out=response.getWriter();
+//	 	request.setAttribute("searchList",searchList);
+//	 	ModelAndView model = new ModelAndView("Display");
+//		model.addObject("searchList", searchList);
+//	 	return model;
+//    }
     @RequestMapping("/Update")
     public ModelAndView update(HttpServletRequest request, HttpServletResponse response)
     {

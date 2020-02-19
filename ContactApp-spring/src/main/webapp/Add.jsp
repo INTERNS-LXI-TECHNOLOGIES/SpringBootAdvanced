@@ -15,8 +15,12 @@
 <body style="background: lightyellow">
    
 <%@page import = "com.lxisoft.controller.*"%>
-<%@page import = "com.lxisoft.repository.*"%>
-<%@page import = "com.lxisoft.model.*,java.util.*"%>
+<%@page import = "com.lxisoft.dao.*"%>
+<%@page import = "java.util.*"%>
+<%@page import = "com.lxisoft.controller.*"%>
+<%@page import = "java.util.ArrayList"%>
+<%@page import ="com.lxisoft.dao.*"%>
+
 <%String lang=(String)session.getAttribute("locallang");%>
 <form action="Add" method="get">
 	<center>

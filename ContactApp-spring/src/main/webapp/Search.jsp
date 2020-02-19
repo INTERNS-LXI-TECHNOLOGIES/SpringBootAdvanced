@@ -17,12 +17,10 @@
 			  text-decoration: none;
 			  display: inline-block;
 			  cursor: pointer;
-
        }
 	table th,td 
 	{	width: 5px;
 		border:2px solid black;
-
 	}
 </style> 
 	<title>
@@ -32,7 +30,7 @@
 <body button style ="background: lightblue">
 
 <%@page import = "com.lxisoft.controller.*"%>
-<%@page import = "com.lxisoft.repository.*"%>
+<%@page import = "com.lxisoft.dao.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%><br><br>
 
  <%String lang=(String)session.getAttribute("locallang");

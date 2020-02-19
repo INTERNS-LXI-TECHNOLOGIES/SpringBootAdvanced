@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false"%>
+
 <fmt:setLocale value="${locallang}" />
 <fmt:setBundle basename="Messages" />
 
@@ -16,12 +17,10 @@
 			  text-decoration: none;
 			  display: inline-block;
 			  cursor: pointer;
-
        }
 	table th,td 
 	{	width: 2px;
 		border:2px solid black;
-
 	}
 </style> 
 	<h1 align="center"> <fmt:message key="label.contacts" /></h1>
@@ -33,7 +32,7 @@
 <body button style ="background: lightgreen">
 
 <%@page import = "com.lxisoft.controller.*"%>
-<%@page import = "com.lxisoft.repository.*"%>
+<%@page import = "com.lxisoft.dao.*"%>
 <%@page import = "com.lxisoft.model.*,java.util.*"%>
 
  <%String lang=(String)session.getAttribute("locallang");%>
@@ -50,40 +49,33 @@
 				<th style="font-family: fantasy;font size: 10px"> <fmt:message key="label.name" /></th>
 				
 			</tr>
-<% ArrayList<Contact> contactList=(ArrayList<Contact>) request.getAttribute("contactList");
-	int n = contactList.size(); 
-	System.out.println(n);
-	for(Contact i : contactList)
-		{ %>
-			<b>
-				
-
-			<tr style=" font-style:oblique;  ">
-			<td>
-				<a href="Select.jsp?temp=<%=i.getId()%>
-					&temp1=<%=i.getFirstname()%>
-					&temp2=<%=i.getLastname()%>
-					&temp3=<%=i.getNumber()%>">
+			
+			<c:forEach var="i" items="${contactList}">
+               <tr style=" font-style:oblique;  ">
+				<td>
+ 					<a href="Select.jsp?temp=${i.id}
+					&temp1=${i.firstname}
+					&temp2=${i.lastname}
+					&temp3=${i.number}">
 					
 					
-					<input type="button" name="submit" value="<%=i.getFirstname()%> &nbsp;<%=i.getLastname()%>">
+					<input type="button" name="submit" value="${i.firstname} &nbsp;${i.lastname}">
 				</a><br>
 
 	<% 
 	{ %>
-   			<button class="button" onclick=" window.location.href='Update.jsp?id=<%=i.getId()%>'"><fmt:message key="label.edit" />&nbsp; 
+   			<button class="button" onclick=" window.location.href='Update.jsp?id=${i.id}'"><fmt:message key="label.edit" />&nbsp; 
 
-	       <button class="button" onclick="window.location.href= 'Delete.jsp?id=<%=i.getId()%>'"> <fmt:message key="label.delete" />&nbsp;	
+	       <button class="button" onclick="window.location.href= 'Delete.jsp?id=${i.id}'"> <fmt:message key="label.delete" />&nbsp;	
     <%
      } %>
 
 					
 			</td>
-			
-			</tr>
-			</b>
-			<%
-		} %>
+ 
+                </tr>
+            </c:forEach>
+
 
 </table>
 <center><br>
