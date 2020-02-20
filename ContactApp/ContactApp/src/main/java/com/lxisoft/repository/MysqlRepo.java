@@ -40,30 +40,30 @@ public class MysqlRepo implements MysqlRepository
 		        em.persist(contact);
 		
 	}
-//
-//	@Override
-//	public void deleteContact(Contact contact) 
-//	{
-//            em.getCurrentSession().delete(contact);
-//		
-//	}
-//
+
+	@Override
+	public void deleteContact(Contact contact) 
+	{
+//		em.remove(contact);
+            em.remove(em.contains(contact)?contact :em.merge(contact));
+		
+	}
+
 //	@Override
 //	public Contact getContact(int id) {
 //		return (Contact) em.getCurrentSession().get(Contact.class, id);
 //	}
-//
-//	@Override
-//	public Contact updateContact(Contact contact) {
-//		 em.getCurrentSession().update(contact);
-//		return contact;
-//	}
-//
-//	@Override
-//	public void deleteAllContacts() {
-//		em.getCurrentSession().createSQLQuery ("truncate table contactlist"). executeUpdate ();
-//		
-//	}
+
+	@Override
+	public Contact updateContact(Contact contact) {
+		return em.merge(contact);
+	}
+
+	@Override
+	public void deleteAllContacts() {
+		em.clear();
+		
+	}
 
 
 

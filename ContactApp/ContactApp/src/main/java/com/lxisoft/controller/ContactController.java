@@ -103,136 +103,136 @@ public class ContactController
 			         }
 			 }
 		  
-//		  @RequestMapping("/select")
-//			 public ModelAndView ContactDetails(HttpServletRequest request, HttpServletResponse response) throws SQLException 
-//			 {
-//				 ModelAndView mv=new ModelAndView();
-//				 HttpSession session = request.getSession();
-//
-//				 String name=(String)request.getParameter("user");
-//				 ContactsListModel contactlistmodel=new ContactsListModel();
-//					ArrayList<Contact> contactList=(ArrayList)serv.getAllContacts();
-//					ArrayList<Contact> currentList=new ArrayList<Contact>();
-//					for(Contact contact:contactList)
-//					{	if(name.equalsIgnoreCase(contact.getFullName()))
-//						{
-//			 				currentList.add(contact);		
-//			 			}
-//					}
-//					if(currentList.size()==1)
-//						{
-//							session.setAttribute("currentcontact",currentList.get(0));
-//							mv.setViewName("ContactDetails");
-//							return mv;
-//						}
-//					else{
-//						
-//						   currentList.clear();
-//						   for(Contact contact:contactList)
-//					        {
-//				 				if((contact.getFullName().toLowerCase()).contains(name.toLowerCase()))
-//				 					{
-//							 			currentList.add(contact);
-//							 		}
-//							}	
-//				            if(currentList.size()!=0)
-//				            { 
-//				                for(int i=0;i<currentList.size();i++)
-//				                {
-//				                  ContactModel contactmodel=new ContactModel();
-//				                  contactmodel.setId(currentList.get(i).getId());
-//				                  contactmodel.setFirstName(currentList.get(i).getFirstName());
-//				                  contactmodel.setLastName(currentList.get(i).getLastName());
-//				                  contactlistmodel.setAllContacts(contactmodel);
-//				                }
-//				            }
-//				            ArrayList<ContactModel> contacts=contactlistmodel.getAllContacts();
-//				   			mv.setViewName("view");
-//				   			mv.addObject("contactmodel",contacts);
-//				   			return mv;
-//						}
-//			 }
+		  @RequestMapping("/select")
+			 public ModelAndView ContactDetails(HttpServletRequest request, HttpServletResponse response) throws SQLException 
+			 {
+				 ModelAndView mv=new ModelAndView();
+				 HttpSession session = request.getSession();
+
+				 String name=(String)request.getParameter("user");
+				 ContactsListModel contactlistmodel=new ContactsListModel();
+					ArrayList<Contact> contactList=(ArrayList)serv.getAllContacts();
+					ArrayList<Contact> currentList=new ArrayList<Contact>();
+					for(Contact contact:contactList)
+					{	if(name.equalsIgnoreCase(contact.getFullName()))
+						{
+			 				currentList.add(contact);		
+			 			}
+					}
+					if(currentList.size()==1)
+						{
+							session.setAttribute("currentcontact",currentList.get(0));
+							mv.setViewName("ContactDetails");
+							return mv;
+						}
+					else{
+						
+						   currentList.clear();
+						   for(Contact contact:contactList)
+					        {
+				 				if((contact.getFullName().toLowerCase()).contains(name.toLowerCase()))
+				 					{
+							 			currentList.add(contact);
+							 		}
+							}	
+				            if(currentList.size()!=0)
+				            { 
+				                for(int i=0;i<currentList.size();i++)
+				                {
+				                  ContactModel contactmodel=new ContactModel();
+				                  contactmodel.setId(currentList.get(i).getId());
+				                  contactmodel.setFirstName(currentList.get(i).getFirstName());
+				                  contactmodel.setLastName(currentList.get(i).getLastName());
+				                  contactlistmodel.setAllContacts(contactmodel);
+				                }
+				            }
+				            ArrayList<ContactModel> contacts=contactlistmodel.getAllContacts();
+				   			mv.setViewName("view");
+				   			mv.addObject("contactmodel",contacts);
+				   			return mv;
+						}
+			 }
 		  
-//		  @RequestMapping("/selectContact")
-//			 public String SelectedContact(HttpServletRequest request, HttpServletResponse response)
-//			 {
-//				 HttpSession session = request.getSession();
-//				 try {
-//					 int select=Integer.parseInt(request.getParameter("select"));
-//					 ArrayList<Contact> contactList=(ArrayList)serv.getAllContacts();
-//						for(Contact contact:contactList)
-//						{	
-//							if(select==contact.getId())
-//							{
-//								session.setAttribute("currentcontact",contact);	
-//								return "redirect:/Edit";
-//							}
-//						}
-//				 }catch(Exception e)
-//				 {
-//						 try
-//							{
-//								String select=(String)request.getParameter("select");
-//								ArrayList<Contact> contactList=(ArrayList)serv.getAllContacts();
-//								for(Contact contact:contactList)
-//								{	
-//									if(select.equalsIgnoreCase(contact.getFullName()))
-//									{
-//						 				session.setAttribute("currentcontact",contact);
-//						 				return "redirect:/delete";	
-//						 			}
-//								}
-//							}catch(Exception excep)
-//							{
-//								excep.printStackTrace();
-//							}
-//				 }
-//				return null;
-//			  }
-//		  
-//			 @RequestMapping("/Edit")
-//			 public String Edit() 
-//			 {
-//				return "ContactEdit";
-//			 }
-//			 
-//			 @RequestMapping("/DeleteAll")
-//			 public String DeleteAllContacts() throws SQLException 
-//			 {
-//				 serv.clearRepository();
-//				 return "redirect:/view?page=1";
-//				
-//			 }
-//			 
-//			 @RequestMapping("/delete")
-//			 public String Delete(HttpServletRequest request,HttpServletResponse response) 
-//			 {
-//				 HttpSession session=request.getSession(); 
-//				 Contact contact= (Contact)session.getAttribute("currentcontact");
-//				 serv.deleteContact(contact);
-//				 response.setCharacterEncoding("UTF-8");
-//				 return "redirect:/view?page=1";
-//			 }
+		  @RequestMapping("/selectContact")
+			 public String SelectedContact(HttpServletRequest request, HttpServletResponse response)
+			 {
+				 HttpSession session = request.getSession();
+				 try {
+					 int select=Integer.parseInt(request.getParameter("select"));
+					 ArrayList<Contact> contactList=(ArrayList)serv.getAllContacts();
+						for(Contact contact:contactList)
+						{	
+							if(select==contact.getId())
+							{
+								session.setAttribute("currentcontact",contact);	
+								return "redirect:/Edit";
+							}
+						}
+				 }catch(Exception e)
+				 {
+						 try
+							{
+								String select=(String)request.getParameter("select");
+								ArrayList<Contact> contactList=(ArrayList)serv.getAllContacts();
+								for(Contact contact:contactList)
+								{	
+									if(select.equalsIgnoreCase(contact.getFullName()))
+									{
+						 				session.setAttribute("currentcontact",contact);
+						 				return "redirect:/delete";	
+						 			}
+								}
+							}catch(Exception excep)
+							{
+								excep.printStackTrace();
+							}
+				 }
+				return null;
+			  }
+		  
+			 @RequestMapping("/Edit")
+			 public String Edit() 
+			 {
+				return "ContactEdit";
+			 }
+			 
+			 @RequestMapping("/DeleteAll")
+			 public String DeleteAllContacts() throws SQLException 
+			 {
+				 serv.clearRepository();
+				 return "redirect:/view?page=1";
+				
+			 }
+		 
+			 @RequestMapping("/delete")
+			 public String Delete(HttpServletRequest request,HttpServletResponse response) 
+			 {
+				 HttpSession session=request.getSession(); 
+				 Contact contact= (Contact)session.getAttribute("currentcontact");
+				 serv.deleteContact(contact);
+				 response.setCharacterEncoding("UTF-8");
+				 return "redirect:/view?page=1";
+			 }
 			 
 			 
-//			 @RequestMapping("/edit")
-//			 public String ContactEdit(HttpServletRequest request, HttpServletResponse response)
-//			 {
-//				 HttpSession session=request.getSession(); 
-//					Contact contact= (Contact)session.getAttribute("currentcontact");
-//					 try{
-//			           contact.setFirstName(request.getParameter("fname"));
-//			           contact.setLastName(request.getParameter("lname"));
-//			           contact.setNo(request.getParameter("num"));
-//			           serv.updateContact(contact);
-//			           
-//			       }catch(Exception e)
-//			       {
-//			       	e.printStackTrace();
-//			       }
-//					 return "redirect:/view?page=1";
-//			 }
-//			 
+			 @RequestMapping("/edit")
+			 public String ContactEdit(HttpServletRequest request, HttpServletResponse response)
+			 {
+				 HttpSession session=request.getSession(); 
+					Contact contact= (Contact)session.getAttribute("currentcontact");
+					 try{
+			           contact.setFirstName(request.getParameter("fname"));
+			           contact.setLastName(request.getParameter("lname"));
+			           contact.setNo(request.getParameter("num"));
+			           serv.updateContact(contact);
+			           
+			       }catch(Exception e)
+			       {
+			       	e.printStackTrace();
+			       }
+					 return "redirect:/view?page=1";
+			 }
+			 
 			 @RequestMapping("/logout")
 			 public String userLogout(HttpServletRequest request, HttpServletResponse response) throws SQLException 
 			 {
