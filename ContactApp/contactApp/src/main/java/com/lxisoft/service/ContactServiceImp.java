@@ -25,15 +25,15 @@ public class ContactServiceImp implements ContactService{
 	{
 		return contactDAO.getAllContact();
 	}
-//	 @Override
-//    public void deleteContact(Contact contact) {
-//        contactDAO.deleteContact(contact);
-//    }
-//	 public Contact getContact(int contactId) {
-//	        return contactDAO.getContact(contactId);
-//	    }
-//	 public Contact updateContact(Contact contact) {
-//	        // TODO Auto-generated method stub
-//	        return contactDAO.updateContact(contact);
-//	    }
+	 @Override
+    public void deleteContact(Contact contact) {
+        contactDAO.deleteContact(contact);
+    }
+	 public Contact getContact(int contactId) {
+	        return contactDAO.getContact(contactId);
+	    }
+	 public Contact updateContact(Contact contact) {
+	        // TODO Auto-generated method stub
+	        return contactDAO.updateContact(contact);
+	    }
 }

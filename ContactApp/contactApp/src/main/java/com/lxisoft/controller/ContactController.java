@@ -3,6 +3,10 @@ package com.lxisoft.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,32 +45,33 @@ public class ContactController
     	{
     	contactService.addContact(contact);
     	}
-//    	else
-//    	{
-//    		contactService.updateContact(contact);
-//    	}
+    	else
+    	{
+    		contactService.updateContact(contact);
+    	}
     	 return new ModelAndView("redirect:/home");
     }
-//    @RequestMapping(value = "/deleteContact", method = RequestMethod.GET)
-//    public ModelAndView deleteContact(HttpServletRequest request) {
-//        int contactId = Integer.parseInt(request.getParameter("contactId"));
-//        contactService.deleteContact(contactId);
-//        return new ModelAndView("redirect:/home");
-//    }
-//    @RequestMapping(value = "/editContact", method = RequestMethod.GET)
-//    public ModelAndView editContact(HttpServletRequest request) {
-//        int contactId = Integer.parseInt(request.getParameter("contactId"));
-//        Contact contact= contactService.getContact(contactId);
-//        ModelAndView model = new ModelAndView("AddorEditContact");
-//        model.addObject("contact", contact);
-// 
-//        return model;
-//    }
-//    @RequestMapping("/Logout")
-//    public String Logout(HttpServletRequest request,HttpServletResponse response)
-//	{
-//    	HttpSession session=request.getSession(); 
-//		session.invalidate();
-//		  return "index";
-//	}
+    @RequestMapping(value = "/deleteContact", method = RequestMethod.GET)
+    public ModelAndView deleteContact(HttpServletRequest request) {
+        int contactId = Integer.parseInt(request.getParameter("contactId"));
+        Contact contact= contactService.getContact(contactId);
+        contactService.deleteContact(contact);
+        return new ModelAndView("redirect:/home");
+    }
+    @RequestMapping(value = "/editContact", method = RequestMethod.GET)
+    public ModelAndView editContact(HttpServletRequest request) {
+        int contactId = Integer.parseInt(request.getParameter("contactId"));
+        Contact contact= contactService.getContact(contactId);
+        ModelAndView model = new ModelAndView("AddorEditContact");
+        model.addObject("contact", contact);
+ 
+        return model;
+    }
+    @RequestMapping("/Logout")
+    public String Logout(HttpServletRequest request,HttpServletResponse response)
+	{
+    	HttpSession session=request.getSession(); 
+		session.invalidate();
+		  return "index";
+	}
 }

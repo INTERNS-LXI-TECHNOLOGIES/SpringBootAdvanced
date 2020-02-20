@@ -49,7 +49,7 @@
  
         <td>${c.contactFirstName} ${c.contactLastName}</td>
         <td>
-        <a href="deleteContact?contact=${c}"><input type="submit" value="<%=(lo.getWord("delete",lang,"IN"))%>" /></a>
+        <a href="deleteContact?contactId=${c.contactId}"><input type="submit" value="<%=(lo.getWord("delete",lang,"IN"))%>" /></a>
         <a href="editContact?contactId=${c.contactId}"><input type="submit" value="<%=(lo.getWord("edit",lang,"IN"))%>" /></a></td>
       </tr>
             </c:forEach>

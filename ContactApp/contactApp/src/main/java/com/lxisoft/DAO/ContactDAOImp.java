@@ -23,9 +23,15 @@ public class ContactDAOImp implements ContactDAO {
 	    {
 	        manager.persist(contact);
 	    }
-//	    public void deleteContact(Contact contact)  
-//	    {
-//	        manager.remove(contact);
-//	    }
+	    public void deleteContact(Contact contact)  
+	    {
+	        manager.remove(manager.contains(contact) ? contact : manager.merge(contact));
+	    }
+	    public Contact getContact(int contactId) {
+			return manager.find(Contact.class, contactId);
+		}
+	    public Contact updateContact(Contact contact) {
+			return manager.merge(contact);
+		}
     
 }
