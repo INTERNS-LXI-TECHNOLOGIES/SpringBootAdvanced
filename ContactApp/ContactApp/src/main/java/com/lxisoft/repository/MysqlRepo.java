@@ -14,16 +14,17 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lxisoft.domain.Contact;
-
+//@Component
 @Repository
 @Transactional
 public class MysqlRepo implements MysqlRepository
 {
 	{System.out.println("list^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");}
+	
 	@PersistenceContext 
 	private EntityManager em;
 	
-	@Transactional
+
 	@Override
 	public List<Contact> getAllContacts() {
 		
@@ -36,7 +37,7 @@ public class MysqlRepo implements MysqlRepository
 
 	@Override
 	public void addContacts(Contact contact) {
-		        //em.persist(contact);
+		        em.persist(contact);
 		
 	}
 //
