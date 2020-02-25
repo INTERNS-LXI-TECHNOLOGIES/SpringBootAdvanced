@@ -35,7 +35,7 @@ public class ContactController
     @RequestMapping("/Display")
     public ModelAndView display(ModelAndView model) throws IOException {
 		 ArrayList <Contact> contactList = new ArrayList<Contact>();
-		 contactList= service.display();
+		 contactList= (ArrayList<Contact>) service.display();
 		 model.addObject("contactList", contactList);
 		 model.setViewName("Display");
 		 return model;
@@ -50,7 +50,7 @@ public class ContactController
 		service.add(contact);
 		System.out.println("contact saved"+contact.getFirstname());
 		ArrayList <Contact> contactList = new ArrayList<Contact>();
-		contactList= service.display();
+		contactList= (ArrayList<Contact>) service.display();
 		ModelAndView model = new ModelAndView("Display");
 		model.addObject("contactList", contactList);
 		return model;
@@ -62,7 +62,7 @@ public class ContactController
     	int id=(Integer.parseInt(request.getParameter("id")));
 		service.delete(id);
 		ArrayList <Contact> contactList = new ArrayList<Contact>();
-		contactList= service.display();
+		contactList= (ArrayList<Contact>) service.display();
 		ModelAndView model = new ModelAndView("Display");
 		model.addObject("contactList", contactList);
 		return model;
@@ -91,7 +91,7 @@ public class ContactController
 		contact.setId(Integer.parseInt(request.getParameter("id")));
 		service.edit(contact);
 		ArrayList <Contact> contactList = new ArrayList<Contact>();
-		contactList= service.display();
+		contactList= (ArrayList<Contact>) service.display();
 		ModelAndView model = new ModelAndView("Display");
 		model.addObject("contactList", contactList);
 		return model;

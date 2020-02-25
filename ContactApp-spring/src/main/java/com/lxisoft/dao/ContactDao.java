@@ -2,31 +2,34 @@ package com.lxisoft.dao;
 import com.lxisoft.model.*;
 import java.util.*;
 import org.springframework.stereotype.Repository;
-import java.sql.*;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
+
 public class Contactdao implements ContactdaoImp
 {
-	@Autowired
-	private SessionFactory sessionFactory;
+	@PersistenceContext
+	 private EntityManager manager;
 	
 	ArrayList <Contact> contactList = new ArrayList<Contact>();
 	public void write(Contact contact)
 	{
 		
-	sessionFactory.getCurrentSession().save(contact);	
+		 manager.persist(contact);
 	}
 	
-	@SuppressWarnings("unchecked")
-    public ArrayList<Contact> read() {
+	public List<Contact> read()
+	{
  
-		ArrayList<Contact> contactList=(ArrayList<Contact>)sessionFactory.getCurrentSession().createQuery("from Contact")
-                .list();
-		return contactList;
+		List<Contact> contactlist = manager.createQuery("Select a From Contact a", Contact.class).getResultList();
+        return contactlist;
+		
     }
 //	public ArrayList <Contact> read()
 //	{
@@ -35,17 +38,16 @@ public class Contactdao implements ContactdaoImp
 //	}
 	public void edit(Contact contact)
 	{ 
-		sessionFactory.getCurrentSession().saveOrUpdate(contact);
+		manager.merge(contact);
 		
 	}
-	@Override
-    public void delete(int id) {
-       Contact contact = (Contact) sessionFactory.getCurrentSession().load(
-                Contact.class, id);
-        if (null != contact) {
-            this.sessionFactory.getCurrentSession().delete(contact);
-        }
- 
+
+    public void delete(int id)
+	{
+    	Contact contact =manager.find(Contact.class, id);
+    	manager.remove(contact);
+		//manager.remove(manager.contains(id) ? id : manager.merge(id));
+    	//manager.createQuery("delete from Contact c  where c.id=:"+id);
     }
 	
 //	public ArrayList<Contact> search(String name)

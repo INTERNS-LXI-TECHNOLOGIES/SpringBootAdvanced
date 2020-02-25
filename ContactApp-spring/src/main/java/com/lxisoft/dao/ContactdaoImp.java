@@ -10,7 +10,7 @@ public interface ContactdaoImp {
 	public void delete(int id);
 	public void write(Contact contact);
 //	public void clear();
-	public  ArrayList <Contact> read();
+	public  List<Contact> read();
 	public void edit(Contact contact);
 //	public ArrayList<Contact> search(String name);
  

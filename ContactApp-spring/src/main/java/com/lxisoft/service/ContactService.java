@@ -13,9 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class ContactService
 {
 	@Autowired
-	Contactdao repo;
+	ContactdaoImp repo;
 	
-	public ArrayList<Contact> display()
+	public List<Contact> display()
 	{
 		return repo.read();
 	}
