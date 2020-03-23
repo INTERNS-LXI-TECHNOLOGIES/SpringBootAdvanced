@@ -1,1 +1,1 @@
-A web application which helps users write mock exams and view their result. Admins manage exams, questions and users.
+A web application which helps users write mock exams and view their result. Admins manage exams, questions and users   .
