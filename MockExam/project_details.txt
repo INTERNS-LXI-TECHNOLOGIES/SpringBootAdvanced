@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-  A web application which helps users write mock exams and view their result. Admins manage exams,questions and users.
-=======
-  A web application which helps users write mock exams and view their result. Admins manage exams, questions and users .
->>>>>>> 8f9768c6a39e688845b8298b67dba6e64adf102b
