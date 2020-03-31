@@ -9,6 +9,6 @@ public class HelloWorldService {
 	}
  
 	public String sayHello() {
-		return "Hello! " + name;
+		return "Hello world! " + name;
 	}
 }
