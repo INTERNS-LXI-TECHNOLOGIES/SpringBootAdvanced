@@ -1,15 +1,43 @@
-package com.lxisoft.Model;
+package com.lxisoft.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="MockExam")
 public class Model {
 	
+	@Id
+    @Column(name="ID")
+    @GeneratedValue
+    private int id;
+	
+	@Column(name="Question")
 	private String question;
+	
+	@Column(name="Answer")
 	private String answer;
+	
+	@Column(name="Option1")
 	private String option1;
+	
+	@Column(name="Option2")
 	private String option2;
+	
+	@Column(name="Option3")
 	private String option3;
+	
+	@Column(name="Option4")
 	private String option4;
+	
 	private String selectedOption;
 	
+	public int getId()
+	{
+		return id;
+	}
 	public void setQuestion(String question)
 	{
 		this.question = question;
