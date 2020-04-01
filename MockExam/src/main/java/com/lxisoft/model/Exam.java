@@ -2,45 +2,45 @@ package com.lxisoft.model;
  
 import java.io.Serializable;
  
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
  
-//@Entity
-//@Table(name = "Question")
-public class ExamModel implements Serializable {
+@Entity
+@Table(name = "Question")
+public class Exam implements Serializable {
  
     private static final long serialVersionUID = -3465813074586302847L;
  
-    private String qno;
+    private int id;
  
-//    @Column
+    @Column
     private String question;
  
-//    @Column
+    @Column
     private String option1;
  
-//    @Column
+    @Column
     private String option2;
  
-//    @Column
+    @Column
     private String option3;
     
-//    @Column
+    @Column
     private String option4;
     
-//    @Column
+    @Column
     private String answer;
  
-    public String getQno() {
-        return qno;
+    public int getId() {
+        return id;
     }
  
-    public void setQno(String qno) {
-        this.qno = qno;
+    public void setId(int id) {
+        this.id = id;
     }
  
     public String getQuestion() {
