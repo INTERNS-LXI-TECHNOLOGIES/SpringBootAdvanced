@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+//import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,21 @@ public class EmployeeController {
 	
 	 	@Autowired
 	    private EmployeeService employeeService;
+	 	
+	 	@RequestMapping(value = "/newEmployee", method = RequestMethod.GET)
+	    public ModelAndView newContact(ModelAndView model) {
+	        Employee employee = new Employee();
+	        model.addObject("employee", employee);
+	        model.setViewName("EmployeeForm");
+	        return model;
+	    }
+//	 	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	    public String listEmployees(ModelMap map)
+//	    {
+//	        map.addAttribute("employee", new Employee());
+//	        map.addAttribute("employeeList", employeeService.getAllEmployees());
+//	        return "editEmployeeList";
+//	    }
 	 
 	    @RequestMapping(value = "/")
 	    public ModelAndView listEmployee(ModelAndView model) throws IOException {
@@ -30,16 +46,14 @@ public class EmployeeController {
 	        return model;
 	    }
 	 
-	    @RequestMapping(value = "/newEmployee", method = RequestMethod.GET)
-	    public ModelAndView newContact(ModelAndView model) {
-	        Employee employee = new Employee();
-	        model.addObject("employee", employee);
-	        model.setViewName("EmployeeForm");
-	        return model;
-	    }
-	 
+	    
+	    
 	    @RequestMapping(value = "/saveEmployee", method = RequestMethod.POST)
 	    public String saveEmployee(@ModelAttribute(value = "employee") Employee employee,BindingResult result) {
+	    	
+	    	System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< : "+employee.getName());
+	    	
+//	    	employee.addAttribute("employee",new Employee());
 //	        if (employee.getId() == 0) { // if employee id is 0 then creating the
 //	            // employee other updating the employee
 //	            employeeService.addEmployee(employee);
