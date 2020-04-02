@@ -1,35 +1,41 @@
 package com.lxisoft.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="MockExam")
-public class Model {
+@Table(name = "MockExam")
+public class MockModel implements Serializable {
 	
+	private static final long serialVersionUID = -3465813074586302847L;
+
 	@Id
-    @Column(name="ID")
-    @GeneratedValue
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 	
-	@Column(name="Question")
+	@Column(name="question")
 	private String question;
 	
-	@Column(name="Answer")
+	@Column(name="answer")
 	private String answer;
 	
-	@Column(name="Option1")
+	@Column(name="option1")
 	private String option1;
 	
-	@Column(name="Option2")
+	@Column(name="option2")
 	private String option2;
 	
-	@Column(name="Option3")
+	@Column(name="option3")
 	private String option3;
 	
-	@Column(name="Option4")
+	@Column(name="option4")
 	private String option4;
 	
 	private String selectedOption;
@@ -94,5 +100,4 @@ public class Model {
 	{
 		return selectedOption;
 	}
-
 }

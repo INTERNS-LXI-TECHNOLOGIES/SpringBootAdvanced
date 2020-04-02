@@ -2,13 +2,10 @@ package com.lxisoft.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lxisoft.model.*;
 import com.lxisoft.service.*;
@@ -17,14 +14,22 @@ import com.lxisoft.service.*;
 public class MockController {
 	
 	@Autowired
-	private ModelService service;
+	private MockService mockService;
 	
-
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-	 public String addQuestion(@ModelAttribute(value="model") Model model, BindingResult result)
+	@RequestMapping(value = "/addQuestion", method = RequestMethod.GET)
+    public ModelAndView newContact(ModelAndView model) {
+        MockModel mockModel = new MockModel();
+        model.addObject("mockModel", mockModel);
+        model.setViewName("Add");
+        return model;
+    }
+	
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	 public String addQuestion(@ModelAttribute MockModel mockModel)
 	    {
-	        service.addQuestionService(model);
-	        return "sucess.jsp";
+		System.out.println("<<<<<<<<<<<<<<<<"+mockModel.getQuestion());
+	        mockService.addMockQuestion(mockModel);
+	        return "Admin";
 	    }
 
 }
