@@ -1,14 +1,23 @@
-<beans> xmlns="<a class="vglnk" href="http://www.springframework.org/schema/beans" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>beans</span></a>"
-    xmlns:xsi="<a class="vglnk" href="http://www.w3.org/2001/XMLSchema-instance" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>w3</span><span>.</span><span>org</span><span>/</span><span>2001</span><span>/</span><span>XMLSchema</span><span>-</span><span>instance</span></a>" xmlns:tx="<a class="vglnk" href="http://www.springframework.org/schema/tx" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>tx</span></a>"
-    xmlns:mvc="<a class="vglnk" href="http://www.springframework.org/schema/mvc" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>mvc</span></a>" xmlns:context="<a class="vglnk" href="http://www.springframework.org/schema/context" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>context</span></a>"
-    xsi:schemaLocation="<a class="vglnk" href="http://www.springframework.org/schema/beans" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>beans</span></a> <a class="vglnk" href="http://www.springframework.org/schema/beans/spring-beans.xsd" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>beans</span><span>/</span><span>spring</span><span>-</span><span>beans</span><span>.</span><span>xsd</span></a>
-       <a class="vglnk" href="http://www.springframework.org/schema/tx" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>tx</span></a> <a class="vglnk" href="http://www.springframework.org/schema/tx/spring-tx.xsd" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>tx</span><span>/</span><span>spring</span><span>-</span><span>tx</span><span>.</span><span>xsd</span></a>
-       <a class="vglnk" href="http://www.springframework.org/schema/mvc" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>mvc</span></a> <a class="vglnk" href="http://www.springframework.org/schema/mvc/spring-mvc.xsd" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>mvc</span><span>/</span><span>spring</span><span>-</span><span>mvc</span><span>.</span><span>xsd</span></a>
-       <a class="vglnk" href="http://www.springframework.org/schema/context" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>context</span></a> <a class="vglnk" href="http://www.springframework.org/schema/context/spring-context.xsd" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>springframework</span><span>.</span><span>org</span><span>/</span><span>schema</span><span>/</span><span>context</span><span>/</span><span>spring</span><span>-</span><span>context</span><span>.</span><span>xsd</span></a>">
- 
-    <!-- Specifying base package of the Components like Controller, Service,
-        DAO -->
-    <context:component-scan base-package="com.lxisoft" />
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation=
+    "http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+<context:component-scan base-package="com.lxisoft.control" />
+<context:component-scan base-package="com.lxisoft.dao" />
+<context:component-scan base-package="com.lxisoft.model" />
+<context:component-scan base-package="com.lxisoft.service" />
  
     <!-- Getting Database properties -->
     <context:property-placeholder location="classpath:application.properties" />
@@ -28,10 +37,10 @@
     <!-- DataSource -->
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
         id="dataSource">
-        <property name="driverClassName" value="${database.driver}"></property>
-        <property name="url" value="${database.url}"></property>
-        <property name="username" value="${database.user}"></property>
-        <property name="password" value="${database.password}"></property>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/MockExam"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="root"></property>
     </bean>
  
     <!-- Hibernate SessionFactory -->
