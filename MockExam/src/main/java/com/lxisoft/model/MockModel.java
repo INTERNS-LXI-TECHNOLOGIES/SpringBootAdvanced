@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "MockExam")
@@ -38,6 +39,7 @@ public class MockModel implements Serializable {
 	@Column(name="option4")
 	private String option4;
 	
+	@Transient
 	private String selectedOption;
 	
 	public int getId()

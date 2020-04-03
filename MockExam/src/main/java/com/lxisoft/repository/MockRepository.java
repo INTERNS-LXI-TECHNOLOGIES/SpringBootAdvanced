@@ -1,5 +1,7 @@
 package com.lxisoft.repository;
 
+import java.util.List;
+
 //import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -18,5 +20,12 @@ public class MockRepository {
 	{
 		this.sessionFactory.getCurrentSession().saveOrUpdate(mockMmodel);
 	}
+		
+   @SuppressWarnings("unchecked")
+   public List<MockModel> getAllQuestions() {
+	   
+        return sessionFactory.getCurrentSession().createQuery("from MockModel")
+                .list();
+    }
 
 }
