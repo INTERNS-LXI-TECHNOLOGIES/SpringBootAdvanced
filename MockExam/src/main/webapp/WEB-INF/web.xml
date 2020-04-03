@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<web-app xmlns="<a class="vglnk" href="http://java.sun.com/xml/ns/javaee" rel="nofollow"><span>http</span><span>://</span><span>java</span><span>.</span><span>sun</span><span>.</span><span>com</span><span>/</span><span>xml</span><span>/</span><span>ns</span><span>/</span><span>javaee</span></a>" xmlns:xsi="<a class="vglnk" href="http://www.w3.org/2001/XMLSchema-instance" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>w3</span><span>.</span><span>org</span><span>/</span><span>2001</span><span>/</span><span>XMLSchema</span><span>-</span><span>instance</span></a>"
-    xsi:schemaLocation="<a class="vglnk" href="http://java.sun.com/xml/ns/javaee" rel="nofollow"><span>http</span><span>://</span><span>java</span><span>.</span><span>sun</span><span>.</span><span>com</span><span>/</span><span>xml</span><span>/</span><span>ns</span><span>/</span><span>javaee</span></a>
-          <a class="vglnk" href="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" rel="nofollow"><span>http</span><span>://</span><span>java</span><span>.</span><span>sun</span><span>.</span><span>com</span><span>/</span><span>xml</span><span>/</span><span>ns</span><span>/</span><span>javaee</span><span>/</span><span>web</span><span>-</span><span>app</span><span>_</span><span>3</span><span>_</span><span>0</span><span>.</span><span>xsd</span></a>"
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     version="3.0">
  
-    <display-name>MockExam</display-name>
+    <display-name> Mock Exam Spring </display-name>
  
     <context-param>
         <param-name>contextConfigLocation</param-name>

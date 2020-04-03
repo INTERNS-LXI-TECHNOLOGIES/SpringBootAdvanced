@@ -1,7 +1,8 @@
 package com.lxisoft.dao;
 import java.util.List;
 import com.lxisoft.model.Exam;
-public interface ExamDAO {
+public interface ExamDAO 
+{
 	public void addExam(Exam exam);
 	 
     public List<Exam> getAllExam();
@@ -12,4 +13,3 @@ public interface ExamDAO {
  
     public Exam getExam(int examid);
 }
-

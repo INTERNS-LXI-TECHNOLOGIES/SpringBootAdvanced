@@ -1,5 +1,3 @@
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -24,20 +22,20 @@
                 <td>Option1:</td>
                 <td><form:input path="option1" /></td>
             </tr>
-            <tr>
+			<tr>
                 <td>Option2:</td>
                 <td><form:input path="option2" /></td>
             </tr>
 			<tr>
                 <td>Option3:</td>
-                <td><form:input path="option3" /></td>
+                <td><form:input path="option1" /></td>
             </tr>
 			<tr>
                 <td>Option4:</td>
                 <td><form:input path="option4" /></td>
             </tr>
             <tr>
-                <td>Answer:</td>
+                <td>Address:</td>
                 <td><form:input path="answer" /></td>
             </tr>
             <tr>

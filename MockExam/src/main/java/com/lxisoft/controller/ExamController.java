@@ -1,9 +1,7 @@
 package com.lxisoft.controller;
- 
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
- 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,13 +9,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import com.lxisoft.model.*;
-import com.lxisoft.service.*;
+import com.lxisoft.model.Exam;
+import com.lxisoft.service.ExamService;
  
 @Controller
+
 public class ExamController {
- 
-    private static final Logger logger = Logger
+	private static final Logger logger = Logger
             .getLogger(ExamController.class);
  
     public ExamController() {
@@ -28,14 +26,14 @@ public class ExamController {
     private ExamService examService;
  
     @RequestMapping(value = "/")
-    public ModelAndView listExam(ModelAndView model) throws IOException {
+    public ModelAndView listEmployee(ModelAndView model) throws IOException {
         List<Exam> listExam = examService.getAllExam();
-        model.addObject("listExam", listExam);
+        model.addObject("listEmployee", listExam);
         model.setViewName("home");
         return model;
     }
  
-    @RequestMapping(value = "/newExam", method = RequestMethod.GET)
+    @RequestMapping(value = "/newEmployee", method = RequestMethod.GET)
     public ModelAndView newContact(ModelAndView model) {
         Exam exam = new Exam();
         model.addObject("exam", exam);
@@ -44,9 +42,9 @@ public class ExamController {
     }
  
     @RequestMapping(value = "/saveExam", method = RequestMethod.POST)
-    public ModelAndView saveExam(@ModelAttribute Exam exam) {
-        if (exam.getId() == 0) { // if employee id is 0 then creating the
-            // employee other updating the employee
+    public ModelAndView saveEmployee(@ModelAttribute Exam exam) {
+        if (exam.getId() == 0) { // if exam id is 0 then creating the
+            // exam other updating the employee
             examService.addExam(exam);
         } else {
             examService.updateExam(exam);
@@ -70,5 +68,4 @@ public class ExamController {
  
         return model;
     }
- 
 }

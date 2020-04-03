@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.lxisoft.model.Exam;
  
 @Repository
-public class ExamDAOImpl implements ExamDAO {
- 
-    @Autowired
+public class ExamDAOImpl implements ExamDAO 
+{
+	@Autowired
     private SessionFactory sessionFactory;
  
     public void addExam(Exam exam) {
@@ -25,8 +25,8 @@ public class ExamDAOImpl implements ExamDAO {
  
     @Override
     public void deleteExam(Integer examId) {
-    	Exam exam = (Exam) sessionFactory.getCurrentSession().load(
-    			Exam.class, examId);
+        Exam exam = (Exam) sessionFactory.getCurrentSession().load(
+                Exam.class, examId);
         if (null != exam) {
             this.sessionFactory.getCurrentSession().delete(exam);
         }
@@ -35,7 +35,7 @@ public class ExamDAOImpl implements ExamDAO {
  
     public Exam getExam(int exmid) {
         return (Exam) sessionFactory.getCurrentSession().get(
-        		Exam.class, exmid);
+                Exam.class, exmid);
     }
  
     @Override
