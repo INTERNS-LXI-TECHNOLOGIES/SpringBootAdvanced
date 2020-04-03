@@ -1,6 +1,6 @@
 <%@page contentType="text/HTML" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <HTML>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,6 +11,7 @@
         <h1>Exam Questions</h1>
         <table border="1">
  			<tr>
+ 			<th>SlNo</th>
             <th>Question</th>
             <th>Answer</th>
             <th>Option1</th>
@@ -21,7 +22,7 @@
  
             <c:forEach var="listQuestions" items="${listQuestions}">
                 <tr>
- 
+					<td>${listQuestions.id}</td>	 
                     <td>${listQuestions.question}</td>
                     <td>${listQuestions.answer}</td>
                     <td>${listQuestions.option1}</td>
