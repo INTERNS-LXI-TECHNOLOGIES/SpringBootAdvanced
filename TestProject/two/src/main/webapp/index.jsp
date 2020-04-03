@@ -13,11 +13,14 @@
         <h1>Employee List</h1>
         <h3>
             <a href="newEmployee">New Employee</a>
+            <a href="showEmployee">show Employee</a>
         </h3>
         <table border="1">
- 
+ 			<tr>
             <th>Name</th>
-            <c:forEach var="employee" items="${listEmployee}">
+            <th>action</th>
+            </tr>
+            <c:forEach  var="employee" items="${listEmployee}">
                 <tr>
  
                     <td>${employee.name}</td>

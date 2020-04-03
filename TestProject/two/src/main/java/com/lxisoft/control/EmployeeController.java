@@ -25,11 +25,11 @@ public class EmployeeController {
     @Autowired
     private EmployeeServiceImpl employeeService;
  
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/showEmployee", method = RequestMethod.GET)
     public ModelAndView listEmployee(ModelAndView model) throws IOException {
         List<Employee> listEmployee = employeeService.getAllEmployees();
         model.addObject("listEmployee", listEmployee);
-        model.setViewName("index");
+        model.setViewName("ShowEmployee");
         return model;
     }
  
