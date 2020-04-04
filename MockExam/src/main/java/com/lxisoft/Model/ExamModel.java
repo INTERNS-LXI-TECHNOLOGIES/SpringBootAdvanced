@@ -1,15 +1,44 @@
-package com.lxisoft.Model;
-import com.lxisoft.Model.ExamModel;
-public class ExamModel
-{ 	
+package com.lxisoft.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "MockExamtb")
+public class ExamModel implements Serializable {
+
+	private static final long serialVersionUID = -3465813074586302847L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	@Column
+	private String  question;
+
+	@Column
 	private String opt1;
+
+	@Column
 	private String opt2;
+
+	@Column
 	private String opt3;
+
+	@Column
 	private String opt4;
+
+	@Column
 	private String ans;
-	private int qNo;
-	private String question;
-	public void setQuestion(String question)
+
+	
+		public void setQuestion(String question)
 	{
 		this.question = question;
 	}
@@ -19,11 +48,11 @@ public class ExamModel
 	}
 	public void setId(int qNo)
 	{
-		this.qNo=qNo;
+		this.id=qNo;
 	}
 	public int getId()
 	{
-		return qNo;
+		return id;
 	}
 	public void setOpt1(String opt1)
 	{
@@ -68,3 +97,5 @@ public class ExamModel
 
 
 }
+
+
