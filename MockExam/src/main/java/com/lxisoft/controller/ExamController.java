@@ -26,14 +26,14 @@ public class ExamController {
     private ExamService examService;
  
     @RequestMapping(value = "/")
-    public ModelAndView listEmployee(ModelAndView model) throws IOException {
+    public ModelAndView listExam(ModelAndView model) throws IOException {
         List<Exam> listExam = examService.getAllExam();
-        model.addObject("listEmployee", listExam);
+        model.addObject("listExam", listExam);
         model.setViewName("home");
         return model;
     }
  
-    @RequestMapping(value = "/newEmployee", method = RequestMethod.GET)
+    @RequestMapping(value = "/newExam", method = RequestMethod.GET)
     public ModelAndView newContact(ModelAndView model) {
         Exam exam = new Exam();
         model.addObject("exam", exam);
@@ -42,9 +42,9 @@ public class ExamController {
     }
  
     @RequestMapping(value = "/saveExam", method = RequestMethod.POST)
-    public ModelAndView saveEmployee(@ModelAttribute Exam exam) {
+    public ModelAndView saveExam(@ModelAttribute Exam exam) {
         if (exam.getId() == 0) { // if exam id is 0 then creating the
-            // exam other updating the employee
+            // exam other updating the exam
             examService.addExam(exam);
         } else {
             examService.updateExam(exam);

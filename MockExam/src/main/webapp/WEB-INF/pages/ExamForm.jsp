@@ -28,14 +28,14 @@
             </tr>
 			<tr>
                 <td>Option3:</td>
-                <td><form:input path="option1" /></td>
+                <td><form:input path="option3" /></td>
             </tr>
 			<tr>
                 <td>Option4:</td>
                 <td><form:input path="option4" /></td>
             </tr>
             <tr>
-                <td>Address:</td>
+                <td>Answer:</td>
                 <td><form:input path="answer" /></td>
             </tr>
             <tr>
