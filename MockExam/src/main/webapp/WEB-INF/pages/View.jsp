@@ -18,6 +18,7 @@
             <th>Option2</th>
             <th>Option3</th>
             <th>Option4</th>
+            <th>Action</th>
             </tr>
  
             <c:forEach var="listQuestions" items="${listQuestions}">
@@ -29,6 +30,7 @@
                     <td>${listQuestions.option2}</td>
                     <td>${listQuestions.option3}</td>
                     <td>${listQuestions.option4}</td>
+                    <td><a href="deleteQuestion?id=${listQuestions.id}">Delete</a></td>
  
                 </tr>
             </c:forEach>

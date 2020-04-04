@@ -120,12 +120,12 @@ p.one{
   border-style: inset;
 }
 .wrapper {
-     width: 900px;
-     height: 600px;
+     width: 700px;
+     height: 500px;
      position: relative;
      margin: 3% auto;
      box-shadow: 2px 18px 70px 0px #9d9d9d;
-     overflow: hidden;
+     overflow-x: scroll;
    }
 .hello{
   width: 1112px;

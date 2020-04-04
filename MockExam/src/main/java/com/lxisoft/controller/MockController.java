@@ -3,6 +3,8 @@ package com.lxisoft.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -39,5 +41,12 @@ public class MockController {
         model.setViewName("View");
         return model;
     }
+	 
+	 @RequestMapping(value = "/deleteQuestion", method = RequestMethod.GET)
+	    public ModelAndView deleteEmployee(HttpServletRequest request) {
+	        int questionId = Integer.parseInt(request.getParameter("id"));
+	        mockService.deleteQuestion(questionId);
+	        return new ModelAndView("redirect:/");
+	    }
 
 }

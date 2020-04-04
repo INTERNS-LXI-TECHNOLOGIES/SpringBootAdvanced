@@ -28,4 +28,13 @@ public class MockRepository {
                 .list();
     }
 
+	public void deleteQuestion(Integer questionId) {
+		
+		MockModel mockModel = (MockModel) sessionFactory.getCurrentSession().load(
+                MockModel.class, questionId);
+        if (null != mockModel) {
+            this.sessionFactory.getCurrentSession().delete(mockModel);
+        }
+	}
+
 }
