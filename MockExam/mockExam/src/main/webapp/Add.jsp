@@ -1,13 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<%@page contentType="text/html;charset=UTF-8" pageEncoding = "UTF-8"%>
 <head>
-  <meta http-equiv="Content_Type" content="text/html;charset=UTF-8"/>
-	<title>mockexam</title>
+<meta charset="ISO-8859-1">
+<title>add</title>
 </head>
+<body bgcolor="FloralWhite">
 <style>
-   body {
-  background-image: url('itl.cat_simple-wallpaper_120953.png');
+      body {
+  background-image: url('78.png');
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +25,7 @@
   margin: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 30%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -64,21 +66,27 @@
   background-color: #008CBA;
   color: white;
 }
+input[type=text] {
+  width: 230%;
+  padding: 12px 20px;
+  border: 2px solid red;
+  border-radius: 4px;
+}
 </style>
-<body>
-<div class="container">
-<div class="center">
-
-<b><font size="7" color="midnightblue">welcome to mock exam </font>
-</b>
-  <br>
-  <form>
- <input type="submit" formaction="Admin.jsp" class="button button1" name="ADD" value="ADMIN" >
-  <input type="submit" formaction="user" class="button button2" name="ADD" value="USER" >
- </form>
- 
- 
-</div>
-</div>
+    <div align="center">
+        <h1>ADD</h1>
+        <form:form action="save" method="post" modelAttribute="exam">
+        <table>
+            <form:hidden path="slno"/>
+            <tr>
+                <td>Question:</td>
+                <td><form:input path="qn" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" class="button button1" value="ADD"></td>
+            </tr>
+        </table>
+        </form:form>
+    </div>
 </body>
 </html>

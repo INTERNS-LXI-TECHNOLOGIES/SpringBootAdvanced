@@ -27,7 +27,24 @@ public class ExamService {
     public List<ExamModel> getAllExam() {
         return examDao.getAllExam();
     }
-
+    
+    @Transactional
+    public void deleteExam(Integer examSlno) {
+        examDao.deleteExam(examSlno);
+    }
+    
+    public ExamModel updateExam(ExamModel exam) {
+        // TODO Auto-generated method stub
+        return examDao.updateExam(exam);
+    }
+ 
+   public void setExamDao(ExamDao examDao) {
+        this.examDao = examDao;
+    }
+   
+   public ExamModel getExam(int eid) {
+       return examDao.getExam(eid);
+   }
  
 }
 
