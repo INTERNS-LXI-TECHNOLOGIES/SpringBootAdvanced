@@ -32,7 +32,7 @@ public class MockController {
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
 	 public String addQuestion(@ModelAttribute MockModel mockModel) {
 	        mockService.addMockQuestion(mockModel);
-	        return "Admin";
+	        return "SuccessAdd";
 	    }
 	 @RequestMapping(value = "/displayAll")
      public ModelAndView getAllQuestions(ModelAndView model) throws IOException {
@@ -42,11 +42,19 @@ public class MockController {
         return model;
     }
 	 
+	 @RequestMapping(value = "/delete")
+     public ModelAndView questionsForDelete(ModelAndView model) throws IOException {
+        List<MockModel> listQuestions = mockService.getAllQuestions();
+        model.addObject("listQuestions", listQuestions);
+        model.setViewName("Delete");
+        return model;
+	 }
+	 
 	 @RequestMapping(value = "/deleteQuestion", method = RequestMethod.GET)
-	    public ModelAndView deleteEmployee(HttpServletRequest request) {
+	    public String deleteEmployee(HttpServletRequest request) {
 	        int questionId = Integer.parseInt(request.getParameter("id"));
 	        mockService.deleteQuestion(questionId);
-	        return new ModelAndView("redirect:/");
+	        return "SuccessDelete";
 	    }
 
 }

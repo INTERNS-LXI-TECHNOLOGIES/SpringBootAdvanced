@@ -1,0 +1,151 @@
+body {
+    border: #fff;
+    padding: 51px;
+}
+.button {
+  height: 40px;
+     width: 180px;
+     border: none;
+     border-radius: 20px;
+     background: linear-gradient(to left, #ab68ca, #de67a3);
+     color: #fff;
+     font-weight: bolder;
+     margin-top: 30px;
+     cursor: pointer;
+     outline: none;
+}
+ .text input {
+     margin-top: 30px;
+     height: 40px;
+     width: 300px;
+     border-radius: 2px;
+     border: none;
+     background-color: #444;
+     opacity: 0.6;
+     outline: none;
+     color: #fff;
+     padding-left: 10px;
+}
+input[type=text] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom:2px solid darkmagenta;
+}
+ .login-text {
+     width: 800px;
+     height: 450px;
+     background: linear-gradient(to left, #ab68ca, #de67a3);
+     position: absolute;
+     top: -300px;
+     box-sizing: border-box;
+     padding: 6%;
+     transition: all 0.5s ease-in-out;
+     z-index: 11;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.container {
+  text-align :center;
+  width: 97%;
+  height: 83%;
+  padding: 10px 10px;
+
+}
+
+.dimbly {
+        text-align: left;
+    width: 40%;
+    margin: auto;
+}
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    line-height: 50px;
+    background-color: #eee;
+}
+
+header * {
+    display: inline;
+    height: 50px;
+}
+
+header ul {
+    padding: 0;
+}
+
+header li {
+    margin-left: 20px;
+}
+
+section {
+    height: 100vh;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#hero .profile-img {
+    width: 300px;
+}
+
+footer {
+    text-align: center;
+    padding: 50px;
+}
+p.one{
+    font-style: italic;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    border-style: solid;
+    border-color: red green blue yellow;
+}
+.inset {
+  border-style: inset;
+}
+.wrapper {
+     width: 700px;
+     height: 500px;
+     position: relative;
+     margin: 3% auto;
+     box-shadow: 2px 18px 70px 0px #9d9d9d;
+     overflow-x: scroll;
+   }
+.hello{
+  width: 1112px;
+    height: 724px;
+    position: relative;
+    margin: 0% auto;
+    box-shadow: 2px 18px 70px 0px #9d9d9d;
+    overflow: hidden;
+    border: outset;
+}
+.questionBox{
+    width: 1117px;
+    height: 562px;
+    position: relative;
+    margin: 0% auto;
+    box-shadow: 2px 18px 70px 0px #9d9d9d;
+    overflow: hidden;
+    border: outset;
+}
+table, th, td {
+  border: 1px solid darkmagenta;
+  height: 50px;
+}
