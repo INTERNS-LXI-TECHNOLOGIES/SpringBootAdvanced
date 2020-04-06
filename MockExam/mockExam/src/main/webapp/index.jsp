@@ -7,7 +7,7 @@
 </head>
 <style>
    body {
-  background-image: url('itl.cat_simple-wallpaper_120953.png');
+  background-image: url("itl.cat_simple-wallpaper_120953.png");
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
