@@ -25,8 +25,17 @@ public class ExamController {
 		System.out.println("ExamController()");
 	}
 
+	
+    
 	@Autowired
 	private ExamService examService;
+
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+    public ModelAndView index() throws IOException {
+        
+    	 return new ModelAndView("index");
+       
+    }
 
 	@RequestMapping(value = "/")
 	public ModelAndView listExam(ModelAndView model) throws IOException {

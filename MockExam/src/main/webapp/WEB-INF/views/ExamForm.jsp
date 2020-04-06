@@ -7,6 +7,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>New Question</title>
+<body bgcolor="OldLace">
+<style>
+body {
+  background-image: url('Index.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.container {
+  height: 700px;
+  position: relative;
+  border: 5px solid oldlace;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  -ms-transform: translate(-30%, -30%);
+  transform: translate(-20%, -20%);
+}
+.button_css
+{
+  background-color: midnightblue;
+  color: white;
+  width: 150px;
+  height: 40px;
+}
+</style>
 </head>
 <body>
     <div align="center">
