@@ -37,4 +37,14 @@ public class MockRepository {
         }
 	}
 
+	public MockModel updateQuestion(MockModel mockModel) {
+		 sessionFactory.getCurrentSession().update(mockModel);
+	        return mockModel;
+	}
+
+	public MockModel getQuestionId(int mockid) {
+		return (MockModel) sessionFactory.getCurrentSession().get(
+                MockModel.class, mockid);
+	}
+
 }

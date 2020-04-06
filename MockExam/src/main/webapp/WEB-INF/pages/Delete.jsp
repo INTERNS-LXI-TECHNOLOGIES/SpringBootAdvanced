@@ -28,8 +28,8 @@
 }
 
 .wrapper {
-     width: 900px;
-     height: 600px;
+     width: 78%;
+     height: 76%;
      position: relative;
      margin: 3% auto;
      box-shadow: 2px 18px 70px 0px #9d9d9d;
@@ -51,6 +51,7 @@
 table{
   border: 1px solid darkmagenta;
   height: 50px;
+  width:87%;
 }
 th{
   text-align: center;
@@ -62,6 +63,8 @@ tr{
   text-align: center;
   border: 1px solid darkmagenta;
   height: 50px;
+  font-variant-caps: petite-caps;
+  font-size: 22px;
 }
 td{
   text-align: center;

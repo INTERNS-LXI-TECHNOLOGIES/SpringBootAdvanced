@@ -31,8 +31,15 @@ public class MockController {
 	
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
 	 public String addQuestion(@ModelAttribute MockModel mockModel) {
-	        mockService.addMockQuestion(mockModel);
-	        return "SuccessAdd";
+		System.out.println("<<<<<<<<<<<<<"+mockModel.getId());
+	        if (mockModel.getId() == 0) {
+	            mockService.addMockQuestion(mockModel);
+	            return "SuccessAdd";
+	        } else {
+	            mockService.updateQuestion(mockModel);
+	            return "SuccessUpdate";
+	        }    
+	        
 	    }
 	 @RequestMapping(value = "/displayAll")
      public ModelAndView getAllQuestions(ModelAndView model) throws IOException {
@@ -51,10 +58,28 @@ public class MockController {
 	 }
 	 
 	 @RequestMapping(value = "/deleteQuestion", method = RequestMethod.GET)
-	    public String deleteEmployee(HttpServletRequest request) {
+	    public String deleteQuestion(HttpServletRequest request) {
 	        int questionId = Integer.parseInt(request.getParameter("id"));
 	        mockService.deleteQuestion(questionId);
 	        return "SuccessDelete";
+	    }
+	 
+	 @RequestMapping(value = "/update")
+     public ModelAndView questionsForUpdate(ModelAndView model) throws IOException {
+        List<MockModel> listQuestions = mockService.getAllQuestions();
+        model.addObject("listQuestions", listQuestions);
+        model.setViewName("Update");
+        return model;
+	 }
+	 
+	  @RequestMapping(value = "/editQuestion", method = RequestMethod.GET)
+	    public ModelAndView editQuestion(HttpServletRequest request) {
+	        int questionId = Integer.parseInt(request.getParameter("id"));
+	        MockModel mockModel = mockService.getQuestionId(questionId);
+	        ModelAndView model = new ModelAndView("UpdateQuestion");
+	        model.addObject("mockModel1", mockModel);
+	 
+	        return model;
 	    }
 
 }

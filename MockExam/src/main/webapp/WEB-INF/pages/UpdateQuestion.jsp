@@ -52,12 +52,12 @@ font-size: x-large;
 		<div align="center" style="background-color: darkmagenta;" >
             <br>
             <br>
-      		<h1><font size="50px" color="white" >Enter Question</font></h1>
+      		<h1><font size="50px" color="white" >Update Question</font></h1>
             <br>
             <br>
         </div>
   <div align="center" style="padding-left: 2%;text-align: -webkit-right;">
-        <form:form action="add" method="POST" modelAttribute="mockModel">
+        <form:form action="add" method="POST" modelAttribute="mockModel1">
         <table style="width:84%;" >
             <form:hidden path="id" />
             <tr>
@@ -86,7 +86,7 @@ font-size: x-large;
             </tr>
         </table>
         <div align="center">
-        <button class="button">SAVE</button> <button formaction="Admin.jsp" class="button">BACK</button>
+        <button class="button">SAVE</button> <button formaction="update" class="button">BACK</button>
         </div>
         </form:form>
     </div>

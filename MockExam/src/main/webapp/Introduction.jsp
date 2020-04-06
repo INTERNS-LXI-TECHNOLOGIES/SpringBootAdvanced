@@ -1,7 +1,6 @@
 <%@page contentType = "text/html;charset=UTF-8" pageEncoding = "UTF-8"%>
 <html>
 <head>
-	<meta http-equiv="Content_Type" content="text/html;charset=UTF-8"/>
 <style type="text/css">
 .button {
   height: 52px;
@@ -25,35 +24,44 @@
 }
 
 .wrapper {
-     width: 900px;
-     height: 600px;
+     width: 920px;
+     height: 680px;
      position: relative;
      margin: 3% auto;
      box-shadow: 2px 18px 70px 0px #9d9d9d;
    }
+ .intro{
+ padding-left: 80px;
+ font-variant: all-small-caps;
+ font-size: x-large;
+ }
 </style>
 </head>
 <body>
-<form>
-	<div class = "wrapper">
+<div class = "wrapper">
+	<!-- <div align = "center"> -->
 		<div  align="center" style="background-color: darkmagenta;">
 			<br>
 			<br>
-		<h1><font style="font-size:50px;" color="white">!! WELCOME ADMIN !!</font></h1>
+		<h1><font style="font-size:50px;" color="white">INTRODUCTION</font></h1>
 			<br>
 			<br>
-		</div>
-			<br>
-		<div align="center" style="padding-top: 80px;">
-		<button formaction="displayAll" class="button">VIEW</button>
-		<button formaction="addQuestion" class="button">ADD</button>
-		<button formaction="update" class="button">UPDATE</button>
-		<button formaction="delete" class="button">DELETE</button>
-		<button  class="button">TEST EXAM</button> <button formaction="index.jsp" class="button">BACK</button>
-		<br>
-		<br>
-	</div> 
-</div>
+			</div>
+			<div class = "intro">
+				<ul>
+				
+					<li><h1>  Exam has Total 10 Questions. </h1></li>
+					<li><h1>  Each Question has 20 sec. </h1></li>
+					<li><h1>  No Negative Marks.</h1></li>
+					<li><h1>  Minimum 6 Right Answers For Pass.</h1></li>
+			
+				</ul>
+			</div>
+<div style="padding-top: 18px;" align="center">
+<form>
+<button class="button">Start Exam</button> <button class="button" formaction="index.jsp" >Back</button>
 </form>
+</div>
+</div>
 </body>
 </html>

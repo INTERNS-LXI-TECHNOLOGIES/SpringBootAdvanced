@@ -1,6 +1,10 @@
-<%@page contentType = "text/html;charset=UTF-8" pageEncoding = "UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Delete Successfully</title>
 <style type="text/css">
 .button {
   height: 52px;
@@ -22,7 +26,6 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-
 .wrapper {
      width: 900px;
      height: 600px;
@@ -30,25 +33,19 @@
      margin: 3% auto;
      box-shadow: 2px 18px 70px 0px #9d9d9d;
    }
+.deletediv{
+    padding-top: 18%;
+    font-style: italic;
+    font-size: xx-large;
+   }
 </style>
 </head>
 <body>
-<div class = "wrapper">
-	<!-- <div align = "center"> -->
-		<div  align="center" style="background-color: darkmagenta;">
-			<br>
-			<br>
-		<h1><font style="font-size:50px;" color="white">WELCOME TO MOCK EXAM</font></h1>
-			<br>
-			<br>
-			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-<div style="padding-top: 82px;" align="center">
+<div class="wrapper">
+<div class="deletediv" align="center">
+<h1>Question Successfully Updated</h1>
 <form>
-<button class="button" formaction ="Admin.jsp">ADMIN</button> <button class="button" formaction="Introduction.jsp" >USER</button>
+<button class="button" formaction="update">Done</button>
 </form>
 </div>
 </div>

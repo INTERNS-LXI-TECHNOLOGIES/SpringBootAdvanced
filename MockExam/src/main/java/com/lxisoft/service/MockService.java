@@ -30,5 +30,20 @@ public class MockService {
 	
 		mockRepository.deleteQuestion(questionId);
 	}
+	
+	public MockModel getQuestionId(int mockid) {
+        return mockRepository.getQuestionId(mockid);
+        
+    }
+	
+	public MockModel getQuestion(MockModel mockModel) {
+ 
+        return mockRepository.updateQuestion(mockModel);
+    }
+
+	public MockModel updateQuestion(MockModel mockModel) {
+		
+		return mockRepository.updateQuestion(mockModel);
+	}
 
 }
