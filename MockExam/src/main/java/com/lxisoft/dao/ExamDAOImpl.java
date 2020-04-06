@@ -14,18 +14,37 @@ public class ExamDAOImpl implements ExamDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void addQuestion(ExamModel models) {
-		sessionFactory.getCurrentSession().saveOrUpdate(models);
+	public void addExam(ExamModel examModel) {
+		sessionFactory.getCurrentSession().saveOrUpdate(examModel);
 
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<ExamModel> findAllQuestions() {
+	public List<ExamModel> getAllExam() {
 
 		return sessionFactory.getCurrentSession().createQuery("from ExamModel")
 				.list();
 	}
 
+	@Override
+	public void deleteExam(Integer examId) {
+		ExamModel examModel = (ExamModel) sessionFactory.getCurrentSession().load(
+				ExamModel.class, examId);
+		if (null != examModel) {
+			this.sessionFactory.getCurrentSession().delete(examModel);
+		}
+
+	}
+
+	public ExamModel getExam(int exmid) {
+		return (ExamModel) sessionFactory.getCurrentSession().get(
+				ExamModel.class, exmid);
+	}
+
+	@Override
+	public ExamModel updateExam(ExamModel examModel) {
+		sessionFactory.getCurrentSession().update(examModel);
+		return examModel;
+	}
+
 }
-	
-	

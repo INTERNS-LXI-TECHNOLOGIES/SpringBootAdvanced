@@ -1,7 +1,6 @@
 package com.lxisoft.controller;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,30 +29,47 @@ public class ExamController {
 	private ExamService examService;
 
 	@RequestMapping(value = "/")
-	public ModelAndView findAllQuestions(ModelAndView model) throws IOException {
-		List<ExamModel> listQuestions = examService.findAllQuestions();
-		model.addObject("listQuestions", listQuestions);
-		model.setViewName("QuestionView");
+	public ModelAndView listExam(ModelAndView model) throws IOException {
+		List<ExamModel> listExam = examService.getAllExams();
+		model.addObject("listExam", listExam);
+		model.setViewName("home");
 		return model;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	 public String addQuestion(@ModelAttribute ExamModel models) {
-	        examService.addQuestion(models);
-	        return "Admin";
-	    }
-	 
 	@RequestMapping(value = "/newExam", method = RequestMethod.GET)
-	public ModelAndView newQuestion(ModelAndView model) {
-		ExamModel exam = new ExamModel();
-		model.addObject("examModel", models);
-		model.setViewName("AddQuestion");
+	public ModelAndView newContact(ModelAndView model) {
+		ExamModel examModel = new ExamModel();
+		model.addObject("examModel", examModel);
+		model.setViewName("ExamForm");
 		return model;
 	}
-	
-	 
-}		
-     
 
 
+	@RequestMapping(value = "/saveExam", method = RequestMethod.POST)
+	public ModelAndView saveExam(@ModelAttribute ExamModel examModel) {
+		if (examModel.getId() == 0) { 
+			examService.addExam(examModel);
+		} else {
+			examService.updateExam(examModel);
+		}
+		return new ModelAndView("redirect:/");
+	}
 
+	@RequestMapping(value = "/deleteExam", method = RequestMethod.GET)
+	public ModelAndView deleteExam(HttpServletRequest request) {
+		int examId = Integer.parseInt(request.getParameter("id"));
+		examService.deleteExam(examId);
+		return new ModelAndView("redirect:/");
+	}
+
+	@RequestMapping(value = "/editExam", method = RequestMethod.GET)
+	public ModelAndView editQuestiont(HttpServletRequest request) {
+		int examId = Integer.parseInt(request.getParameter("id"));
+		ExamModel examModel = examService.getExam(examId);
+		ModelAndView model = new ModelAndView("ExamForm");
+		model.addObject("examModel", examModel);
+
+		return model;
+	}
+
+}

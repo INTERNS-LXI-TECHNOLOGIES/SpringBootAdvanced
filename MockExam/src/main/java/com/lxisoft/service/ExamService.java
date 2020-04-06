@@ -6,9 +6,13 @@ import com.lxisoft.model.ExamModel;
 
 public interface ExamService {
 	
-	public void addQueston(ExamModel models);
+	public void addExam(ExamModel examModel);
 
-	public List<ExamModel> findAllQuestions();
+	public List<ExamModel> getAllExams();
 
-	
+	public void deleteExam(Integer examId);
+
+	public ExamModel getExam(int examid);
+
+	public ExamModel updateExam(ExamModel examModel);
 }

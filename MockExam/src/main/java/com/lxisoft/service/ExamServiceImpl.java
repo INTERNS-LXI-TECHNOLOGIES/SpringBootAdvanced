@@ -18,18 +18,33 @@ public class ExamServiceImpl implements ExamService {
 
 	@Override
 	@Transactional
-	public void addQuestion(ExamModel models) {
-		examDAO.addQuestion(models);
+	public void addExam(ExamModel examModel) {
+		examDAO.addExam(examModel);
 	}
 
 	@Override
 	@Transactional
-	public List<ExamModel> findAllQuestions() {
-		return examDAO.findAllQuestions();
+	public List<ExamModel> getAllExams() {
+		return examDAO.getAllExam();
 	}
 
-	
+	@Override
+	@Transactional
+	public void deleteExam(Integer examId) {
+		examDAO.deleteExam(examId);
+	}
+
+	public ExamModel getExam(int exmid) {
+		return examDAO.getExam(exmid);
+	}
+
+	public ExamModel updateExam(ExamModel examModel) {
+		
+		return examDAO.updateExam(examModel);
+	}
+
+	public void setExamDAO(ExamDAO examDAO) {
+		this.examDAO = examDAO;
+	}
+
 }
-
-
-
