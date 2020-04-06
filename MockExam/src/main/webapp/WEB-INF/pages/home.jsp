@@ -47,7 +47,7 @@
 					<td>${exam.answer}</td>
                     <td><a href="editExam?id=${exam.id}">Edit</a>
                              <a
-                        href="deleteExam?id=${exam.id}">Delete</a></td>
+                        href="delete?id=${exam.id}">Delete</a></td>
  
                 </tr>
             </c:forEach>

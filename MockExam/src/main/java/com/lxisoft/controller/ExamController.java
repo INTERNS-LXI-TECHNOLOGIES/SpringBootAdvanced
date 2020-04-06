@@ -57,14 +57,30 @@ public class ExamController {
         }
         return new ModelAndView("redirect:/home");
     }
- 
-    @RequestMapping(value = "/deleteExam", method = RequestMethod.GET)
-    public ModelAndView deleteExam(HttpServletRequest request) {
-        int examId = Integer.parseInt(request.getParameter("id"));
-        examService.deleteExam(examId);
-        return new ModelAndView("redirect:/home");
+    
+//    @RequestMapping(value = "/deleteExam")
+//    public ModelAndView deleteExam(HttpServletRequest request) {
+//        int examId = Integer.parseInt(request.getParameter("id"));
+//        examService.deleteExam(examId);
+//        return new ModelAndView("redirect:/home");
+//    }
+    
+    @RequestMapping(value = "/deleteExam")
+    public ModelAndView questionsForDelete(ModelAndView model) throws IOException {
+       List<Exam> listExam = examService.getAllExam();
+       model.addObject("listExam", listExam);
+       model.setViewName("home");
+       return model;
     }
  
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteQuest(HttpServletRequest request) {
+        int examId = Integer.parseInt(request.getParameter("id"));
+        examService.deleteExam(examId);
+        return "DeleteConfirm";
+    }
+ 
+    
     @RequestMapping(value = "/editExam", method = RequestMethod.GET)
     public ModelAndView editContact(HttpServletRequest request) {
         int examId = Integer.parseInt(request.getParameter("id"));
