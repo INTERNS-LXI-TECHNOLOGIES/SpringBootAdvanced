@@ -1,5 +1,6 @@
 package com.lxisoft.controller;
 import java.io.IOException;
+import java.util.Map;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.jboss.logging.Logger;
@@ -21,11 +22,16 @@ public class ExamController {
     public ExamController() {
         System.out.println("ExamController()");
     }
+    @RequestMapping(value="/")
+    public String home(Map<String, Object> model) {
+        model.put("message", "HowToDoInJava Reader !!");
+        return "index";
+    }
  
     @Autowired
     private ExamService examService;
  
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/home")
     public ModelAndView listExam(ModelAndView model) throws IOException {
         List<Exam> listExam = examService.getAllExam();
         model.addObject("listExam", listExam);
@@ -49,14 +55,14 @@ public class ExamController {
         } else {
             examService.updateExam(exam);
         }
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/home");
     }
  
     @RequestMapping(value = "/deleteExam", method = RequestMethod.GET)
     public ModelAndView deleteExam(HttpServletRequest request) {
         int examId = Integer.parseInt(request.getParameter("id"));
         examService.deleteExam(examId);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/home");
     }
  
     @RequestMapping(value = "/editExam", method = RequestMethod.GET)

@@ -7,12 +7,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Exam Management Screen</title>
+<style>
+	.button
+	{
+		background-color: #4CAF50;
+	}
+	div
+	{
+		padding-top: 40px;
+		padding-right: 30px;
+		padding-left: 80px;
+		padding-bottom: 20px;
+	}
+  </style>
 </head>
 <body>
     <div align="center">
-        <h1>Question</h1>
+        <h1>MOCK EXAM</h1>
         <h3>
-            <a href="newExam">New Exam</a>
+            <a href="newExam">ADD</a>
         </h3>
         <table border="1">
  
@@ -38,7 +51,8 @@
  
                 </tr>
             </c:forEach>
-        </table>
+        </table><br>
+		<br><input type="button" class="button" value="Back" onclick="history.back()">
     </div>
 </body>
 </html>
