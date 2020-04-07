@@ -40,8 +40,12 @@ public class ExamDao {
         return exam;
     }
     
-    public ExamModel getExam(int eid) {
+//    public ExamModel getExam(int eid) {
+//        return (ExamModel) sessionFactory.getCurrentSession().get(
+//                ExamModel.class, eid);
+//    }
+    public ExamModel getExam(int examslno) {
         return (ExamModel) sessionFactory.getCurrentSession().get(
-                ExamModel.class, eid);
+                ExamModel.class, examslno);
     }
 }

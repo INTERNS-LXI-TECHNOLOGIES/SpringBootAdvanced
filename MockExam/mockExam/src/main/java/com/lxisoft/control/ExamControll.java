@@ -36,6 +36,15 @@ public class ExamControll {
         return model;
     }
     
+    @RequestMapping(value = "/exam", method = RequestMethod.GET)
+    public ModelAndView startExam(HttpServletRequest request) throws IOException {
+    	 int examSlno = Integer.parseInt(request.getParameter("slno"));
+    	 ExamModel exam = examService.getExam(examSlno);
+    	 ModelAndView model = new ModelAndView("Add");
+    	 model.addObject("exam", exam);
+        return model;
+    }
+    
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public ModelAndView listDelete(ModelAndView model) throws IOException {
         List<ExamModel> listDelete = examService.getAllExam();

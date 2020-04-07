@@ -74,7 +74,7 @@
   <br>
   <form>
  <input type="submit" formaction="Admin.jsp" class="button button1" name="ADD" value="ADMIN" >
-  <input type="submit" formaction="user" class="button button2" name="ADD" value="USER" >
+  <input type="submit" formaction="User.jsp" class="button button2" name="ADD" value="USER" >
  </form>
  
  

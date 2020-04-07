@@ -41,9 +41,12 @@ public class ExamService {
    public void setExamDao(ExamDao examDao) {
         this.examDao = examDao;
     }
-   
-   public ExamModel getExam(int eid) {
-       return examDao.getExam(eid);
+//   
+//   public ExamModel getExam(int eid) {
+//       return examDao.getExam(eid);
+//   }
+   public ExamModel getExam(int examslno) {
+       return examDao.getExam(examslno);
    }
  
 }
