@@ -43,9 +43,15 @@ public class ExamController {
     public ModelAndView newContact(ModelAndView model) {
         Exam exam = new Exam();
         model.addObject("exam", exam);
-        model.setViewName("ExamForm");
+        model.setViewName("Add");
         return model;
     }
+    
+    @RequestMapping(value = "/addsucc", method = RequestMethod.POST)
+	 public String addQuestion(@ModelAttribute Exam exam) {
+    	examService.addExam(exam);
+	        return "AddSuccess";
+	    }
  
     @RequestMapping(value = "/saveExam", method = RequestMethod.POST)
     public ModelAndView saveExam(@ModelAttribute Exam exam) {
@@ -78,6 +84,7 @@ public class ExamController {
         int examId = Integer.parseInt(request.getParameter("id"));
         examService.deleteExam(examId);
         return "DeleteConfirm";
+        
     }
  
     
@@ -85,7 +92,7 @@ public class ExamController {
     public ModelAndView editContact(HttpServletRequest request) {
         int examId = Integer.parseInt(request.getParameter("id"));
         Exam exam = examService.getExam(examId);
-        ModelAndView model = new ModelAndView("ExamForm");
+        ModelAndView model = new ModelAndView("Edit");
         model.addObject("exam", exam);
  
         return model;

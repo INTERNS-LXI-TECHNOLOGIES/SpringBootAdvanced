@@ -21,13 +21,11 @@
 <body background="aa.jpg">
 	<table align=center border="1" width=30% height=25%>
 	<tr>
-		<td><center><div><b>Do You Want To Continue</b></center></div></td><br>
+		<td><center><div><b>Successfully deleted</b></center></div></td><br>
 	</tr>
 	<tr>
 	<td>
-    <a href="deleteExam"><input type="submit" value="Confirm"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="index"><input type="submit" value=Cancel></a></div>
-		</td>
+    <center><a href="deleteExam"><input type="submit" value="ok"></a></center>
 	</tr>
 	</table>
 </body>

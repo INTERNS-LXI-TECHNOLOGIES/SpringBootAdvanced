@@ -16,6 +16,7 @@
   </style>
   </head>
 <body background="cc.jpg">
+<input type = "hidden" name ="indexValue" value ="0">
 <div><h1 align="center">MOCKEXAM ${message}</h1>
 <center><a href="home"><input type="submit" class="button" value="Opertions"/></a></center>
 <h2 align="center">Instructions</h2>
@@ -25,7 +26,8 @@
 <h4>4. You can move between the Test sections to attempt the test section of your choice.</h4>
 <h4>5. The questions can be answered in any order. Each question carries 1 mark.</h4>
 <h4>6. Once you have answered all the questions please click on the 'Submit' button</h4></div></font>
-
+ 
 <center><input type="submit" class="button" value="startexam"/></center>
+
 </body>
 </html>
