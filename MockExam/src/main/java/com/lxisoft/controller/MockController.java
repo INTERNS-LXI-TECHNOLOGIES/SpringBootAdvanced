@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -81,5 +82,31 @@ public class MockController {
 	 
 	        return model;
 	    }
+	  
+	  @RequestMapping(value = "/userQuestion")
+	     public String userQuestionDisplay(HttpServletRequest request) throws IOException {
+	        List<MockModel> listQuestions = mockService.getAllQuestions();
+	        HttpSession sessions = request.getSession(true);
+	        sessions.setAttribute("listQuestions", listQuestions);
+	       return "ExamQuestion";
+		 }
+	  @RequestMapping(value = "/selectOption", method = RequestMethod.GET)
+	  public ModelAndView seletedOption(HttpServletRequest request)
+	  {
+		  HttpSession sessions = request.getSession(true);
+		  int selectedOption =  Integer.parseInt(request.getParameter("option"));
+		  int count = Integer.parseInt(request.getParameter("count"));
+		  @SuppressWarnings("unchecked")
+		  List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
+		  
+		  if(selectedOption == 1)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption1());  
+		  }
+		  
+		  sessions.setAttribute("listQuestions", listQuestions);
+		  ModelAndView model = new ModelAndView("ExamQuestion");
+		  return model;
+	  }
 
 }

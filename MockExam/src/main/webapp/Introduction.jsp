@@ -59,7 +59,8 @@
 			</div>
 <div style="padding-top: 18px;" align="center">
 <form>
-<button class="button">Start Exam</button> <button class="button" formaction="index.jsp" >Back</button>
+<input type="hidden" name = "count" value = "0" >
+<button formaction = "userQuestion" class="button">Start Exam</button> <button class="button" formaction="index.jsp" >Back</button>
 </form>
 </div>
 </div>
