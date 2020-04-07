@@ -1,6 +1,0 @@
-com\lxisoft\controller\ExamController.class
-com\lxisoft\dao\ExamDAOImpl.class
-com\lxisoft\dao\ExamDAO.class
-com\lxisoft\model\ExamModel.class
-com\lxisoft\service\ExamService.class
-com\lxisoft\service\ExamServiceImpl.class

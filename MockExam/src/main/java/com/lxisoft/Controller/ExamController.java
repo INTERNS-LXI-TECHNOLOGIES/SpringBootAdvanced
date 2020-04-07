@@ -44,7 +44,6 @@ public class ExamController {
 		return model;
 	}
 
-
 	@RequestMapping(value = "/saveExam", method = RequestMethod.POST)
 	public String saveExam(@ModelAttribute ExamModel examModel) {
 		if (examModel.getId() == 0) { 
@@ -52,14 +51,14 @@ public class ExamController {
 		} else {
 			examService.updateExam(examModel);
 		}
-		return ("Update");
+		return ("Succes");
 	}
 
 	@RequestMapping(value = "/deleteExam", method = RequestMethod.GET)
 	public String deleteExam(HttpServletRequest request) {
 		int examId = Integer.parseInt(request.getParameter("id"));
 		examService.deleteExam(examId);
-		return ("Update");
+		return ("Succes");
 	}
 
 	@RequestMapping(value = "/editExam", method = RequestMethod.GET)
@@ -71,5 +70,15 @@ public class ExamController {
 
 		return model;
 	}
+
+	@RequestMapping(value = "/startExam", method = RequestMethod.GET)
+	public ModelAndView displayExam(HttpServletRequest request) {
+		List<ExamModel> displayExam = examService.getAllExams();
+		model.addObject("listQuestion", displayExam);
+		model.setViewName("Instruction");
+		return model;
+	
+	}
+
 
 }
