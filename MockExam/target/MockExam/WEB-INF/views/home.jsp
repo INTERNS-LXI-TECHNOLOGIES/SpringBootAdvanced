@@ -68,8 +68,7 @@ body {
 		</table>
 		<h4>
 			Add new Question <a href="newExam">here</a><br><br>
-			
-			<button formaction="/" class="button">BACK</button>
+			<form><button formaction="index.jsp"></button>Back</form>						
 		</h4>
 	</div>
 </body>

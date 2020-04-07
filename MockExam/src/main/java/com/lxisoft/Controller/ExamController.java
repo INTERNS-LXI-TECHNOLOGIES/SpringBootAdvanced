@@ -23,21 +23,12 @@ public class ExamController {
 
 	public ExamController() {
 		System.out.println("ExamController()");
-	}
+	}	
 
-	
-    
 	@Autowired
 	private ExamService examService;
-
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-    public ModelAndView index() throws IOException {
-        
-    	 return new ModelAndView("index");
-       
-    }
-
-	@RequestMapping(value = "/")
+	
+	@RequestMapping(value = "/firstpage")
 	public ModelAndView listExam(ModelAndView model) throws IOException {
 		List<ExamModel> listExam = examService.getAllExams();
 		model.addObject("listExam", listExam);
@@ -55,20 +46,20 @@ public class ExamController {
 
 
 	@RequestMapping(value = "/saveExam", method = RequestMethod.POST)
-	public ModelAndView saveExam(@ModelAttribute ExamModel examModel) {
+	public String saveExam(@ModelAttribute ExamModel examModel) {
 		if (examModel.getId() == 0) { 
 			examService.addExam(examModel);
 		} else {
 			examService.updateExam(examModel);
 		}
-		return new ModelAndView("redirect:/");
+		return ("Update");
 	}
 
 	@RequestMapping(value = "/deleteExam", method = RequestMethod.GET)
-	public ModelAndView deleteExam(HttpServletRequest request) {
+	public String deleteExam(HttpServletRequest request) {
 		int examId = Integer.parseInt(request.getParameter("id"));
 		examService.deleteExam(examId);
-		return new ModelAndView("redirect:/");
+		return ("Update");
 	}
 
 	@RequestMapping(value = "/editExam", method = RequestMethod.GET)

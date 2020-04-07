@@ -25,10 +25,9 @@ body
 </style>
   </head>
 <body>
-<div><h1 align="center">MOCKEXAM</h1>
-<button type="submit" formaction="home.jsp" class="button">ADMIN</button> 
-<center><a href="home.jsp"><input type="submit" value="ADMIN"/></a></center>
-<button type="submit" formaction="Instruction.jsp" class="button">USER</button> 
+<div><h1 align="center">MOCK EXAM</h1>
+<center><a href="firstpage"><input type="submit" value="ADMIN"/></a></center>
+<button type="submit" formaction="Instruction.jsp" class="button">USER</button> </center>
 </form>
 </p>
 </div>
