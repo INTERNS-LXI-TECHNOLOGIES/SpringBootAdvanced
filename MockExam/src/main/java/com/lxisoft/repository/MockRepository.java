@@ -24,4 +24,18 @@ public class MockRepository {
         return sessionFactory.getCurrentSession().createQuery("from MockModel")
                 .list();
     }
+
+    public void deleteQuest(Integer questionId) 
+    {
+		
+		MockModel mockModel = (MockModel) sessionFactory.getCurrentSession().load(
+                MockModel.class, questionId);
+        if (null != mockModel) {
+            this.sessionFactory.getCurrentSession().delete(mockModel);
+     }
+	}
+	public MockModel getQuestionId(int mockid) {
+		return (MockModel) sessionFactory.getCurrentSession().get(
+                MockModel.class, mockid);
+	}
 }

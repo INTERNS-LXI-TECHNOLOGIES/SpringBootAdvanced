@@ -26,5 +26,13 @@ public class MockService {
         return mockRepository.getAllQuestions();
     }
 
+    public void deleteQuest(Integer questionId) {
+	
+		mockRepository.deleteQuest(questionId);
+	}
+	
+	public MockModel getQuestionId(int mockid) {
+        return mockRepository.getQuestionId(mockid);
+    }
 
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,5 +44,19 @@ public class MockController {
         model.setViewName("View");
         return model;
     }
-	 
+
+     @RequestMapping(value = "/delete")
+     public ModelAndView removeQuestion(ModelAndView model) throws IOException {
+        List<MockModel> listQuestions = mockService.getAllQuestions();
+        model.addObject("listQuestions", listQuestions);
+        model.setViewName("Delete");
+        return model;
+    }
+
+	 @RequestMapping(value = "/deleteQuest", method = RequestMethod.GET)
+	    public String deleteQuest(HttpServletRequest request) {
+	        int questionId = Integer.parseInt(request.getParameter("id"));
+	        mockService.deleteQuest(questionId);
+	        return "deleteDone";
+	 }
 }
