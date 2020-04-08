@@ -2,6 +2,7 @@ package com.lxisoft.controller;
 import java.io.IOException;
 import java.util.Map;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,7 +95,14 @@ public class ExamController {
         Exam exam = examService.getExam(examId);
         ModelAndView model = new ModelAndView("Edit");
         model.addObject("exam", exam);
- 
         return model;
     }
+    
+    @RequestMapping(value = "/questions")
+    public String userQuestionDisplay(HttpServletRequest request) throws IOException {
+       List<Exam> listExam = examService.getAllExam();
+       HttpSession sessions = request.getSession(true);
+       sessions.setAttribute("listExam", listExam);
+      return "ExamQuestion";
+	 }
 }

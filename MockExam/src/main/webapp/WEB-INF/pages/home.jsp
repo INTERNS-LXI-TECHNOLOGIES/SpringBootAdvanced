@@ -52,7 +52,7 @@
                 </tr>
             </c:forEach>
         </table><br>
-		<br><input type="button" class="button" value="Back" onclick="history.back()">
+		<br><a href="index"><input type="button" class="button" value="Back"></a>
     </div>
 </body>
 </html>
