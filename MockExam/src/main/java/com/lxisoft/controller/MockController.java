@@ -103,10 +103,38 @@ public class MockController {
 		  {
 			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption1());  
 		  }
-		  
+		  else if(selectedOption == 2)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption2());  
+		  }
+		  else if(selectedOption == 3)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption3());  
+		  }
+		  else if(selectedOption == 4)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption4());  
+		  }
 		  sessions.setAttribute("listQuestions", listQuestions);
 		  ModelAndView model = new ModelAndView("ExamQuestion");
 		  return model;
+	  }
+	@RequestMapping(value = "/result", method = RequestMethod.GET)
+	public String resultCalculation(HttpServletRequest request)
+	  {
+		  int result = 0;
+		  HttpSession sessions = request.getSession(true);
+		@SuppressWarnings("unchecked")
+		List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
+		  for(int i =0;i<listQuestions.size();i++)
+		  {
+			if(listQuestions.get(i).getAnswer().equals(listQuestions.get(i).getSelectedOption()))
+			{
+				result++;
+			}
+		  }
+		  sessions.setAttribute("Result", result);		  
+		  return "Result";
 	  }
 
 }

@@ -28,21 +28,50 @@
 }
 
 .wrapper {
-     width: 900px;
-     height: 625px;
+     width: 86%;
+     height: 687px;
      position: relative;
      margin: 3% auto;
      box-shadow: 2px 18px 70px 0px #9d9d9d;
    }
 </style>
+<script type="text/javascript">
+
+		function selectRadio() {
+			document.getElementById('submitBtn').type = "submit";
+		}
+
+		function check() {
+		var checkRadio = document.querySelector( 
+                'input[name="option"]:checked'); 
+                if(!checkRadio) {
+            		alert("Please Select a Option");
+            	}
+		}
+<%
+String clock = "20";
+%>
+var timeout = <%=clock%>;
+function timer()
+{
+	if( --timeout > 0 )
+	{
+		document.getElementById('clocky').innerHTML = timeout;
+		window.setTimeout( "timer()", 1000 );
+	}
+	else
+	{
+		var data = window.location.href.split('=');
+		var qcount = parseInt(data[1]) +1;
+		window.location.href=data[0].slice(0,data[0].lastIndexOf('/'))+'/Option?ques='+qcount;
+	}
+}
+</script>
 </head>
 <body>
 	   <%
 	   List<MockModel> questionList = (List<MockModel>)session.getAttribute("listQuestions");
-	   out.print("ArraySize : "+questionList.get(1).getSelectedOption());
        int count = Integer.parseInt(request.getParameter("count"));
-	   //out.println("Count : "+count);
-	   //int count = 1;
        %>
 	<div class="wrapper">
         
@@ -55,20 +84,20 @@
         </div>
         <%if(count < questionList.size())
         	{%>
-  <div align="center" style="padding-left: 2%;">
-  <form method="GET">
-        <label><%out.print(questionList.get(count).getQuestion()); %></label><br>
-        <input type="radio" value="1" name="option" id="option1" >
-        <label for = "option1"><%out.print(questionList.get(count).getOption1()); %></label><br>
-        <input type="radio" value="2" name="option" id="option2" >
-        <label for = "option2"><%out.print(questionList.get(count).getOption2()); %></label><br>
-        <input type="radio" value="3" name="option" id="option3" >
-        <label for = "option3"><%out.print(questionList.get(count).getOption3()); %></label><br>
-        <input type="radio" value="4" name="option" id="option4" >
-        <label for = "option4"><%out.print(questionList.get(count).getOption4()); %></label><br>
+  <div align="left" style="padding-left: 2%;">
+  <form method="GET" action="selectOption">
+        <h1><label>Question No <%out.print(count+1+" : "); out.print(questionList.get(count).getQuestion()); %></label></h1><br>
+        <h2><input onclick="selectRadio()" type="radio" value="1" name="option" id="option1" >
+        <label for = "option1"><%out.print(questionList.get(count).getOption1()); %></label></h2><br>
+        <h2><input onclick="selectRadio()" type="radio" value="2" name="option" id="option2" >
+        <label for = "option2"><%out.print(questionList.get(count).getOption2()); %></label></h2><br>
+        <h2><input onclick="selectRadio()" type="radio" value="3" name="option" id="option3" >
+        <label for = "option3"><%out.print(questionList.get(count).getOption3()); %></label></h2><br>
+        <h2><input onclick="selectRadio()" type="radio" value="4" name="option" id="option4" >
+        <label for = "option4"><%out.print(questionList.get(count).getOption4()); %></label></h2><br>
       <%count++; %>
         <div align="center">
-        <button formaction="selectOption" class="button" name ="count" value = <%out.print(count);%>>Next</button>
+        <button onclick="check()" id="submitBtn" class="button" name ="count" value = <%out.print(count);%>>Next</button>
         </div>
         </form>
     </div>
@@ -76,17 +105,7 @@
         }
         else
         {
-        out.print("!!!!! Question Finished !!!!");	
-        List<MockModel> listQuestions =  (List<MockModel>) session.getAttribute("listQuestions");
-        	for(int i =0;i<listQuestions.size();i++)
-        	{
-        		out.println("Question : "+listQuestions.get(i).getQuestion());%><br><%
-        		out.println("Option1 : "+listQuestions.get(i).getOption1());%><br><%
-        		out.println("Option2 : "+listQuestions.get(i).getOption2());%><br><%
-        		out.println("Option3 : "+listQuestions.get(i).getOption3());%><br><%
-        		out.println("Option4 : "+listQuestions.get(i).getOption4());%><br><%
-        		out.println("SelectedOption : "+listQuestions.get(i).getSelectedOption());%><br><%
-        	}
+        	response.sendRedirect("result");
         }
     %>
     
