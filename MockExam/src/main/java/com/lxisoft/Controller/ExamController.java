@@ -71,14 +71,6 @@ public class ExamController {
 		return model;
 	}
 
-	@RequestMapping(value = "/startExam", method = RequestMethod.GET)
-	public ModelAndView displayExam(HttpServletRequest request) {
-		List<ExamModel> displayExam = examService.getAllExams();
-		model.addObject("listQuestion", displayExam);
-		model.setViewName("Instruction");
-		return model;
-	
-	}
 
 
 }

@@ -27,7 +27,7 @@ body
 <body>
 <div><h1 align="center">MOCK EXAM</h1>
 <center><a href="firstpage"><input type="submit" value="ADMIN"/></a></center>
-<center><a href="examQuestion"><input type="submit" value="USER"/></a></center>
+<center><a href="Instruction.jsp"><input type="submit" value="USER"/></a></center>
 </form>
 </p>
 </div>
