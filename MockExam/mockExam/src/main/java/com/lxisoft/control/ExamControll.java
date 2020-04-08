@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.List;
  
 import javax.servlet.http.HttpServletRequest;
- 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,12 +38,11 @@ public class ExamControll {
     }
     
     @RequestMapping(value = "/exam", method = RequestMethod.GET)
-    public ModelAndView startExam(HttpServletRequest request) throws IOException {
-    	 int examSlno = Integer.parseInt(request.getParameter("slno"));
-    	 ExamModel exam = examService.getExam(examSlno);
-    	 ModelAndView model = new ModelAndView("Add");
-    	 model.addObject("exam", exam);
-        return model;
+    public String startExam(HttpServletRequest request) throws IOException {
+    	 List<ExamModel> listExam = examService.getAllExam();
+    	 HttpSession session= request.getSession(true);
+    	 session.setAttribute("exam",listExam );
+    	 return "Exam";
     }
     
     @RequestMapping(value = "/delete", method = RequestMethod.GET)

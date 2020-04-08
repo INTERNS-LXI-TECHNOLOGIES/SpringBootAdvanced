@@ -1,3 +1,5 @@
+<%@ page import="com.lxisoft.model.ExamModel"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -68,13 +70,10 @@ input[type=text] {
 <div class="center">
     <div align="center">
         <font size="6" color="midnightblue"><i><b>Lets Start !!!!!!</b></i></font><br><br><br>
-        <form:form action="save" method="post" >
-   			<c:>
-   			
-   			<h1>${exam.qn}</h1>
-   			</c:>
-   			
-        </form:form>
+        <% ArrayList<ExamModel> model=new ArrayList<ExamModel>();
+        model =(ArrayList<ExamModel>)session.getAttribute("exam"); 
+        int size=model.size();
+        out.println("size= "+size);%>
          <form action="admin">
        <button  class="button button1" name="done" >DONE</button>
        </form>

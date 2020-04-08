@@ -75,7 +75,7 @@
 </ol>
 <c:>
   <form>
-  <input type="submit" formaction="exam?slno=1" class="button button1" name="next" value="NEXT" >
+  <input type="submit" formaction="exam" class="button button1" name="next" value="NEXT" >
 </form>
 </c:>
 </div>
