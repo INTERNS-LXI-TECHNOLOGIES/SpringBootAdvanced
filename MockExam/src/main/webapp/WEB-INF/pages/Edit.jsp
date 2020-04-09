@@ -9,7 +9,7 @@
 <body>
     <div align="center">
         <h1>Exam Questions</h1>
-        
+        <form action="editQuestion">
         <table border="1">
  			<tr>
  			<th>SlNo</th>
@@ -31,12 +31,13 @@
                     <td>${listQuestions.option2}</td>
                     <td>${listQuestions.option3}</td>
                     <td>${listQuestions.option4}</td>
-                    <td><a href="deleteQuest?id=${listQuestions.id}"><button class="button">Delete</button></td>
+                    <td><button class="button" id="editQuest?id=${listQuestions.id}">Edit</button></td>
  
                 </tr>
                 
             </c:forEach>
         </table>
+        </form>
           <form >
         <button formaction="Admin.jsp" class="button">BACK</button>
         </form>

@@ -8,9 +8,9 @@
 <body>
 <div class="wrapper">
 <!-- <div class="deletediv" align="center"> -->
-<h1>Question is Successfully Added</h1>
-<form>
-<button class="button" formaction="Delete.jsp">Done</button>
+<h1>Question is Successfully Deleted</h1>
+<form action="Delete.jsp">
+<button class="button">Done</button>
 </form>
 <!-- </div>-->
 </div>

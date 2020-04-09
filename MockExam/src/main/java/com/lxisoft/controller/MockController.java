@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,4 +58,24 @@ public class MockController {
 	        mockService.deleteQuest(questionId);
 	        return "deleteDone";
 	 }
+
+	 @RequestMapping(value = "/editQuestion", method = RequestMethod.GET)
+     public ModelAndView newContact(ModelAndView model) {
+        MockModel mockModel = new MockModel();
+        model.addObject("mockModel", mockModel);
+        model.setViewName("editQuest");
+        return model;
+    }
+	
+	 @RequestMapping(value = "/edit", method = RequestMethod.POST)
+	  public ModelAndView editQuestion(HttpServletRequest request)  
+	 {
+	    int questionId = Integer.parseInt(request.getParameter("id"));
+	        MockModel mockModel = mockService.getQuestionId(questionId);
+	        ModelAndView model = new ModelAndView("UpdateQuestion");
+	        model.addObject("mockModel1", mockModel);
+	        return model;
+	 }
+
+	  
 }

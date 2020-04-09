@@ -11,27 +11,43 @@ import com.lxisoft.repository.*;
 
 @Service
 @Transactional
-public class MockService {
+public class MockService 
+{
 	
 	@Autowired
 	private MockRepository mockRepository;
 	
 	@Transactional
-    public void addMockQuestion(MockModel mockModel) {
+    public void addMockQuestion(MockModel mockModel) 
+    {
         mockRepository.addMockQuestion(mockModel);
     }
 	
 	@Transactional
-    public List<MockModel> getAllQuestions() {
+    public List<MockModel> getAllQuestions() 
+    {
         return mockRepository.getAllQuestions();
     }
 
-    public void deleteQuest(Integer questionId) {
+    public void deleteQuest(Integer questionId) 
+    {
 	
 		mockRepository.deleteQuest(questionId);
 	}
 	
-	public MockModel getQuestionId(int mockid) {
+	public MockModel getQuestionId(int mockid) 
+	{
+        return mockRepository.getQuestionId(mockid);
+    }
+
+    public void editQuest(Integer questionId) 
+    {
+	
+		mockRepository.addMockQuestion(questionId);
+	}
+	
+	public MockModel getQuestionId(int mockid) 
+	{
         return mockRepository.getQuestionId(mockid);
     }
 

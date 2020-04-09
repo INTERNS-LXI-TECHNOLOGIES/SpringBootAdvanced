@@ -11,7 +11,7 @@
 	<div align ="center">
 	
 	<form>
-	<button formaction="addQuestions">Add Quest</button><button formaction="table.jsp">Update</button><button formaction="displayAll">Display all</button><button formaction="delete">Delete</button>
+	<button formaction="addQuestions">Add Quest</button><button formaction="page/Edit.JSP">Update</button><button formaction="displayAll">Display all</button><button formaction="delete">Delete</button>
 	</form>
 </div>
 </body>
