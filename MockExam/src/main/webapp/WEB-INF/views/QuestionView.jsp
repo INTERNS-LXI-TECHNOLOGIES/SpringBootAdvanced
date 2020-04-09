@@ -5,7 +5,7 @@
 <%@page import="com.lxisoft.model.ExamModel" %>
 <html>
 <head>
-  <title><h1>Questions</h></title> 
+  <title>Questions</title> 
 <style>
 .container {
   height: 700px;
@@ -34,7 +34,7 @@
 <body>
        <%
        List<ExamModel> questionLists = (List<ExamModel>)session.getAttribute("exam");
-       int i=Integer.parseInt(request.getParameter("count"));
+       int count=Integer.parseInt(request.getParameter("count"));
        %>
     <div class="wrapper">
         
@@ -45,32 +45,32 @@
             <br>
             <br>
         </div>
-        <%if(i< questionLists.size())
+        <%if( count< questionLists.size())
             {%>
   <div align="left" style="padding-left: 2%;">
   <form method="GET" action="selectOption">
-        <h1><label>Question No <%out.print(i+1+" : "); out.print(questionLists.get(i).getQuestion()); %></label></h1><br>
+        <h1><label>Question No <%out.print(count+1+" : "); out.print(questionLists.get(count).getQuestion()); %></label>
+        </h1><br>
 
         <h2><input type="radio" name="option" value=1 id="opt1">
-        <label for="option1"><%out.print(questionLists.get(i).getOpt1()); %></label><h2><br>
+        <label for="option1"><%out.print(questionLists.get(count).getOpt1()); %></label><h2><br>
 
         <h2><input type="radio"  value="2" name="option" id="opt2" >
-        <label for = "option2"><%out.print(questionLists.get(i).getOpt2()); %></label></h2><br>
+        <label for = "option2"><%out.print(questionLists.get(count).getOpt2()); %></label></h2><br>
 
         <h2><input type="radio"  value="3" name="option" id="opt3" >
-        <label for = "option3"><%out.print(questionLists.get(i).getOpt3()); %></label></h2><br>
+        <label for = "option3"><%out.print(questionLists.get(count).getOpt3()); %></label></h2><br>
 
         <h2><input type="radio"  value="4" name="option" id="opt4" >
-        <label for = "option4"><%out.print(questionLists.get(i).getOpt4()); %></label></h2><br>
+        <label for = "option4"><%out.print(questionLists.get(count).getOpt4()); %></label></h2><br>
 
-      <% i++; %>
+      <% count++; %>
         <div align="center">
                
-        <!-- <input type="hidden"class="button" name="count" value=<%out.println(i);%>
-        <button type="submit">Next</button>
-         --><button onclick="check()" id="submitBtn" class="button" name ="count" value = <%out.print(i);%>>Next</button>
+       <button  formaction="startExam"id="submitBtn" class="button" name="count" value = <%out.print(count);%> >Next</button>
+       
+                 
         
-    
     </div>
         </form>
     </div>

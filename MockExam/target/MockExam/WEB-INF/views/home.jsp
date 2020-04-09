@@ -8,12 +8,6 @@
 <title>Admin Management </title>
 <body bgcolor="OldLace">
 <style>
-body {
-  background-image: url('Index.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
 .container {
   height: 700px;
   position: relative;
