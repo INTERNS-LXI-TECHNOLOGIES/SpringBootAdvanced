@@ -49,7 +49,7 @@
 		<div  align="center" style="background-color: darkmagenta;">
 			<br>
 			<br>
-		<h1><font style="font-size:50px;" color="white">RESULT</font></h1>
+		<h1><font style="font-size:50px;" color="white">MOCK EXAM RESULT</font></h1>
 			<br>
 			<br>
 			</div>

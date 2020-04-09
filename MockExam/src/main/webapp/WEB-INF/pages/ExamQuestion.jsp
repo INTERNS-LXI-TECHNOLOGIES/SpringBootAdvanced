@@ -97,7 +97,7 @@ function timer()
         <label for = "option4"><%out.print(questionList.get(count).getOption4()); %></label></h2><br>
       <%count++; %>
         <div align="center">
-        <button onclick="check()" id="submitBtn" class="button" name ="count" value = <%out.print(count);%>>Next</button>
+        <button onclick="check()" type="button" id="submitBtn" class="button" name ="count" value = <%out.print(count);%>>Next</button>
         </div>
         </form>
     </div>

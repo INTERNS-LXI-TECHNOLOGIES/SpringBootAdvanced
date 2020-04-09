@@ -60,7 +60,7 @@
 <div style="padding-top: 18px;" align="center">
 <form>
 <input type="hidden" name = "count" value = "0" >
-<button formaction = "userQuestion" class="button">Start Exam</button> <button class="button" formaction="index.jsp" >Back</button>
+<button formaction = "userQuestion" class="button">Start Exam</button> <button class="button" formaction="/" >Back</button>
 </form>
 </div>
 </div>

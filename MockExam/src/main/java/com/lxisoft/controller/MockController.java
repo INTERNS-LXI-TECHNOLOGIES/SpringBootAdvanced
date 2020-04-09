@@ -21,6 +21,11 @@ public class MockController {
 	
 	 @Autowired
 	 private MockService mockService;
+	 
+	 @RequestMapping(value="/", method=RequestMethod.GET)  
+	    public String home() {  
+	        return "index";  
+	    }  
 	
 	 @RequestMapping(value = "/addQuestion", method = RequestMethod.GET)
      public ModelAndView newContact(ModelAndView model) {
