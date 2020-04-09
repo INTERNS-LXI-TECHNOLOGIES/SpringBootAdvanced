@@ -105,4 +105,21 @@ public class ExamController {
        sessions.setAttribute("listExam", listExam);
       return "ExamQuestion";
 	 }
+    
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+	public String resultView(HttpServletRequest request)
+	  {
+		  int mark = 0;
+		  HttpSession session = request.getSession(true);
+		@SuppressWarnings("unchecked")
+		List<Exam> listExam = (List<Exam>)session.getAttribute("listExam");
+		String option=request.getParameter("option");
+		int count = Integer.parseInt(request.getParameter("indexValue"));
+		if((listExam.get(count).getAnswer()).equals(option))
+        {
+            mark++;
+        }
+        session.setAttribute("mark",mark);
+		 return "Result";
+	  }
 }

@@ -32,6 +32,10 @@
 	  <input type="hidden" name ="indexValue" value="<%out.print(i);%>">
       <button type ="submit" name="indexValue" value ="<%out.print(i);%>">Next</button>
         </form>
-    <%}%>
+    <%}
+	else
+	{
+    response.sendRedirect("result");
+    }%>
 </body>
 </html>
