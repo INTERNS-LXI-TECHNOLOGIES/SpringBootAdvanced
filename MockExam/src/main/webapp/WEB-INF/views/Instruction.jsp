@@ -1,43 +1,33 @@
 <%@page contentType = "text/html;charset=UTF-8" pageEncoding = "UTF-8"%>
 <html>
 <head>
-<style type="text/css">
-.button {
-  height: 52px;
-     width: 186px;
-     border: none;
-     border-radius: 20px;
-     background: linear-gradient(to left, #ab68ca, #de67a3);
-     color: #fff;
-     font-weight: bolder;
-     margin-top: 30px;
-     cursor: pointer;
-     outline: none;
-     font-size: 21px;
+<style>
+body
+.container {
+  height: 700px;
+  position: relative;
+  border: 5px solid oldlace;
 }
-.button:hover {background-color: tomato}
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.center {
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  -ms-transform: translate(-30%, -30%);
+  transform: translate(-20%, -20%);
 }
-.wrapper {
-     width: 920px;
-     height: 680px;
-     position: relative;
-     margin: 3% auto;
-     box-shadow: 2px 18px 70px 0px #9d9d9d;
-   }
- .intro{
- padding-left: 80px;
- font-variant: all-small-caps;
- font-size: x-large;
- }
+.button_css
+{
+  background-color: midnightblue;
+  color: white;
+  width: 150px;
+  height: 40px;
+}
 </style>
 </head>
 <body>
 <div class = "wrapper">
-    <div  align="center" style="background-color: tomato;">
+    <div  align="center" style="background-color: grey;">
       <br>
       <br>
     <h1><font style="font-size:50px;" color="white">INSTRUCTIONS</font></h1>
@@ -56,17 +46,12 @@
 
         <c:>
   <form>
-    <input type="submit" formaction="exam?id=1" class="button" name="next" value="NEXT" >
+    <input type="hidden" name = "count" value = "0" >
+    <input type="submit" formaction="startExam" class="button" name="next" value="NEXT" >
+
   </form>
 </c:>
-
-      </div>
-<div style="padding-top: 18px;" align="center">
-<form>
-<input type="hidden" name = "count" value = "0" >
-<button formaction = "startExam" class="button">Start Exam</button> 
-</form>
-</div>
+  </div>
 </div>
 </body>
 </html>

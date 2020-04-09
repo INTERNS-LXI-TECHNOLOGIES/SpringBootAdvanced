@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,22 @@ public class ExamController {
 		return model;
 	}
 
-
-
+	@RequestMapping(value = "/userPage", method = RequestMethod.GET)
+	public ModelAndView displayInstruction(HttpServletRequest request) {
+			 return new ModelAndView("Instruction");
+	}
+	
+	 
+	@RequestMapping(value = "/startExam", method = RequestMethod.GET)
+    public String startExam(HttpServletRequest request) throws IOException {
+    	 List<ExamModel> listExam = examService.getAllExams();
+    	 HttpSession session= request.getSession(true);
+    	 session.setAttribute("exam",listExam );
+    	 return "QuestionView";
+    }
+    
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+	public ModelAndView displayResult(HttpServletRequest request) {
+			 return new ModelAndView("Result");
+	}
 }
