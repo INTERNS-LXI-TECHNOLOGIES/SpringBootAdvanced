@@ -3,9 +3,11 @@ package com.lxisoft.control;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
  
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,11 +40,11 @@ public class ExamControll {
     }
     
     @RequestMapping(value = "/exam", method = RequestMethod.GET)
-    public String startExam(HttpServletRequest request) throws IOException {
+    public void startExam(HttpServletRequest request,HttpServletResponse response) throws IOException {
     	 List<ExamModel> listExam = examService.getAllExam();
     	 HttpSession session= request.getSession(true);
     	 session.setAttribute("exam",listExam );
-    	 return "Exam";
+    	 response.sendRedirect("Exam.jsp?qcount=0");
     }
     
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
@@ -98,5 +100,52 @@ public class ExamControll {
  
         return model;
     }
+    @RequestMapping(value = "/start", method = RequestMethod.GET)
+	  public ModelAndView seletedOption(HttpServletRequest request, HttpServletResponse response) throws IOException
+	  {
+		  HttpSession sessions = request.getSession(true);
+		  int selectedOption =  Integer.parseInt(request.getParameter("opt"));
+		  int count = Integer.parseInt(request.getParameter("qcount"));
+		  @SuppressWarnings("unchecked")
+		  List<ExamModel> listQuestions = (List<ExamModel>)sessions.getAttribute("exam");
+		  
+		  if(selectedOption == 1)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(1);  
+		  }
+		  else if(selectedOption == 2)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(2);  
+		  }
+		  else if(selectedOption == 3)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(3);  
+		  }
+		  else if(selectedOption == 4)
+		  {
+			  listQuestions.get(count-1).setSelectedOption(4);  
+		  }
+		  sessions.setAttribute("listQuestions", listQuestions);
+		  ModelAndView model = new ModelAndView("Exam");
+		  return model;
+	  }
+    @RequestMapping(value = "/result", method = RequestMethod.GET)
+	public String resultExam(HttpServletRequest request)
+	  {
+		  int resultCount = 0;
+		  HttpSession sessions = request.getSession(true);
+		@SuppressWarnings("unchecked")
+		List<ExamModel> listQuestions = (List<ExamModel>)sessions.getAttribute("listQuestions");
+		  for(int i =0;i<listQuestions.size();i++)
+		  {
+			if(listQuestions.get(i).getAns()==(listQuestions.get(i).getSelectedOption()))
+			{
+				resultCount++;
+			}
+		  }
+		  sessions.setAttribute("Result", resultCount);		  
+		  return "Result";
+	  }
+    }
  
-}
+

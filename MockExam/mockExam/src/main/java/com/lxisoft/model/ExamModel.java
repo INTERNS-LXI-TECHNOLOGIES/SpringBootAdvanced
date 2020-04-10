@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "MOCK")
@@ -31,6 +32,8 @@ public class ExamModel implements Serializable {
     private String opt4;
     @Column
     private int ans;
+    @Transient
+	private int selectedOption;
  
     public int getSlno() {
         return slno;
@@ -77,7 +80,14 @@ public class ExamModel implements Serializable {
     public void setAns(int ans) {
         this.ans = ans;
     }
-
+    public void setSelectedOption(int selectedOption)
+	{
+		this.selectedOption = selectedOption;
+	}
+	public int getSelectedOption() 
+	{
+		return selectedOption;
+	}
  
 }
 
