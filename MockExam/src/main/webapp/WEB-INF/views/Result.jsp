@@ -33,7 +33,7 @@
 <body>
   <h1>Result</h1>
  <h1 align=center>
-  <%int m=(int) session.getAttribute("mark");
+  <%int m=(int) session.getAttribute("Mark");
   out.println("Mark:"+m);
   %><br>
   <br>

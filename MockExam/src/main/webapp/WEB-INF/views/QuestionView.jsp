@@ -65,14 +65,10 @@
         <label for = "option4"><%out.print(questionLists.get(count).getOpt4()); %></label></h2><br>
 
       <% count++;
-      	
-	
+      		
        %>
         <div align="center">
-       <input type="hidden" name ="option" value ="0" >
-       <input type="hidden"class="button" name="count" value=<%out.println(count);%>>
-        
-   
+        <input type="hidden"class="button" name="count" value=<%out.println(count);%>>       
        <button type="submit">Next</button>
              
     </div>
@@ -81,7 +77,7 @@
         }
         else
         {
-            response.sendRedirect("result");
+            response.sendRedirect("resultPage");
         }
     %>
     

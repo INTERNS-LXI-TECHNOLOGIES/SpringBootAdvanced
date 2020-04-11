@@ -142,5 +142,9 @@ public class ExamController {
         return new ModelAndView("QuestionView");
 	  
    	 }		 
+	@RequestMapping(value = "/resultPage", method = RequestMethod.GET)
+	public ModelAndView resultDisplay(HttpServletRequest request) {
+			 return new ModelAndView("Result");
+	}
 	  
 }
