@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.lxisoft.model.*;
 
 @Repository
-public class MockRepository {
+public class MockRepository 
+{
 	
 	@Autowired
     private SessionFactory sessionFactory;
@@ -19,7 +20,8 @@ public class MockRepository {
 	}
 		
    @SuppressWarnings("unchecked")
-   public List<MockModel> getAllQuestions() {
+   public List<MockModel> getAllQuestions() 
+   	{
 	   
         return sessionFactory.getCurrentSession().createQuery("from MockModel")
                 .list();
@@ -30,11 +32,20 @@ public class MockRepository {
 		
 		MockModel mockModel = (MockModel) sessionFactory.getCurrentSession().load(
                 MockModel.class, questionId);
-        if (null != mockModel) {
+        if (null != mockModel) 
+        {
             this.sessionFactory.getCurrentSession().delete(mockModel);
-     }
+     	}
 	}
-	public MockModel getQuestionId(int mockid) {
+	
+
+	public MockModel editQuestion(MockModel mockMmodel)
+	{
+		this.sessionFactory.getCurrentSession().update(mockMmodel);
+		return mockMmodel;
+	}
+	public MockModel getQuestionId(int mockid) 
+	{
 		return (MockModel) sessionFactory.getCurrentSession().get(
                 MockModel.class, mockid);
 	}

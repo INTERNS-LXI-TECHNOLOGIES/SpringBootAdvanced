@@ -29,12 +29,18 @@ public class MockController {
         return model;
     }
 	
-	 @RequestMapping(value = "/add", method = RequestMethod.POST)
-	 public String addQuestion(@ModelAttribute MockModel mockModel) 
-	 {
-	    mockService.addMockQuestion(mockModel);
-	    return "DoneAdd";
-	 }
+	  @RequestMapping(value = "/add", method = RequestMethod.POST)
+	 public String addQuestion(@ModelAttribute MockModel mockModel) {
+		System.out.println(mockModel.getId());
+	        if (mockModel.getId() == 0) {
+	            mockService.addMockQuestion(mockModel);
+	            return "DoneAdd";
+	        } else {
+	            mockService.editQuestion(mockModel);
+	            return "editSuccess";
+	        }    
+	        
+	    }
 
 	 @RequestMapping(value = "/displayAll")
      public ModelAndView getAllQuestions(ModelAndView model) throws IOException {
@@ -59,23 +65,27 @@ public class MockController {
 	        return "deleteDone";
 	 }
 
-	 @RequestMapping(value = "/editQuestion", method = RequestMethod.GET)
-     public ModelAndView newContact(ModelAndView model) {
-        MockModel mockModel = new MockModel();
-        model.addObject("mockModel", mockModel);
-        model.setViewName("editQuest");
+
+	 @RequestMapping(value = "/editQuest")
+     public ModelAndView questionUpdate(ModelAndView model) throws IOException {
+        List<MockModel> listQuestions = mockService.getAllQuestions();
+        model.addObject("listQuestions", listQuestions);
+        model.setViewName("Edit");
         return model;
     }
 	
-	 @RequestMapping(value = "/edit", method = RequestMethod.POST)
-	  public ModelAndView editQuestion(HttpServletRequest request)  
-	 {
+	 @RequestMapping(value = "/edit", method = RequestMethod.GET)
+	  public ModelAndView editQuestions(HttpServletRequest request){
 	    int questionId = Integer.parseInt(request.getParameter("id"));
 	        MockModel mockModel = mockService.getQuestionId(questionId);
-	        ModelAndView model = new ModelAndView("UpdateQuestion");
+	        ModelAndView model = new ModelAndView("editQuestion");
 	        model.addObject("mockModel1", mockModel);
 	        return model;
 	 }
+
+	
+
+	 
 
 	  
 }

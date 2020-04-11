@@ -34,21 +34,24 @@ public class MockService
 	
 		mockRepository.deleteQuest(questionId);
 	}
-	
-	public MockModel getQuestionId(int mockid) 
+
+    public MockModel getQuestionId(int mockid) 
 	{
         return mockRepository.getQuestionId(mockid);
     }
 
-    public void editQuest(Integer questionId) 
+
+	public MockModel getQuestion(MockModel mockModel) {
+ 
+        return mockRepository.editQuestion(mockModel);
+    }
+
+    public MockModel editQuestion(MockModel mockModel) 
     {
 	
-		mockRepository.addMockQuestion(questionId);
+		return mockRepository.editQuestion(mockModel);
 	}
 	
-	public MockModel getQuestionId(int mockid) 
-	{
-        return mockRepository.getQuestionId(mockid);
-    }
+	
 
 }

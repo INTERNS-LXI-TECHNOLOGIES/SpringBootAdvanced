@@ -3,12 +3,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Delete Successfully</title>
+<title>Updated Successfully</title>
 </head>
 <body>
 <div class="wrapper">
 <!-- <div class="deletediv" align="center"> -->
-<h1>Question is Successfully Deleted</h1>
+<h1>Question is Successfully Updated</h1>
 <form action="Admin.jsp">
 <button class="button">Done</button>
 </form>
