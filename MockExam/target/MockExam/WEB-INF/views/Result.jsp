@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page import="com.lxisoft.controller.*"%>
+<%@page import="com.lxisoft.model.*"%>
+<%@page import="java.io.*"%>
+<%@page import="java.util.*"%>
 <html>
 <head>
   <title>Result</title> 
@@ -28,5 +32,23 @@
 </head>
 <body>
   <h1>Result</h1>
-      </body>
-      </html>
+ <h1 align=center>
+  <%int m=(int) session.getAttribute("mark");
+  out.println("Mark:"+m);
+  %><br>
+  <br>
+  <%
+  if(m>=5)
+  {
+   out.println("PASSED");
+  }
+  else
+  {
+   out.println("FAILED"); 
+  }%>
+</h1>
+</font>
+<center><a href="index.jsp">Back</a></center>
+</div>
+</body>
+           </html>

@@ -48,11 +48,11 @@
         <%if( count< questionLists.size())
             {%>
   <div align="left" style="padding-left: 2%;">
-  <form method="GET" action="selectOption">
+  <form method="GET" action="result">
         <h1><label>Question No <%out.print(count+1+" : "); out.print(questionLists.get(count).getQuestion()); %></label>
         </h1><br>
 
-        <h2><input type="radio" name="option" value=1 id="opt1">
+        <h2><input type="radio" name="option" value="1" id="opt1">
         <label for="option1"><%out.print(questionLists.get(count).getOpt1()); %></label><h2><br>
 
         <h2><input type="radio"  value="2" name="option" id="opt2" >
@@ -64,17 +64,20 @@
         <h2><input type="radio"  value="4" name="option" id="opt4" >
         <label for = "option4"><%out.print(questionLists.get(count).getOpt4()); %></label></h2><br>
 
-      <% count++; %>
+      <% count++;
+      	
+	
+       %>
         <div align="center">
-               
-       <button  formaction="startExam"id="submitBtn" class="button" name="count" value = <%out.print(count);%> >Next</button>
-       
-                 
+       <input type="hidden" name ="option" value ="0" >
+       <input type="hidden"class="button" name="count" value=<%out.println(count);%>>
         
+   
+       <button type="submit">Next</button>
+             
     </div>
         </form>
-    </div>
-    <%
+       <%
         }
         else
         {
