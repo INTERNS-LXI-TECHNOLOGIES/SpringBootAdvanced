@@ -19,23 +19,21 @@
         <%if(i < qn .size())
         	{%>
 		<form method="GET">
-        <label><%out.print(qn.get(i).getQuestion()); %></label><br>
-        <input type="checkbox" id="<%=qn.get(i).getOption1()%>" name="option" value="<%=qn.get(i).getOption1()%>"/>
-    	<label for="<%=qn.get(i).getOption1()%>"><%=qn.get(i).getOption1()%></label><br>
-    	<input type="checkbox" id="<%=qn.get(i).getOption2()%>" name="option" value="<%=qn.get(i).getOption2()%>"/>
-    	<label for="<%=qn.get(i).getOption2()%>"><%=qn.get(i).getOption2()%></label><br>
-    	<input type="checkbox" id="<%=qn.get(i).getOption3()%>" name="option" value="<%=qn.get(i).getOption3()%>"/>
-    	<label for="<%=qn.get(i).getOption3()%>"><%=qn.get(i).getOption3()%></label><br>
-    	<input type="checkbox" id="<%=qn.get(i).getOption4()%>" name="option" value="<%=qn.get(i).getOption4()%>"/>
-    	<label for="<%=qn.get(i).getOption4()%>"><%=qn.get(i).getOption4()%></label><br>
-      <%i++; %>
+		
+		<label><%out.print(qn.get(i).getQuestion()); %></label><br>
+        <input type="checkbox" value="a" name="option" id="option1" >
+        <label for = "option1"><%out.print(qn.get(i).getOption1()); %></label><br>
+        <input type="checkbox" value="b" name="option" id="option2" >
+        <label for = "option2"><%out.print(qn.get(i).getOption2()); %></label><br>
+        <input type="checkbox" value="c" name="option" id="option3" >
+        <label for = "option3"><%out.print(qn.get(i).getOption3()); %></label><br>
+        <input type="checkbox" value="d" name="option" id="option4" >
+        <label for = "option4"><%out.print(qn.get(i).getOption4()); %></label><br>
+		 <%i++; %>
 	  <input type="hidden" name ="indexValue" value="<%out.print(i);%>">
-      <button type ="submit" name="indexValue" value ="<%out.print(i);%>">Next</button>
+      <button formaction="result" name="indexValue" value ="<%out.print(i);%>">Next</button>
         </form>
-    <%}
-	else
-	{
-    response.sendRedirect("result");
-    }%>
+			<%}%>
+    
 </body>
 </html>

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "EXM_TBL")
@@ -34,6 +35,9 @@ public class Exam implements Serializable
     
     @Column
     private String answer;
+    
+    @Transient
+    private String option;
  
     public int getId() {
         return id;
@@ -91,5 +95,12 @@ public class Exam implements Serializable
         this.answer = answer;
     }
  
+    public String getOption() {
+        return option;
+    }
+ 
+    public void setOption(String option) {
+        this.option = option;
+    }
  
 }

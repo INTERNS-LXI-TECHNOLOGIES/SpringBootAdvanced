@@ -1,7 +1,7 @@
+<%@page contentType = "text/html;charset=UTF-8" pageEncoding = "UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@page import="com.lxisoft.controllers.*"%>
 <%@page import="com.lxisoft.models.*"%>
-<%@page import="java.io.*"%>
-<%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,8 @@
 <h1 align="center"><u>Result</u></h1>
 <body background="aa.jpg">
 <h1 align=center>
-  <%int m=(int) session.getAttribute("mark");
+  
+  <% int m=Integer.parseInt(session.getAttribute("mark").toString());
   out.println("Mark:"+m);
   %><br>
   <br>

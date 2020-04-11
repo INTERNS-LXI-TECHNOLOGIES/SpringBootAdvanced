@@ -106,6 +106,36 @@ public class ExamController {
       return "ExamQuestion";
 	 }
     
+    @RequestMapping(value = "/option", method = RequestMethod.GET)
+	  public ModelAndView Option(HttpServletRequest request)
+	  {
+		  HttpSession sessions = request.getSession(true);
+		  int option =  Integer.parseInt(request.getParameter("option"));
+		  int i = Integer.parseInt(request.getParameter("inexValue"));
+		  @SuppressWarnings("unchecked")
+		  List<Exam> listExam = (List<Exam>)sessions.getAttribute("listExam");
+		  
+		  if(option == 1)
+		  {
+			  listExam.get(i-1).setOption(listExam.get(i-1).getOption1());  
+		  }
+		  else if(option == 2)
+		  {
+			  listExam.get(i-1).setOption(listExam.get(i-1).getOption2());  
+		  }
+		  else if(option == 3)
+		  {
+			  listExam.get(i-1).setOption(listExam.get(i-1).getOption3());  
+		  }
+		  else if(option == 4)
+		  {
+			  listExam.get(i-1).setOption(listExam.get(i-1).getOption4());  
+		  }
+		  sessions.setAttribute("listExam", listExam);
+		  ModelAndView model = new ModelAndView("ExamQuestion");
+		  return model;
+	  }
+    
     @RequestMapping(value = "/result", method = RequestMethod.GET)
 	public String resultView(HttpServletRequest request)
 	  {
@@ -113,13 +143,15 @@ public class ExamController {
 		  HttpSession session = request.getSession(true);
 		@SuppressWarnings("unchecked")
 		List<Exam> listExam = (List<Exam>)session.getAttribute("listExam");
-		String option=request.getParameter("option");
-		int count = Integer.parseInt(request.getParameter("indexValue"));
-		if((listExam.get(count).getAnswer()).equals(option))
-        {
-            mark++;
-        }
-        session.setAttribute("mark",mark);
-		 return "Result";
-	  }
+		  for(int i =0;i<listExam.size();i++)
+		  {
+			if(listExam.get(i).getAnswer().equals(listExam.get(i).getOption()))
+			{
+				mark++;
+			}
+		  }
+		  session.setAttribute("mark",mark);		  
+		  return "Result";
+}
+    
 }
