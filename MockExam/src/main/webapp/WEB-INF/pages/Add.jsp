@@ -57,7 +57,7 @@ font-size: x-large;
             <br>
         </div>
   <div align="center" style="padding-left: 2%;text-align: -webkit-right;">
-        <form:form action="add" method="POST" modelAttribute="mockModel">
+        <form:form action="add" method="GET" modelAttribute="mockModel">
         <table style="width:84%;" >
             <form:hidden path="id" />
             <tr>
@@ -86,7 +86,7 @@ font-size: x-large;
             </tr>
         </table>
         <div align="center">
-        <button class="button">SAVE</button> <button formaction="Admin.jsp" class="button">BACK</button>
+        <button class="button">SAVE</button> <button formaction="admin" class="button">BACK</button>
         </div>
         </form:form>
     </div>

@@ -45,7 +45,7 @@
 <div class="deletediv" align="center">
 <h1>Question Successfully Added</h1>
 <form>
-<button class="button" formaction="Admin.jsp">Done</button>
+<button class="button" formaction="admin">Done</button>
 </form>
 </div>
 </div>

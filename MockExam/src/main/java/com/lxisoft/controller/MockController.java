@@ -22,10 +22,25 @@ public class MockController {
 	 @Autowired
 	 private MockService mockService;
 	 
-	 @RequestMapping(value="/", method=RequestMethod.GET)  
-	    public String home() {  
+	 @RequestMapping(value="/", method=RequestMethod.GET)
+	    public String home() { 
 	        return "index";  
-	    }  
+	    }
+	 
+	 @RequestMapping(value="/index", method=RequestMethod.GET)
+	    public String homePage() { 
+	        return "index";  
+	    }
+	 
+	 @RequestMapping(value="/admin", method=RequestMethod.GET)
+	    public String admin() { 
+	        return "Admin";  
+	    }
+	 
+	 @RequestMapping(value="/introduction", method=RequestMethod.GET)
+	    public String introduction() { 
+	        return "Introduction";  
+	    }
 	
 	 @RequestMapping(value = "/addQuestion", method = RequestMethod.GET)
      public ModelAndView newContact(ModelAndView model) {
@@ -35,9 +50,9 @@ public class MockController {
         return model;
     }
 	
-	 @RequestMapping(value = "/add", method = RequestMethod.POST)
+	 @RequestMapping(value = "/add", method = RequestMethod.GET)
 	 public String addQuestion(@ModelAttribute MockModel mockModel) {
-		System.out.println("<<<<<<<<<<<<<"+mockModel.getId());
+		
 	        if (mockModel.getId() == 0) {
 	            mockService.addMockQuestion(mockModel);
 	            return "SuccessAdd";
@@ -67,7 +82,7 @@ public class MockController {
 	    public String deleteQuestion(HttpServletRequest request) {
 	        int questionId = Integer.parseInt(request.getParameter("id"));
 	        mockService.deleteQuestion(questionId);
-	        return "SuccessDelete";
+	        return "redirect:/delete";
 	    }
 	 
 	 @RequestMapping(value = "/update")
@@ -104,21 +119,23 @@ public class MockController {
 		  @SuppressWarnings("unchecked")
 		  List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
 		  
-		  if(selectedOption == 1)
+		  switch(selectedOption) 
 		  {
-			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption1());  
-		  }
-		  else if(selectedOption == 2)
-		  {
-			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption2());  
-		  }
-		  else if(selectedOption == 3)
-		  {
-			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption3());  
-		  }
-		  else if(selectedOption == 4)
-		  {
-			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption4());  
+		  case 1 :
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption1());
+			  break;
+		  case 2 :
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption2());
+			  break;
+		  case 3 :
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption3());
+			  break;
+		  case 4 :
+			  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption4());
+			  break;
+		  default :
+			  listQuestions.get(count-1).setSelectedOption("");
+			  break;
 		  }
 		  sessions.setAttribute("listQuestions", listQuestions);
 		  ModelAndView model = new ModelAndView("ExamQuestion");

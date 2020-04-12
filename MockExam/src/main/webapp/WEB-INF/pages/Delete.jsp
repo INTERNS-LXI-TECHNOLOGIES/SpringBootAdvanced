@@ -73,6 +73,17 @@ td{
   padding-bottom: 17px;
 }
 </style>
+<script>
+function ConfirmDelete(id)
+{
+  let url = '/MockExam/deleteQuestion?id='+id;
+  var x = confirm("Are you sure you want to delete?");
+  if (x)
+      window.location = url;
+  else
+    return false;
+}
+</script>
 </head>
 <body>
 <%
@@ -109,14 +120,13 @@ int i =1;
                     <td>${listQuestions.option2}</td>
                     <td>${listQuestions.option3}</td>
                     <td>${listQuestions.option4}</td>
-                    <td><a href="deleteQuestion?id=${listQuestions.id}"><button class ="smallbutton">Delete</button></a></td>
- 
+                    <td><button onclick="ConfirmDelete('${listQuestions.id}')" class ="smallbutton">Delete</button></td>
                 </tr>
                 <%i++; %>
             </c:forEach>
         </table>
         <form >
-        <button formaction="Admin.jsp" class="button">BACK</button>
+        <button formaction="admin" class="button">BACK</button>
     	</form>
     </DIV>
     </div>

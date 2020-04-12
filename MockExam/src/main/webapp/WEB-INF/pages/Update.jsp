@@ -116,7 +116,7 @@ int i =1;
             </c:forEach>
         </table>
         <form >
-        <button formaction="Admin.jsp" class="button">BACK</button>
+        <button formaction="admin" class="button">BACK</button>
     	</form>
     </DIV>
     </div>

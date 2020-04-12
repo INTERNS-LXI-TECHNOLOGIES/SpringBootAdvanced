@@ -57,7 +57,7 @@ font-size: x-large;
             <br>
         </div>
   <div align="center" style="padding-left: 2%;text-align: -webkit-right;">
-        <form:form action="add" method="POST" modelAttribute="mockModel1">
+        <form:form action="add" method="GET" modelAttribute="mockModel1">
         <table style="width:84%;" >
             <form:hidden path="id" />
             <tr>

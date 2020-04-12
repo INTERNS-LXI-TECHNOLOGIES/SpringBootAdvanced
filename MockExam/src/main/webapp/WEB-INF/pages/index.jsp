@@ -48,7 +48,7 @@
 			<br>
 <div style="padding-top: 82px;" align="center">
 <form>
-<button class="button" formaction ="Admin.jsp">ADMIN</button> <button class="button" formaction="Introduction.jsp" >USER</button>
+<button class="button" formaction ="admin">ADMIN</button> <button class="button" formaction="introduction" >USER</button>
 </form>
 </div>
 </div>

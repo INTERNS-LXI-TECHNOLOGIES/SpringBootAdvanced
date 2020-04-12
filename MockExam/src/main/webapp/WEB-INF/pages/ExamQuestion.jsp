@@ -63,12 +63,18 @@ function timer()
 	{
 		var data = window.location.href.split('=');
 		var qcount = parseInt(data[1]) +1;
-		window.location.href=data[0].slice(0,data[0].lastIndexOf('/'))+'/Option?ques='+qcount;
+		window.location.href=data[0].slice(0,data[0].lastIndexOf('/'))+'/selectedOption?count='+count;
 	}
 }
 </script>
 </head>
 <body>
+<div align="right">
+<h1 >Seconds Remaining : <span id="clocky"><%=clock%></span> </h1>
+</div>
+<script>
+ timer();
+</script>
 	   <%
 	   List<MockModel> questionList = (List<MockModel>)session.getAttribute("listQuestions");
        int count = Integer.parseInt(request.getParameter("count"));
