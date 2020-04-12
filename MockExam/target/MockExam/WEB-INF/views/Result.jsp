@@ -31,24 +31,34 @@
 </style>
 </head>
 <body>
-  <h1>Result</h1>
+    <div align="center" style="background-color: grey;" >
+            <br>
+            <br>
+            <h1><font size="50px" color="midnightblue" >Result</font></h1>
+            <br>
+            <br>
+        </div>
+      
+  
  <h1 align=center>
-  <%int m=(int) session.getAttribute("Mark");
-  out.println("Mark:"+m);
-  %><br>
-  <br>
-  <%
+ <%
+int m=(int) session.getAttribute("Mark");
+out.println(m);
+%><br>
+<%
   if(m>=5)
   {
-   out.println("PASSED");
+	 out.println("PASSED");
   }
   else
   {
-   out.println("FAILED"); 
-  }%>
+	 out.println("FAILED");	
+  }
+  %>
 </h1>
 </font>
-<center><a href="index.jsp">Back</a></center>
+<center><a href="index.jsp"><input type="submit" value="BACK"/></a></center>
+</div>
 </div>
 </body>
            </html>

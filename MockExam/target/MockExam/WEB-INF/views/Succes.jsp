@@ -26,7 +26,14 @@
 </style>
 </head>
 <body>
-<h1>Done</h1>
-<form><button type="submit" formaction="firstpage" class="button_css">BACK</button></form>
+<div align="center" style="background-color: grey;" >
+            <br>
+            <br>
+            <h1><font size="50px" color="midnightblue" >DONE</font></h1>
+            <br>
+            <br>
+        </div>
+   
+<form><center><button type="submit" formaction="firstpage" class="button_css">BACK</button></center></form>
 </body>
 </html>
