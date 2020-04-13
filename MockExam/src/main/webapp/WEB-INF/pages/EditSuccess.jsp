@@ -1,8 +1,8 @@
 <html>
 <head>
-<title>ADD SUCCESS</title>
-<style>
-.button {
+<title>Update Sucess</title>
+	<style>
+	.button {
   display: inline-block;
   padding: 10px 20px;
   font-size: 24px;
@@ -37,16 +37,11 @@
 body {
   margin: 0;
 }
-.header {
-  background-color: #ff0080;
-  padding: 20px;
-  text-align: center;
-}
 </style>
 </head>
 <body>
-<div align=center>
-<h1 align= center>Successfully Added</h1>
+<div align="center">
+<h1 align= center>Successfully Updated</h1>
 <form action="home" method="post">
 <input type="submit" class="button" value="Done"/>
 </div>

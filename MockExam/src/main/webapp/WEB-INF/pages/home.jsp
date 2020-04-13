@@ -8,10 +8,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Exam Management Screen</title>
 <style>
-	.button
-	{
-		background-color: #4CAF50;
-	}
+   .button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #FFC312;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #FFC312}
+
+.button:active {
+  background-color: #FFC312;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 	div
 	{
 		padding-top: 40px;
@@ -19,14 +37,27 @@
 		padding-left: 80px;
 		padding-bottom: 20px;
 	}
+	
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+body {
+  margin: 0;
+}
+.header {
+  background-color: #FFC312;
+  padding: 20px;
+  text-align: center;
+}
   </style>
 </head>
 <body>
-    <div align="center">
+     <div class="header">
         <h1>MOCK EXAM</h1>
         <h3>
             <a href="newExam">ADD</a>
         </h3>
+		</div>
+		<div align="center">
         <table border="1">
  
             <th>Question</th>
@@ -52,7 +83,7 @@
                 </tr>
             </c:forEach>
         </table><br>
-		<br><a href="index"><input type="button" class="button" value="Back"></a>
+		<br><a href="http://localhost:8080/MockExam/"><input type="button" class="button" value="Back"></a>
     </div>
 </body>
 </html>

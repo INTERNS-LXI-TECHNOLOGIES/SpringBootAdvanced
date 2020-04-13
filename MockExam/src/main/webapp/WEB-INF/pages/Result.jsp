@@ -14,10 +14,17 @@
   		padding-left: 80px;
   		padding-bottom: 50px;
   	}
+		.header {
+  background-color: #ff0080;
+  padding: 20px;
+  text-align: center;
+}
   </style>
 </head>
-<div><font color="black">
-<h1 align="center"><u>Result</u></h1>
+<font color="black">
+ <div class="header">
+<h1 align="center"><u>Result</u></h1></div>
+<div>
 <body background="aa.jpg">
 <h1 align=center>
   
@@ -36,7 +43,7 @@
   }%>
 </h1>
 </font>
-<center><a href="index.jsp">Back</a></center>
+<center><a href="http://localhost:8080/MockExam/">Back</a></center>
 </div>
 </body>
 </html>

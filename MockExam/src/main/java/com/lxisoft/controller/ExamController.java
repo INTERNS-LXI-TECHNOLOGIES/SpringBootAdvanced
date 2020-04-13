@@ -47,31 +47,18 @@ public class ExamController {
         model.setViewName("Add");
         return model;
     }
-    
     @RequestMapping(value = "/addsucc", method = RequestMethod.POST)
 	 public String addQuestion(@ModelAttribute Exam exam) {
-    	examService.addExam(exam);
-	        return "AddSuccess";
+		        if (exam.getId() == 0) {
+	            examService.addExam(exam);
+	            return "AddSuccess";
+	        } else {
+	            examService.updateExam(exam);
+	            return "EditSuccess";
+	        }    
+	        
 	    }
- 
-    @RequestMapping(value = "/saveExam", method = RequestMethod.POST)
-    public ModelAndView saveExam(@ModelAttribute Exam exam) {
-        if (exam.getId() == 0) { // if exam id is 0 then creating the
-            // exam other updating the exam
-            examService.addExam(exam);
-        } else {
-            examService.updateExam(exam);
-        }
-        return new ModelAndView("redirect:/home");
-    }
-    
-//    @RequestMapping(value = "/deleteExam")
-//    public ModelAndView deleteExam(HttpServletRequest request) {
-//        int examId = Integer.parseInt(request.getParameter("id"));
-//        examService.deleteExam(examId);
-//        return new ModelAndView("redirect:/home");
-//    }
-    
+   
     @RequestMapping(value = "/deleteExam")
     public ModelAndView questionsForDelete(ModelAndView model) throws IOException {
        List<Exam> listExam = examService.getAllExam();
@@ -107,13 +94,13 @@ public class ExamController {
 	 }
     
     @RequestMapping(value = "/option", method = RequestMethod.GET)
-	  public ModelAndView Option(HttpServletRequest request)
+	  public ModelAndView option(HttpServletRequest request)
 	  {
-		  HttpSession sessions = request.getSession(true);
-		  int option =  Integer.parseInt(request.getParameter("option"));
-		  int i = Integer.parseInt(request.getParameter("inexValue"));
+		  HttpSession session = request.getSession(true);
+		  int option =  Integer.parseInt(request.getParameter("opt"));
+		  int i = Integer.parseInt(request.getParameter("indexValue"));
 		  @SuppressWarnings("unchecked")
-		  List<Exam> listExam = (List<Exam>)sessions.getAttribute("listExam");
+		  List<Exam> listExam = (List<Exam>)session.getAttribute("listExam");
 		  
 		  if(option == 1)
 		  {
@@ -131,7 +118,7 @@ public class ExamController {
 		  {
 			  listExam.get(i-1).setOption(listExam.get(i-1).getOption4());  
 		  }
-		  sessions.setAttribute("listExam", listExam);
+		  session.setAttribute("listExam", listExam);
 		  ModelAndView model = new ModelAndView("ExamQuestion");
 		  return model;
 	  }
