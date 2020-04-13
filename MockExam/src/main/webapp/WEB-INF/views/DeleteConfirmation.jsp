@@ -58,7 +58,7 @@
 			</c:forEach>
 			</form>
 <form>
-<center><button type="submit" formaction="deleteExam" class="button_css">yes</button></center>
+<center><button type="submit" formaction="deleteExam?id=${examModel.id}" class="button_css">yes</button></center>
 
  <center><button type="submit" formaction="firstpage" class="button_css">NO</button></center></form>
 </body>

@@ -54,7 +54,7 @@
 					<td>${examModel.answer}</td>
 					<td><a href="editExam?id=${examModel.id}">Edit</a>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-						<a href="deleteConfirmation?id=${examModel.id}">Delete</a>
+						<a href="deleteExam?id=${examModel.id}">Delete</a>
 					</td>
 
 				</tr>

@@ -72,8 +72,10 @@ public class ExamController {
 	
 
 	@RequestMapping(value = "/deleteConfirmation", method = RequestMethod.GET)
-	public ModelAndView deletePage(HttpServletRequest request) {
-			 return new ModelAndView("DeleteConfirmation");
+	public String deletePage(HttpServletRequest request) {
+		int examId = Integer.parseInt(request.getParameter("id"));
+		examService.deleteExam(examId);
+		return ("DeleteConfirmation");
 	}
 	
 	
