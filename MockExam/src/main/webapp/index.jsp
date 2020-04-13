@@ -12,7 +12,7 @@
 </div>
 <div align="center">
 <form>
-<button class="button" formaction ="Admin.jsp">Admin</button>
+<button class="button" formaction ="Admin.jsp">Admin</button><button class="button" formaction ="introduction.jsp">User</button>
 </form>
 </div>
 </div>

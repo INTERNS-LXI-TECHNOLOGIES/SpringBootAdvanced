@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,9 +85,57 @@ public class MockController {
 	        return model;
 	 }
 
-	
+	 @RequestMapping(value = "/userView")
+	     public String userQuestionDisplay(HttpServletRequest request) throws IOException {
+	        List<MockModel> listQuestions = mockService.getAllQuestions();
+	        HttpSession sessions = request.getSession(true);
+	        sessions.setAttribute("listQuestions", listQuestions);
+	       return "Exam";
+		 }
 
+		  @RequestMapping(value = "/selectOption", method = RequestMethod.GET)
+	  public ModelAndView seletedOption(HttpServletRequest request,HttpServletResponse res)
+	  {
+
+	  	ModelAndView model=null;
+		  HttpSession sessions = request.getSession(true);
+		  //int selected =  Integer.parseInt(request.getParameter("option"));
+		  String quest=request.getParameter("option");
+		  int count = Integer.parseInt(request.getParameter("count"));
+		  @SuppressWarnings("unchecked")
+		  int mark=0;
+		  List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
+
+
+			if(count<listQuestions.size())	
+			{
+
+				if(quest.equals(listQuestions.get(count).getAnswer()));
+				{
+					mark=mark+1;
+					
+				}
+
+				model = new ModelAndView("Exam");
+			}
+			else
+			{
+				model = new ModelAndView("Exam");
+			}
+			
+		  	sessions.setAttribute("listQuestions", listQuestions);
+		  	sessions.setAttribute("Mark", mark);
+		  	return model;
+	  }
 	 
-
+	   @RequestMapping(value = "/result", method = RequestMethod.GET)
+	public String resultCalculation(HttpServletRequest request)
+	  {
+		HttpSession sessions = request.getSession(true);
+		
+		@SuppressWarnings("unchecked")
+		List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
+		return "Result";
+	  }
 	  
 }

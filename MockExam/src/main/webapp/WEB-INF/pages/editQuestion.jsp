@@ -7,7 +7,7 @@
 <body>
     <div class="wrapper">
         
-        <div align="center" style="background-color: darkmagenta;" >
+        <div align="center" >
             <br>
             <br>
             <h1><font size="50px" color="white" >Update Question</font></h1>
