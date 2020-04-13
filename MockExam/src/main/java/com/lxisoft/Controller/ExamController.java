@@ -59,14 +59,24 @@ public class ExamController {
 		}
 		return ("Succes");
 	}
-
+	
+	
+	
 	@RequestMapping(value = "/deleteExam", method = RequestMethod.GET)
 	public String deleteExam(HttpServletRequest request) {
 		int examId = Integer.parseInt(request.getParameter("id"));
 		examService.deleteExam(examId);
-		return ("Succes");
+		return ("DeleteSucces");
 	}
 
+	
+
+	@RequestMapping(value = "/deleteConfirmation", method = RequestMethod.GET)
+	public ModelAndView deletePage(HttpServletRequest request) {
+			 return new ModelAndView("DeleteConfirmation");
+	}
+	
+	
 	@RequestMapping(value = "/editExam", method = RequestMethod.GET)
 	public ModelAndView editQuestiont(HttpServletRequest request) {
 		int examId = Integer.parseInt(request.getParameter("id"));

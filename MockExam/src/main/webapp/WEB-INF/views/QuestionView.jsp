@@ -29,6 +29,38 @@
 }
 
 </style>
+<script>
+<!--
+<%
+String clock = "10";
+%>
+var timeout = <%=clock%>;
+function timer()
+{
+if( --timeout > 0 )
+{
+document.getElementById("clock").innerHTML=timeout;
+window.setTimeout( "timer()", 1000 );
+}
+else
+{
+document.getElementById("clock").innerHTML = "Time over";
+document.qform.submit();
+///disable submit-button etc
+}
+}
+//-->
+</script>
+
+<form action="<%=request.getRequestURL()%>" name="forma">
+Seconds remaining: <span id="clock"><%=clock%></span>
+
+</form>
+<script>
+<!--
+timer();
+//-->
+</script>
 
 </head>
 <body>
