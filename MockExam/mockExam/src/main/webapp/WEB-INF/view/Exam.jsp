@@ -69,30 +69,29 @@ input[type=text] {
 <div class="container">
 <div class="center">
     <div align="center">
-        <font size="6" color="midnightblue"><i><b>Lets Start !!!!!!</b></i></font><br><br><br>
+        <font align="center" size="6" color="midnightblue"><i><b>Lets Start !!!!!!</b></i></font><br><br><br>
         <% ArrayList<ExamModel> model=new ArrayList<ExamModel>();
         model =(ArrayList<ExamModel>)session.getAttribute("exam"); 
         int qcount = Integer.parseInt(request.getParameter("qcount"));
         int size=model.size();
-        out.println("size : "+size);
+
          if(qcount != size) {
 
-        %><font color="midnightblue"> <%out.println("<h1>Question :"+(qcount + 1)+"."+model.get(qcount).getQn()+"</h1>");
-           %><div align ="center">
+        %><font align="left" color="midnightblue"> <%out.println("<h1>Question :"+(qcount + 1)+"."+model.get(qcount).getQn()+"</h1>");
+           %>
            <form action="start" method="get" name="qform">
         <h1><input type="radio" name="opt" value="1"/>
-          <label for="1"><font color="midnightblue"><% out.println(model.get(qcount).getOpt1());%></label></font></h1>
+          <label for="1"><font align="left" color="midnightblue"><% out.println(model.get(qcount).getOpt1());%></label></font></h1>
           <h1><input type="radio" name="opt" value="2"/>
-          <label for="2"><font color="midnightblue"><% out.println(model.get(qcount).getOpt2());%></label></font></h1>
+          <label for="2"><font align="left" color="midnightblue"><% out.println(model.get(qcount).getOpt2());%></label></font></h1>
           <h1><input type="radio" name="opt" value="3"/>
-          <label for="3"><font color="midnightblue"><% out.println(model.get(qcount).getOpt3());%></label></font></h1>
+          <label for="3"><font align="left" color="midnightblue"><% out.println(model.get(qcount).getOpt3());%></label></font></h1>
           <h1><input type="radio" name="opt" value="4"/>
-          <label for="4"><font color="midnightblue"><% out.println(model.get(qcount).getOpt4());%></label></font></h1>
+          <label for="4"><font align="left" color="midnightblue"><% out.println(model.get(qcount).getOpt4());%></label></font></h1>
             <%qcount++; %>
             <input type="hidden" name="qcount" value= <%out.println(qcount);%>/>
             <input type="submit" class="button button1"   value="<%out.println("next");%>" />
           </form>
-          </div>
           <%    
          } else {
 

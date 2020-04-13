@@ -109,8 +109,13 @@ table, th, td {
             </c:forEach>
         </table>
         <form action="admin">
-       <button  class="button button1" name="done" >DONE</button>
+       <button  class="button button1" onclick="myFunction()" name="done" >DONE</button>
        </form>
+               <script>
+function myFunction() {
+  confirm("successfully updated!");
+}
+</script>
     </div>
     </div>
     </div>

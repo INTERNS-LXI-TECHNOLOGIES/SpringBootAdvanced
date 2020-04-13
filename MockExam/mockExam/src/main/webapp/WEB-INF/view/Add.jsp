@@ -96,10 +96,15 @@ input[type=text] {
                 <td><form:input path="ans" /></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" class="button button1" value="add"></td>
+                <td colspan="2" align="center"><input type="submit" onclick="myFunction()" class="button button1" value="add"></td>
             </tr>
         </table>
         </form:form>
+        <script>
+function myFunction() {
+  confirm("successfully added!");
+}
+</script>
     </div>
     </div>
     </div>

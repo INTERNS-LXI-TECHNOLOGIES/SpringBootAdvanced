@@ -102,7 +102,7 @@ table, th, td {
                     <td>${exam.opt3}</td>
                     <td>${exam.opt4}</td>
                     <td>${exam.ans}</td>
-                     <td><a href="deleteExam?slno=${exam.slno}">Delete</a></td>
+                     <td><button onclick="deletePost(${exam.slno})" class="button button2" >Delete</button></td>
                   
  
                 </tr>
@@ -111,6 +111,17 @@ table, th, td {
         <form action="admin">
        <button  class="button button1" name="done" >DONE</button>
        </form>
+       <script>
+       function deletePost(id) {
+    	    var ask = window.confirm("Are you sure you want to delete this post?");
+    	    if (ask) {
+    	        window.alert("This post was successfully deleted.");
+
+    	        window.location.href = "deleteExam?slno="+id;
+
+    	    }
+    	}
+</script>
     </div>
     </div>
     </div>

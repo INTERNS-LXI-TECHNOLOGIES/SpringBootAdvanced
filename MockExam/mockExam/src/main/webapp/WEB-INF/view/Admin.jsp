@@ -70,23 +70,24 @@
 .button3 {
   background-color: white; 
   color: black; 
-  border: 2px solid #f44336;
+  border: 2px solid #F1C40F;
   border-radius: 12px;
 }
 
 .button3:hover {
-  background-color: #f44336;
+  background-color: #F1C40F;
   color: white;
 }
 
 .button4 {
   background-color: white;
   color: black;
-  border: 2px solid #e7e7e7;
+  border: 2px solid #EC7063;
   border-radius: 12px;
 }
 
-.button4:hover {background-color: #e7e7e7;}
+.button4:hover {background-color: #EC7063;
+color: white;}
 
 .button5 {
   background-color: white;
@@ -103,7 +104,7 @@
 
 <div class="container">
 <div class="center">
-<p>
+
 <center>
   <font size="7" color=" midnightblue"><i><b>Welcome To AdminMenu</b></i></font>
   <br>
@@ -119,7 +120,6 @@
   <input type="submit" formaction="index.jsp" class="button button5" name="BACK" value="BACK" >
 </form>
 </center>
-</p>
 </div>
 </div>
 </div>
