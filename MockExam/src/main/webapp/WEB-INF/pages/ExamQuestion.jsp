@@ -56,25 +56,25 @@ function timer()
 {
 	if( --timeout > 0 )
 	{
-		document.getElementById('clocky').innerHTML = timeout;
+		document.getElementById('clock').innerHTML = timeout;
 		window.setTimeout( "timer()", 1000 );
 	}
 	else
 	{
-		var data = window.location.href.split('=');
-		var qcount = parseInt(data[1]) +1;
-		window.location.href=data[0].slice(0,data[0].lastIndexOf('/'))+'/selectedOption?count='+count;
+		let count = document.getElementById('submitBtn').value;
+		window.location = '/MockExam/selectOption?count='+count;
 	}
 }
 </script>
 </head>
 <body>
-<div align="right">
-<h1 >Seconds Remaining : <span id="clocky"><%=clock%></span> </h1>
+<div align="right" style = "padding-right: 7%;">
+<h1 > Seconds Remaining : <span id="clock"><%=clock%></span> </h1>
 </div>
-<script>
- timer();
+<script type="text/javascript">
+timer();
 </script>
+
 	   <%
 	   List<MockModel> questionList = (List<MockModel>)session.getAttribute("listQuestions");
        int count = Integer.parseInt(request.getParameter("count"));
@@ -84,10 +84,11 @@ function timer()
 		<div align="center" style="background-color: darkmagenta;" >
             <br>
             <br>
-      		<h1><font size="50px" color="white" >Exam Question</font></h1>
+      		<h1><font  size="50px" color="white" >Exam Question </font></h1>
             <br>
             <br>
         </div>
+
         <%if(count < questionList.size())
         	{%>
   <div align="left" style="padding-left: 2%;">

@@ -44,6 +44,17 @@ td{
 font-size: x-large;
 }
 </style>
+<script type="text/javascript">
+function ConfirmUpdate()
+{
+  let url = '/MockExam/add'
+  var x = confirm("Are you sure you want to Update ?");
+  if (x)
+      window.location = url;
+  else
+    return false;
+}
+</script>
 </head>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <body>

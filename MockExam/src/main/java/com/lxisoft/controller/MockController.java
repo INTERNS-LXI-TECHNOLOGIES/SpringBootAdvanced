@@ -82,7 +82,7 @@ public class MockController {
 	    public String deleteQuestion(HttpServletRequest request) {
 	        int questionId = Integer.parseInt(request.getParameter("id"));
 	        mockService.deleteQuestion(questionId);
-	        return "redirect:/delete";
+	        return "SuccessDelete";
 	    }
 	 
 	 @RequestMapping(value = "/update")
@@ -114,7 +114,12 @@ public class MockController {
 	  public ModelAndView seletedOption(HttpServletRequest request)
 	  {
 		  HttpSession sessions = request.getSession(true);
-		  int selectedOption =  Integer.parseInt(request.getParameter("option"));
+		  int selectedOption = 0;
+		  if(request.getParameter("option")!= null)
+		  {
+			   selectedOption =  Integer.parseInt(request.getParameter("option"));
+		  }
+		  
 		  int count = Integer.parseInt(request.getParameter("count"));
 		  @SuppressWarnings("unchecked")
 		  List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
