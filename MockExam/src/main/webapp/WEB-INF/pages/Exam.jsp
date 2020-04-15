@@ -79,9 +79,10 @@ function timer()
         
         <h2><input onclick="selectRadio()" type="radio" value="<%=(questionList.get(no).getOption4())%>" name="option" id="option4" >
         <label for = "option4"><%out.print(questionList.get(no).getOption4()); %></label></h2><br>
-      	<%no++;%>
+      	
         <div align="center">
         <button onclick="check()" type="button" id="submitBtn" class="button" name ="count" value = <%out.print(no);%>>Next</button>
+        
         </div>
         </form>
     </div>

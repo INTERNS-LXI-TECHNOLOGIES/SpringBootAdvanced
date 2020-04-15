@@ -107,8 +107,7 @@ public class MockController {
 		  List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
 
 
-			if(count<listQuestions.size())	
-			{
+			
 
 				if(quest.equals(listQuestions.get(count).getAnswer()));
 				{
@@ -116,15 +115,16 @@ public class MockController {
 					
 				}
 
+				//model = new ModelAndView("Exam");
+				count++;
+				sessions.setAttribute("count", count);
+				sessions.setAttribute("Mrk", mark);
 				model = new ModelAndView("Exam");
-			}
-			else
-			{
-				model = new ModelAndView("Exam");
-			}
+
+	
 			
 		  	sessions.setAttribute("listQuestions", listQuestions);
-		  	sessions.setAttribute("Mark", mark);
+		  	
 		  	return model;
 	  }
 	 
@@ -132,9 +132,11 @@ public class MockController {
 	public String resultCalculation(HttpServletRequest request)
 	  {
 		HttpSession sessions = request.getSession(true);
-		
+		int mark = Integer.parseInt(sessions.getAttribute("Mrk").toString());
+		sessions.setAttribute("Mark", mark);
 		@SuppressWarnings("unchecked")
 		List<MockModel> listQuestions = (List<MockModel>)sessions.getAttribute("listQuestions");
+
 		return "Result";
 	  }
 	  
