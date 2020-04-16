@@ -32,7 +32,7 @@ public class MockController {
 	        return "index";  
 	    }
 	 
-	 @RequestMapping(value="/admin", method=RequestMethod.GET)
+	 @RequestMapping(value="/admin**", method=RequestMethod.GET)
 	    public String admin() { 
 	        return "Admin";  
 	    }
