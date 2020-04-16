@@ -11,7 +11,7 @@
 	    <java.version>1.8</java.version>
 	    <spring.security.version>4.0.2.RELEASE</spring.security.version>
 	    <servlet.api.version>3.1.0</servlet.api.version>
-	    <jsp.api.version>2.2</jsp.api.version>
+	    <jsp.api.version>2.1</jsp.api.version>
 	    <jstl.version>1.2</jstl.version>
 	</properties>
   <dependencies>
@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
-			<version>version>1.2</version>
+			<version>${jstl.version}</version>
 		</dependency>
   </dependencies>
   <build>
