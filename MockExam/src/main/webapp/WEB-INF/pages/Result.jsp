@@ -13,7 +13,7 @@
 		<div  align="center" >
 			<br>
 			<br>
-		<h1><font style="font-size:50px;" color="white">MOCK EXAM RESULT</font></h1>
+		<h1><font style="font-size:50px;" color="white">EXAM RESULT</font></h1>
 			<br>
 			<br>
 			</div>
@@ -28,7 +28,7 @@ int mark = Integer.parseInt(session.getAttribute("Mark").toString());
 <h1><label>RESULT : <%out.println(mark); %></label></h1><br><%
 if(mark<=2)
 {
-	%><h1><label>FAILED BETTER LUCK NEXT TIME </label></h1><br><%	
+	%><h1><label>FAILED BETTER LUCK NEXTTIME </label></h1><br><%	
 }
 else 
 {
