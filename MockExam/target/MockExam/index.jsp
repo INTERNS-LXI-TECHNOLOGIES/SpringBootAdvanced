@@ -41,7 +41,7 @@ body {
             <br>
         </div><br><br>
 
-<center><a href="firstpage"><input type="submit" value="ADMIN"/></a>
+<center><a href="firstPage"><input type="submit" value="ADMIN"/></a>
 <a href="userPage"><input type="submit" value="USER"/></a></center>
 </form>
 </p>
