@@ -17,8 +17,8 @@ import com.lxisoft.service.ExamService;
 @Controller
 
 public class ExamController {
-	private static final Logger logger = Logger
-            .getLogger(ExamController.class);
+//	private static final Logger logger = Logger
+//            .getLogger(ExamController.class);
  
     public ExamController() {
         System.out.println("ExamController()");
