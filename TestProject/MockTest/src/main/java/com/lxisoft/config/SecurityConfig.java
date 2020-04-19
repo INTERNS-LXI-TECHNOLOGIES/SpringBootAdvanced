@@ -22,9 +22,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.csrf().disable()
 		.authorizeRequests()
-			.antMatchers("/admin").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+			.antMatchers("/home").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+			.antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+			.antMatchers("/user").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
 			.and().formLogin()
-			.loginPage("/login.jsp");
+			.and()
+			.httpBasic()
+			.and()
+			.logout()
+			.logoutUrl("/j_spring_security_logout")
+			.logoutSuccessUrl("/");
 		
 	}
 
