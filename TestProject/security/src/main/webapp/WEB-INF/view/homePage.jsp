@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -8,7 +9,6 @@
 </head>
 <body>
 
-<%@taglib prefix="c" uri="https://java.sun.com/jsp/jstl/core"%>
 <h3>Welcome to JournalDEV Tutorials</h3>
 <ul>
 	<li>Java 8 tutorial</li>
@@ -24,6 +24,5 @@
 <c:if test="${pageContext.request.userPrincipal.name != null}">
 	<a href="javascript:document.getElementById('logout').submit()">Logout</a>
 </c:if>
-
 </body>
 </html>
