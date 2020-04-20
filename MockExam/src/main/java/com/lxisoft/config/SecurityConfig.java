@@ -10,29 +10,29 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("amritha").password("123456").roles("USER");
 		auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
 	}
-
-	//.csrf() is optional, enabled by default, if using WebSecurityConfigurerAdapter constructor
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests()
-		.antMatchers("/main").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-		.antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
-		.antMatchers("/user").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+		http.csrf().disable()
+		.authorizeRequests()
+			.antMatchers("/home").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+			.antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+			.antMatchers("/user").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+			.and().formLogin()
 			.and()
-				.formLogin().loginPage("/login").failureUrl("/login?error")
-					.usernameParameter("username").passwordParameter("password")
-				
+			.httpBasic()
 			.and()
-				.logout().logoutSuccessUrl("/login?logout")
-			.and()
-				.csrf(); 
+			.logout()
+			.logoutUrl("/j_spring_security_logout")
+			.logoutSuccessUrl("/");
 		
 	}
+
 }

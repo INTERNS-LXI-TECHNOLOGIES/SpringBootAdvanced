@@ -1,7 +1,5 @@
 package com.lxisoft.web.controller;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,21 +20,10 @@ public class MockController {
 
 	}
 
-	
-	@RequestMapping(value = "/main",method = RequestMethod.GET)
+	@RequestMapping(value = "/admin",method = RequestMethod.GET)
 	public String getUser()
 	{
-		/*
-		 * Authentication authentication =
-		 * SecurityContextHolder.getContext().getAuthentication(); boolean hasUserRole =
-		 * authentication.getAuthorities().stream() .anyMatch(r ->
-		 * r.getAuthority().equals("ROLE_ADMIN"));
-		 * 
-		 * if(hasUserRole) { return "home"; } else
-		 */
-		
-			return "Instruction";
-		
+		return "Instruction";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
