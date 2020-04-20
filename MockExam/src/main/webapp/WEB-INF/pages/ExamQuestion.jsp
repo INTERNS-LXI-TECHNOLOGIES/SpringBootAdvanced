@@ -49,6 +49,26 @@ body {
   </style>
 <meta http-equiv="Content_Type" content="text/html;charset=UTF-8"/>
 </head>
+<script>
+<%
+String clock = request.getParameter( "clock" );
+if( clock == null ) clock = "20";
+%>
+var timeout = <%=clock%>;
+function timer()
+{
+  if( --timeout > 0 )
+  {
+    document.forma.clock.value = timeout;
+    window.setTimeout( "timer()", 1000 );
+  }
+  else
+  {
+    document.forma.clock.value = "Time over";
+    // window.location.href = "index.jsp";
+  }
+}
+</script>
 <body>
 
 	   <%
@@ -58,11 +78,16 @@ body {
 	
         <div class="header">
 		<h1>Questions</h1>
+		<br><form action="<%=request.getRequestURL()%>" name="forma">
+		<h2 align="right">Seconds remaining:<input type="text" name="clock" value="<%=clock%>" style="border:0px solid white"></h2></form>
 		</div>
         <div> 
 <b>		
         <%if(i < qn .size())
         	{%>
+		<script>
+        timer();
+      </script>
 		<form action="option" method="get" >
 		<label><%out.print(qn.get(i).getQuestion()); %></label><br>
         <input type="checkbox" value="1" name="opt" id="option1" >
