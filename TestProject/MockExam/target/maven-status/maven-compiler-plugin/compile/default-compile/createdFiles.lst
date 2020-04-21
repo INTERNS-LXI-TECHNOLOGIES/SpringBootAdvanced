@@ -1,8 +1,0 @@
-com\lxisoft\controller\ExamController.class
-com\lxisoft\config\SecurityConfig.class
-com\lxisoft\dao\ExamDAOImpl.class
-com\lxisoft\dao\ExamDAO.class
-com\lxisoft\model\ExamModel.class
-com\lxisoft\service\ExamService.class
-com\lxisoft\config\AppConfig.class
-com\lxisoft\service\ExamServiceImpl.class

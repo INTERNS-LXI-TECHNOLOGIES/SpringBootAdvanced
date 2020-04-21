@@ -1,6 +1,14 @@
 package com.lxisoft.web.controller;
+import java.io.IOException;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.jboss.logging.Logger;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,6 +16,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MockController {
+	
+	private static final Logger logger = Logger
+			.getLogger(MockController.class);
+
+	public MockController() {
+		System.out.println("ExamController()");
+	}	
+
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
@@ -20,10 +36,15 @@ public class MockController {
 
 	}
 
-	@RequestMapping(value = "/admin",method = RequestMethod.GET)
-	public String getUser()
+	@RequestMapping(value = "/main",method = RequestMethod.GET)
+	public String getAdmin()
 	{
 		return "Instruction";
+	}
+	@RequestMapping(value = "/user",method = RequestMethod.GET)
+	public String getUser()
+	{
+		return "home";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
