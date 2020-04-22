@@ -14,4 +14,19 @@ public class MockService {
 
 	 @Autowired
 	 private MockDao mockDao;
+	 
+	  	@Transactional
+	    public List < MockEntity > getAllQuestions() {
+	        return mockDao.findAll();
+	    }
+	  	
+	  	@Transactional
+	    public void saveQuestion(MockEntity mockEntity) {
+	        mockDao.save(mockEntity);
+	    }
+	  	
+	  	@Transactional
+	    public void deleteQuestion(int question) {
+	        mockDao.deleteById(question);
+	    }
 }
