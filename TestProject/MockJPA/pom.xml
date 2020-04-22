@@ -107,6 +107,13 @@
         </dependency>
 	  
   
+  <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-lambda -->
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-lambda</artifactId>
+    <version>1.11.765</version>
+</dependency>
+  
   </dependencies>
   <build>
     <finalName>MockJPA</finalName>
