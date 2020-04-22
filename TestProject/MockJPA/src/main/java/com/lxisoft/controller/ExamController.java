@@ -2,6 +2,7 @@ package com.lxisoft.controller;
 
 import java.util.List;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import  com.lxisoft.entity.Exam;
-import  com.lxisoft.exception.ResourceNotFoundException;
 import  com.lxisoft.service.ExamService;
 
 @Controller
@@ -28,7 +28,7 @@ public class ExamController {
 
     @GetMapping("/list")
     public String listExams(Model theModel) {
-        List < Exam > theExams = ExamService.getExams();
+        List < Exam > theExams = examService.getExams();
         theModel.addAttribute("Exams", theExams);
         return "list-Exams";
     }
@@ -43,21 +43,21 @@ public class ExamController {
 
     @PostMapping("/saveExam")
     public String saveExam(@ModelAttribute("Exam") Exam theExam) {
-        ExamService.saveExam(theExam);
+        examService.saveExam(theExam);
         return "redirect:/Exam/list";
     }
 
     @GetMapping("/updateForm")
     public String showFormForUpdate(@RequestParam("ExamId") int theId,
-        Model theModel) throws ResourceNotFoundException {
-        Exam theExam = ExamService.getExam(theId);
+        Model theModel)  {
+        Exam theExam = examService.getExam(theId);
         theModel.addAttribute("Exam", theExam);
         return "Exam-form";
     }
 
     @GetMapping("/delete")
-    public String deleteExam(@RequestParam("ExamId") int theId) throws ResourceNotFoundException {
-        ExamService.deleteExam(theId);
+    public String deleteExam(@RequestParam("ExamId") int theId)  {
+        examService.deleteExam(theId);
         return "redirect:/Exam/list";
     }
 }
