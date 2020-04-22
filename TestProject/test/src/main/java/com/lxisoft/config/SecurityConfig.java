@@ -1,4 +1,3 @@
-
 package com.lxisoft.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("adarsh").password("123456").roles("USER");
-		auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("adarsh").password("{noop}123456").roles("USER");
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}123456").roles("ADMIN");
 	}
 	
 	@Override
