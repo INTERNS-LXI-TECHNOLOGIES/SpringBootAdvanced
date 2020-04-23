@@ -39,9 +39,7 @@ public class MockEntity implements Serializable {
 	@Column(name="option4")
 	private String option4;
 	
-	@Transient
-	private String selectedOption;
-	
+
 	public int getId()
 	{
 		return id;

@@ -13,20 +13,20 @@ import com.lxisoft.entity.*;
 public class MockService {
 
 	 @Autowired
-	 private MockDao mockDao;
+	 private MockRepository mockRepository;
 	 
 	  	@Transactional
 	    public List < MockEntity > getAllQuestions() {
-	        return mockDao.findAll();
+	        return mockRepository.findAll();
 	    }
 	  	
 	  	@Transactional
 	    public void saveQuestion(MockEntity mockEntity) {
-	        mockDao.save(mockEntity);
+	  		mockRepository.save(mockEntity);
 	    }
 	  	
 	  	@Transactional
 	    public void deleteQuestion(int question) {
-	        mockDao.deleteById(question);
+	  		mockRepository.deleteById(question);
 	    }
 }

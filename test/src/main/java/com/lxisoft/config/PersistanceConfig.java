@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource({"classpath:database.properties"})
 @ComponentScan({"com.lxisoft"})
-@EnableJpaRepositories(basePackages = "com.lxisoft.dao")
+@EnableJpaRepositories(basePackages = "com.lxisoft.Repository")
 public class PersistanceJpaConfig {
 	
 	 @Autowired
@@ -35,7 +35,8 @@ public class PersistanceJpaConfig {
 	    }
 	    
 	    @Bean
-	    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	    public LocalContainerEntityManagerFactoryBean entityManagerFactory()
+	    {
 	        final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 	        entityManagerFactoryBean.setDataSource(dataSource());
 	        entityManagerFactoryBean.setPackagesToScan(new String[] {"com.lxisoft.entity"});
