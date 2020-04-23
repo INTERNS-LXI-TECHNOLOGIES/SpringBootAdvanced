@@ -2,9 +2,11 @@ package com.lxisoft.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -112,4 +114,85 @@ public class MockController {
 	        mockService.deleteQuestion(questionId);
 	        return "Admin";
 	    }
+	 
+	 @RequestMapping(value = "/update")
+     public ModelAndView questionsForUpdate(ModelAndView model) throws IOException {
+        List<MockEntity> listQuestions = mockService.getAllQuestions();
+        model.addObject("listQuestions", listQuestions);
+        model.setViewName("Update");
+        return model;
+	 }
+	 
+	 	@RequestMapping(value = "/editQuestion", method = RequestMethod.GET)
+	    public ModelAndView editQuestion(HttpServletRequest request) {
+	        int questionId = Integer.parseInt(request.getParameter("id"));
+	        Optional<MockEntity> mockModel = mockService.getQuestionId(questionId);
+	        ModelAndView model = new ModelAndView("UpdateQuestion");
+	        model.addObject("mockModel1", mockModel);
+	 
+	        return model;
+	    }
+	 	
+	 	@RequestMapping(value = "/userQuestion")
+	     public String userQuestionDisplay(HttpServletRequest request) throws IOException {
+	        List<MockEntity> listQuestions = mockService.getAllQuestions();
+	        HttpSession sessions = request.getSession(true);
+	        sessions.setAttribute("listQuestions", listQuestions);
+	       return "ExamQuestion";
+		 }
+	 	
+	 	@RequestMapping(value = "/selectOption", method = RequestMethod.GET)
+		  public ModelAndView seletedOption(HttpServletRequest request)
+		  {
+			  HttpSession sessions = request.getSession(true);
+			  int selectedOption = 0;
+			  if(request.getParameter("option")!= null)
+			  {
+				   selectedOption =  Integer.parseInt(request.getParameter("option"));
+			  }
+			  
+			  int count = Integer.parseInt(request.getParameter("count"));
+			  @SuppressWarnings("unchecked")
+			  List<MockEntity> listQuestions = (List<MockEntity>)sessions.getAttribute("listQuestions");
+			  
+			  switch(selectedOption) 
+			  {
+			  case 1 :
+				  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption1());
+				  break;
+			  case 2 :
+				  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption2());
+				  break;
+			  case 3 :
+				  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption3());
+				  break;
+			  case 4 :
+				  listQuestions.get(count-1).setSelectedOption(listQuestions.get(count-1).getOption4());
+				  break;
+			  default :
+				  listQuestions.get(count-1).setSelectedOption("");
+				  break;
+			  }
+			  sessions.setAttribute("listQuestions", listQuestions);
+			  ModelAndView model = new ModelAndView("ExamQuestion");
+			  return model;
+		  }
+	 	
+	 	@RequestMapping(value = "/result", method = RequestMethod.GET)
+		public String resultCalculation(HttpServletRequest request)
+		  {
+			  int result = 0;
+			  HttpSession sessions = request.getSession(true);
+			@SuppressWarnings("unchecked")
+			List<MockEntity> listQuestions = (List<MockEntity>)sessions.getAttribute("listQuestions");
+			  for(int i =0;i<listQuestions.size();i++)
+			  {
+				if(listQuestions.get(i).getAnswer().equals(listQuestions.get(i).getSelectedOption()))
+				{
+					result++;
+				}
+			  }
+			  sessions.setAttribute("Result", result);		  
+			  return "Result";
+		  }
 }

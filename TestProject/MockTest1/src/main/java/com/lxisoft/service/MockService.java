@@ -1,6 +1,7 @@
 package com.lxisoft.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,10 @@ public class MockService {
 	  	@Transactional
 	    public void deleteQuestion(int question) {
 	        mockDao.deleteById(question);
+	    }
+	  	
+	    @Transactional
+	    public Optional<MockEntity> getQuestionId(int id) {
+	        return mockDao.findById(id);
 	    }
 }
