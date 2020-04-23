@@ -1,66 +1,113 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Spring MVC 5 - form handling | Java Guides</title>
-<link href="<c:url value="/resources/css/bootstrap.min.css" />"
- rel="stylesheet">
-<script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
-<script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>New/Edit Contact</title>
 </head>
-<body>
- <div class="container">
-  <div class="col-md-offset-2 col-md-7">
-   <h3 class="text-center">sample jpa</h3>
-   <div class="panel panel-info">
-    <div class="panel-heading">
-     <div class="panel-title">Add Customer</div>
+<body bgcolor="FloralWhite">
+<style>
+      body {
+  background-image: url('78.png');
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%
+}
+.container {
+  height: 700px;
+  position: relative;
+  border: 5px solid midnightblue;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+input[type=text] {
+  width: 230%;
+  padding: 12px 20px;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+</style>
+<div class="container">
+<div class="center">
+    <div align="center">
+        <font size="6" color="midnightblue"><i><b>Welcome to Add Page</b></i></font><br><br><br>
+        <form:form action="saveCustomer" method="post" modelAttribute="customer">
+
+       <table>
+            <form:hidden path="slno"/>
+            <tr>
+                <td><font size="5" color="midnightblue">Question : </font></td>
+                <td><form:input path="qn" /></td>
+            </tr>
+             <tr>
+                <td><font size="5" color="midnightblue">Option 1 : </font></td>
+                <td><form:input path="opt1" /></td>
+            </tr>
+             <tr>
+                <td><font size="5" color="midnightblue">Option 2 : </font></td>
+                <td><form:input path="opt2" /></td>
+            </tr>
+             <tr>
+                <td><font size="5" color="midnightblue">Option 3 : </font></td>
+                <td><form:input path="opt3" /></td>
+            </tr>
+             <tr>
+                <td><font size="5" color="midnightblue">Option 4 : </font></td>
+                <td><form:input path="opt4" /></td>
+            </tr>
+             <tr>
+                <td><font size="5" color="midnightblue">Ans : </font></td>
+                <td><form:input path="ans" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" onclick="myFunction()" class="button button1" value="add"></td>
+            </tr>
+        </table>
+        </form:form>
+        <script>
+function myFunction() {
+  confirm("successfully added!");
+}
+</script>
     </div>
-    <div class="panel-body">
-     <form:form action="saveCustomer" cssClass="form-horizontal"
-      method="post" modelAttribute="customer">
-
-      <!-- need to associate this data with customer id -->
-      <form:hidden path="id" />
-
-      <div class="form-group">
-       <label for="firstname" class="col-md-3 control-label">First
-        Name</label>
-       <div class="col-md-9">
-        <form:input path="firstName" cssClass="form-control" />
-       </div>
-      </div>
-      <div class="form-group">
-       <label for="lastname" class="col-md-3 control-label">Last
-        Name</label>
-       <div class="col-md-9">
-        <form:input path="lastName" cssClass="form-control" />
-       </div>
-      </div>
-
-      <div class="form-group">
-       <label for="email" class="col-md-3 control-label">Email</label>
-       <div class="col-md-9">
-        <form:input path="email" cssClass="form-control" />
-       </div>
-      </div>
-
-      <div class="form-group">
-       <!-- Button -->
-       <div class="col-md-offset-3 col-md-9">
-        <form:button cssClass="btn btn-primary">Submit</form:button>
-       </div>
-      </div>
-
-     </form:form>
     </div>
-   </div>
-  </div>
- </div>
+    </div>
 </body>
 </html>

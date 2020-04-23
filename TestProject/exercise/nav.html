@@ -8,6 +8,10 @@
 </head>
 <body>
 <style>
+	html {
+  background-color: #2CEEF0;
+
+}
 	*{
 		padding: 0;
 		margin: 0;
@@ -18,22 +22,38 @@
 	body{
 		font-family: monospace;
 	}
+	.container{
+  width:1250px;
+  height:705px;
+  background:#fff;
+  margin:20px auto;
+  border-radius:10px;
+  text-align:center;
+  position:relative;
+    -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+   overflow:hidden;
+}
 	nav{
-		background: #0082e6;
-		height: 80px;
+		background: #0476D0;
+		height: 100px;
 		width: 100%;
 	}
 	label.logo{
 		color: white;
-		font-size: 40px;
+		font-size: 60px;
 		line-height: 80px;
-		padding: 0 100px;
+		padding:0 80px;
 		font-weight: bold;
+		float: left;
+		margin-left: : 60px;
 
 	}
 	nav ul{
 		float: right;
-		margin-right: 20px;
+		margin-right: 60px;
 	}
 	nav ul li{
 		display: inline-block;
@@ -106,10 +126,9 @@
 	}
 }
 </style>
+<section class="container">
 <nav>
-	<input type="checkbox" id="check">
 	<label for="check" class="checkbtn"></label>
-	<i class="fas fa-bars"></i>
 	<label class="logo">MockExam</label>
 	<ul>
 		<li><a href="*">ADD</a></li>
@@ -118,5 +137,6 @@
 		<li><a href="*" class="active">HOME</a></li>
 	</ul>
 </nav>
+</section>
 </body>
 </html>
