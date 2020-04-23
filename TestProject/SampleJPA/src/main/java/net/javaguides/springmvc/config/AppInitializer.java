@@ -1,12 +1,10 @@
 package net.javaguides.springmvc.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * @author Ramesh Fadatare
- */
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
+	
 	@Override
-    protected Class << ? > [] getRootConfigClasses() {
+    protected Class < ? > [] getRootConfigClasses() {
         return new Class[] {
             PersistenceJPAConfig.class
         };
@@ -14,7 +12,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     }
 
     @Override
-    protected Class << ? > [] getServletConfigClasses() {
+    protected Class < ? > [] getServletConfigClasses() {
         return new Class[] {
             WebMvcConfig.class
         };
