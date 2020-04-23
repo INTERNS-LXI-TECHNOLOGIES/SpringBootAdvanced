@@ -1,17 +1,11 @@
 package com.lxisoft.dao;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import com.lxisoft.model.ExamModel;
 
-public interface ExamDAO {
+@Repository("MockDao")
+public interface ExamDAO extends JpaRepository<ExamModel, Integer> {
 
-	public void addExam(ExamModel examModel);
-
-	public List<ExamModel> getAllExam();
-
-	public void deleteExam(Integer examId);
-
-	public ExamModel updateExam(ExamModel examModel);
-
-	public ExamModel getExam(int examid);
 }

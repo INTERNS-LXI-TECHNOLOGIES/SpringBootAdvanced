@@ -11,10 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Mockexamtb")
-public class ExamModel implements Serializable {
+public class ExamModel {
 
-	private static final long serialVersionUID = -3465813074586302847L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
