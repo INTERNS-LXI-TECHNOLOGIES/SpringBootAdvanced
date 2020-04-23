@@ -2,7 +2,7 @@ package com.lxisoft.service;
 
 import java.util.List;
 
-import com.lxisoft.model.ExamModel;
+import com.lxisoft.entity.ExamModel;
 
 public interface ExamService {
 	
@@ -10,7 +10,7 @@ public interface ExamService {
 
 	public List<ExamModel> getAllExams();
 
-	public void deleteExam(Integer examId);
+	public void deleteExam(int examId);
 
 	public ExamModel getExam(int examid);
 
