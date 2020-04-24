@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>nav</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<style>
+	html {
+  background-color: #2CEEF0;
+
+}
+	*{
+		padding: 0;
+		margin: 0;
+		text-decoration: none;
+		list-style: none;
+		box-sizing: border-box;
+	}
+	body{
+		font-family: monospace;
+	}
+	.container{
+  width:1250px;
+  height:705px;
+  background:#fff;
+  margin:20px auto;
+  border-radius:10px;
+  text-align:center;
+  position:relative;
+    -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+   overflow:hidden;
+}
+	nav{
+		background: #0476D0;
+		height: 100px;
+		width: 100%;
+	}
+	label.logo{
+		color: white;
+		font-size: 60px;
+		line-height: 80px;
+		padding:0 80px;
+		font-weight: bold;
+		float: left;
+		margin-left: : 60px;
+
+	}
+	nav ul{
+		float: right;
+		margin-right: 60px;
+	}
+	nav ul li{
+		display: inline-block;
+		line-height: 80px;
+		margin: 0 5px;
+	}
+	nav ul li a{
+		color: white;
+		font-size: 18px;
+		padding: 7px 13px;
+		border-radius: 8px;
+		text-transform: uppercase;
+	}
+	a.active,a:hover{
+		background: #1b9bff;
+		transition: .5s;
+	}
+	.checkbtn{
+		font-size: 30px;
+		color:white;
+		float: right;
+		line-height: 80px;
+		margin-right: 40px;
+		cursor: pointer;
+		display: none;
+
+	}
+	#check{
+		display: none;
+	}
+	@media (max-width: 952px)
+	{
+		label.logo{
+			font-size: 30px;
+			padding-left: 50px;
+		}
+	}
+	nav ul li a{
+		font-size: 16px;
+	}
+}
+@media (max-width: 858px;){
+	.checkbtn{
+		display: block;
+	}
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #2c3e50;
+		top: 80px;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+	nav ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 30px;
+	}
+	nav ul li a{
+		font-size: 20px;
+	}
+	a:hover,a.active{
+		background: none;
+		color: #0082e6;
+	}
+	#check:checked ~ ul{
+		left: 0;
+	}
+}
+</style>
+<section class="container">
+<nav>
+	<label for="check" class="checkbtn"></label>
+	<label class="logo">MockExam</label>
+	<ul>
+		<li><a href="*">ADD</a></li>
+		<li><a href="*">DELETE</a></li>
+		<li><a href="*">UPDATE</a></li>
+		<li><a href="*" class="active">HOME</a></li>
+	</ul>
+</nav>
+</section>
+</body>
+</html>
