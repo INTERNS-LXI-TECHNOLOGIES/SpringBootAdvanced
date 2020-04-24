@@ -13,19 +13,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder authenticationMgr) throws Exception {
-		authenticationMgr.inMemoryAuthentication()
-			.withUser("gokul")
-			.password("{noop}gokul")
-			.authorities("ROLE_USER");
+		authenticationMgr.inMemoryAuthentication().withUser("admin").password("{noop}admin").authorities("ROLE_ADMIN","ROLE_USER");
+		authenticationMgr.inMemoryAuthentication().withUser("user").password("{noop}user").authorities("ROLE_USER");
+
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/request/showForm").access("hasRole('ROLE_USER')")
+			.antMatchers("/welcome").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+			.antMatchers("/display").access("hasRole('ROLE_ADMIN')")
+			.antMatchers("/request-form").access("hasRole('ROLE_USER')")
 			.and()
 				.formLogin().loginPage("/loginPage")
-				.defaultSuccessUrl("/request/showForm")
+				.defaultSuccessUrl("/request/welcome")
 				.failureUrl("/request/loginPage?error")
 				.usernameParameter("username").passwordParameter("password")				
 			.and()

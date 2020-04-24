@@ -27,15 +27,22 @@ public class RequestController {
 
     @Autowired
     private RequestService requestService;
+    
+    @GetMapping("/welcome")
+ 	public ModelAndView welcomePage() {
+ 			ModelAndView model = new ModelAndView();
+ 		model.setViewName("welcome");
+ 		return model;
+ 	}
 
-    @GetMapping("/list")
+    @GetMapping("/display")
     public String listRequest(Model theModel) {
         List < Request > theRequest = requestService.getRequest();
         theModel.addAttribute("request", theRequest);
         return "display";
     }
 
-    @GetMapping("/showForm")
+    @GetMapping("/request-form")
     public String showFormForAdd(Model theModel) {
         LOG.debug("inside show customer-form handler method");
         Request theRequest = new Request();
