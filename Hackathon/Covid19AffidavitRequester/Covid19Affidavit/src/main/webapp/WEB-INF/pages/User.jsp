@@ -10,7 +10,7 @@
 <div align = center>
 <form>
 <div text-align = center>
-<button >ChectStatus</button><br>
+<button formaction = "checkApproval">ChectStatus</button><br>
 <button formaction = "apply">Apply</button><br>
 <button formaction = "logout">SignOut</button>
 </div>

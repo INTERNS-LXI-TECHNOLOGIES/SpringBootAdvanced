@@ -116,20 +116,27 @@ public class AffidavitController {
         return "redirect:/displayAll";
     }
 	 
-//		@RequestMapping(value = "/approveAffidavit", method = RequestMethod.GET)
-//	    public ModelAndView approveAffidavit(HttpServletRequest request) {
-//	        int affidavitId = Integer.parseInt(request.getParameter("idMa"));
-//	        Optional<AffidavitEntity> affidavitModel = affidavitService.getAffidavitId(affidavitId);
-//	        ModelAndView model = new ModelAndView("redirect:/approval");
-//	        model.addObject("affidavitModel", affidavitModel);
-//	 
-//	        return "redirect:/displayAll";
-//	    }
-		
-//		@RequestMapping(value = "/approval")
-//		public String approveAffidavit()
-//		{
-//			return " "
-//		}
+	 @RequestMapping(value = "/checkApproval")
+	 public String checkApproval()
+	 {
+		 return "CheckApproval";
+		 
+	 }
+	 
+	 @RequestMapping(value = "/approvalCheck")
+     public String checkApproval(HttpServletRequest request) throws IOException {
+        List<AffidavitEntity> listAffidavit = affidavitService.getAllAffidavit();
+        String phone = request.getParameter("phone");
+        HttpSession session = request.getSession(true);
+        for(int i =0;i<listAffidavit.size();i++)
+        {
+        	if(listAffidavit.get(i).getPhoneNumberMa().equals(phone))
+        	{
+        		session.setAttribute("Match",listAffidavit.get(i).getPhoneNumberMa() );
+        	}
+        }
+        
+        return "ApprovedPage";
+    }
 
 }
