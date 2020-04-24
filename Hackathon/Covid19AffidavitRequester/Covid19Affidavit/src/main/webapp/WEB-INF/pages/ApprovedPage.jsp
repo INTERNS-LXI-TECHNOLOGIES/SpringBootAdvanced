@@ -11,7 +11,7 @@
 </head>
 <body>
 <div align = "center">
-<%AffidavitEntity entity =  (AffidavitEntity)session.getAttribute("mark");
+<%AffidavitEntity entity =  (AffidavitEntity)session.getAttribute("Mark");
 out.println("Name : "+entity.getNameMa());
 out.println("Approval : "+entity.getRejectMa());
 %>
