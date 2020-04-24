@@ -1,0 +1,19 @@
+A user should use an affidavit to travel from one place to another in this lock down scenario. So this application helps
+user request for an affidavit by specifying the following details.
+
+The details to be filled in the request form are,
+
+1. Name, phone number, address, vehicle number, vehicle type(4 wheeler/two wheeler), starting location, destination, 
+starting date and time, ending date and time, co-passenger name, relation, reason.
+
+The admin should approve or reject the request. User can get his status by entering the phone number.
+
+
+Rules
+
+1. package name should be com.your_name.app_name
+2. variable names and method names should have 3 letter suffix representing your name.
+  eg. Animal animalAPA, getAnimalAPA() etc
+3. Date of submission-> 24/04/2020, Friday 4.00 pm
+4. Commits til 4 pm are treated as valid
+5. Push the commit only after the instruction given from the hackathon conductors.
