@@ -27,6 +27,7 @@
             <th>Co-Passenger Name</th>
             <th>Relation</th>
             <th>Reason</th>
+            <th>Approval</th>
             </tr>
  
             <c:forEach var="listAffidavit" items="${listAffidavit}">
@@ -44,14 +45,16 @@
                     <td>${listAffidavit.coPassengerNameMa}</td>
                     <td>${listAffidavit.relationMa}</td>
                     <td>${listAffidavit.reasonMa}</td>
-                    <td><a href="approveAffidavit?id = idMa,slno = i">Approve</a></td>
+                    <td>${listAffidavit.rejectMa}</td>
+                    <td><a href="approveAffidavit?id=${listAffidavit.idMa}">Approve</a></td>
+                    <td><a href="cancelAffidavit?id=${listAffidavit.idMa}">Cancel</a></td>
                 </tr>
                 <%i++; %>
             </c:forEach>
         </table>
         <form >
         <button formaction="admin" class="button">BACK</button>
-        <button formaction="/logout">LogOut</button>
+        <button formaction="logout">LogOut</button>
     	</form>
     </DIV>
 </body>

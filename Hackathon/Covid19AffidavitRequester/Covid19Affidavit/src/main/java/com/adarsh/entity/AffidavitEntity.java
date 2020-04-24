@@ -60,7 +60,7 @@ public class AffidavitEntity implements Serializable {
 	@Column(name = "reasonMa")
 	private String reasonMa;
 	
-	@Transient
+	@Column(name = "rejectMa")
 	private String rejectMa;
 	
 	public void setidMa(int idMa)

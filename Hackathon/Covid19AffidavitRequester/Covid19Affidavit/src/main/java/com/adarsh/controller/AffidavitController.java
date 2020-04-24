@@ -85,13 +85,35 @@ public class AffidavitController {
     }
 	 
 	 @RequestMapping(value = "/approveAffidavit")
-     public String createaffidavitSession(HttpServletRequest request) throws IOException {
+     public String approveAffidavit(HttpServletRequest request) throws IOException {
         List<AffidavitEntity> listAffidavit = affidavitService.getAllAffidavit();
-        int affidavitId = Integer.parseInt(request.getParameter("idMa"));
-        int slno = Integer.parseInt(request.getParameter("slno"));
-        listAffidavit.get(slno).setRejectMa("Approved");
-        affidavitService.saveAffidavit(listAffidavit.get(slno));
-        return "View";
+        int affidavitId = Integer.parseInt(request.getParameter("id"));
+        for(int i =0;i<listAffidavit.size();i++)
+        {
+        	if(listAffidavit.get(i).getIdMa() == affidavitId)
+        	{
+        		listAffidavit.get(i).setRejectMa("Approved");
+        		affidavitService.saveAffidavit(listAffidavit.get(i));
+        	}
+        }
+        
+        return "redirect:/displayAll";
+    }
+	 
+	 @RequestMapping(value = "/cancelAffidavit")
+     public String cancelAffidavit(HttpServletRequest request) throws IOException {
+        List<AffidavitEntity> listAffidavit = affidavitService.getAllAffidavit();
+        int affidavitId = Integer.parseInt(request.getParameter("id"));
+        for(int i =0;i<listAffidavit.size();i++)
+        {
+        	if(listAffidavit.get(i).getIdMa() == affidavitId)
+        	{
+        		listAffidavit.get(i).setRejectMa("Cancel");
+        		affidavitService.saveAffidavit(listAffidavit.get(i));
+        	}
+        }
+        
+        return "redirect:/displayAll";
     }
 	 
 //		@RequestMapping(value = "/approveAffidavit", method = RequestMethod.GET)
