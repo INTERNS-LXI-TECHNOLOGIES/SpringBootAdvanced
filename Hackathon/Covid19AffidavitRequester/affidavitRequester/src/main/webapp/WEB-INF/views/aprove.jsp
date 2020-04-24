@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<%@page contentType="text/html;charset=UTF-8" pageEncoding = "UTF-8"%>
 <head>
-  <meta http-equiv="Content_Type" content="text/html;charset=UTF-8"/>
-	<title>mockexam</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>affidavit</title>
 </head>
+<body bgcolor="FloralWhite">
 <style>
-   body {
-  background-image: url("itl.cat_simple-wallpaper_120953.png");
+      body {
+  background-image: url('78.png');
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +27,7 @@
   margin: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 30%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -53,32 +57,25 @@
   color: white;
 }
 
-.button2 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #008CBA;
-  border-radius: 12px;
-}
-
-.button2:hover {
-  background-color: #008CBA;
-  color: white;
+input[type=text] {
+  width: 230%;
+  padding: 12px 20px;
+  border: 2px solid red;
+  border-radius: 4px;
 }
 </style>
-<body>
 <div class="container">
 <div class="center">
+    <div align="center">
+        <font size="6" color="midnightblue"><i><b>approved!!!!!!</b></i></font><br><br><br>
 
-<b><font size="7" color="midnightblue">welcome!!!!</font>
-</b>
-  <br>
-  <form>
- <input type="submit" formaction="display" class="button button1" name="ADD" value="ADMIN" >
-  <input type="submit" formaction="user" class="button button2" name="ADD" value="USER" >
- </form>
- 
- 
-</div>
-</div>
+        <script>
+function myFunction() {
+  confirm("successfully submitted!");
+}
+</script>
+    </div>
+    </div>
+    </div>
 </body>
 </html>

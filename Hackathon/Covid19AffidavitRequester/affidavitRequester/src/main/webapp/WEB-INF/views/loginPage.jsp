@@ -30,6 +30,11 @@
 		</table>
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
+	
+	<h3>note: only two roles available
+	
+	1. admin    username: admin password:admin
+	2. user     username: user  password: user</h3>
 </body>
 </body>
 </html>

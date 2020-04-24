@@ -69,12 +69,12 @@
 <div class="container">
 <div class="center">
 
-<b><font size="7" color="midnightblue">welcome!!!!</font>
+<b><font size="7" color="midnightblue">welcome user </font>
 </b>
   <br>
   <form>
- <input type="submit" formaction="display" class="button button1" name="ADD" value="ADMIN" >
-  <input type="submit" formaction="user" class="button button2" name="ADD" value="USER" >
+ <input type="submit" formaction="check" class="button button1" name="" value="approval" >
+  <input type="submit" formaction="request-form" class="button button2" name="form" value="Request form" >
  </form>
  
  

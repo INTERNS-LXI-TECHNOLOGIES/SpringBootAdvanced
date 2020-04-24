@@ -83,6 +83,7 @@ table, th, td {
 <div class="center">
     <div align="center">
         <font size="6" color="midnightblue"><i><b>Affidavit requests details</b></i></font><br><br><br>
+        <h3>note : just delete the request inorder to cancell approval. it will result in the cancelation aproval in user page</h3>
         <table cellpadding="20">
  			<tr>
             <th>NAME</th>

@@ -1,7 +1,10 @@
 package com.gokul.controller;
 
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +35,34 @@ public class RequestController {
  	public ModelAndView welcomePage() {
  			ModelAndView model = new ModelAndView();
  		model.setViewName("welcome");
+ 		return model;
+ 	}
+    
+    @GetMapping("/aprove")
+  	public ModelAndView aprovePage() {
+  			ModelAndView model = new ModelAndView();
+  		model.setViewName("aprove");
+  		return model;
+  	}
+    
+    @GetMapping("/fail")
+  	public ModelAndView failPage() {
+  			ModelAndView model = new ModelAndView();
+  		model.setViewName("fail");
+  		return model;
+  	}
+    
+    @GetMapping("/check")
+ 	public ModelAndView checkPage() {
+ 			ModelAndView model = new ModelAndView();
+ 		model.setViewName("check");
+ 		return model;
+ 	}
+    
+    @GetMapping("/user")
+ 	public ModelAndView userPage() {
+ 			ModelAndView model = new ModelAndView();
+ 		model.setViewName("user");
  		return model;
  	}
 
@@ -73,12 +104,26 @@ public class RequestController {
         requestService.saveRequest(theRequest);
         return "redirect:/request/welcome";
     }
+    @PostMapping("/approval")
+    public String approveRequest(@ModelAttribute("request") Request theRequest,HttpServletRequest request)throws IOException {
+    	List < Request > theapprove = requestService.getRequest();
+    	String s=request.getParameter("username");
+    	for(int i=0;i<theapprove.size();i++)
+    	{
+    		if(s.equals(theapprove.get(i).getMobGok()))
+    		{
+    			return "redirect:/request/aprove";
+    		}
+    			
+    	}
+        return "redirect:/request/fail";
+    }
 
 
     @GetMapping("/delete")
     public String deleteRequest(@RequestParam("requestId") int theId) throws ResourceNotFoundException {
         requestService.deleteRequest(theId);
-        return "redirect:/customer/welcome";
+        return "redirect:/request/display";
     }
 }
 
