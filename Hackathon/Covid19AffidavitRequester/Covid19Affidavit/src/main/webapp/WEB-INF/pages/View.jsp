@@ -44,7 +44,7 @@
                     <td>${listAffidavit.coPassengerNameMa}</td>
                     <td>${listAffidavit.relationMa}</td>
                     <td>${listAffidavit.reasonMa}</td>
-                    <td><a href="">Approve</a></td>
+                    <td><a href="approveAffidavit?id = idMa,slno = i">Approve</a></td>
                 </tr>
                 <%i++; %>
             </c:forEach>

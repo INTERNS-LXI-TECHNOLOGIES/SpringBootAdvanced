@@ -84,15 +84,25 @@ public class AffidavitController {
         return model;
     }
 	 
-		@RequestMapping(value = "/approveAffidavit", method = RequestMethod.GET)
-	    public ModelAndView approveAffidavit(HttpServletRequest request) {
-	        int affidavitId = Integer.parseInt(request.getParameter("idMa"));
-	        Optional<AffidavitEntity> affidavitModel = affidavitService.getAffidavitId(affidavitId);
-	        ModelAndView model = new ModelAndView("redirect:/approval");
-	        model.addObject("affidavitModel", affidavitModel);
+	 @RequestMapping(value = "/approveAffidavit")
+     public String createaffidavitSession(HttpServletRequest request) throws IOException {
+        List<AffidavitEntity> listAffidavit = affidavitService.getAllAffidavit();
+        int affidavitId = Integer.parseInt(request.getParameter("idMa"));
+        int slno = Integer.parseInt(request.getParameter("slno"));
+        listAffidavit.get(slno).setRejectMa("Approved");
+        affidavitService.saveAffidavit(listAffidavit.get(slno));
+        return "View";
+    }
 	 
-	        return model;
-	    }
+//		@RequestMapping(value = "/approveAffidavit", method = RequestMethod.GET)
+//	    public ModelAndView approveAffidavit(HttpServletRequest request) {
+//	        int affidavitId = Integer.parseInt(request.getParameter("idMa"));
+//	        Optional<AffidavitEntity> affidavitModel = affidavitService.getAffidavitId(affidavitId);
+//	        ModelAndView model = new ModelAndView("redirect:/approval");
+//	        model.addObject("affidavitModel", affidavitModel);
+//	 
+//	        return "redirect:/displayAll";
+//	    }
 		
 //		@RequestMapping(value = "/approval")
 //		public String approveAffidavit()
