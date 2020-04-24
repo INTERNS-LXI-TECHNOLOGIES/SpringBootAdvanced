@@ -28,4 +28,9 @@ public class AffidavitService {
         return affidavitDao.findAll();
     }
 
+	public Optional<AffidavitEntity> getAffidavitId(int affidavitId) {
+		
+		return affidavitDao.findById(affidavitId);
+	}
+
 }

@@ -41,7 +41,7 @@ public class AffidavitController {
 		          .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"));
 		if(hasUserRole)
 		{
-			return "Admin";
+			return "redirect:/displayAll";
 		}
 		else
 		{
@@ -49,6 +49,15 @@ public class AffidavitController {
 		}
 		
 	}
+	
+	@RequestMapping(value="/logout", method=RequestMethod.POST)  
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {  
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();  
+        if (auth != null){      
+           new SecurityContextLogoutHandler().logout(request, response, auth);  
+        }  
+         return "redirect:/";  
+     }
 	
 	@RequestMapping(value = "/apply",method = RequestMethod.GET)
 	public ModelAndView appylyAffidavitMa(ModelAndView model)
@@ -74,5 +83,21 @@ public class AffidavitController {
         model.setViewName("View");
         return model;
     }
+	 
+		@RequestMapping(value = "/approveAffidavit", method = RequestMethod.GET)
+	    public ModelAndView approveAffidavit(HttpServletRequest request) {
+	        int affidavitId = Integer.parseInt(request.getParameter("idMa"));
+	        Optional<AffidavitEntity> affidavitModel = affidavitService.getAffidavitId(affidavitId);
+	        ModelAndView model = new ModelAndView("redirect:/approval");
+	        model.addObject("affidavitModel", affidavitModel);
+	 
+	        return model;
+	    }
+		
+//		@RequestMapping(value = "/approval")
+//		public String approveAffidavit()
+//		{
+//			return " "
+//		}
 
 }

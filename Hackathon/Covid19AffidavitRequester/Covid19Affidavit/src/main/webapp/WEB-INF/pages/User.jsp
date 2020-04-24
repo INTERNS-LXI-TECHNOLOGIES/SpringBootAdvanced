@@ -12,7 +12,7 @@
 <div text-align = center>
 <button >ChectStatus</button><br>
 <button formaction = "apply">Apply</button><br>
-<button>SignOut</button>
+<button formaction = "logout">SignOut</button>
 </div>
 </form>
 
