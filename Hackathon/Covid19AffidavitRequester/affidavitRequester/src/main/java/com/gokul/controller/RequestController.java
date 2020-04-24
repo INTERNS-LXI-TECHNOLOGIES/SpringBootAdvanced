@@ -71,14 +71,14 @@ public class RequestController {
     @PostMapping("/saveRequest")
     public String saveRequest(@ModelAttribute("request") Request theRequest) {
         requestService.saveRequest(theRequest);
-        return "redirect:/request/list";
+        return "redirect:/request/welcome";
     }
 
 
     @GetMapping("/delete")
     public String deleteRequest(@RequestParam("requestId") int theId) throws ResourceNotFoundException {
         requestService.deleteRequest(theId);
-        return "redirect:/customer/list";
+        return "redirect:/customer/welcome";
     }
 }
 
