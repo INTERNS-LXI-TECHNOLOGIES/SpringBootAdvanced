@@ -68,7 +68,9 @@ input[type=text] {
 <div class="center">
     <div align="center">
         <font size="6" color="midnightblue"><i><b>cancelled!!!!</b></i></font><br><br><br>
-
+		<form>
+		<input type="submit" formaction="welcome" class="button button1" name="done" value="done" >
+		</form>
         <script>
 function myFunction() {
   confirm("successfully submitted!");

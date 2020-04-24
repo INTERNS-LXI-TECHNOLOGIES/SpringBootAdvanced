@@ -128,7 +128,10 @@ table, th, td {
       </c:forEach>
 
      </table>
-
+	<form>
+		<input type="submit" formaction="welcome" class="button button1" name="done" value="done" >
+		</form>
+		
     </div>
     </div>
     </div>
