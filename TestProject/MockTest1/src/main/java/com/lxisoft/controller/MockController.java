@@ -189,7 +189,7 @@ public class MockController {
 			  {
 				if(listQuestions.get(i).getAnswer().equals(listQuestions.get(i).getSelectedOption()))
 				{
-					result++;
+					result++ ;
 				}
 			  }
 			  sessions.setAttribute("Result", result);		  
