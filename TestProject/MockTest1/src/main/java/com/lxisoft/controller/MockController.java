@@ -25,7 +25,7 @@ import com.lxisoft.service.*;
 public class MockController {
 	
 	@Autowired
-	MockService mockService;
+	private MockService mockService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage()
