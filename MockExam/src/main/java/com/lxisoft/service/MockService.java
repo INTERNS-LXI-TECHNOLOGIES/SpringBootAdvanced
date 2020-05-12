@@ -1,49 +1,38 @@
 package com.lxisoft.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lxisoft.model.*;
-import com.lxisoft.repository.*;
+import com.lxisoft.dao.*;
+import com.lxisoft.entity.*;
 
 @Service
-@Transactional
 public class MockService {
-	
-	@Autowired
-	private MockRepository mockRepository;
-	
-	@Transactional
-    public void addMockQuestion(MockModel mockModel) {
-        mockRepository.addMockQuestion(mockModel);
-    }
-	
-	@Transactional
-    public List<MockModel> getAllQuestions() {
-        return mockRepository.getAllQuestions();
-    }
 
-	public void deleteQuestion(Integer questionId) {
-	
-		mockRepository.deleteQuestion(questionId);
-	}
-	
-	public MockModel getQuestionId(int mockid) {
-        return mockRepository.getQuestionId(mockid);
-        
-    }
-	
-	public MockModel getQuestion(MockModel mockModel) {
- 
-        return mockRepository.updateQuestion(mockModel);
-    }
-
-	public MockModel updateQuestion(MockModel mockModel) {
-		
-		return mockRepository.updateQuestion(mockModel);
-	}
-
+	 @Autowired
+	 private MockDao mockDao;
+	 
+	  	@Transactional
+	    public List < MockEntity > getAllQuestions() {
+	        return mockDao.findAll();
+	    }
+	  	
+	  	@Transactional
+	    public void saveQuestion(MockEntity mockEntity) {
+	        mockDao.save(mockEntity);
+	    }
+	  	
+	  	@Transactional
+	    public void deleteQuestion(int question) {
+	        mockDao.deleteById(question);
+	    }
+	  	
+	    @Transactional
+	    public Optional<MockEntity> getQuestionId(int id) {
+	        return mockDao.findById(id);
+	    }
 }

@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.entity;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "MockExam")
-public class MockModel implements Serializable {
+public class MockEntity implements Serializable {
 	
 	private static final long serialVersionUID = -3465813074586302847L;
 
@@ -105,4 +105,5 @@ public class MockModel implements Serializable {
 	{
 		return selectedOption;
 	}
+
 }

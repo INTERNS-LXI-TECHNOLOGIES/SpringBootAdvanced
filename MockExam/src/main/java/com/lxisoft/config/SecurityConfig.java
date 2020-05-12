@@ -13,18 +13,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("adarsh").password("123456").roles("USER");
-		auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
-		
+		auth.inMemoryAuthentication().withUser("adarsh").password("{noop}123456").roles("USER");
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}123456").roles("ADMIN");
 	}
-
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests()
-			.antMatchers("/admin/").access("hasRole('ROLE_ADMIN')")
-			.antMatchers("/introduction/").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_DBA')")
-			.and().formLogin();
+		http.csrf().disable()
+		.authorizeRequests()
+			.antMatchers("/home").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+			.antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+			.antMatchers("/user").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+			.and().formLogin()
+			.and()
+			.httpBasic()
+			.and()
+			.logout()
+			.logoutUrl("/j_spring_security_logout")
+			.logoutSuccessUrl("/");
 		
 	}
 

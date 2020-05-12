@@ -49,7 +49,9 @@
 		<button formaction="addQuestion" class="button">ADD</button>
 		<button formaction="update" class="button">UPDATE</button>
 		<button formaction="delete" class="button">DELETE</button>
-		<button formaction="introduction" class="button">TEST EXAM</button> <button formaction="index" class="button">BACK</button>
+		<button formaction="introduction" class="button">TEST EXAM</button>
+		<button formaction="logout" class="button">LOGOUT</button>
+		<button formaction="index" class="button">BACK</button>
 		<br>
 		<br>
 	</div> 

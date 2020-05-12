@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="com.lxisoft.model.MockModel" %>
+<%@page import="com.lxisoft.entity.MockEntity" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +55,7 @@
 			</div>
 <div style="padding-left: 40px;" align="left">
 <%
-List<MockModel> listQuestions = (List<MockModel>)session.getAttribute("listQuestions");
+List<MockEntity> listQuestions = (List<MockEntity>)session.getAttribute("listQuestions");
 int result = Integer.parseInt(session.getAttribute("Result").toString());
 %>
 <br>

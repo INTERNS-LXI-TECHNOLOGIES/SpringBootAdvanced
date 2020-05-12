@@ -1,7 +1,7 @@
 <%@page contentType = "text/html;charset=UTF-8" pageEncoding = "UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@page import="java.util.List"%>
-<%@page import="com.lxisoft.model.MockModel" %>
+<%@page import="com.lxisoft.entity.MockEntity" %>
 <html>
 <head>
 <meta http-equiv="Content_Type" content="text/html;charset=UTF-8"/>
@@ -62,7 +62,7 @@ function timer()
 	else
 	{
 		let count = document.getElementById('submitBtn').value;
-		window.location = '/MockExam/selectOption?count='+count;
+		window.location = '/MockTest1/selectOption?count='+count;
 	}
 }
 </script>
@@ -76,7 +76,7 @@ timer();
 </script>
 
 	   <%
-	   List<MockModel> questionList = (List<MockModel>)session.getAttribute("listQuestions");
+	   List<MockEntity> questionList = (List<MockEntity>)session.getAttribute("listQuestions");
        int count = Integer.parseInt(request.getParameter("count"));
        %>
 	<div class="wrapper">
@@ -112,6 +112,7 @@ timer();
         }
         else
         {
+        	//System.out.println("Question Completed");
         	response.sendRedirect("result");
         }
     %>
