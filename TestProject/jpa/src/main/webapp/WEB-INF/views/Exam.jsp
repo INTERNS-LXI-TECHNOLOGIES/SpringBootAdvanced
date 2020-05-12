@@ -1,3 +1,8 @@
+<%@ page import="com.lxisoft.entity.Customer"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -94,12 +99,12 @@
 .button1 {
   background-color: white; 
   color: black; 
-  border: 2px solid #4CAF50;
+  border: 2px solid #56baed;
   border-radius: 12px;
 }
 
 .button1:hover {
-  background-color: #4CAF50;
+  background-color: #56baed;
   color: white;
 }
 
@@ -122,22 +127,48 @@ input[type=text] {
 }
 }
 </style>
+
 <section class="container">
 
 <nav>
 	<label for="check" class="checkbtn"></label>
 	<label class="logo">MockExam</label>
 </nav>
-<div class="center">
+<br>
+    <div align="center">
 <div class="login-header">
-    <h1>MockExam</h1>
-  </div>
-  <br>
-  <form>
- <input type="submit" formaction="loginPage" class="button button1" name="ADD" value="ADMIN" >
-  <input type="submit" formaction="user" class="button button2" name="ADD" value="USER" >
- </form>
- </div>
- </section>
+    <h1>welcome user</h1>
+  </div>><br><br><br>
+        <% ArrayList<Customer> model=new ArrayList<Customer>();
+        model =(ArrayList<Customer>)session.getAttribute("exam"); 
+        int qcount = Integer.parseInt(request.getParameter("qcount"));
+        int size=model.size();
+         if(qcount != size) {
+
+        %><font size="5"  color="midnightblue"> <%out.println("<h1>Question :"+(qcount + 1)+"."+model.get(qcount).getQn()+"</h1>");
+           %>
+           <br>
+           <form action="start" method="get" name="qform">
+        <input type="radio" name="opt" value="1"/>
+          <label for="1"><font size="4"  color="midnightblue"><% out.println(model.get(qcount).getOpt1());%></label></font>
+          <input type="radio" name="opt" value="2"/>
+          <label for="2"><font size="4"  color="midnightblue"><% out.println(model.get(qcount).getOpt2());%></label></font>
+         <input type="radio" name="opt" value="3"/>
+          <label for="3"><font size="4"  color="midnightblue"><% out.println(model.get(qcount).getOpt3());%></label></font>
+         <input type="radio" name="opt" value="4"/>
+          <label for="4"><font size="4"  color="midnightblue"><% out.println(model.get(qcount).getOpt4());%></label></font>
+            <%qcount++; %>
+            <input type="hidden" name="qcount" value= <%out.println(qcount);%>/>
+            <input type="submit" class="button button1"   value="<%out.println("next");%>" />
+          </form>
+          <%    
+         } else {
+
+             response.sendRedirect("result");
+             
+
+      } %>
+    </div>
+</section>
 </body>
 </html>

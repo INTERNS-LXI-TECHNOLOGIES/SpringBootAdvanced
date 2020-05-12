@@ -82,6 +82,7 @@ table, th, td {
 <div class="container">
 <div class="center">
     <div align="center">
+    <a href="add">add Question</a>
         <font size="6" color="midnightblue"><i><b>Welcome to Display Page</b></i></font><br><br><br>
         <table cellpadding="20">
  			<tr>
@@ -126,6 +127,14 @@ table, th, td {
       </c:forEach>
 
      </table>
+     
+<c:url value="/logout" var="logoutUrl" />
+<form id="logout" action="${logoutUrl}" method="post" >
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+	<a href="javascript:document.getElementById('logout').submit()">Logout</a>
+</c:if>
 
     </div>
     </div>

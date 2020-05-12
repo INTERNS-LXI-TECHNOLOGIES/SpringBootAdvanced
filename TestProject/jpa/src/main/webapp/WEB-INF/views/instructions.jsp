@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -94,12 +96,12 @@
 .button1 {
   background-color: white; 
   color: black; 
-  border: 2px solid #4CAF50;
+  border: 2px solid #56baed;
   border-radius: 12px;
 }
 
 .button1:hover {
-  background-color: #4CAF50;
+  background-color: #56baed;
   color: white;
 }
 
@@ -122,22 +124,39 @@ input[type=text] {
 }
 }
 </style>
+
 <section class="container">
 
 <nav>
 	<label for="check" class="checkbtn"></label>
 	<label class="logo">MockExam</label>
 </nav>
+
 <div class="center">
 <div class="login-header">
-    <h1>MockExam</h1>
+    <h1>welcome user</h1>
   </div>
   <br>
+  <font size="6" color=" midnightblue">Read The Instructions Carefully</font>
+  <br>
+  <br>
+  <ol>
+ <h2><font color="midnightblue"><li>mobile phones are not allowed</li></font> </h2>
+ <h2><font color="MidnightBlue"><li>any malpractice wil lead to debar</li></font></h2>
+ <h2><font color="MidnightBlue"><li>helps will be provided by invigilatores</li></font></h2>
+ <h2><font color="MidnightBlue"><li>total time allowed is 20 minutes</li></font></h2>
+ <h2><font color="MidnightBlue"><li>keep calm and be quiet</li></font></h2>
+</ol>
+<br>
+<br>
+<c:>
   <form>
- <input type="submit" formaction="loginPage" class="button button1" name="ADD" value="ADMIN" >
-  <input type="submit" formaction="user" class="button button2" name="ADD" value="USER" >
- </form>
- </div>
- </section>
+  <input type="hidden" name = "qcount" value = "0" >
+  <input type="submit" formaction="exam" class="button button1" name="next" value="NEXT" >
+</form>
+</c:>
+</div>
+</section>
+
 </body>
 </html>
