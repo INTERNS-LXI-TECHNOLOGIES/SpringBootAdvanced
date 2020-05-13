@@ -173,7 +173,7 @@
   </dependencies>
 
   <build>
-    <finalName>MockTest1</finalName>
+    <finalName>MockExam</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
@@ -216,7 +216,7 @@
 		          <url>http://localhost:8080/manager/text</url>
 		          <username>admin</username>
 		          <password>password</password>
-		          <path>/MockTest1</path>
+		          <path>/MockExam</path>
 	        </configuration>
         
     	</plugin>

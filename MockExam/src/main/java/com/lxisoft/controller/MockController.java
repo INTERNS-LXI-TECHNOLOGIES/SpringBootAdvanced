@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lxisoft.entity.*;
@@ -33,24 +34,24 @@ public class MockController {
 		return "Home";
 	}
 	
-//	  @GetMapping("/loginPage")
-//		public ModelAndView loginPage(@RequestParam(value = "error",required = false) String error,
-//		@RequestParam(value = "logout",	required = false) String logout) {
-//			
-//			ModelAndView model = new ModelAndView();
-//			if (error != null) {
-//				model.addObject("error", "Invalid Credentials provided.");
-//			}
-//
-//			if (logout != null) {
-//				model.addObject("message", "Logged out from JournalDEV successfully.");
-//			}
-//
-//			model.setViewName("loginPage");
-//			return model;
-//		}
+	  @RequestMapping(value = "/login", method = RequestMethod.GET)
+		public ModelAndView loginPage(@RequestParam(value = "error",required = false) String error,
+		@RequestParam(value = "logout",	required = false) String logout) {
+			
+			ModelAndView model = new ModelAndView();
+			if (error != null) {
+				model.addObject("error", "Invalid Credentials provided.");
+			}
+
+			if (logout != null) {
+				model.addObject("message", "Logged out from JournalDEV successfully.");
+			}
+
+			model.setViewName("Login");
+			return model;
+		}
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public String getadministeration()
 	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -79,8 +80,8 @@ public class MockController {
 		return "Logout";
 	}
 	
-	@RequestMapping(value="/logout", method=RequestMethod.POST)  
-    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {  
+	@RequestMapping(value="/logout", method=RequestMethod.GET)  
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) { 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();  
         if (auth != null){      
            new SecurityContextLogoutHandler().logout(request, response, auth);  

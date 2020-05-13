@@ -8,7 +8,7 @@
 </head>
 <body>
 <div align="center">
-<form action="home">
+<form action="home" method = "POST">
 <button>LOG IN</button>
 </form>
 </div>
