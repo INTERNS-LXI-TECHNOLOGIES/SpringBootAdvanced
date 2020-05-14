@@ -22,7 +22,8 @@
 	body{
 		font-family: monospace;
 	}
-	
+
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -46,14 +47,6 @@
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
    overflow:hidden;
 }
-
-.login-header {
-  color:#56baed;
-  font-family: 'Helvetica Neue', sans-serif;
-  letter-spacing: -1px;
-  text-align:center;
-  font-size:250%;
-}
 	nav{
 		background: #56baed;
 		height: 100px;
@@ -69,7 +62,39 @@
 		margin-left: : 60px;
 
 	}
-	
+	nav ul{
+		float: right;
+		margin-right: 60px;
+	}
+	nav ul li{
+		display: inline-block;
+		line-height: 80px;
+		margin: 0 5px;
+	}
+	nav ul li a{
+		color: white;
+		font-size: 18px;
+		padding: 7px 13px;
+		border-radius: 8px;
+		text-transform: uppercase;
+	}
+	a.active,a:hover{
+		background: #1b9bff;
+		transition: .5s;
+	}
+	.checkbtn{
+		font-size: 30px;
+		color:white;
+		float: right;
+		line-height: 80px;
+		margin-right: 40px;
+		cursor: pointer;
+		display: none;
+
+	}
+	#check{
+		display: none;
+	}
 	@media (max-width: 952px)
 	{
 		label.logo{
@@ -77,60 +102,40 @@
 			padding-left: 50px;
 		}
 	}
-
-	
-.center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+	nav ul li a{
+		font-size: 16px;
+	}
 }
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+@media (max-width: 858px;){
+	.checkbtn{
+		display: block;
+	}
+	ul{
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #2c3e50;
+		top: 80px;
+		left: -100%;
+		text-align: center;
+		transition: all .5s;
+	}
+	nav ul li{
+		display: block;
+		margin: 50px 0;
+		line-height: 30px;
+	}
+	nav ul li a{
+		font-size: 20px;
+	}
+	a:hover,a.active{
+		background: none;
+		color: #0082e6;
+	}
+	#check:checked ~ ul{
+		left: 0;
+	}
 }
-
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-  border-radius: 12px;
-}
-
-.button1:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.button2 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #008CBA;
-  border-radius: 12px;
-}
-
-.button2:hover {
-  background-color: #008CBA;
-  color: white;
-}
-input[type=text] {
-  width: 300%;
-  padding: 12px 20px;
-  border: 2px solid red;
-  border-radius: 4px;
-}
-
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
@@ -248,22 +253,17 @@ input[type=text] {
 </style>
 <div class="wrapper fadeInDown">
 <section class="container">
-
 <nav>
 	<label for="check" class="checkbtn"></label>
 	<label class="logo">MockExam</label>
+	<ul>
+		<li><a href="*">ADD</a></li>
+		<li><a href="*">DELETE</a></li>
+		<li><a href="*">UPDATE</a></li>
+		<li><a href="*" class="active">HOME</a></li>
+	</ul>
 </nav>
-<div class="center">
-<div class="login-header">
-    <h1>MockExam</h1>
-  </div>
-  <br>
-  <form>
- <input type="submit" formaction="loginPage" class="button button1" name="ADD" value="ADMIN" >
-  <input type="submit" formaction="user" class="button button2" name="ADD" value="USER" >
- </form>
- </div>
- </section>
- </div>
+</section>
+</div>
 </body>
 </html>

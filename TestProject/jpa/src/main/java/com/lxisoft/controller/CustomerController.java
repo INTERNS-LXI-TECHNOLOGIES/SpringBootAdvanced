@@ -84,7 +84,7 @@ public class CustomerController {
 		}
 
 		if (logout != null) {
-			model.addObject("message", "Logged out from JournalDEV successfully.");
+			model.addObject("message", "Logged outsuccessfully.");
 		}
 
 		model.setViewName("loginPage");
@@ -95,7 +95,7 @@ public class CustomerController {
     @RequestMapping(value = "/saveCustomer", method = RequestMethod.POST)
     public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
         customerService.saveCustomer(theCustomer);
-        return "redirect:/customer/list";
+        return "redirect:/list";
     }
 
     @RequestMapping(value = "/updateForm", method = RequestMethod.GET)
@@ -109,7 +109,7 @@ public class CustomerController {
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String deleteCustomer(@RequestParam("customerId") int theId) throws ResourceNotFoundException {
         customerService.deleteCustomer(theId);
-        return "redirect:/customer/list";
+        return "redirect:/list";
     }
     
     @RequestMapping(value = "/start", method = RequestMethod.GET)

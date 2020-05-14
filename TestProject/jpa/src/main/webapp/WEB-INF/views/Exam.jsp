@@ -27,6 +27,16 @@
 	body{
 		font-family: monospace;
 	}
+		
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
 	.container{
   width:1250px;
   height:705px;
@@ -99,12 +109,12 @@
 .button1 {
   background-color: white; 
   color: black; 
-  border: 2px solid #56baed;
+  border: 2px solid #4CAF50;
   border-radius: 12px;
 }
 
 .button1:hover {
-  background-color: #56baed;
+  background-color: #4CAF50;
   color: white;
 }
 
@@ -125,20 +135,180 @@ input[type=text] {
   border: 2px solid red;
   border-radius: 4px;
 }
+		table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+}
+nav ul{
+		float: right;
+		margin-right: 60px;
+	}
+	nav ul li{
+		display: inline-block;
+		line-height: 80px;
+		margin: 0 5px;
+	}
+	nav ul li a{
+		color: white;
+		font-size: 18px;
+		padding: 7px 13px;
+		border-radius: 8px;
+		text-transform: uppercase;
+	}
+	a.active,a:hover{
+		background: #1b9bff;
+		transition: .5s;
+	}
+	.checkbtn{
+		font-size: 30px;
+		color:white;
+		float: right;
+		line-height: 80px;
+		margin-right: 40px;
+		cursor: pointer;
+		display: none;
+
+	}
+	#check{
+		display: none;
+	}
+	@media (max-width: 952px)
+	{
+		label.logo{
+			font-size: 30px;
+			padding-left: 50px;
+		}
+	}
+	nav ul li a{
+		font-size: 16px;
+	}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+#icon {
+  width:60%;
+}
+
+* {
+  box-sizing: border-box;
 }
 </style>
-
+<div class="wrapper fadeInDown">
 <section class="container">
-
 <nav>
 	<label for="check" class="checkbtn"></label>
 	<label class="logo">MockExam</label>
+	<ul>
+		<li><a href="javascript:document.getElementById('logout').submit()">LOGOUT</a></li>
+		<li><a href="welcome" class="active">HOME</a></li>
+	</ul>
 </nav>
 <br>
-    <div align="center">
-<div class="login-header">
-    <h1>welcome user</h1>
-  </div>><br><br><br>
         <% ArrayList<Customer> model=new ArrayList<Customer>();
         model =(ArrayList<Customer>)session.getAttribute("exam"); 
         int qcount = Integer.parseInt(request.getParameter("qcount"));
@@ -148,6 +318,7 @@ input[type=text] {
         %><font size="5"  color="midnightblue"> <%out.println("<h1>Question :"+(qcount + 1)+"."+model.get(qcount).getQn()+"</h1>");
            %>
            <br>
+           <div align="center">
            <form action="start" method="get" name="qform">
         <input type="radio" name="opt" value="1"/>
           <label for="1"><font size="4"  color="midnightblue"><% out.println(model.get(qcount).getOpt1());%></label></font>
@@ -170,5 +341,6 @@ input[type=text] {
       } %>
     </div>
 </section>
+</div>
 </body>
 </html>
