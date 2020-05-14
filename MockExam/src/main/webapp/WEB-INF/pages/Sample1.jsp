@@ -5,45 +5,26 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" href="Sample.css"></link>
 <body>
-  <%
-  Internationalization international = new Internationalization();
-  session.setAttribute("international",international);
-  String language = request.getParameter("language");
-  if(language == null)
-  {
-    language = "en";
-  }
-  session.setAttribute("language",language);
-  String exam = international.localization(language,"IN","Exam");
-  String english = international.localization(language,"IN","English");
-  String malayalam = international.localization(language,"IN","Malayalam");
-  String login = international.localization(language,"IN","LogIn");
-  String signUp = international.localization(language,"IN","SignUp");
-  String username = international.localization(language,"IN","username");
-  String password = international.localization(language,"IN","Password");
-  String add = international.localization(language,"IN","Add");
-  %>
 <div class="wrapper">
   <div class="login-text">
-    <button class="cta"><i class="fas fa-chevron-down fa-1x"></i></button>
+    <button class="cta"><i class="fas fa-chevron-down fa-1x">></i></button>
     <div class="text">
-      <a href=""><%out.println(login);%></a>
+      <a href="">Login</a>
       <hr>
       <br>
       <form method="POST" action="j_security_check">
-      <input  type="text" placeholder="<%out.println(username);%>" name="j_username">
+      <input  type="text" placeholder="User Name " name="j_username">
       <br>
-      <input type="password" placeholder="<%out.println(password);%>" name="j_password">
+      <input type="password" placeholder="Password" name="j_password">
       <br>
-      <button class="login-btn" type="submit"><%out.println(login);%></button>
-      <button formaction="Register.jsp" class="signup-btn"><%out.println(signUp);%></button>
+      <button class="login-btn" type="submit">Login</button>
+      <button formaction="Register.jsp" class="signup-btn">SignUp</button>
     </form>
     </div>
   </div>
   <div class="call-text">
-    <h1>Welcome to <span>MOCK</span> <%out.println(exam);%></h1>
-    <button><a href = "?language=en"><%out.println(english);%></a></button> <button><a href = "?language=mal"><%out.println(malayalam);%></a></button>
-  </div>
+    <h1>Welcome to <span>MOCK</span> Exam</h1>
+    </div>
 </div>
 <script type="text/javascript" src="Sample.js"></script>
 </body>
