@@ -99,7 +99,7 @@ for(int i = 0 ;i<listQuestions.size();i++)
 </div>
 </div>
 <div align="center">
-<form action="introduction">
+<form action="user">
 <button class="button">THANK YOU</button>
 </form>
 </div>

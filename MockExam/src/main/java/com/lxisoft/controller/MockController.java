@@ -28,11 +28,11 @@ public class MockController {
 	@Autowired
 	private MockService mockService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String homePage()
-	{
-		return "Home";
-	}
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String homePage()
+//	{
+//		return "Home";
+//	}
 	
 	  @RequestMapping(value = "/login", method = RequestMethod.GET)
 		public ModelAndView loginPage(@RequestParam(value = "error",required = false) String error,
@@ -47,11 +47,11 @@ public class MockController {
 				model.addObject("message", "Logged out from JournalDEV successfully.");
 			}
 
-			model.setViewName("Login");
+			model.setViewName("Sample1");
 			return model;
 		}
 	
-	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	@RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
 	public String getadministeration()
 	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
