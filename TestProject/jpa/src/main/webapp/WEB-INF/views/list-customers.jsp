@@ -53,11 +53,11 @@
 }
 
 .login-header {
-  color:#56baed;
+  color:midnightblue;
   font-family: 'Helvetica Neue', sans-serif;
   letter-spacing: -1px;
   text-align:center;
-  font-size:250%;
+  font-size:200%;
 }
 	nav{
 		background: #56baed;
@@ -309,7 +309,7 @@ nav ul{
  
 th {
   color:white;
-  background:#1b9bff;
+  background:#56baed;
   border-bottom:4px solid #9ea7af;
   border-right: 1px solid #343a45;
   font-size:23px;
@@ -339,7 +339,7 @@ tr {
 }
  
 tr:hover td {
-  background:#1b9bff;
+  background:#EBEBEB;
   color:#FFFFFF;
   border-top: 1px solid #22262e;
 }
@@ -357,7 +357,7 @@ tr:nth-child(odd) td {
 }
  
 tr:nth-child(odd):hover td {
-  background: #1b9bff;
+  background: white;
 }
 
 tr:last-child td:first-child {
@@ -406,6 +406,18 @@ td.text-center {
 td.text-right {
   text-align: right;
 }
+div.ex1 {
+  background-color: white;
+  width: 1130px;
+  height: 430px;
+  overflow: auto;
+}
+.ex1::-webkit-scrollbar {
+    display: none;
+}
+.ex1 {
+    -ms-overflow-style: none;
+}
 </style>
 <div class="wrapper fadeInDown">
 <section class="container">
@@ -419,10 +431,14 @@ td.text-right {
 	</ul>
 </nav>
 <br>
-<div class="center">
+<br>
+  <div class="center">
 <div class="login-header">
     <h1>Display Page</h1>
   </div>
+  <br>
+  <br>
+  <div class="ex1">
         <table class="table-fill">
         <thead>
          <tr>
@@ -467,6 +483,7 @@ td.text-right {
       </c:forEach>
 </tbody>
      </table>
+     </div>
      
 <c:url value="/logout" var="logoutUrl" />
 <form id="logout" action="${logoutUrl}" method="post" >

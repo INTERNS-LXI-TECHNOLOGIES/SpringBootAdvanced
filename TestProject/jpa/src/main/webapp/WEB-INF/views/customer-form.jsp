@@ -86,7 +86,7 @@
 .center {
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -108,12 +108,12 @@
 .button1 {
   background-color: white; 
   color: black; 
-  border: 2px solid #4CAF50;
+  border: 2px solid midnightblue;
   border-radius: 12px;
 }
 
 .button1:hover {
-  background-color: #4CAF50;
+  background-color: #56baed;
   color: white;
 }
 
@@ -128,15 +128,12 @@
   background-color: #008CBA;
   color: white;
 }
-input[type=text] {
-  width: 300%;
-  padding: 12px 20px;
-  border: 2px solid red;
-  border-radius: 4px;
-}
-		table, th, td {
-  border: 3px solid black;
-  border-collapse: collapse;
+.login-header {
+  color:midnightblue;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: -1px;
+  text-align:center;
+  font-size:150%;
 }
 nav ul{
 		float: right;
@@ -296,6 +293,14 @@ nav ul{
 * {
   box-sizing: border-box;
 }
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid midnightblue;
+}
 </style>
 <div class="wrapper fadeInDown">
 <section class="container">
@@ -310,7 +315,9 @@ nav ul{
   <br>
   <div class="center">
     <div align="center">
-        <font size="6" color="midnightblue"><i><b>Welcome to Add Page</b></i></font><br><br><br>
+       <div class="login-header">
+    <h1>welcome to add page</h1>
+  </div><br><br><br>
         <form:form action="saveCustomer" method="post" modelAttribute="customer">
 
        <table>
