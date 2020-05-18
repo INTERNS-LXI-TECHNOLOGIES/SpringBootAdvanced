@@ -23,10 +23,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/showForm").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN') ")
-			.antMatchers("/add").access("hasRole('ROLE_USER')")
 			.and()
 				.formLogin().loginPage("/loginPage")
-				.defaultSuccessUrl("/showForm")
+				.defaultSuccessUrl("/check")
 				.failureUrl("/loginPage?error")
 				.usernameParameter("username").passwordParameter("password")				
 			.and()

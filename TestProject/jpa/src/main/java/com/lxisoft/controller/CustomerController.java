@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,13 +32,30 @@ public class CustomerController {
     @Autowired
     private CustomerServiceImpl customerService;
     
-    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
 			ModelAndView model = new ModelAndView();
 		model.setViewName("welcomePage");
 		return model;
 	}
 
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
+   	public String checkPage() {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		boolean hasRole = authentication.getAuthorities().stream()
+		          .anyMatch(r -> r.getAuthority().equals("ROLE_ADMIN"));
+		if(hasRole)
+		{
+			return "redirect:/list";
+		}
+		else
+		{
+			return "redirect:/user";
+		}
+   	}
+
+    
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listCustomers(Model theModel) {
         List < Customer > theCustomers = customerService.getCustomers();
