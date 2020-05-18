@@ -89,6 +89,11 @@ public class MockController {
          return "redirect:/";  
      }
 	
+	@RequestMapping(value="/confirmation", method=RequestMethod.GET)
+    public String confirmation() { 
+        return "Confirmation";  
+    }
+	
 	@RequestMapping(value="/admin", method=RequestMethod.GET)
     public String admin() { 
         return "Admin";  
