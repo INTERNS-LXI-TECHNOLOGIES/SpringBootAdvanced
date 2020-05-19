@@ -1,4 +1,4 @@
-<%@ page import="com.lxisoft.entity.Customer"%>
+<%@ page import="com.lxisoft.entity.Exam"%>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -29,8 +29,8 @@
   <br>
    <% ArrayList<Integer> model=new ArrayList<Integer>();
         model =(ArrayList<Integer>)session.getAttribute("select");%>
-         <% ArrayList<Customer> model1=new ArrayList<Customer>();
-        model1 =(ArrayList<Customer>)session.getAttribute("exam");%>
+         <% ArrayList<Exam> model1=new ArrayList<Exam>();
+        model1 =(ArrayList<Exam>)session.getAttribute("exam");%>
   <% int mark=Integer.parseInt(session.getAttribute("Result").toString());%>
    <div class="ex1">
         <table class="table-fill">

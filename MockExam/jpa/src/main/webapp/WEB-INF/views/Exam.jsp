@@ -1,4 +1,4 @@
-<%@ page import="com.lxisoft.entity.Customer"%>
+<%@ page import="com.lxisoft.entity.Exam"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -26,8 +26,8 @@
 </nav>
 <br>
 <div class="center">
-        <% ArrayList<Customer> model=new ArrayList<Customer>();
-        model =(ArrayList<Customer>)session.getAttribute("exam"); 
+        <% ArrayList<Exam> model=new ArrayList<Exam>();
+        model =(ArrayList<Exam>)session.getAttribute("exam"); 
         int qcount = Integer.parseInt(request.getParameter("qcount"));
         int size=model.size();
          if(qcount != size) {
