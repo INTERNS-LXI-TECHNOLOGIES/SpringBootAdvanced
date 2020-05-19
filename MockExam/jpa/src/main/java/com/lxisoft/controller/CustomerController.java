@@ -1,6 +1,7 @@
 package com.lxisoft.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -161,20 +162,26 @@ public class CustomerController {
 		  return model;
 	  }
     @RequestMapping(value = "/result", method = RequestMethod.GET)
-	public String resultExam(HttpServletRequest request)
+	public String resultExam(HttpServletRequest request,Model theModel)
 	  {
 		  int resultCount = 0;
 		  HttpSession sessions = request.getSession(true);
+		  HttpSession session1 = request.getSession(true);
+		  List<Integer>select=new ArrayList<Integer>();
 		@SuppressWarnings("unchecked")
 		List<Customer> listQuestions = (List<Customer>)sessions.getAttribute("listQuestions");
 		  for(int i =0;i<listQuestions.size();i++)
 		  {
+			  select.add(listQuestions.get(i).getSelectedOption());
 			if(listQuestions.get(i).getAns()==(listQuestions.get(i).getSelectedOption()))
 			{
 				resultCount++;
 			}
 		  }
-		  sessions.setAttribute("Result", resultCount);		  
+		  sessions.setAttribute("Result", resultCount);
+		  session1.setAttribute("select", select);
+		  List < Customer > theCustomers = customerService.getCustomers();
+	        theModel.addAttribute("customers", theCustomers);
 		  return "Result";
 	  }
   

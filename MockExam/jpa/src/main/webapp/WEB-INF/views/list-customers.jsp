@@ -21,7 +21,7 @@
 		<li><a href="add">ADD</a></li>
 		<li><a href="user">EXAM</a></li>
 		<li><a href="javascript:document.getElementById('logout').submit()">LOGOUT</a></li>
-		<li><a href="/" class="active">HOME</a></li>
+		<li><a href="/jpa" class="active">HOME</a></li>
 	</ul>
 </nav>
 <br>

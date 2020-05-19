@@ -1,7 +1,6 @@
 @charset "ISO-8859-1";
 html {
   background-color:white;
-  scroll-behavior: smooth;
 
 }
 	*{
@@ -15,10 +14,10 @@ html {
 		font-family: monospace;
     background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   height: 100%
 	}
-		
+	
 .wrapper {
   display: flex;
   align-items: center;
@@ -31,7 +30,7 @@ html {
 	.container{
   width:1250px;
   height:705px;
-  background:#fff;
+  background:white;
   margin:20px auto;
   border-radius:10px;
   text-align:center;
@@ -48,7 +47,7 @@ html {
   font-family: 'Helvetica Neue', sans-serif;
   letter-spacing: -1px;
   text-align:center;
-  font-size:250%;
+  font-size:550%;
 }
 	nav{
 		background: #56baed;
@@ -78,7 +77,7 @@ html {
 .center {
   margin: 0;
   position: absolute;
-  top: 55%;
+  top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -100,12 +99,12 @@ html {
 .button1 {
   background-color: white; 
   color: black; 
-  border: 2px solid #4CAF50;
+  border: 2px solid midnightblue;
   border-radius: 12px;
 }
 
 .button1:hover {
-  background-color: #4CAF50;
+  background-color: #56baed;
   color: white;
 }
 
@@ -117,7 +116,7 @@ html {
 }
 
 .button2:hover {
-  background-color: #008CBA;
+  background-color: green;
   color: white;
 }
 input[type=text] {
@@ -126,49 +125,6 @@ input[type=text] {
   border: 2px solid red;
   border-radius: 4px;
 }
-nav ul{
-		float: right;
-		margin-right: 60px;
-	}
-	nav ul li{
-		display: inline-block;
-		line-height: 80px;
-		margin: 0 5px;
-	}
-	nav ul li a{
-		color: white;
-		font-size: 18px;
-		padding: 7px 13px;
-		border-radius: 8px;
-		text-transform: uppercase;
-	}
-	a.active,a:hover{
-		background: #1b9bff;
-		transition: .5s;
-	}
-	.checkbtn{
-		font-size: 30px;
-		color:white;
-		float: right;
-		line-height: 80px;
-		margin-right: 40px;
-		cursor: pointer;
-		display: none;
-
-	}
-	#check{
-		display: none;
-	}
-	@media (max-width: 952px)
-	{
-		label.logo{
-			font-size: 30px;
-			padding-left: 50px;
-		}
-	}
-	nav ul li a{
-		font-size: 16px;
-	}
 
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
@@ -283,129 +239,4 @@ nav ul{
 
 * {
   box-sizing: border-box;
-}
-.table-fill {
-  background: white;
-  border-radius:3px;
-  border-collapse: collapse;
-  height: 320px;
-  margin: auto;
-  max-width: 600px;
-  padding:5px;
-  width: 100%;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);
-  animation: float 5s infinite;
-}
- 
-th {
-  color:white;
-  background:midnightblue;
-  border-bottom:4px solid #9ea7af;
-  border-right: 1px solid #343a45;
-  font-size:23px;
-  font-weight: 100;
-  padding:24px;
-  text-align:left;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  vertical-align:middle;
-}
-
-th:first-child {
-  border-top-left-radius:3px;
-}
- 
-th:last-child {
-  border-top-right-radius:3px;
-  border-right:none;
-}
-  
-tr {
-  border-top: 1px solid #C1C3D1;
-  border-bottom-: 1px solid #C1C3D1;
-  color:black;
-  font-size:16px;
-  font-weight:normal;
-  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-}
- 
-tr:hover td {
-  background:white;
-  color:black;
-  border-top: 1px solid #22262e;
-}
- 
-tr:first-child {
-  border-top:none;
-}
-
-tr:last-child {
-  border-bottom:none;
-}
- 
-tr:nth-child(odd) td {
-  background:#EBEBEB;
-}
- 
-tr:nth-child(odd):hover td {
-  background: white;
-}
-
-tr:last-child td:first-child {
-  border-bottom-left-radius:3px;
-}
- 
-tr:last-child td:last-child {
-  border-bottom-right-radius:3px;
-}
- 
-td {
-  background:#EBEBEB;
-  padding:20px;
-  text-align:left;
-  vertical-align:middle;
-  font-weight:300;
-  font-size:18px;
-  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-  border-right: 1px solid #C1C3D1;
-}
-
-td:last-child {
-  border-right: 0px;
-}
-
-th.text-left {
-  text-align: left;
-}
-
-th.text-center {
-  text-align: center;
-}
-
-th.text-right {
-  text-align: right;
-}
-
-td.text-left {
-  text-align: left;
-}
-
-td.text-center {
-  text-align: center;
-}
-
-td.text-right {
-  text-align: right;
-}
-div.ex1 {
-  background-color: white;
-  width: 1130px;
-  height: 430px;
-  overflow: auto;
-}
-.ex1::-webkit-scrollbar {
-    display: none;
-}
-.ex1 {
-    -ms-overflow-style: none;
 }

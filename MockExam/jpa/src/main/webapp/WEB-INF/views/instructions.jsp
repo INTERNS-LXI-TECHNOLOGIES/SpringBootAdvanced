@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en" dir="ltr">
 <head>
 	<meta charset="utf-8">
@@ -17,7 +18,7 @@
 	<label class="logo">MockExam</label>
 	<ul>
 		<li><a href="javascript:document.getElementById('logout').submit()">LOGOUT</a></li>
-		<li><a href="/" class="active">HOME</a></li>
+		<li><a href="/jpa" class="active">HOME</a></li>
 	</ul>
 </nav>
   <br>
@@ -36,12 +37,16 @@
 </ol>
 <br>
 <br>
-<c:>
   <form>
   <input type="hidden" name = "qcount" value = "0" >
   <input type="submit" formaction="exam" class="button button1" name="next" value="NEXT" >
 </form>
-</c:>
+<c:url value="/logout" var="logoutUrl" />
+<form id="logout" action="${logoutUrl}" method="POST" >
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+</c:if>
 </div>
 </section>
 </div>

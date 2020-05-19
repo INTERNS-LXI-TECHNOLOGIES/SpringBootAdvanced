@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -20,7 +21,7 @@
 	<label class="logo">MockExam</label>
 	<ul>
 		<li><a href="javascript:document.getElementById('logout').submit()">LOGOUT</a></li>
-		<li><a href="/" class="active">HOME</a></li>
+		<li><a href="/jpa" class="active">HOME</a></li>
 	</ul>
 </nav>
 <br>
@@ -67,17 +68,15 @@
             <br>
             <br>
              <td colspan="2" align="center"><input type="submit" onclick="myFunction()" class="button button1" value="NEXT"></td>
-          	<td colspan="2" align="center"><input type="submit" class="button button2" value="SKIP"></td>
           </form>
            <script>
-function myFunction() {
-	if (!$("input[name='html_elements']:checked").val()) {
-		   alert('Nothing is checked!');
-		}
-		else {
-		  alert('One of the radio buttons is checked!');
-		}
-}
+           function myFunction(){
+       		var checkRadio = document.querySelector( 
+                       'input[name="opt"]:checked'); 
+                       if(!checkRadio) {
+                   		alert("Please Select an Option");
+                   	}
+           }
 </script>
           <%    
          } else {
@@ -86,6 +85,12 @@ function myFunction() {
              
 
       } %>
+      <c:url value="/logout" var="logoutUrl" />
+<form id="logout" action="${logoutUrl}" method="POST" >
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+</c:if>
       </div>
 </section>
 </div>
