@@ -135,7 +135,7 @@ public class MockController {
 	    public String deleteQuestion(HttpServletRequest request) {
 	        int questionId = Integer.parseInt(request.getParameter("id"));
 	        mockService.deleteQuestion(questionId);
-	        return "Admin";
+	        return "redirect:/delete";
 	    }
 	 
 	 @RequestMapping(value = "/update")

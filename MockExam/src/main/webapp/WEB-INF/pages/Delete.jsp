@@ -76,7 +76,7 @@ td{
 <script>
 function ConfirmDelete(id)
 {
-  let url = '/MockTest1/deleteQuestion?id='+id;
+  let url = '/MockExam/deleteQuestion?id='+id;
   var x = confirm("Are you sure you want to delete?");
   if (x)
       window.location = url;
