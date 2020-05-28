@@ -112,7 +112,6 @@ timer();
         }
         else
         {
-        	//System.out.println("Question Completed");
         	response.sendRedirect("result");
         }
     %>

@@ -36,7 +36,41 @@ input[type=text] {
   border: none;
   border-bottom:2px solid darkmagenta;
 }
+.smallbutton {
+  height: 27px;
+     width: 111px;
+     border: none;
+     border-radius: 20px;
+     background: linear-gradient(to left, #ab68ca, #de67a3);
+     color: #fff;
+     font-weight: bolder;
+     margin-top: 30px;
+     cursor: pointer;
+     outline: none;
+     font-size: 21px;
+}
 
-td	{
-	font-size: x-large;
+table{
+  border: 1px solid darkmagenta;
+  height: 50px;
+  width:87%;
+}
+th{
+  text-align: center;
+  border: 1px solid darkmagenta;
+  height: 50px;
+  width:93px;
+}
+tr{
+  text-align: center;
+  border: 1px solid darkmagenta;
+  height: 50px;
+  font-variant-caps: petite-caps;
+  font-size: 22px;
+}
+td{
+  text-align: center;
+  border: 1px solid darkmagenta;
+  height: 50px;
+  padding-bottom: 17px;
 }
